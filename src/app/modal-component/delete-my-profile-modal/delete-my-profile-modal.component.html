@@ -1,0 +1,34 @@
+<div class="delete-account-container">
+    <div class="delete-account-wrap">
+        <div class="switch">
+            <div class="animation switch-item">
+                <div class="home-container">
+                    <div class="delete-account-close">
+                        <div class="close" [mat-dialog-close]="''">
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="delete-account-home">
+                        <img src="assets/img-2/profile/delete-icon-big.png">
+                        <h2>
+                            <span>DELETE ACCOUNT?</span>
+                            <br>
+                            Are you sure you want to delete your account ? 
+                            <br>
+                            This action cannot be undone.
+                        </h2>
+                    </div>
+                    <div class="delete-account-footer">
+                        <div class="delete-account-footer-btn next" [mat-dialog-close]="'success'">
+                            <h2><span>DELETE</span></h2>
+                            <i></i>
+                        </div>
+                        <div class="delete-account-footer-btn Cancel" [mat-dialog-close]="''">
+                            <h2><span>CANCEL</span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

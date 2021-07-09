@@ -1,0 +1,59 @@
+<div class="browseCard" (mouseenter)="changeStyle($event)" (mouseleave)="changeStyle($event)">
+    <div class="browse-card-filter" (click)="viewProfile()" [ngClass]="isOne ? 'off' : 'on'"></div>
+    <div class="browse-card-ng activeCard bing-img" (click)="viewProfile()">
+        <img style="width: 100%;" src="assets/img-2/members/Profile-image-loader.gif" [hidden]="!isLoad">
+        <img [src]="imgUrl" style="position: absolute; width: 100%;" (load)="isLoad = false" [hidden]="isLoad" (error)="updateUrl()">
+        <img  *ngIf="profile.IsNew" class="browse-card-is-new" src="assets/img-2/browse/new.png">
+        <!-- <img class="browse-card-is-verified" src="assets/img-2/browse/verified.png"> -->
+        <img class="float-panel-zoom" [ngClass]="isOne ? 'on' : 'off'" src="assets/img-2/browse/zoom.png">
+        <span class="browse-cardon-hover-tiltle" [ngClass]="isOne ? 'on' : 'off'" style="vertical-align: inherit;">
+            View Profile
+        </span>
+    </div>
+    <div class="browse-card-footer">
+        <div class="browse-card-info" [ngClass]="isOne ? 'on' : 'off'">
+            <span><i [ngClass]="profile.IsOnLine ? 'on' : 'off'"></i></span>
+            <h2>{{profile.LoginName}}, {{profile.Age}}</h2>
+            <h2>{{profile.Location}}</h2>
+            <img class="browse-card-is-pin" src="assets/img-2/browse/pin-off.png">
+        </div>
+        <div class="browse-card-options">
+            <div class="browse-card-options-sum-rate">
+                <i class="rate">
+                    <img src="assets/img-2/profile/male/rate_{{profile.SocialLevel}}.png">
+                </i>
+            </div>
+            <div class="browse-card-options-message">
+                <i class="browse-card-icons messages_off_x1"></i>
+            </div>
+            <div class="browse-card-options-winks">
+                <i class="browse-card-icons winks_off_x1"></i>
+            </div>
+            <div class="browse-card-options-rate">
+                <i class="browse-card-icons rate_not_initialized_x1"></i>
+            </div>
+        </div>
+        <div class="browse-more-options" [ngClass]="isOne ? 'on' : 'off'">
+            <button class="browse-more-options-rate-now md-button" (click)="rateMember()">
+                <i class="rate_not_initialized_x2"></i>
+                <div><span class="center">Rate Me</span></div>
+            </button>
+            <button class="browse-more-options-button-winks md-button" (click)="sendWink()">
+                <i [ngClass]="profile.Winked ? 'on': ''"></i>
+                <div *ngIf="!profile.Winked"><span class="center">Send a wink</span></div>
+                <div *ngIf="profile.Winked">
+                    <span class="center">Kisses</span>
+                    <span>Just Now</span>
+                </div>
+            </button>
+            <button class="browse-more-options-button-message md-button" (click)="openChat()">
+                <i></i>
+                <div>
+                    <span class="center">Message</span>
+                    <span></span>
+                </div>
+                <div class="md-ripple-container"></div>
+            </button>
+        </div>
+    </div>
+</div>

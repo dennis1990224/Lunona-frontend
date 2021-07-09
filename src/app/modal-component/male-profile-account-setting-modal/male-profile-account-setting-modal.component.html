@@ -1,0 +1,88 @@
+<div *ngIf="modalName == 'username'" class="username main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon username"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Username</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <form class="username-form" *ngIf="userNameForm" name="userNameForm" [formGroup]="userNameForm">
+            <mat-form-field class="username-full-width">
+                <mat-label>userName</mat-label>
+                <input matInput formControlName="userName">
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateUserName()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+<div *ngIf="modalName == 'email'" class="email main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon email"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Email</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <form class="email-form" *ngIf="emailForm" name="emailForm" [formGroup]="emailForm">
+            <mat-form-field class="email-full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateEmail()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'password'" class="password main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon password"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Password</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <form class="old-password-form" *ngIf="passwordForm" name="passwordForm" [formGroup]="passwordForm">
+            <mat-form-field class="old-password-width">
+                <mat-label>Old Password</mat-label>
+                <input matInput formControlName="oldPassword">
+            </mat-form-field>
+            <mat-form-field class="new-password-width">
+                <mat-label>New Password</mat-label>
+                <input matInput formControlName="newPassword">
+            </mat-form-field>
+            <mat-form-field class="confirm-password-width">
+                <mat-label>Confirm New Password</mat-label>
+                <input matInput formControlName="confirmPassword">
+            </mat-form-field>
+        </form>
+        <h2 *ngIf="isError" class="errorMessage">Please input correct confirm password!</h2>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updatePassword()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

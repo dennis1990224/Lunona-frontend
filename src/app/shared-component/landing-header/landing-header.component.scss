@@ -1,0 +1,92 @@
+.navbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 53px;
+    z-index: 2;
+    background-color: #5c085a;
+    padding: 0px;
+    position: absolute;
+
+    .home {
+        float: left;
+        width: 207px;
+        height: 52px;
+        cursor: pointer;
+        vertical-align: middle;
+        position: relative;
+
+        .logo {
+            background: url(/assets/sharedImg/navbar/logo-white.png) no-repeat;
+            background-size: cover;
+            width: 168px;
+            height: 27px;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .logo-animation {
+            animation-duration: 1s, 0.35s;
+            animation-delay: 0s, 0s;
+            animation-name: fade-in, fade-in-left;
+        }
+    }
+
+    ul {
+        float: right;
+        position: relative;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            height: 100%;
+            float: left;
+            position: relative;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            /* padding: 18px 15px; */
+            cursor: pointer;
+            -webkit-transition: background-color 0.25s;
+            -o-transition: background-color 0.25s;
+            transition: background-color 0.25s;
+            display: table;
+            vertical-align: middle;
+            user-select: none;
+            outline: none;
+
+            a {
+                margin: 0 auto;
+                padding: 0;
+                color: white;
+                font-size: 15px;
+                font-weight: 300;
+                padding: 0px 15px;
+                display: table-cell;
+                line-height: 1em;
+                vertical-align: middle;
+            }
+
+            .language {
+                padding: 0 15px 0 25px;
+            }
+        }
+
+        li:hover {
+            background: #400a3f;
+        }
+    }
+}
+
+.header-animation {
+    animation-duration: 0.5s;
+    animation-delay: 0s;
+    animation-name: fade-in;
+}
+
+

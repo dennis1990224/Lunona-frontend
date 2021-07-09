@@ -1,0 +1,398 @@
+.view-container {
+    transition: scroll 1s ease-in, overflow 1s ease-in;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.Bank {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: auto;
+    background-color: #fff;
+}
+
+#AutoMessages {
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100%;
+    .HeadArea {
+        position: relative;
+        height: 85px;
+        background: #ac5fcf;
+        background: linear-gradient(to right, #ac5fcf 0%, #4a2fb7 100%);
+        svg {
+            position: absolute;
+            display: block;
+            width: 100%;
+            -webkit-transform: translate3d(0, 95%, 0);
+            transform: translate3d(0, 95%, 0);
+            left: 0;
+            bottom: 0;
+            overflow: visible;
+        }
+    }
+    .topLevelGrid {
+        width: 100%;
+        max-width: 850px;
+        padding: 0 25px;
+        margin: 0 auto;
+    }
+    .ContentArea {
+        position: relative;
+        .AddMessage {
+            margin-top: -50px;
+            .topArea {
+                position: relative;
+                color: #fff;
+                .backbtn {
+                    position: absolute;
+                    color: #58277b;
+                    background: #fff;
+                    top: 50%;
+                    margin-top: -19px;
+                    padding-left: 41px;
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                }
+                .backbtn::after {
+                    content: "\2039";
+                    position: absolute;
+                    left: 24px;
+                    top: 50%;
+                    transform: translateY(-60%);
+                    font-size: 21px;
+                    line-height: 1em;
+                }
+                .title {
+                    font-size: 24px;
+                }
+            }
+            .addMessageContent {
+                position: relative;
+                margin-top: 6vw;
+                .vectorSketch {
+                    position: fixed;
+                    pointer-events: none;
+                    z-index: 0;
+                    width: 22vw;
+                    height: auto;
+                    max-width: 275px;
+                    bottom: 30px;
+                    right: 0px;
+                    svg {
+                        overflow: visible;
+                    }
+                }
+                .filters {
+                    position: relative;
+                    perspective: 1000px;
+                    z-index: 1;
+                    .age_filter {
+                        margin-bottom: 50px;
+                        .wrapper {
+                            position: relative;
+                            .social-range {
+                                margin-top: 0;
+                                .ng5-slider-bar {
+                                    height: 9px;
+                                    width: 100%;
+                                }
+                                .ng5-slider-selection-bar {
+                                    .ng5-slider-bar {
+                                        background: rgba(142, 67, 196, 1);
+                                    }
+                                }
+                                .ng5-slider-pointer {
+                                    background: url(/assets/img-2/browse/pointer1.png);
+                                    height: 42px;
+                                    width: 31px;
+                                    border: none !important;
+                                    font-weight: normal;
+                                    color: #454545;
+                                }
+                                .ng5-slider-pointer-min {
+                                    margin-left: -12px;
+                                }
+                                .ng5-slider-pointer:focus {
+                                    outline: none;
+                                }
+                                .ng5-slider-pointer::after {
+                                    background: none;
+                                }
+                            }
+                        }
+                    }
+                    .type_filter_selected {
+                        position: relative;
+                        backface-visibility: hidden;
+                        will-change: transform;
+                        perspective: 1000px;
+                        .filter_subscription {
+                            will-change: transform;
+                            backface-visibility: hidden;
+                        }
+
+                        .distance_input {
+                            position: relative;
+                            width: calc(50% - 100px);
+
+                            input {
+                                height: 35px;
+                                line-height: 35px;
+                                border: solid #e4e4e4 1px;
+                                background-color: #fff;
+                                border-right: none;
+                                border-top-left-radius: 3px;
+                                border-bottom-left-radius: 3px;
+                                padding: 10px 4px 10px 15px;
+                                font-size: 14px;
+                                text-align: right;
+                                width: 100%;
+                            }
+
+                            .actions {
+                                position: absolute;
+                                height: 100%;
+                                top: 0;
+                                right: 0;
+                                border-top-right-radius: 3px;
+                                border-bottom-right-radius: 3px;
+                                border: solid #e4e4e4 1px;
+                                border-left: none;
+                                display: flex;
+                                -webkit-transform: translateX(100%);
+                                transform: translateX(100%);
+                                background: #fff;
+                                overflow: hidden;
+
+                                .unit {
+                                    font-size: 14px;
+                                    line-height: 35px;
+                                    padding-right: 8px;
+                                    -webkit-user-select: none;
+                                    -moz-user-select: none;
+                                    -ms-user-select: none;
+                                    user-select: none;
+                                }
+
+                                .action {
+                                    width: 40px;
+                                    text-align: center;
+                                    line-height: 35px;
+                                    border-left: solid 1px #e4e4e4;
+                                    transition: background 0.15s;
+                                }
+
+                                .action::after {
+                                    font-size: 20px;
+                                    line-height: 20px;
+                                    content: '\2039';
+                                    display: inline-block;
+                                    transition: color 0.15s;
+                                }
+
+                                .action.increase::after {
+                                    transform: rotate(90deg);
+                                }
+
+                                .action.decrease::after {
+                                    transform: rotate(-90deg);
+                                }
+                            }
+                        }
+
+                        .country_autocomplete {
+                            display: flex;
+                            flex-wrap: wrap;
+                            .autocomplete_wrapper {
+                                width: calc(100% - 60px);
+                                margin-bottom: 5px;
+                                border: 0.3px rgba(0, 0, 0, 0.12) solid;
+                                height: 40px;
+                                display: flex;
+                                border-radius: 5px;
+                                mat-form-field {
+                                    border-radius: 2px;
+                                    display: block;
+                                    height: 40px;
+                                    position: relative;
+                                    overflow: visible;
+                                    min-width: 190px;
+                                    input:focus {
+                                        outline: none;
+                                    }
+                                    input:hover {
+                                        outline: none;
+                                    }
+                                }
+                            }
+                            .country_wrapper {
+                                margin-right: 10px;
+                                padding: 0 15px;
+                                border: solid 1px #e4e4e4;
+                                border-radius: 3px;
+                                line-height: 38px;
+                                -webkit-user-select: none;
+                                -moz-user-select: none;
+                                -ms-user-select: none;
+                                user-select: none;
+                                font-size: 14px;
+                                color: #717171;
+                                min-width: 33%;
+                                height: 40px;
+                            }
+                            .autocomplete_wrapper:nth-last-child(2) {
+                                margin-bottom: 0;
+                            }
+                            .autocomplete_wrapper.city_wrapper {
+                                position: relative;
+                                width: 65%;
+                            }
+                            .actions {
+                                display: flex;
+                                align-items: center;
+                                margin-top: auto;
+                                margin-bottom: auto;
+                                div.remove {
+                                    background: #666;
+                                }
+                                div {
+                                    position: relative;
+                                    width: 25px;
+                                    height: 25px;
+                                    border-radius: 50%;
+                                    display: inline-block;
+                                    margin-left: 5px;
+                                    text-align: center;
+                                    line-height: 25px;
+                                }
+                                div.remove::after {
+                                    color: #fff;
+                                    content: "\00D7";
+                                    font-size: 19px;
+                                    line-height: 1em;
+                                }
+                                div.add {
+                                    background: #34b953;
+                                }
+                                div.add::after {
+                                    color: #fff;
+                                    content: "\002B";
+                                    font-size: 19px;
+                                    line-height: 1em;
+                                }
+                            }
+                        }
+                        .country {
+                            .autocomplete_wrapper:nth-last-child(2) {
+                                margin-bottom: 0;
+                            }
+                            .autocomplete_wrapper {
+                                width: calc(100% - 60px);
+                            }
+                        }
+                    }
+                }
+                .message_actions {
+                    position: relative;
+                    z-index: 1;
+                    margin-bottom: 35px;
+                    .message_area {
+                        .wrap_message {
+                            position: relative;
+                            textarea:focus {
+                                outline: none;
+                            }
+                        }
+                        textarea {
+                            border: solid 1px #e7e7e7;
+                            border-radius: 3px;
+                            background: #f7f7f7;
+                            resize: none;
+                            height: 70px;
+                            width: 100%;
+                            padding: 10px 15px;
+                            font-size: 14px;
+                            margin-bottom: 10px;
+                        }
+                        .automatic_messages_btn {
+                            display: inline-block;
+                            color: #58277b;
+                            padding: 10px 15px;
+                            border: solid 1px #e4e4e4;
+                            border-radius: 3px;
+                            background: #fff;
+                            font-size: 14px;
+                            line-height: 1em;
+                            transition: background 0.15s, color 0.15s;
+                        }
+                        .automatic_messages_btn:hover {
+                            background: #58277b;
+                            color: #fff;
+                        }
+                        .automatic_messages_btn.delete {
+                            margin-left: 2px;
+                            color: #b00d10;
+                        }
+                        .automatic_messages_btn.delete:hover {
+                            background: #b00d10;
+                            color: #fff;
+                        }
+                    }
+                    .save {
+                        background-color: #5735ba;
+                        color: #fff;
+                        float: right;
+                    }
+                    .action {
+                        transition: background-color 0.15s, opacity 0.3s;
+                    }
+                    .cancel {
+                        background-color: #bcbcbc;
+                        color: #fff;
+                        float: right;
+                        margin-right: 5px;
+                        box-shadow: none;
+                    }
+                }
+                .label {
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                }
+                .filter_area {
+                    margin-bottom: 35px;
+                }
+            }
+            .innerContentArea {
+                font-size: 16px;
+            }
+        }
+    }
+    .btn {
+        border-radius: 3px;
+        display: inline-block;
+        padding: 16px 28px;
+        font-size: 14px;
+        line-height: 1em;
+        user-select: none;
+        box-shadow: 0px 6px 12px rgba(81, 30, 147, 0.24);
+        backface-visibility: hidden;
+    }
+}
+
+.text--align-center {
+    text-align: center;
+}
+
+.text--weight-medium {
+    font-weight: 500;
+}

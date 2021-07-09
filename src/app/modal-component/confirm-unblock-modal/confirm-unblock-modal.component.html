@@ -1,0 +1,22 @@
+<div class="confirm-unblock-container">
+    <div class="confirm-dialog-header">
+        <div class="md-toolbar-tools">
+            <i></i>
+            <span>Unblock User</span>
+            <div class="top close" [mat-dialog-close]="''">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="confirm-unblock-wrap">
+        <h2>Are you sure you want to unblock?</h2>
+    </div>
+    <div class="confirm-dialog-footer">
+        <div class="confirm-dialog-footer-button yes" [mat-dialog-close]="'success'">
+            <span>Yes</span>
+        </div>
+        <div class="confirm-dialog-footer-button no" [mat-dialog-close]="''">
+            <span>No</span>
+        </div>
+    </div>
+</div>

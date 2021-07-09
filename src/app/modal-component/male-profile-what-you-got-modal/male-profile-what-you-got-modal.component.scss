@@ -1,0 +1,726 @@
+.main.wrapper {
+    transition: all 0.5s, height 0.25s ease;
+
+    .top.wrapper {
+        background-color: white;
+        height: 56px;
+        position: relative;
+        z-index: 1;
+        transition: box-shadow 0.25s;
+
+        .top.icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 56px;
+            height: 56px;
+
+            span {
+                width: 32px;
+                height: 23px;
+                position: absolute;
+                top: 17px;
+                left: 18px;
+                background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                background-size: 100%;
+            }
+        }
+
+        .top.title {
+            position: absolute;
+            top: 17px;
+            left: 55px;
+            font-size: 18px;
+            color: #808080;
+        }
+
+        .top.close {
+            position: absolute;
+            top: 9px;
+            right: 13px;
+            width: 35px;
+            height: 34px;
+            background-color: #efefef;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1px solid #cfcfcf;
+            transition: background-color 0.25s;
+
+            span {
+                background: url(/assets/img-2/profile/close.png) no-repeat;
+                width: 13px;
+                height: 13px;
+                display: block;
+                top: 10px;
+                left: 10px;
+                position: relative;
+            }
+        }
+
+        .top.close:hover {
+            background-color: #e81123;
+
+            span {
+                background: url(/assets/img-2/profile/close-w.png);
+            }
+        }
+    }
+
+    .content.wrapper {
+        transition: height 0.25s ease;
+        overflow: hidden;
+        background-color: #edeff2;
+        padding: 38px;
+        position: relative;
+        border: 1px solid #cfcfcf;
+    }
+}
+
+.bottom.wrapper {
+    background-color: white;
+    height: 69px;
+    padding-top: 13px;
+    padding-right: 13px;
+    position: relative;
+    transition: box-shadow 0.25s;
+
+    .bottom.btn {
+        width: auto;
+        height: 44px;
+        border-radius: 3px;
+        text-align: center;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-weight: 500;
+        float: right;
+        line-height: 4px;
+        margin-left: 4px;
+        cursor: pointer;
+        box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+        transition: background-color 0.25s;
+        padding-top: 21px;
+        padding-right: 44px;
+        padding-left: 43px;
+
+        .icon {
+            position: absolute;
+            right: 23px;
+            top: 13px;
+            background-image: url(/assets/img-2/profile/check-icon.png);
+            background-repeat: no-repeat;
+            width: 19px;
+            height: 14px;
+        }
+    }
+
+    .bottom.done.btn {
+        background-color: #572679;
+        color: #ffffff;
+        position: relative;
+        text-indent: -10px;
+    }
+
+    .bottom.done.btn.disable {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    .bottom.done.btn:hover {
+        background-color: #8542b3;
+    }
+
+    .bottom.cancel.btn {
+        background-color: rgba(208, 208, 228, 0.8);
+        color: #646277;
+    }
+
+    .bottom.cancel.btn:hover {
+        background-color: #babad2;
+    }
+}
+
+.income {
+    height: 328px;
+    width: 608px;
+
+    .top.wrapper {
+        .top.icon {
+            span {
+                background-position: 0 -1150px;
+            }
+        }
+    }
+
+    .content.wrapper {
+        height: 202px;
+        text-align: center;
+        background-color: white !important;
+        overflow: hidden !important;
+        padding: 0 12px !important;
+        position: relative !important;
+        border: 1px solid #cfcfcf !important;
+
+        .income-radio {
+            border-bottom: 1px solid #f0f0f0;
+            width: 100%;
+            margin: 0;
+            height: 40px;
+            background-color: #ffffff;
+            text-align: left;
+            box-sizing: border-box;
+            display: block;
+            white-space: nowrap;
+            cursor: pointer;
+            position: relative;
+            font-size: 14px;
+            left: 12px;
+            top: 5px;
+
+            .mat-radio-label {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+.house {
+    height: 633px;
+    width: 574px;
+
+    .top.wrapper {
+        .top.icon {
+            span {
+                background-position: 0 -1203px;
+            }
+        }
+    }
+
+    .content.wrapper {
+        height: 506px;
+        background-color: #edeff2 !important;
+        padding: 12px !important;
+        overflow: auto !important;
+        position: relative !important;
+        border: 1px solid #cfcfcf !important;
+
+        .homeProperty-radio-group {
+            display: block;
+
+            .homeProperty-radio {
+                border-bottom: 1px solid #f0f0f0;
+                width: 100%;
+                margin: 0;
+                height: 40px;
+                background-color: #ffffff;
+                text-align: left;
+                box-sizing: border-box;
+                display: block;
+                white-space: nowrap;
+                cursor: pointer;
+                position: relative;
+                font-size: 14px;
+                top: 5px;
+
+                .mat-radio-label {
+                    margin-top: 10px;
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        .homeSize-radio-group {
+            display: block;
+
+            .homeSize-radio {
+                border-bottom: 1px solid #f0f0f0;
+                width: 100%;
+                margin: 0;
+                height: 40px;
+                background-color: #ffffff;
+                text-align: left;
+                box-sizing: border-box;
+                display: block;
+                white-space: nowrap;
+                cursor: pointer;
+                position: relative;
+                font-size: 14px;
+                top: 5px;
+
+                .mat-radio-label {
+                    margin-top: 10px;
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        .homeType-radio-group {
+            display: block;
+
+            .homeType-radio {
+                text-align: center;
+                background-color: #ffffff;
+                border-radius: 5px;
+                float: left;
+                width: 167px;
+                height: 137px;
+                margin-right: 9px;
+                margin-bottom: 9px;
+                display: flex;
+
+                .radio-image {
+                    height: 63px;
+                    margin: auto;
+                    display: block;
+                    top: 14px;
+                    background-repeat: no-repeat;
+                }
+
+                .radio-image.img-0 {
+                    background-image: url(/assets/img-2/profile/no-answer.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-1 {
+                    background-image: url(/assets/img-2/profile/appartment.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-2 {
+                    background-image: url(/assets/img-2/profile/detached-house.png);
+                    width: 90px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-3 {
+                    background-image: url(/assets/img-2/profile/maisonette.png);
+                    width: 80px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-4 {
+                    background-image: url(/assets/img-2/profile/villa.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-5 {
+                    background-image: url(/assets/img-2/profile/other.png);
+                    width: 90px !important;
+                    left: 29px !important;
+                }
+
+                .mat-radio-container {
+                    left: 45%;
+                    top: 50px;
+                }
+
+                .mat-radio-label-content {
+                    font-size: 14px;
+                    width: 75%;
+                }
+            }
+
+            .homeType-radio.mat-radio-checked {
+                background-color: #572679 !important;
+                color: white;
+
+                .radio-image.img-0 {
+                    background-image: url(/assets/img-2/profile/no-answer-w.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-1 {
+                    background-image: url(/assets/img-2/profile/appartment-white.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-2 {
+                    background-image: url(/assets/img-2/profile/detached-house-white.png);
+                    width: 90px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-3 {
+                    background-image: url(/assets/img-2/profile/maisonette-white.png);
+                    width: 80px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-4 {
+                    background-image: url(/assets/img-2/profile/villa-white.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-5 {
+                    background-image: url(/assets/img-2/profile/other-white.png);
+                    width: 90px !important;
+                    left: 29px !important;
+                }
+            }
+
+            .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+                border-color: white;
+            }
+
+            .mat-radio-button.mat-accent .mat-radio-inner-circle {
+                color: white;
+                background-color: white;
+            }
+
+            .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+                background-color: white;
+            }
+        }
+
+        .property-list {
+            margin-bottom: 12px;
+
+            .property-label {
+                display: block;
+                color: #9291a2;
+                font-weight: bold;
+            }
+        }
+
+        .size-list {
+            margin-bottom: 12px;
+
+            .homeSize-label {
+                display: block;
+                color: #9291a2;
+                font-weight: bold;
+            }
+        }
+
+        .image-list {
+            margin-bottom: 12px;
+
+            .homeType-label {
+                display: block;
+                color: #9291a2;
+                font-weight: bold;
+            }
+        }
+
+        .size-list.disable {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .image-list.disable {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+}
+
+.otherHouse {
+    height: 633px;
+    width: 571px;
+
+    .top.wrapper {
+        .top.icon {
+            span {
+                background-position: 0 -1254px;
+            }
+        }
+    }
+
+    .content.wrapper {
+        height: 506px;
+        background-color: #edeff2 !important;
+        padding: 12px !important;
+        overflow: auto !important;
+        position: relative !important;
+        border: 1px solid #cfcfcf !important;
+
+        .villa-radio-group {
+            display: block;
+
+            .villa-radio {
+                border-bottom: 1px solid #f0f0f0;
+                width: 100%;
+                margin: 0;
+                height: 40px;
+                background-color: #ffffff;
+                text-align: left;
+                box-sizing: border-box;
+                display: block;
+                white-space: nowrap;
+                cursor: pointer;
+                position: relative;
+                font-size: 14px;
+                top: 5px;
+
+                .mat-radio-label {
+                    margin-top: 10px;
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        .villa-location-radio-group {
+            display: block;
+
+            .villa-location-radio {
+                text-align: center;
+                background-color: #ffffff;
+                border-radius: 5px;
+                float: left;
+                width: 167px;
+                height: 137px;
+                margin-right: 9px;
+                margin-bottom: 9px;
+                display: flex;
+
+                .radio-image {
+                    height: 63px;
+                    margin: auto;
+                    display: block;
+                    top: 14px;
+                    background-repeat: no-repeat;
+                }
+
+                .radio-image.img-0 {
+                    background-image: url(/assets/img-2/profile/no-answer.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-1 {
+                    background-image: url(/assets/img-2/profile/in-the-mountain.png);
+                    width: 88px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-2 {
+                    background-image: url(/assets/img-2/profile/in-the-country.png);
+                    width: 90px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-3 {
+                    background-image: url(/assets/img-2/profile/by-the-sea.png);
+                    width: 90px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-4 {
+                    background-image: url(/assets/img-2/profile/on-an-island.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .mat-radio-container {
+                    left: 45%;
+                    top: 50px;
+                }
+
+                .mat-radio-label-content {
+                    font-size: 14px;
+                    width: 75%;
+                }
+
+                .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+                    border-color: white;
+                }
+
+                .mat-radio-button.mat-accent .mat-radio-inner-circle {
+                    color: white;
+                    background-color: white;
+                }
+
+                .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+                    background-color: white;
+                }
+            }
+
+            .villa-location-radio.mat-radio-checked {
+                background-color: #572679 !important;
+                color: white;
+
+                .radio-image.img-0 {
+                    background-image: url(/assets/img-2/profile/no-answer-w.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-1 {
+                    background-image: url(/assets/img-2/profile/in-the-mountain-white.png);
+                    width: 88px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-2 {
+                    background-image: url(/assets/img-2/profile/in-the-country-white.png);
+                    width: 90px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-3 {
+                    background-image: url(/assets/img-2/profile/by-the-sea-white.png);
+                    width: 80px !important;
+                    left: 29px !important;
+                }
+
+                .radio-image.img-4 {
+                    background-image: url(/assets/img-2/profile/on-an-island-white.png);
+                    width: 63px !important;
+                    left: 29px !important;
+                }
+
+                .mat-radio-outer-circle {
+                    border-color: white;
+                }
+
+                .mat-radio-inner-circle {
+                    color: white;
+                    background-color: white;
+                }
+
+                .mat-radio-ripple .mat-ripple-element {
+                    background-color: white;
+                }
+            }
+        }
+
+        .property-list {
+            margin-bottom: 12px;
+
+            .property-label {
+                display: block;
+                color: #9291a2;
+                font-weight: bold;
+            }
+        }
+
+        .size-list {
+            margin-bottom: 12px;
+
+            .homeSize-label {
+                display: block;
+                color: #9291a2;
+                font-weight: bold;
+            }
+        }
+
+        .size-list.disable {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+}
+
+.vehicles {
+    height: 601px;
+    width: 608px;
+
+    .top.wrapper {
+        .top.icon {
+            span {
+                background-position: 0 -1303px;
+            }
+        }
+    }
+
+    .content.wrapper {
+        height: 476px;
+        background-color: #edeff2;
+        overflow: auto;
+        padding: 0 12px;
+        position: relative;
+        border: 1px solid #cfcfcf;
+
+        .flex-wrapper {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+
+            .vehicles-wrapper {
+                position: relative;
+                overflow: hidden;
+
+                .vehicles {
+                    padding: 10px 38px 10px 38px;
+                    width: 100%;
+                    overflow: auto;
+                    max-height: 121px;
+                    min-height: 72px;
+                    border-bottom: 1px solid #e0e1e3;
+
+                    .remove.btn {
+                        height: 40px;
+                        margin-right: 7px;
+                        text-align: left;
+                        background-color: white;
+                        display: inline-block;
+                        padding: 10px;
+                        border-radius: 4px;
+                        margin: 5px;
+                        padding-right: 18px;
+                        font-size: 14px;
+                        float: left;
+                        cursor: pointer;
+
+                        .icon {
+                            background-image: url(/assets/img-2/profile/close.png);
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            background-position: 0;
+                            width: 10px;
+                            height: 10px;
+                            top: 5px;
+                            float: right;
+                            right: -7px;
+                            position: relative;
+                        }
+                    }
+                }
+            }
+
+            .not-vehicles-wrapper {
+                position: relative;
+                flex: 1;
+                display: flex;
+                overflow: hidden;
+
+                .not-vehicles {
+                    flex: 1;
+                    overflow: auto;
+                    padding: 18px 0px 38px 18px;
+
+                    .add.btn {
+                        width: 274px;
+                        height: 40px;
+                        margin: 0;
+                        margin-bottom: 3px;
+                        margin-right: 11px;
+                        text-align: left;
+                        background-color: white;
+                        display: inline-block;
+                        padding: 10px;
+                        border-radius: 4px;
+                        padding-right: 18px;
+                        font-size: 14px;
+                        cursor: pointer;
+
+                        .icon {
+                            background-image: url(/assets/img-2/profile/add.png);
+                            background-repeat: no-repeat;
+                            float: right;
+                            width: 22px;
+                            height: 22px;
+                            border-radius: 100%;
+                            background-size: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

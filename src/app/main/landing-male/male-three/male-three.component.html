@@ -1,0 +1,94 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div class="male-section-3 wrapper section stretch">
+	<div class="section image wrapper stretch">
+		<div class="section image main stretch male-section-3-background">
+		</div>
+		<div class="section image overlay stretch"></div>
+	</div>
+
+	<div class="section content stretch">
+
+		<div class="top-ribbon top-ribbon-animation">
+			<h2 class="uppercase">
+				<div [innerHTML]="topRibbonContent"></div>
+				<!-- WHAT YOU <span class="not-here">WILL NOT FIND</span> ON <b>LUNONA</b> -->
+			</h2>
+		</div>
+
+		<div class="what-nots purple-box stretch" id="accordion">
+			<ul>
+				<li class="clearfix">
+					<div class="icon_img_bg" id="desktop"
+						style="background-image: url('assets/img-2/male/married.png')"></div>
+					<div class="icon_img_bg" id="mobile"
+						style="background-image: url('assets/img-2/male/married-mobile.png')"></div>
+
+					<div class="description">
+						<h5 class="main">{{marrigeTitle}}</h5>
+						<h6 class="note">{{marrigeDescription}}</h6>
+					</div>
+				</li>
+
+				<li class="clearfix">
+					<div class="icon_img_bg" id="desktop"
+						style="background-image: url('assets/img-2/male/fake.png')"></div>
+					<div class="icon_img_bg" id="mobile"
+						style="background-image: url('assets/img-2/male/fake-mobile.png')"></div>
+
+					<div class="description">
+						<h5 class="main">{{fakeTitle}}</h5>
+						<h6 class="note">{{fakeDescription}}</h6>
+					</div>
+				</li>
+				<li class="clearfix">
+					<div class="icon_img_bg" id="desktop"
+						style="background-image: url('assets/img-2/male/bot.png')"></div>
+					<div class="icon_img_bg" id="mobile"
+						style="background-image: url('assets/img-2/male/bot-mobile.png')"></div>
+
+					<div class="description">
+						<h5 class="main">{{botTitle}}</h5>
+						<h6 class="note">{{botDescription}}</h6>
+					</div>
+				</li>
+				<li class="clearfix">
+					<div class="icon_img_bg" id="desktop"
+						style="background-image: url('assets/img-2/male/escort.png')"></div>
+					<div class="icon_img_bg" id="mobile"
+						style="background-image: url('assets/img-2/male/escort-mobile.png')"></div>
+
+					<div class="description">
+						<h5 class="main">{{escortsTitle}}</h5>
+						<h6 class="note">
+							{{escortsDescription}}</h6>
+					</div>
+				</li>
+				<li class="clearfix">
+					<div class="icon_img_bg" id="desktop"
+						style="background-image: url('assets/img-2/male/admin.png')"></div>
+					<div class="icon_img_bg" id="mobile"
+						style="background-image: url('assets/img-2/male/admin-mobile.png')"></div>
+
+					<div class="description">
+						<h5 class="main">
+							{{administratorsTitle}}</h5>
+						<h6 class="note">
+							{{administratorsDescription}}</h6>
+					</div>
+				</li>
+				<li class="clearfix">
+					<div class="icon_img_bg" id="desktop"
+						style="background-image: url('assets/img-2/male/ugly.png')"></div>
+					<div class="icon_img_bg" id="mobile"
+						style="background-image: url('assets/img-2/male/ugly-mobile.png')"></div>
+
+					<div class="description">
+						<h5 class="main">{{uglyTitle}}</h5>
+						<h6 class="note">{{uglyDescription}}</h6>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<app-landing-footer #landingMaleFooter></app-landing-footer>

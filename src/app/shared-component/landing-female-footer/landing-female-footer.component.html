@@ -1,0 +1,38 @@
+<div class="nav-footer navfooter-animation">
+    <div class="overlay stretch"></div>
+    <div class="content stretch">
+        <div class="app-store wrapper" id="desktop">
+            <label class="uppercase">
+                {{downloadApp}}
+            </label>
+            <a title="Lunona datinig - Apps on Google Play">
+                <div class="app-store-button android"></div>
+            </a>
+            <a>
+                <div class="app-store-button ios"></div>
+            </a>
+            <a>
+                <div class="app-store-button win"></div>
+            </a>
+        </div>
+        <div class="arrow-scroll" (click)="goToNextPage()">
+            <a>
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div>
+                    <span class="unu"></span>
+                    <span class="doi"></span>
+                </div>
+            </a>
+        </div>
+        <div class="change-gender" (click)="changeGender()">
+            <a class="stretch"></a>
+            <span class="uppercase">
+                <div [innerHTML]="changeGenderText"></div>
+            </span>
+            <div class="arrow"></div>
+            <div class="sparkle"></div>
+        </div>
+    </div>
+</div>

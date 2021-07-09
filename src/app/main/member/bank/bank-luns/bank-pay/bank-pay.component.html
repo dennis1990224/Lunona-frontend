@@ -1,0 +1,152 @@
+<div class="view-container">
+    <div class="slide view-frame">
+        <div class="Bank" id="BankController">
+            <div id="makeluns">
+                <div class="content-wrapper">
+                    <div class="content">
+                        <div class="columns row money">
+                            <div class="col-lg-12 payment-method">
+                                <div class="payment-method-header">
+                                    <div class="payment-method-header-inner">
+                                        <div class="row">
+                                            <button class="back" [routerLink]="['/member/bank/load-luns/exchange']">Back</button>
+                                            <div class="navigation">
+                                                <h2 style="text-align: left">Select</h2>
+                                                <h2 style="text-align: center;" class="active">
+                                                    Payment method
+                                                </h2>
+                                                <h2 style="text-align: right;">Check out</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="payment-method-body">
+                                    <div style="display: flow-root;">
+                                        <div class="row" style="height: 60px;">
+                                            <h2 class="payment-method-title">Choose Payment Method</h2>
+                                        </div>
+                                        <div class="payment-method-content">
+                                            <div class="Payment-procedure">
+                                                <mat-radio-group [(ngModel)]="paymentMethodCode" aria-label="Select an option">
+                                                    <mat-radio-button color="primary" [value]="payMethodItem.Code" [class.active]="paymentMethodCode==payMethodItem.Code" class="item" *ngFor="let payMethodItem of payMethodItems">
+                                                        <div class="md-label">
+                                                            <div class="payment-brand-name">
+                                                                <div class="payment-brand-name-title">
+                                                                    <i [ngClass]="payMethodItem.Icon"></i>
+                                                                    <h2 class="after" [ngClass]="payMethodItem.Icon">
+                                                                        <span>{{payMethodItem.Name}}</span>
+                                                                    </h2>
+                                                                </div>
+                                                            </div>
+                                                            <div class="payment-brand-description">
+                                                                <p>
+                                                                    <span>
+                                                                       {{payMethodItem.Description}}
+                                                                    </span>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </mat-radio-button>
+                                                    <div style="height: 130px;" [ngClass]="paymentMethodCode" class="extra-button" (click)="getAndPay()">
+                                                        <img src="assets/img-2/bank/pay_now_arrow_right@2x.png" style="width: 25px; text-align: center; margin-left: 12px;">
+                                                        <h2 style="text-align: center; margin: 0; font-weight: 600; color: #262626; font-size: 15px;">PAY NOW</h2>
+                                                    </div>
+                                                </mat-radio-group>
+                                            </div>
+                                            <div class="selected-packet">
+                                                <div class="selected-packet-inner">
+                                                    <div class="bubble-info" [class.Starter]="package=='P15'" [class.normal]="package=='P50'" [class.pro]="package=='P150'" [class.exclusive]="package=='P220'">
+                                                        <h6>{{selectedLuns}}</h6>
+                                                        <h6>Luns</h6>
+                                                    </div>
+                                                    <div class="selected-packet-inner-info">
+                                                        <div class="selected-packet-header">
+                                                            <h2>Order Summary</h2>
+                                                        </div>
+                                                        <div class="selected-packet-item">
+                                                            <div class="selected-packet-row title">
+                                                                <h2>You have selected</h2>
+                                                            </div>
+                                                            <div class="selected-packet-row packet">
+                                                                <h2>Package {{selectedPacket}}</h2>
+                                                                <h2>CHANGE</h2>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selected-packet-item">
+                                                            <div class="selected-packet-row title">
+                                                                <h2>Luns/Credits</h2>
+                                                            </div>
+                                                            <div class="selected-packet-row luns">
+                                                                <h2>{{selectedLuns}}</h2>
+                                                            </div>
+                                                        </div>
+                                                        <div class="selected-packet-footer">
+                                                            <h2>Total:</h2>
+                                                            <h2>€{{selectedTotal}}</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="pay-now" (click)="getAndPay()">
+                                                    <h2>CHECK OUT</h2>
+                                                </div>
+                                                <div class="row" style="text-align: right;">
+                                                    <img class="comodo-ssl" style="display: inline-block;"
+                                                        src="assets/img-2/bank/comodossl.png">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="signs row">
+                                            <div class="fleft">
+                                                <img src="assets/img-2/bank/trust-icons-colorful.png">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row description">
+                                        <h2
+                                            style="font-size: 14px; font-weight: 500; color: rgb(120, 119, 132); text-align: center;">
+                                        </h2>
+                                    </div>
+                                    <div class="row description" style="margin-top: 70px">
+                                        <h2 style="margin-top: -12px;font-size: 12px; font-weight: 500;color: rgb(120, 119, 132);text-align: center;">
+                                            <div class="ZombaioDescription">
+                                                <p class="MsoNormal" style="margin: 0in 0in 8pt; text-align: left;">
+                                                    <span>
+                                                        <span style="mso-ansi-language: EN"></span>
+                                                    </span>
+                                                </p>
+                                                <div style="margin: 0cm; text-align: left;">
+                                                    Your Credit/Debit card will be charged only once with full
+                                                    confidentiality and security. There will be no recurring charges
+                                                    imposed or arising liabilities.
+                                                </div>
+                                                <div style="margin: 0cm; text-align: left;">
+                                                    Please visit our Billing Support page for more information. Your
+                                                    security is fully guaranteed.
+                                                </div>
+                                                <div style="margin: 0cm; text-align: left;">
+                                                    Using a credit/debit card is the easiest way to buy credits. In case
+                                                    you do not have a Credit/Debit card, you can buy a prepaid
+                                                    Paysafecard from a kiosk. </div>
+                                                <div style="margin: 0cm; text-align: left;">
+                                                    If you require any further information or you have any questions or
+                                                    if you encounter any issues, contact us by simply speaking to LUNA.
+                                                </div>
+                                                <p>
+                                                    <br>
+                                                    <span style="mso-ansi-language: EN"></span> &nbsp;
+                                                </p>
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer1-wrapper"></div>
+            </div>
+        </div>
+    </div>
+</div>

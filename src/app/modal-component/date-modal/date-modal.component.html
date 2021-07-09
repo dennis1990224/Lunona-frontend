@@ -1,0 +1,222 @@
+<div class="date-container" *ngIf="!isMyDate">
+    <div class="date-dialog-header _md-toolbar-transition">
+        <div class="md-toolbar-tools">
+            <div class="top close" [mat-dialog-close]="''">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="basic_wrapper">
+        <div class="top_img">
+            <img src="assets/img-2/conversation/top_bg.svg">
+            <div class="users_connection clearfix">
+                <div class="img users" [ngStyle]="{'background-image': 'url(' + avatar + ')'}"></div>
+                <div class="img others"
+                    [ngStyle]="{'background-image': 'url(' + serverUrl + data.ProfilePhotoBase + ')'}"></div>
+                <svg class="heart" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate" width="123"
+                    height="131.665" viewBox="931.333 435.667 123 131.665">
+                    <path fill="#33166A" stroke="#FFF" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="6"
+                        d="M965.333 491.834c0 15.187 12.313 27.5 27.5 27.5 15.188 0 27.5-12.313 27.5-27.5 0-4.602-1.13-8.939-3.128-12.751-4.596-8.768-13.785-14.749-24.372-14.749-15.187 0-27.5 12.312-27.5 27.5z"
+                        filter="url(#e5CPa0rKSM3BgvZG91IUtMG28Id9AUy5)" vector-effect="non-scaling-stroke"></path>
+                    <defs>
+                        <filter id="e5CPa0rKSM3BgvZG91IUtMG28Id9AUy5" width="400%" height="400%" x="-200%" y="-200%"
+                            color-interpolation-filters="sRGB" filterUnits="objectBoundingBox">
+                            <feGaussianBlur xmlns="http://www.w3.org/2000/svg" in="SourceGraphic" stdDeviation="5">
+                            </feGaussianBlur>
+                            <feOffset xmlns="http://www.w3.org/2000/svg" dy="7" result="pf_100_offsetBlur"></feOffset>
+                            <feFlood xmlns="http://www.w3.org/2000/svg" flood-color="#000" flood-opacity=".271">
+                            </feFlood>
+                            <feComposite xmlns="http://www.w3.org/2000/svg" in2="pf_100_offsetBlur" operator="in"
+                                result="pf_100_dropShadow"></feComposite>
+                            <feBlend xmlns="http://www.w3.org/2000/svg" in="SourceGraphic" in2="pf_100_dropShadow">
+                            </feBlend>
+                        </filter>
+                    </defs>
+                    <path fill="#33166A"
+                        d="M965.333 491.834c0 15.187 12.313 27.5 27.5 27.5 15.188 0 27.5-12.313 27.5-27.5 0-15.188-12.312-27.5-27.5-27.5-15.187 0-27.5 12.312-27.5 27.5z">
+                    </path>
+                    <path fill="#C91F42"
+                        d="M988.74 499.663l-11.067-4.051-2.42-2.327-.681-1.325-.3-4.575s1.173-2.137 1.277-2.178a19.767 19.767 0 0 1 2.128-1.288c.253-.01 2.564-.361 2.564-.361h.895l2.767 2.076.417-3.961s2.174-1.355 2.406-1.425c0 0 2.938-.633 3.058-.633a9.552 9.552 0 0 1 2.189.433l1.2.847s-2.665 3.193-2.758 4.064l-.219 4.124.219 3.479 1.153 2.907-.756 1.865-.616 1.9-1.456.429z">
+                    </path>
+                    <path fill="#FC4A6F"
+                        d="M999.507 501.314s-8.854-9.125-8.571-11.962c0 0 2.206-4.6 6.374-5.152l4.223 3.83 2.659-2.529h5.047s3 3.018 3 3.172v4.123l-1.8 2.6-3.772 3.223s-2.942 2.57-3.6 2.7c0 0-3.453 1.045-3.562 1.121-.109.076.002-1.126.002-1.126z">
+                    </path>
+                    <path fill="#FFF"
+                        d="M1011.875 485.254a7.006 7.006 0 0 0-5.851-2.099 7.384 7.384 0 0 0-3.908 1.632 7.39 7.39 0 0 0-6.447-3.357 7.075 7.075 0 0 0-6.861-3.638 7.347 7.347 0 0 0-6.022 4.716 7.622 7.622 0 0 0-4.164-.78 7.144 7.144 0 0 0-5.284 3.274 7.545 7.545 0 0 0-.412 6.755c2.351 6.276 14.749 9.093 16.143 9.412l.911.186.576-.765c.245-.354.977-1.416 1.897-2.917a46.363 46.363 0 0 0 5.796 6.472l.723.628.852-.372c1.296-.606 12.834-5.951 13.87-12.58a7.474 7.474 0 0 0-1.819-6.567zm-1.048 6.068c-.618 3.959-7.763 8.231-11.331 9.968a42.152 42.152 0 0 1-5.466-6.459 19.792 19.792 0 0 1-1.377-2.388 14.59 14.59 0 0 0-.362-.76 6.453 6.453 0 0 1-.538-3.32 5.79 5.79 0 0 1 1.003-2.499 3.974 3.974 0 0 0-1.02-2.989 7.811 7.811 0 0 0-2.883 5.088c-.373 2.244.499 4.732 1.774 7.037a30.659 30.659 0 0 1-1.959 3.209c-3.904-.997-11.736-3.64-13.162-7.382a4.83 4.83 0 0 1 .168-4.192 4.201 4.201 0 0 1 3.127-1.925 4.995 4.995 0 0 1 3.644 1.164l.154.124 2.065 1.795.324-2.708c-.004-.046.033-.144.028-.19a4.594 4.594 0 0 1 3.97-4.074 4.335 4.335 0 0 1 4.506 3.137c.579 1.487.275 3.492-.397 5.575a10.44 10.44 0 0 0 1.586 3.913c1.288-2.903 2.306-6.153 1.919-8.927a4.776 4.776 0 0 1 3.614 3.136c.005.047.057.087.066.18l.882 2.58 1.646-2.186.125-.154a4.999 4.999 0 0 1 3.32-1.899 4.274 4.274 0 0 1 3.46 1.23 4.078 4.078 0 0 1 1.114 3.916z">
+                    </path>
+                    <g fill="#FFF">
+                        <path
+                            d="M993.346 445.423a1.134 1.134 0 0 1-1.118-1.149v-7.489a1.119 1.119 0 1 1 2.236 0v7.489a1.134 1.134 0 0 1-1.118 1.149zM993.346 450.019a1.11 1.11 0 0 1-.79-.337 1.17 1.17 0 0 1 0-1.624 1.103 1.103 0 0 1 1.581 0 1.17 1.17 0 0 1 0 1.624 1.11 1.11 0 0 1-.791.337zM988.985 447.357a1.105 1.105 0 0 1-.79-.337l-3.8-3.907a1.173 1.173 0 0 1 0-1.625 1.103 1.103 0 0 1 1.581 0l3.8 3.907a1.171 1.171 0 0 1 0 1.625 1.102 1.102 0 0 1-.791.337zM998.496 447.02a1.1 1.1 0 0 1-1.581 0 1.173 1.173 0 0 1 0-1.625l3.8-3.907a1.103 1.103 0 0 1 1.581 0 1.173 1.173 0 0 1 0 1.625l-3.8 3.907z">
+                        </path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="date-dialog-content">
+            <div class="top_content_wrapper">
+                <div class="title">My Date</div>
+                <div class="info">Dates you went on and your feedback</div>
+            </div>
+            <div class="dates_list">
+                <div class="action_btn" (click)="goToMyDate()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.55 21.55">
+                        <path fill="#fff"
+                            d="M18.4 3.15a10.78 10.78 0 1 0 0 15.24 10.78 10.78 0 0 0 0-15.24zm-2.73 8.23a.9.9 0 0 1-.62.26h-3.38v3.38a.89.89 0 0 1-.88.88.88.88 0 0 1-.88-.88v-3.38H6.53a.88.88 0 0 1 0-1.76h3.38V6.5a.88.88 0 0 1 .88-.88.88.88 0 0 1 .88.88v3.38h3.38a.88.88 0 0 1 .88.88 1.04 1.04 0 0 1-.26.62z">
+                        </path>
+                    </svg>
+                    <span>New Date</span>
+                </div>
+                <table class="table_dates">
+                    <tbody>
+                        <tr class="top">
+                            <th>Date</th>
+                            <th>Rate</th>
+                            <th>Comments</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr class="date_list_row" *ngFor="let item of datesData"
+                            [ngClass]="item && item.action ? 'show' : 'hide'">
+                            <td *ngIf="item" (click)="editDate(item)">{{item.DateOn.slice(6,19) | date:'dd/MM/yyyy'}}</td>
+                            <td *ngIf="item" (click)="editDate(item)">{{item.VoteText}}</td>
+                            <td *ngIf="item" (click)="editDate(item)" class="notes_area">{{item.Notes}}</td>
+                            <td *ngIf="item" (click)="editDate(item)" class="line_action edit" [ngClass]="item.action ? 'hide' : ''">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.08 17">
+                                    <path
+                                        d="M16.9 2.13a2.02 2.02 0 0 1 .13.4 2.38 2.38 0 0 1 .04.5 1.4 1.4 0 0 1-.1.5 1.54 1.54 0 0 1-.3.48l-.43.41q-.19.17-.32.31-.15.16-.29.27l-3.62-3.63.55-.52q.32-.3.54-.47a1.7 1.7 0 0 1 .56-.3 1.77 1.77 0 0 1 .57-.08 2.17 2.17 0 0 1 .55.09 2.81 2.81 0 0 1 .45.17 3.57 3.57 0 0 1 .9.75 4.36 4.36 0 0 1 .77 1.12zM1.77 11.6l.55-.56 1.06-1.08L4.8 8.56l1.58-1.58 4.17-4.17 3.63 3.65-4.17 4.18-1.56 1.57-1.4 1.39-1.03 1.04q-.4.4-.48.46-.2.18-.45.37a2.43 2.43 0 0 1-.52.31 8.48 8.48 0 0 1-.8.33q-.53.2-1.1.38t-1.09.32q-.52.14-.77.18-.52.06-.7-.16a.92.92 0 0 1-.1-.72 6.55 6.55 0 0 1 .19-.78l.3-1.07.33-1.02a4.32 4.32 0 0 1 .25-.64 3.24 3.24 0 0 1 .26-.5 3.2 3.2 0 0 1 .43-.5z">
+                                    </path>
+                                </svg>
+                            </td>
+                            <td *ngIf="item" class="line_action delete">
+                                <div class="wrapper" [ngClass]="item.action ? 'hide' : ''" (click)="deleteActionShow(item)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.48 17">
+                                        <path
+                                            d="M1.08 14.85A2.15 2.15 0 0 0 3.23 17h6.02a2.15 2.15 0 0 0 2.16-2.15V4.52H1.08zm11.4-12.27a1.08 1.08 0 0 0-1.08-1.07H8.82v-.44A1.07 1.07 0 0 0 7.75 0H4.73a1.07 1.07 0 0 0-1.07 1.08v.43H1.08A1.08 1.08 0 0 0 0 2.58v1.08h12.48z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div class="slide_actions">
+                                    <div class="del_no del_action" (click)="deleteDateCancel(item)">CANCEL</div>
+                                    <div class="del_yes del_action" (click)="deleteDate(item)">DELETE</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="noDates" *ngIf="datesData.length==0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.15 19.15">
+                        <path fill="#686868"
+                            d="M9.57 0a9.57 9.57 0 1 0 9.58 9.57A9.58 9.58 0 0 0 9.57 0zm0 1.25a8.32 8.32 0 1 1-8.32 8.32 8.32 8.32 0 0 1 8.32-8.32zM6.04 5.62a1.46 1.46 0 1 0 1.45 1.46 1.46 1.46 0 0 0-1.45-1.46zm7.07 0a1.46 1.46 0 1 0 1.46 1.46 1.46 1.46 0 0 0-1.46-1.46zm-3.53 5a6.14 6.14 0 0 0-5.1 2.77.63.63 0 0 0 1.04.7 4.82 4.82 0 0 1 8.11 0 .63.63 0 0 0 1.04-.7 6.14 6.14 0 0 0-5.1-2.77z">
+                        </path>
+                    </svg>
+                    <span>There are no Dates</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="date-dialog-footer clearfix">
+        <div class="date-dialog-footer-button close" [mat-dialog-close]="''">CLOSE</div>
+    </div>
+</div>
+<div class="date-container-two" *ngIf="isMyDate"
+    style="height: 520px; width: 528px; transform: matrix(1, 0, 0, 1, 0, 0);">
+    <div class="date-dialog-header">
+        <div class="md-toolbar-tools">
+            <div class="top back" (click)="goToDateContain()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                    <path fill="#282626"
+                        d="M15.16 21.35a1.06 1.06 0 0 0-.3-.74l-4.38-4.39 15.49-.08a1.03 1.03 0 1 0 0-2.07l-15.49.08 4.39-4.35a1.04 1.04 0 0 0-1.45-1.49l-6.13 6.13-.12.17a.98.98 0 0 0-.08.95.9.9 0 0 0 .2.33l6.13 6.2a1 1 0 0 0 1.45 0 1 1 0 0 0 .29-.74z">
+                    </path>
+                </svg>
+            </div>
+            <span></span>
+            <div class="top close"><span></span></div>
+        </div>
+    </div>
+    <div id="editDate" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);" class="active">
+        <div class="infoTitle">
+            <img src="assets/img-2/conversation/inner_top_bg.svg">
+            <div class="edit-title-info">
+                Date with <b>{{data.LoginName}}</b>
+            </div>
+            <div class="usersImgConnection">
+                <div class="img others"></div>
+                <div class="img users"></div>
+                <svg class="heart" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate" width="123"
+                    height="131.665" viewBox="931.333 435.667 123 131.665">
+                    <path fill="#33166A" stroke="#FFF" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="6"
+                        d="M965.333 491.834c0 15.187 12.313 27.5 27.5 27.5 15.188 0 27.5-12.313 27.5-27.5 0-4.602-1.13-8.939-3.128-12.751-4.596-8.768-13.785-14.749-24.372-14.749-15.187 0-27.5 12.312-27.5 27.5z"
+                        filter="url(#e5CPa0rKSM3BgvZG91IUtMG28Id9AUy5)" vector-effect="non-scaling-stroke"></path>
+                    <defs>
+                        <filter id="e5CPa0rKSM3BgvZG91IUtMG28Id9AUy5" width="400%" height="400%" x="-200%" y="-200%"
+                            color-interpolation-filters="sRGB" filterUnits="objectBoundingBox">
+                            <feGaussianBlur xmlns="http://www.w3.org/2000/svg" in="SourceGraphic" stdDeviation="5">
+                            </feGaussianBlur>
+                            <feOffset xmlns="http://www.w3.org/2000/svg" dy="7" result="pf_100_offsetBlur"></feOffset>
+                            <feFlood xmlns="http://www.w3.org/2000/svg" flood-color="#000" flood-opacity=".271">
+                            </feFlood>
+                            <feComposite xmlns="http://www.w3.org/2000/svg" in2="pf_100_offsetBlur" operator="in"
+                                result="pf_100_dropShadow"></feComposite>
+                            <feBlend xmlns="http://www.w3.org/2000/svg" in="SourceGraphic" in2="pf_100_dropShadow">
+                            </feBlend>
+                        </filter>
+                    </defs>
+                    <path fill="#33166A"
+                        d="M965.333 491.834c0 15.187 12.313 27.5 27.5 27.5 15.188 0 27.5-12.313 27.5-27.5 0-15.188-12.312-27.5-27.5-27.5-15.187 0-27.5 12.312-27.5 27.5z">
+                    </path>
+                    <path fill="#C91F42"
+                        d="M988.74 499.663l-11.067-4.051-2.42-2.327-.681-1.325-.3-4.575s1.173-2.137 1.277-2.178a19.767 19.767 0 0 1 2.128-1.288c.253-.01 2.564-.361 2.564-.361h.895l2.767 2.076.417-3.961s2.174-1.355 2.406-1.425c0 0 2.938-.633 3.058-.633a9.552 9.552 0 0 1 2.189.433l1.2.847s-2.665 3.193-2.758 4.064l-.219 4.124.219 3.479 1.153 2.907-.756 1.865-.616 1.9-1.456.429z">
+                    </path>
+                    <path fill="#FC4A6F"
+                        d="M999.507 501.314s-8.854-9.125-8.571-11.962c0 0 2.206-4.6 6.374-5.152l4.223 3.83 2.659-2.529h5.047s3 3.018 3 3.172v4.123l-1.8 2.6-3.772 3.223s-2.942 2.57-3.6 2.7c0 0-3.453 1.045-3.562 1.121-.109.076.002-1.126.002-1.126z">
+                    </path>
+                    <path fill="#FFF"
+                        d="M1011.875 485.254a7.006 7.006 0 0 0-5.851-2.099 7.384 7.384 0 0 0-3.908 1.632 7.39 7.39 0 0 0-6.447-3.357 7.075 7.075 0 0 0-6.861-3.638 7.347 7.347 0 0 0-6.022 4.716 7.622 7.622 0 0 0-4.164-.78 7.144 7.144 0 0 0-5.284 3.274 7.545 7.545 0 0 0-.412 6.755c2.351 6.276 14.749 9.093 16.143 9.412l.911.186.576-.765c.245-.354.977-1.416 1.897-2.917a46.363 46.363 0 0 0 5.796 6.472l.723.628.852-.372c1.296-.606 12.834-5.951 13.87-12.58a7.474 7.474 0 0 0-1.819-6.567zm-1.048 6.068c-.618 3.959-7.763 8.231-11.331 9.968a42.152 42.152 0 0 1-5.466-6.459 19.792 19.792 0 0 1-1.377-2.388 14.59 14.59 0 0 0-.362-.76 6.453 6.453 0 0 1-.538-3.32 5.79 5.79 0 0 1 1.003-2.499 3.974 3.974 0 0 0-1.02-2.989 7.811 7.811 0 0 0-2.883 5.088c-.373 2.244.499 4.732 1.774 7.037a30.659 30.659 0 0 1-1.959 3.209c-3.904-.997-11.736-3.64-13.162-7.382a4.83 4.83 0 0 1 .168-4.192 4.201 4.201 0 0 1 3.127-1.925 4.995 4.995 0 0 1 3.644 1.164l.154.124 2.065 1.795.324-2.708c-.004-.046.033-.144.028-.19a4.594 4.594 0 0 1 3.97-4.074 4.335 4.335 0 0 1 4.506 3.137c.579 1.487.275 3.492-.397 5.575a10.44 10.44 0 0 0 1.586 3.913c1.288-2.903 2.306-6.153 1.919-8.927a4.776 4.776 0 0 1 3.614 3.136c.005.047.057.087.066.18l.882 2.58 1.646-2.186.125-.154a4.999 4.999 0 0 1 3.32-1.899 4.274 4.274 0 0 1 3.46 1.23 4.078 4.078 0 0 1 1.114 3.916z">
+                    </path>
+                    <g fill="#FFF">
+                        <path
+                            d="M993.346 445.423a1.134 1.134 0 0 1-1.118-1.149v-7.489a1.119 1.119 0 1 1 2.236 0v7.489a1.134 1.134 0 0 1-1.118 1.149zM993.346 450.019a1.11 1.11 0 0 1-.79-.337 1.17 1.17 0 0 1 0-1.624 1.103 1.103 0 0 1 1.581 0 1.17 1.17 0 0 1 0 1.624 1.11 1.11 0 0 1-.791.337zM988.985 447.357a1.105 1.105 0 0 1-.79-.337l-3.8-3.907a1.173 1.173 0 0 1 0-1.625 1.103 1.103 0 0 1 1.581 0l3.8 3.907a1.171 1.171 0 0 1 0 1.625 1.102 1.102 0 0 1-.791.337zM998.496 447.02a1.1 1.1 0 0 1-1.581 0 1.173 1.173 0 0 1 0-1.625l3.8-3.907a1.103 1.103 0 0 1 1.581 0 1.173 1.173 0 0 1 0 1.625l-3.8 3.907z">
+                        </path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="inputContent">
+            <div class="wrap edit_height-ruler">
+                <div class="row_input clearfix">
+                    <div class="datetime half_item">
+                        <div class="section_title">Date</div>
+                        <mat-form-field appearance="outline" style="font-size: 15px;">
+                            <input [(ngModel)]="dateDay" matInput [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="rate half_item">
+                        <div class="section_title">Rate</div>
+                        <mat-form-field appearance="outline" style="font-size: 15px;">
+                            <mat-select [(ngModel)]="dateRate">
+                                <mat-option *ngFor="let datesList of datesLists" [value]="datesList.ID">
+                                    {{datesList.Title}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="section_title">
+                    Leave a comment for the Date If you wish
+                </div>
+                <textarea [(ngModel)]="notes"></textarea>
+                <div class="infoarea">
+                    Any comments you input in the "Dates" are not visible by the other members. The Rating system
+                    effects the other members /profiles. Your feedback and comments help Lunona to become better, in
+                    order to increase the number of the successful Dates!
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="date-dialog-footer clearfix">
+        <div class="date-dialog-footer-button save" (click)="saveAndEditDate()">OKAY</div>
+        <div class="date-dialog-footer-button close" [mat-dialog-close]="''">CLOSE</div>
+    </div>
+</div>

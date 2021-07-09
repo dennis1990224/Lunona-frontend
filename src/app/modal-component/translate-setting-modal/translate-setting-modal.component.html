@@ -1,0 +1,113 @@
+<div class="translate-container">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon location"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Translation settings</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="settings-content" id="dialogContent_translate-settings">
+        <div class="persons language-options">
+            <div class="mine-profile">
+                <img [src]="avatar">
+                <div class="lang-select">
+                    <mat-form-field>
+                        <mat-label style="font-size: 15px; font-weight: 500; color: #7e8196;">Languages</mat-label>
+                        <mat-select [(ngModel)]="mineLan" ngDefaultControl>
+                            <mat-option *ngFor="let supportLanguage of supportLanguages"
+                                [value]="supportLanguage.LanguageISO">
+                                {{supportLanguage.LanguageListTitle}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="other-profile">
+                <img [src]="otherPorfileUrl">
+                <div class="lang-select">
+                    <mat-form-field>
+                        <mat-label style="font-size: 15px; font-weight: 500; color: #7e8196;">Languages</mat-label>
+                        <mat-select [(ngModel)]="memberLan" ngDefaultControl>
+                            <mat-option *ngFor="let supportLanguage of supportLanguages"
+                                [value]="supportLanguage.LanguageISO">
+                                {{supportLanguage.LanguageListTitle}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <h2 class="descr-short">
+            <span>Choose the translate that you prefer for your conversation with {{member.LoginName}}</span>
+        </h2>
+        <div class="free-text">
+            <div class="options-header">
+                <h3>
+                    <span>Free texting by you</span>
+                </h3>
+                <div class="switch-wrapper stretch">
+                    <div class="off stretch">
+                        <span>OFF</span>
+                    </div>
+                    <mat-slide-toggle color="primary" [(ngModel)]="freeText">
+                    </mat-slide-toggle>
+                    <div class="on stretch">
+                        <span>ON</span>
+                    </div>
+                </div>
+            </div>
+            <mat-radio-group *ngIf="freeText==true" [(ngModel)]="freeTextOption">
+                <div class="option" [ngClass]="freeTextOption=='auto' ? 'check' : ''">
+                    <mat-radio-button color="primary" [value]="'auto'">
+                        <span>Automatically</span>
+                    </mat-radio-button>
+                    <p class="paragraph">
+                        Auto translation by software of a better performance than Google Translate.
+                        <br>
+                        The service is provided FREE OF CHARGE.
+                    </p>
+                </div>
+                <div class="option option2" [ngClass]="freeTextOption=='human' ? 'check' : ''">
+                    <mat-radio-button color="primary" [value]="'human'">
+                        <span>Human Translation</span>
+                    </mat-radio-button>
+                    <p class="paragraph">
+                        This service is paid and the translation turnaround time is not guaranteed.
+                        <br>
+                        You can find more information about this in our Terms of Use of the service.
+                    </p>
+                </div>
+            </mat-radio-group>
+        </div>
+        <div class="ready-messages">
+            <div class="options-header">
+                <h3>
+                    <span>Pre-translated ready template messages</span>
+                </h3>
+                <div class="switch-wrapper stretch">
+                    <div class="off stretch">
+                        <span>OFF</span>
+                    </div>
+                    <mat-slide-toggle [(ngModel)]="preTranslate" color="primary"></mat-slide-toggle>
+                    <div class="on stretch">
+                        <span>ON</span>
+                    </div>
+                </div>
+            </div>
+            <div class="options-content" *ngIf="preTranslate">
+                <p class="paragraph">
+                    <span>
+                        Ready template messages are translated into the supported languages by a professional
+                        translator, not by software.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="dialog-actions">
+        <button class="footer-cancel"  [mat-dialog-close]="''" mat-raised-button>Cancel</button>
+        <button class="footer-done" (click)="updateTranslateSetting()" mat-raised-button>Done</button>
+    </div>
+</div>

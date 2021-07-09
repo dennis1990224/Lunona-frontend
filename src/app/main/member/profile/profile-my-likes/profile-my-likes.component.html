@@ -1,0 +1,615 @@
+<div class="edit-likes stretch edit-likes-small-body">
+    <div class="el-header edit-likes-header-prev">
+        <div class="padding">
+            <p class="title">{{getTranslate("Members.Profile.EditLikes.Header.Title")}}</p>
+            <div class="description">
+                <div [innerHTML]="getTranslateWithName('Members.Profile.EditLikes.Header.Description') | safeHtml"></div>
+                <!-- TarasM14e you will have to tell me &nbsp;
+                <strong>the features that you prefer</strong>
+                and all the results
+                <strong>will be based on your criteria</strong>
+                . By spending little time
+                <strong>now,</strong>
+                you would be
+                <strong>saving</strong>
+                a lot of time in the future! -->
+            </div>
+        </div>
+        <button *ngFor="let category of categories; let i=index" (click)="selectCategory(category.id)"
+            [ngClass]="isActive==i ? 'active' : ''" class="md-button ng-scope md-ink-ripple">
+            <span>{{category.category}}</span>
+        </button>
+    </div>
+    <div class="category-container stretch small-width">
+        <div *ngIf="isActive==0" [@slideInOut] style="height: calc(100% - 30px);;">
+            <div class="el-category stretch">
+                <div>
+                    <div class="category-header-warp">
+                        <img class="index-img" src="assets/img-2/profile/index-bg.png">
+                        <div class="index">1</div>
+                        <div class="title">
+                            {{getTranslate("Members.Profile.EditLikes.Age.Title")}}:
+                        </div>
+                    </div>
+                    <img class="bg-img" src="assets/img-2/profile/green-bg.png">
+                    <ul class="AGE">
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/age-1.png">
+                                    <label>
+                                        <span>18...23</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.AgeA" (ngModelChange)="changeMyLikes('AgeA')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/age-2.png">
+                                    <label>
+                                        <span>24...29</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.AgeB" (ngModelChange)="changeMyLikes('AgeB')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/age-3.png">
+                                    <label>
+                                        <span>30...35</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.AgeC" (ngModelChange)="changeMyLikes('AgeC')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/age-4.png">
+                                    <label>
+                                        <span>36...43</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.AgeD" (ngModelChange)="changeMyLikes('AgeD')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/age-5.png">
+                                    <label>
+                                        <span>44+</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.AgeE" (ngModelChange)="changeMyLikes('AgeE')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-container">
+                    <div class="fake-padding"></div>
+                    <img (click)="downPage()" class="down" src="assets/img-2/profile/arrow-down.png">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isActive==1" [@slideInOut] style="height: calc(100% - 30px);;">
+            <div class="el-category stretch">
+                <div>
+                    <div class="category-header-warp">
+                        <img class="index-img" src="assets/img-2/profile/index-bg.png">
+                        <div class="index">2</div>
+                        <div class="title">
+                            {{getTranslate("Members.Profile.EditLikes.BodyType.Title")}}
+                        </div>
+                    </div>
+                    <img class="bg-img" src="assets/img-2/profile/pink-bg.png">
+                    <ul class="AGE">
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/body-type-1.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.BodyType.BodyType1")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BodyA" (ngModelChange)="changeMyLikes('BodyA')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/body-type-2.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.BodyType.BodyType2")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BodyB" (ngModelChange)="changeMyLikes('BodyB')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/body-type-3.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.BodyType.BodyType3")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BodyC" (ngModelChange)="changeMyLikes('BodyC')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/body-type-4.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.BodyType.BodyType4")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BodyD" (ngModelChange)="changeMyLikes('BodyD')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/body-type-5.png">
+                                    <label>
+                                        <span style="font-size: 21px;">
+                                            <div [innerHTML]="getTranslate('Members.Profile.EditLikes.BodyType.BodyType5') | safeHtml"></div>
+                                        </span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BodyE" (ngModelChange)="changeMyLikes('BodyE')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-container">
+                    <div class="fake-padding"></div>
+                    <img (click)="upPage()" class="up" src="assets/img-2/profile/arrow-up.png">
+                    <img (click)="downPage()" class="down" src="assets/img-2/profile/arrow-down.png">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isActive==2" [@slideInOut] style="height: calc(100% - 30px);">
+            <div class="el-category stretch">
+                <div>
+                    <div class="category-header-warp">
+                        <img class="index-img" src="assets/img-2/profile/index-bg.png">
+                        <div class="index">3</div>
+                        <div class="title">
+                            {{getTranslate("Members.Profile.EditLikes.Skin.Title")}}
+                        </div>
+                    </div>
+                    <img class="bg-img" src="assets/img-2/profile/pink-bg.png">
+                    <ul class="AGE">
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/skin-1.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.Skin.Skin1")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.SkinA" (ngModelChange)="changeMyLikes('SkinA')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/skin-2.png">
+                                    <label>
+                                        <span style="font-size: 20px;">
+                                            <div [innerHTML]="getTranslate('Members.Profile.EditLikes.Skin.Skin2') | safeHtml"></div>
+                                        </span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.SkinB" (ngModelChange)="changeMyLikes('SkinB')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/skin-3.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.Skin.Skin3")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.SkinC" (ngModelChange)="changeMyLikes('SkinC')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/skin-4.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.Skin.Skin4")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.SkinD" (ngModelChange)="changeMyLikes('SkinD')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/skin-5.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.Skin.Skin5")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.SkinE" (ngModelChange)="changeMyLikes('SkinE')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-container">
+                    <div class="fake-padding"></div>
+                    <img class="up" (click)="upPage()" src="assets/img-2/profile/arrow-up.png">
+                    <img class="down" (click)="downPage()" src="assets/img-2/profile/arrow-down.png">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isActive==3" [@slideInOut] style="height: calc(100% - 30px);">
+            <div class="el-category stretch">
+                <div>
+                    <div class="category-header-warp">
+                        <img class="index-img" src="assets/img-2/profile/index-bg.png">
+                        <div class="index">4</div>
+                        <div class="title">
+                            {{getTranslate("Members.Profile.EditLikes.Height.Title")}}
+                        </div>
+                    </div>
+                    <img class="bg-img" src="assets/img-2/profile/orange-bg.png">
+                    <ul class="AGE">
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/height-1.png">
+                                    <label>
+                                        <span style="font-size: 18px">
+                                            <div [innerHTML]="getTranslate('Members.Profile.EditLikes.Height.Height1') | safeHtml"></div>
+                                        </span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HeightA" (ngModelChange)="changeMyLikes('HeightA')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/height-2.png">
+                                    <label>
+                                        <span style="font-size: 18px">
+                                            <div [innerHTML]="getTranslate('Members.Profile.EditLikes.Height.Height2') | safeHtml"></div>
+                                        </span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HeightB" (ngModelChange)="changeMyLikes('HeightB')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/height-3.png">
+                                    <label>
+                                        <span style="font-size: 18px">
+                                            <div [innerHTML]="getTranslate('Members.Profile.EditLikes.Height.Height3') | safeHtml"></div>
+                                        </span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HeightC" (ngModelChange)="changeMyLikes('HeightC')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/height-4.png">
+                                    <label>
+                                        <span style="font-size: 18px">
+                                            <div [innerHTML]="getTranslate('Members.Profile.EditLikes.Height.Height4') | safeHtml"></div>
+                                        </span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HeightD" (ngModelChange)="changeMyLikes('HeightD')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/height-5.png">
+                                    <label>
+                                        <span style="font-size: 18px">
+                                            <div [innerHTML]="getTranslate('Members.Profile.EditLikes.Height.Height5') | safeHtml"></div>
+                                        </span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HeightE" (ngModelChange)="changeMyLikes('HeightE')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-container">
+                    <div class="fake-padding"></div>
+                    <img class="up" (click)="upPage()" src="assets/img-2/profile/arrow-up.png">
+                    <img class="down" (click)="downPage()" src="assets/img-2/profile/arrow-down.png">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isActive==4" [@slideInOut] style="height: calc(100% - 30px);">
+            <div class="el-category stretch">
+                <div>
+                    <div class="category-header-warp">
+                        <img class="index-img" src="assets/img-2/profile/index-bg.png">
+                        <div class="index">5</div>
+                        <div class="title">
+                            {{getTranslate("Members.Profile.EditLikes.HairColor.Title")}}
+                        </div>
+                    </div>
+                    <img class="bg-img" src="assets/img-2/profile/purple-bg.png">
+                    <ul class="AGE">
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/hair-color-1.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.HairColor.HairColor1")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HairA" (ngModelChange)="changeMyLikes('HairA')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/hair-color-2.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.HairColor.HairColor2")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HairB" (ngModelChange)="changeMyLikes('HairB')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/hair-color-3.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.HairColor.HairColor3")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HairC" (ngModelChange)="changeMyLikes('HairC')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/hair-color-4.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.HairColor.HairColor4")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HairD" (ngModelChange)="changeMyLikes('HairD')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/hair-color-5.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.HairColor.HairColor5")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.HairE" (ngModelChange)="changeMyLikes('HairE')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-container">
+                    <div class="fake-padding"></div>
+                    <img class="up" (click)="upPage()" src="assets/img-2/profile/arrow-up.png">
+                    <img class="down" (click)="downPage()" src="assets/img-2/profile/arrow-down.png">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isActive==5" [@slideInOut] style="height: calc(100% - 30px);">
+            <div class="el-category stretch">
+                <div>
+                    <div class="category-header-warp">
+                        <img class="index-img" src="assets/img-2/profile/index-bg.png">
+                        <div class="index">5</div>
+                        <div class="title">
+                            {{getTranslate("Members.Profile.EditLikes.Breast.Title")}}
+                        </div>
+                    </div>
+                    <img class="bg-img" src="assets/img-2/profile/red-bg.png">
+                    <ul class="AGE">
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/breast-1.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.Breast.Breast1")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BreastA" (ngModelChange)="changeMyLikes('BreastA')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/breast-2.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.Breast.Breast2")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BreastB" (ngModelChange)="changeMyLikes('BreastB')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/breast-3.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.Breast.Breast3")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BreastC" (ngModelChange)="changeMyLikes('BreastC')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/breast-4.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.Breast.Breast4")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BreastD" (ngModelChange)="changeMyLikes('BreastD')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="el-option">
+                                <div class="image-wrapper">
+                                    <img src="assets/img-2/profile/breast-5.png">
+                                    <label>
+                                        <span>{{getTranslate("Members.Profile.EditLikes.Breast.Breast5")}}</span>
+                                    </label>
+                                </div>
+                                <mat-radio-group *ngIf="mylikesData" [(ngModel)]="mylikesData.BreastE" (ngModelChange)="changeMyLikes('BreastE')">
+                                    <mat-radio-button *ngFor="let mylike of myLikes" color="primary"
+                                        class="occupation-radio" [value]="mylike.id">{{mylike.name}}</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-container">
+                    <div class="fake-padding"></div>
+                    <img class="up" (click)="upPage()" src="assets/img-2/profile/arrow-up.png">
+                    <img class="down" (click)="downPage()" src="assets/img-2/profile/arrow-down.png">
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isActive==6" class="finish-div" [@slideInOut] style="height: calc(100% - 30px);">
+            <div class="el-category">
+                <div>
+                    <div class="finish-row" style="margin-top: 20px;">
+                        <div class="finish-profile-photo">
+                            <div class="photo-luna">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="finish-row">
+                        <h2 class="text1">{{getTranslate("Members.Profile.EditLikes.Finish.WeAreDoneHere")}}</h2>
+                    </div>
+                    <div class="finish-row">
+                        <h2 class="text2">
+                            <div [innerHTML]="getTranslateWithName('Members.Profile.EditLikes.Finish.Body') | safeHtml"></div>
+                        </h2>
+                    </div>
+                    <div class="finish-row">
+                        <div class="button-go-to-browse" [routerLink]="['/member/browse/near']">
+                            <h2>{{getTranslate("Members.Profile.EditLikes.Finish.ButtonText")}}</h2>
+                            <i></i>
+                        </div>
+                    </div>
+                    <div class="finish-row"></div>
+                </div>
+                <div class="nav-container">
+                    <div class="fake-padding"></div>
+                    <img class="up" (click)="upPage()" src="assets/img-2/profile/arrow-up.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

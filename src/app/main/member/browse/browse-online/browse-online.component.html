@@ -1,0 +1,209 @@
+<div *ngIf="!isLoading" class="view-container animation">
+    <div class="slide view-frame">
+        <div class="BrowsePage col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="animate-switch-container col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding" style="cursor: auto;">
+                <div class="animate-switch">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 container-browse">
+                        <div class="browse-filter-bars" [ngClass]="isSearch ? 'closeSearch' : 'filterBars'" (click)="openSearch()"></div>
+                        <div id="searchFilterContainer" *ngIf="isSearch">
+                            <div class="Browse-filter">
+                                <div class="Search-by-criteria">
+                                    <div class="Search-by-criteria-box tab1" [ngClass]="isCriteria ? 'active' : ''" (click)="goToCriteria()">
+                                        <img style="position: absolute; top: 11px; left: 19px" src="assets/img-2/browse/filter_icon.png">
+                                        <h2 style="font-size: 16px; color: #59247E; line-height: 45px; text-align: center; margin: 0 45px; padding-left: 19px">
+                                            Search by criteria
+                                        </h2>
+                                    </div>
+                                    <div class="search-by-username tab1" [ngClass]="!isCriteria ? 'active' : ''" (click)="goToSearchByName()">
+                                        <h2>Search By Name</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="SearchField" class="no-popup" *ngIf="isCriteria">
+                                <div class="row1">
+                                    <div class="columns left">
+                                        <form style="margin: 7px 0px;">
+                                            <mat-icon class="field-country material-icons"></mat-icon>
+                                            <mat-form-field style="float: left; width: calc(100% - 25px);">
+                                                <input type="text" class="country-input" placeholder="Country" aria-label="Number" matInput [formControl]="country" [matAutocomplete]="auto">
+                                                <button *ngIf="isRowOneClear" style="border: none; background: transparent; position: absolute; right: 0; bottom: 1px; z-index: 10;" (click)="clearCountryText()">
+                                                    <mat-icon>close</mat-icon>
+                                                </button>
+                                                <mat-autocomplete #auto="matAutocomplete">
+                                                    <mat-option *ngFor="let filterCountry of filterCountries | async" [value]="filterCountry.CountryName">
+                                                        {{filterCountry.CountryName}}
+                                                    </mat-option>
+                                                </mat-autocomplete>
+                                            </mat-form-field>
+                                        </form>
+                                    </div>
+                                    <div class="columns right">
+                                        <mat-icon class="field-age material-icons"></mat-icon>
+                                        <span class="label-age">From Age</span>
+                                        <mat-form-field style="width: 100%; text-align: right; width: 100%; text-align: right; margin: 7px 0px;">
+                                            <mat-select [(ngModel)]="fromAge" ngDefaultControl>
+                                                <mat-option *ngFor="let age of fromAgeValue;" [value]="age">
+                                                    {{age}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row2">
+                                    <div class="columns left">
+                                        <form style="margin: 7px 0px;">
+                                            <mat-icon class="field-city material-icons"></mat-icon>
+                                            <mat-form-field style="float: left; width: calc(100% - 25px);">
+                                                <input (keyup)="GetCitiesAndZip($event.target.value)" type="text" placeholder="City" matInput [formControl]="city" class="city-input" [matAutocomplete]="auto2">
+                                                <button *ngIf="isRowTwoClear" style="border: none; background: transparent; position: absolute; right: 0; bottom: 1px; z-index: 10;" (click)="clearCityText()">
+                                                    <mat-icon>close</mat-icon>
+                                                </button>
+                                                <mat-autocomplete #auto2="matAutocomplete">
+                                                    <mat-option *ngFor="let filterCity of filterCities | async" [value]="filterCity">
+                                                        {{filterCity}}
+                                                    </mat-option>
+                                                </mat-autocomplete>
+                                            </mat-form-field>
+                                        </form>
+                                    </div>
+                                    <div class="columns right">
+                                        <mat-icon class="field-age material-icons"></mat-icon>
+                                        <span class="label-age">From Age</span>
+                                        <mat-form-field style="width: 100%; text-align: right; width: 100%; text-align: right; margin: 7px 0px;">
+                                            <mat-select [(ngModel)]="toAge" ngDefaultControl>
+                                                <mat-option *ngFor="let age of fromAgeValue;" [value]="age">
+                                                    {{age}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="row range-slider">
+                                        <div class="col-sm-12 social-icon-slider">
+                                            <img src="assets/img-2/browse/Social-icon.png" style="height: 40px; width: auto;">
+                                            <span class="social-icon-slider-title">
+                                                Social Status
+                                            </span>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            <p class="from_slider_txt">From</p>
+                                        </div>
+                                        <ng5-slider class="col-sm-10 social-range" [(value)]="socialMinValue" [(highValue)]="socialMaxValue" [options]="options"></ng5-slider>
+                                        <div class="col-sm-1">
+                                            <p class="to_slider_txt">
+                                                To
+                                            </p>
+                                        </div>
+                                        <div class="flex-container" id="flex-container">
+                                            <div class="div-normal col-sm-2">
+                                                <img src="assets/img-2/browse/Normal.png" style="width: auto; height: 50px;">
+                                                <span class="social-text">Normal</span>
+                                            </div>
+                                            <div class="div-star" id="div-star">
+                                                <div class="div-social-content">
+                                                    <img src="assets/img-2/browse/Star.png" style="width: auto; height: 50px;">
+                                                    <span class="social-text">Star</span>
+                                                </div>
+                                            </div>
+                                            <div class="div-diamond" id="div-diamond">
+                                                <div class="div-social-content">
+                                                    <img src="assets/img-2/browse/Diamond.png" style="width: auto; height: 50px;">
+                                                    <span class="social-text">Diamond</span>
+                                                </div>
+                                            </div>
+                                            <div class="div-prince" id="div-prince">
+                                                <div class="div-social-content">
+                                                    <img src="assets/img-2/browse/Princess.png" style="width: auto; height: 50px;">
+                                                    <span class="social-text">Princess</span>
+                                                </div>
+                                            </div>
+                                            <div class="div-queen" id="div-queen">
+                                                <div class="div-social-content">
+                                                    <img src="assets/img-2/browse/Princess.png" style="width: auto; height: 50px;">
+                                                    <span class="social-text">Queen</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row3">
+                                    <div class="button-search" (click)="getCriteriaSearch()">
+                                        <h2> Search </h2>
+                                    </div>
+                                    <div class="clear-search-filter" (click)="getDefaultValues()">
+                                        <h2> Clear all </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-search-by-username" id="tabSearchByUsername" *ngIf="!isCriteria">
+                                <div class="Search-box">
+                                    <div style="width: 100%; max-width: 472px; position: relative; margin: 0 auto; height: 100%;">
+                                        <div id="search">
+                                            <button id="button" (click)="clearNameText()" [ngClass]="isNameText ? 'on' : 'off'" class="off">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                            <input id="input" (keyup)="inputText($event.target.value)" [(ngModel)]="nameSearch" placeholder="Search">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row3">
+                                    <div class="button-search" (click)="searchMemberByName()">
+                                        <h2>Search</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrap-browse" *ngIf="profileInfo">
+                            <div class="browse-all">
+                                <div class="browse-all-header">
+                                    <div class="left">
+                                        <h2>{{profileInfo.Header.Title}}</h2>
+                                        <p>{{profileInfo.Header.SubTitle}}</p>
+                                    </div>
+                                </div>
+                                <div class="virtual-repeat-container" style="height: 767px" infiniteScroll [scrollWindow]="false" [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+                                    <div class="md-virtual-repeat-offsetter" style="transform: translateY(0px);">
+                                        <div class="row" style="margin: 0;" *ngIf="profiles.length > 0">
+                                            <div class="browse-card" *ngFor="let profile of profiles">
+                                                <app-browse-profile-card [profile]="profile"></app-browse-profile-card>
+                                            </div>
+                                            <div class="browse-card">
+                                                <div class="ContinueGlobalCardItem" id="ContinueGlobalCardItem">
+                                                    <div [@flipState]="flip" (click)="searchNewWorldMember()" class="rotator" id="ContinueGlobalCardItemRotator">
+                                                        <div class="front layer">
+                                                            <img src="assets/img-2/browse/ContinueGlobal-front.jpg">
+                                                        </div>
+                                                        <div class="back layer">
+                                                            <img src="assets/img-2/browse/ContinueGlobal-back.jpg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="isFinish" class="browse-card">
+                                                <div style="height: 225px; width: inherit; background: url(assets/img-2/browse/categoryEndRecordsWhite.png) no-repeat 24px 70px;"></div>
+                                                <div style="font-size: 25px; font-weight: 500; color: #717171; margin: 0; text-align: center; vertical-align: sub; height: 45px; display: table-cell; line-height: 20px; width: 200px;">
+                                                    FINISH
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="empty-browse" *ngIf="profiles.length == 0">
+                                <div class="empty-browse-inner">
+                                    <img src="assets/img-2/browse/empty-man.png">
+                                    <h2>
+                                        <b>MEMBERS</b> NOT FOUND
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

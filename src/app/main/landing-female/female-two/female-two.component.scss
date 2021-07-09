@@ -1,0 +1,238 @@
+.female-section-2 {
+    .female-section-2-background {
+        background-image: url(/assets/img-2/female/femalesection-2-bg.jpg);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: left;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: top;
+        object-position: top;
+        font-family: "object-fit: cover; object-position: top;";
+    }
+
+    .top-ribbon-animation {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: fade-in;
+    }
+
+    .top-ribbon {
+        position: absolute;
+        top: 11.11vmin;
+        left: 0;
+        right: 0;
+        background-color: rgba(64, 12, 63, 0.4);
+    }
+
+    .top-ribbon {
+        top: 13.33vmin;
+        padding: 10px;
+        text-align: center;
+
+    }
+
+    .face-circles-wrapper {
+        left: 0;
+        right: 0;
+        width: 67vmin;
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        margin: auto;
+        top: calc((var(--vh, 1vh) * 22) + 40px);
+
+        .face-circles-inner {
+            width: 100%;
+            height: 100%;
+
+            .face-circle {
+                position: absolute;
+                -webkit-transition: top 1s, left 1s;
+                transition: top 1s, left 1s;
+            }
+
+            .face-circle._1 {
+                width: 13.55vmin;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: reveal-from-center;
+            }
+
+            .face-circle._2 {
+                width: 16vmin;
+                top: 5.11vmin;
+                left: 10.11vmin;
+                z-index: 1;
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: reveal-from-center;
+            }
+
+            .face-circle._3 {
+                top: -4.66vmin;
+                left: 21.11vmin;
+                width: 21.77vmin;
+                z-index: 4;
+                opacity: 1 !important;
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: fade-in;
+            }
+
+            .face-circle._4 {
+                top: -3.11vmin;
+                width: 14.44vmin;
+                left: 37.88vmin;
+                z-index: 3;
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: reveal-from-center;
+            }
+
+            .face-circle._5 {
+                top: 0.22vmin;
+                left: 46.66vmin;
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: reveal-from-center;
+            }
+
+            .face-circle._6 {
+                top: 10vmin;
+                left: 33.11vmin;
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: reveal-from-center;
+            }
+        }
+    }
+
+    .purple-box {
+        width: 70vmin;
+        bottom: 110px;
+        margin: auto;
+        top: initial;
+        padding-right: 1%;
+        padding-left: 1%;
+    }
+
+    .purple-box {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: fade-in;
+    }
+
+    .purple-box {
+        text-align: center;
+        background-color: rgba(86, 8, 85, 0.7);
+        border-radius: 10px;
+
+        .unbelievable {
+            margin-top: 3.3vmin !important;
+            -webkit-animation-delay: 0s, 2s;
+            animation-delay: 0s, 2s;
+        }
+
+        .unbelievable {
+            animation-duration: 1s;
+            animation-delay: 0s;
+            animation-name: fade-in;
+
+        }
+    }
+}
+
+:host ::ng-deep h3 {
+    text-shadow: 0 0 10px #160621;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: #fff;
+    margin: 0;
+}
+
+:host ::ng-deep h3 {
+    font-size: 35px;
+    line-height: 35px;
+    font-size: 3.88vmin;
+    line-height: 3.88vmin;
+}
+
+:host ::ng-deep h3 {
+    font-weight: 500;
+    margin-bottom: 1vmin;
+    font-size: 25px;
+}
+
+:host ::ng-deep h5 {
+    text-shadow: 0 0 10px #160621;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: #fff;
+    margin: 0;
+}
+
+:host ::ng-deep h5 {
+    margin-bottom: 0.5%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
+:host ::ng-deep h1 {
+    text-shadow: 0 0 10px #160621;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: #fff;
+    margin: 0;
+}
+
+:host ::ng-deep h1 {
+    font-size: 72px;
+    line-height: 72px;
+    font-size: 8vmin;
+    line-height: 8vmin;
+}
+
+:host ::ng-deep h1 {
+    font-weight: 400;
+    margin-top: -1.1vmin;
+    font-family: Open Sans, sans-serif;
+}
+
+:host ::ng-deep h4 {
+    text-shadow: 0 0 10px #160621;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: #fff;
+    margin: 0;
+}
+
+:host ::ng-deep h4 {
+    font-weight: 400;
+    margin-top: 1.1vmin;
+    font-size: 16px;
+    line-height: 15px;
+    font-family: inherit;
+}   
+
+:host ::ng-deep h6 {
+    text-shadow: 0 0 10px #160621;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: #fff;
+    margin: 0;
+}
+
+:host ::ng-deep h6 {
+    font-weight: 100;
+    margin-top: 1.1vmin;
+    font-style: italic;
+    margin-bottom: 4%;
+    font-size: 14px;
+    line-height: 12px;
+}

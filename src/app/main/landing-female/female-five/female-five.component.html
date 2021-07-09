@@ -1,0 +1,255 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div class="female-section-5 wrapper stretch">
+    <div class="section image wrapper stretch">
+        <div class="female-section-5-background"></div>
+    </div>
+    <div class="section content stretch" id="desktop">
+       <div class="top-ribbon">
+          <h2 class="uppercase" >
+              <div [innerHTML]="TopRibbonContent"></div>
+          </h2>
+       </div>
+       <div class="what-find purple-box stretch">
+          <ul>
+             <li class="clearfix">
+                <img src="assets/img-2/female/beautiful.png"/>
+                <div class="description">
+                   <h6 class="main">{{PerfectTitle}}</h6>
+                   <p class="note" >{{PerfectDescription}}</p>
+                </div>
+             </li>
+             <li class="clearfix">
+                <img src="assets/img-2/female/no1.png"/>
+                <div class="description">
+                   <h6 class="main" >{{FreeTitle}}</h6>
+                   <p class="note" >{{FreeDescription}}</p>
+                </div>
+             </li>
+             <li class="clearfix">
+                <img src="assets/img-2/female/strong.png"/>
+                <div class="description">
+                   <h6 class="main" >{{AppreciateTitle}} </h6>
+                   <p class="note" >{{AppreciateDescription}}</p>
+                </div>
+             </li>
+             <li class="clearfix">
+                <img src="assets/img-2/female/drinks.png"/>
+                <div class="description">
+                   <h6 class="main">{{FunTitle}}</h6>
+                   <p class="note">{{FunDescription}}</p>
+                </div>
+             </li>
+             <li class="clearfix">
+                <img src="assets/img-2/female/friends.png"/>
+                <div class="description">
+                   <h6 class="main" >{{UniqueTitle}}</h6>
+                   <p class="note" >{{UniqueDescription}}</p>
+                </div>
+             </li>
+          </ul>
+          <ul>
+             <li class="clearfix">
+                <img src="assets/img-2/female/hands.png"/>
+                <div class="description">
+                   <h6 class="main" >{{JealousyTitle}}</h6>
+                   <p class="note" >
+                    {{JealousyDescription}}
+                   </p>
+                </div>
+             </li>
+             <li class="clearfix">
+                <img src="assets/img-2/female/legal.png"/>
+                <div class="description">
+                   <h6 class="main" >{{DecideTitle}}</h6>
+                   <p class="note" >{{DecideDescription}}</p>
+                </div>
+             </li>
+             <li class="clearfix">
+                <img src="assets/img-2/female/bird.png"/>
+                <div class="description">
+                   <h6 class="main" >{{FriendsTitle}}</h6>
+                   <p class="note" >{{FriendsDescription}} </p>
+                </div>
+             </li>
+             <li class="clearfix">
+                <img src="assets/img-2/female/girl.png"/>
+                <div class="description">
+                   <h6 class="main" >{{StrongerTitle}}</h6>
+                   <p class="note" >{{StrongerDescription}}</p>
+                </div>
+             </li>
+             <li class="clearfix">
+                <img src="assets/img-2/female/love.png"/>
+                <div class="description">
+                   <h6 class="main" >{{CareTitle}}</h6>
+                   <p class="note" >{{CareDescription}}</p>
+                </div>
+             </li>
+          </ul>
+       </div>
+    </div>
+    <!-- <div class="section content stretch" id="mobile">
+        <div class="top-ribbon">
+            <h2 class="uppercase">
+                RULES OF <b>LUNONA</b>
+            </h2>
+        </div>
+        <div class="what-find purple-box stretch">
+            <ul>
+                <li>
+                    <div ng-click="showHide(1)" class="row page5accord">
+                        <div class="flex-item flex-img">
+                            <img class="sec-5-accord-img" src="public/img/male/gift-mobile.png" />
+                        </div>
+
+                        <div class="flex-item flex-title">
+                            <h5 class="sec-5-accord-heading">All women love presents</h5>
+                        </div>
+                        <div class="flex-item flex-arrow">
+                            <img class="sec-5-accord-arrow-img" src="public/img/{{arrow1}}">
+                        </div>
+                    </div>
+                    <div class="row accord-sec-5" style="display:none;" id="div1">
+                        <div class="expand-info">
+                            <h6 class="sec-5-accord-desc">You should always surpise her with a little gift on every
+                                single date, even a flower at least. </h6>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div ng-click="showHide(2)" class="row page5accord">
+                        <div class="flex-item flex-img">
+                            <img class="sec-5-accord-img" src="public/img/male/love-mobile.png" />
+                        </div>
+                        <div class="flex-item flex-title">
+                            <h5 class="sec-5-accord-heading">Be sensitive and tender </h5>
+                        </div>
+                        <div class="flex-item flex-arrow">
+                            <img class="sec-5-accord-arrow-img" src="public/img/{{arrow2}}">
+                        </div>
+                    </div>
+                    <div class="row accord-sec-5" style="display:none;" id="div2">
+                        <div class="expand-info">
+                            <h6 class="sec-5-accord-desc">Be sweet and tender to her, and sensitive to her needs, but at
+                                the same time stay strong and determined. </h6>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div ng-click="showHide(3)" class="row page5accord">
+                        <div class="flex-item flex-img">
+                            <img class="sec-5-accord-img" src="public/img/male/speak-mobile.png" />
+                        </div>
+                        <div class="flex-item flex-title">
+                            <h5 class="sec-5-accord-heading">Speak to her kindly</h5>
+                        </div>
+                        <div class="flex-item flex-arrow">
+                            <img class="sec-5-accord-arrow-img" src="public/img/{{arrow3}}">
+                        </div>
+                    </div>
+                    <div class="row accord-sec-5" style="display:none;" id="div3">
+                        <div class="expand-info">
+                            <h6 class="sec-5-accord-desc">Be careful when you talk to her and never use words that could
+                                embarrass her. Instead, speak words that will keep her spirit high.</h6>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div ng-click="showHide(4)" class="row page5accord">
+                        <div class="flex-item flex-img">
+                            <img class="sec-5-accord-img" src="public/img/male/solution-mobile.png" />
+                        </div>
+                        <div class="flex-item flex-title">
+                            <h5 class="sec-5-accord-heading">Be the solution to her problems</h5>
+                        </div>
+                        <div class="flex-item flex-arrow">
+                            <img class="sec-5-accord-arrow-img" src="public/img/{{arrow4}}">
+                        </div>
+                    </div>
+                    <div class="row accord-sec-5" style="display:none;" id="div4">
+                        <div class="expand-info">
+                            <h6 class="sec-5-accord-desc">Always lend a helping hand and try to solve her problems.
+                                Women appreciate highly that.</h6>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div ng-click="showHide(5)" class="row page5accord">
+                        <div class="flex-item flex-img">
+                            <img class="sec-5-accord-img" src="public/img/male/crown-mobile.png" />
+                        </div>
+                        <div class="flex-item flex-title">
+                            <h5 class="sec-5-accord-heading">Every woman is a princess </h5>
+                        </div>
+                        <div class="flex-item flex-arrow">
+                            <img class="sec-5-accord-arrow-img" src="public/img/{{arrow5}}">
+                        </div>
+                    </div>
+                    <div class="row accord-sec-5" style="display:none;" id="div5">
+                        <div class="expand-info">
+                            <h6 class="sec-5-accord-desc">Make her feel like a princess. Every girl yearns for that and
+                                she will definitely do her best to return the compliment...</h6>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div ng-click="showHide(7)" class="row page5accord">
+                        <div class="flex-item flex-img">
+                            <img class="sec-5-accord-img" src="public/img/male/pay-mobile.png" />
+                        </div>
+                        <div class="flex-item flex-title">
+                            <h5 class="sec-5-accord-heading">A woman never pays </h5>
+                        </div>
+                        <div class="flex-item flex-arrow">
+                            <img class="sec-5-accord-arrow-img" src="public/img/{{arrow7}}">
+                        </div>
+                    </div>
+                    <div class="row accord-sec-5" style="display:none;" id="div7">
+                        <div class="expand-info">
+                            <h6 class="sec-5-accord-desc">Now, that’s a rule. Never allow a woman to pay the bill
+                                wherever you are having fun together. </h6>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div ng-click="showHide(8)" class="row page5accord">
+                        <div class="flex-item flex-img">
+                            <img class="sec-5-accord-img" src="public/img/male/for-yo-mobile.png" />
+                        </div>
+                        <div class="flex-item flex-title">
+                            <h5 class="sec-5-accord-heading">Always be impeccable </h5>
+                        </div>
+                        <div class="flex-item flex-arrow">
+                            <img class="sec-5-accord-arrow-img" src="public/img/{{arrow8}}">
+                        </div>
+                    </div>
+                    <div class="row accord-sec-5" style="display:none;" id="div8">
+                        <div class="expand-info">
+                            <h6 class="sec-5-accord-desc">Take good care of your appearance and always have your perfume
+                                with you.</h6>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div ng-click="showHide(9)" class="row page5accord">
+                        <div class="flex-item flex-img">
+                            <img class="sec-5-accord-img" src="public/img/male/strong-mobile.png" />
+                        </div>
+                        <div class="flex-item flex-title">
+                            <h5 class="sec-5-accord-heading">Be decisive and strong</h5>
+                        </div>
+                        <div class="flex-item flex-arrow">
+                            <img class="sec-5-accord-arrow-img" src="public/img/{{arrow9}}">
+                        </div>
+                    </div>
+                    <div class="row accord-sec-5" style="display:none;" id="div9">
+                        <div class="expand-info">
+                            <h6 class="sec-5-accord-desc">Be decisive and strong</h6>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div> -->
+</div>
+<app-landing-female-footer #landingFemaleFooter></app-landing-female-footer>

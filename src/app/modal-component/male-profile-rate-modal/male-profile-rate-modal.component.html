@@ -1,0 +1,120 @@
+<div class="dialog-rate-container">
+    <div class="dialog-rate-wrap">
+        <div class="dialog-rate">
+            <div class="rate-dialog-col-1">
+                <div class="rate-row rate-dialog-img">
+                    <img [src]="memberPhoto"
+                        class="ProfileImage switch-left">
+                    <img src="assets/img-2/profile/shadow.png"
+                        style="margin-top: 395px; position: absolute; display: block; left: -12px; z-index: 0; height: 86px;">
+                </div>
+                <div class="rate-row rate-dialog-luna-and-devil">
+                    <div class="rate-dialog-luna">
+                        <div class="rate-dialog-luna-and-devil-img">
+                            <img class="suggest-from-luna-img" src="assets/img-2/profile/luna.png">
+                            <span class="suggest-from-luna-caption">Luna</span>
+                        </div>
+                        <div class="chat_inc_txt">
+                            <span id="TOLOGINNAME1" class="bubbletext val1">
+                                The more women you rate the better we come to learn your taste!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="rate-dialog-devil">
+                        <div class="rate-dialog-luna-and-devil-img">
+                            <img class="suggest-from-luna-img" src="assets/img-2/profile/devil.png">
+                            <span class="suggest-from-luna-caption">Devil</span>
+                        </div>
+                        <div class="chat_inc_txt">
+                            <span id="TOLOGINNAME" class="bubbletext val2">
+                                Veronika_Ottis can't see personally the rate you gave her. However, your rate influences
+                                her index of performance! Therefore, it is important to rate her fairly.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rate-dialog-col-2">
+                <div class="outer-close">
+                    <div class="rate-row rate-close" [mat-dialog-close]="''">
+                        <span class="close-icons"></span>
+                    </div>
+                </div>
+                <div class="rate-row rate-header-text">
+                    <h2>Rate how much you like &nbsp; {{data.LoginName}}</h2>
+                    <h3>She cannot see your rating</h3>
+                </div>
+                <div style="background: #FFF; width: 100%; height: 74%; position: static;">
+                    <div class="ratingboxes">
+                        <mat-radio-group [(ngModel)]="ratingValue" aria-label="Select an option">
+                            <mat-radio-button color="primary" [value]="6" class="ratingbox ratingbox1 md-primary">
+                                <div class="raido-label">
+                                    <h3>Ideal</h3>
+                                    <span>
+                                        She drives you crazy! She is the one that you want!
+                                    </span>
+                                </div>
+                            </mat-radio-button>
+                            <mat-radio-button color="primary" [value]="5" class="ratingbox ratingbox2 md-primary">
+                                <div class="raido-label">
+                                    <h3>Hot</h3>
+                                    <span>
+                                        Really hot stuff...
+                                    </span>
+                                </div>
+                            </mat-radio-button>
+                            <mat-radio-button color="primary" [value]="4" class="ratingbox ratingbox3 md-primary">
+                                <div class="raido-label">
+                                    <h3>Good</h3>
+                                    <span>
+                                        Nothing special. You would just go out for a date...
+                                    </span>
+                                </div>
+                            </mat-radio-button>
+                            <mat-radio-button color="primary" [value]="3" class="ratingbox ratingbox4 md-primary">
+                                <div class="raido-label">
+                                    <h3>So-So</h3>
+                                    <span>
+                                        Nice but ordinary
+                                    </span>
+                                </div>
+                            </mat-radio-button>
+                            <mat-radio-button color="primary" [value]="2" class="ratingbox ratingbox5 md-primary">
+                                <div class="raido-label">
+                                    <h3>Meh... Borinig</h3>
+                                    <span>
+                                        Ugly, she is not suitable for you
+                                    </span>
+                                </div>
+                            </mat-radio-button>
+                            <mat-radio-button color="primary" [value]="1" class="ratingbox ratingbox6 md-primary">
+                                <div class="raido-label">
+                                    <h3>Ugly</h3>
+                                    <span>
+                                        Very ugly
+                                    </span>
+                                </div>
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+                <div class="col-2-footer">
+                    <div style="position: relative; bottom: -22px; right: 4px;">
+                        <div class="dialog-action right10px" style="float: right; padding-left: 0; padding-right: 1px;">
+                            <button (click)="setRate()" class="md-raised rate-done md-button md-ink-ripple">
+                                <span>Done</span>
+                                <i></i>
+                            </button>
+                        </div>
+                        <div class="dialog-action right10px" style="float: right; padding-right: 0; margin-right: 2px;">
+                            <button [mat-dialog-close]="''" class="md-raised md-primary rate-footer-cancel md-button md-ink-ripple"
+                                style="background: #edeff2;">
+                                <span>Cancel</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

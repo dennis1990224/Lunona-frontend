@@ -1,0 +1,67 @@
+<div class="main wrapper lookingFor">
+    <div class="top wrapper">
+        <div class="top title">
+            <span class="ng-binding">Notification Settings</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div *ngIf="modalName == 'message'" class="content wrapper">
+        <p>When I receive a new message</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isReceive" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isReceive ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2></h2>
+    </div>
+    <div *ngIf="modalName == 'kisses'" class="content wrapper">
+        <p>When I receive kisses</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isKisses" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isKisses ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2></h2>
+    </div>
+    <div *ngIf="modalName == 'rate'" class="content wrapper">
+        <p>When I receive a new rate</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isRate" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isRate ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2></h2>
+    </div>
+    <div *ngIf="modalName == 'nearyBy'" class="content wrapper">
+        <p>When I receive a new rate</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isNearBy" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isNearBy ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2></h2>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updatePrivacyNotificationSetting(modalName)">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

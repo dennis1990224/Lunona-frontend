@@ -1,0 +1,71 @@
+<div *ngIf="modalName == 'travel'" class="travel main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon travel"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">More Settings</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <div class="flex-wrapper stretch">
+            <div class="travel-wrapper">
+                <div class="travel">
+                    <div (click)="removeCountry(selectedCountry, i)" class="remove btn"
+                        *ngFor="let selectedCountry of selectedCountries; let i=index">
+                        <div *ngIf="selectedCountries.length > 1" class="icon"></div>
+                        {{selectedCountry.Title}}
+                    </div>
+                </div>
+            </div>
+            <div class="not-travel-wrapper">
+                <div class="not-travel">
+                    <div (click)="addCountry(country, i)"
+                        *ngFor="let country of countries; let i=index" class="add btn">
+                        <div class="icon"></div>
+                        {{country.Title}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateTravelInfo()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+<div *ngIf="modalName == 'otherCountry'" class="otherCountry main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+           
+        </div>
+        <div class="top title">
+            <span class="ng-binding">More Settings</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <p>I wouldn't like to talk with women from other countries</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isTravel" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isTravel ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2></h2> 
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateOtherCountry()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

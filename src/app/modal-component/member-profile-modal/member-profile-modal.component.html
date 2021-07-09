@@ -1,0 +1,399 @@
+<div class="view-profile layout-align-start-stretch" style="max-width: 1920px;">
+    <div class="view-profile-wrap">
+        <div class="preview-profile-header">
+            <div class="preview-profile-header-first-child">
+                <div class="header-information-icons-codes">
+                    <div class="header-informations-icons" *ngIf="profileInfo">
+                        <div class="item" *ngFor="let item of profileInfo.Icons">
+                            <img src='assets/img-2/profile/browse_{{item.TAGID}}.png'>
+                        </div>
+                    </div>
+                </div>
+                <div class="close-icons" [mat-dialog-close]="''">
+                    <div class="rate-row">
+                        <span class="ok"></span>
+                    </div>
+                </div>
+                <div class="ng-scope" [matMenuTriggerFor]="beforeMenu">
+                    <div class="profile-settings settings">
+                        <button class="md-icon-button profile-settings-icon md-button md-ink-ripple"></button>
+                    </div>
+                </div>
+                <mat-menu #beforeMenu="matMenu" xPosition="before" yPosition="below">
+                    <button mat-menu-item>
+                        <img src="assets/img-2/conversation/key_icon_pop.png">
+                        Photos Access Settings
+                    </button>
+                    <button mat-menu-item (click)="blockUser()">
+                        <i class="block-icon"></i>
+                        Block this user
+                    </button>
+                </mat-menu>
+                <div class="view-profile-in-header-dialog">
+                    <img src="assets/img-2/profile/logo_white.png">
+                </div>
+            </div>
+            <div class="view-profile-cover">
+                <div class="view-profile-cover-filter">
+                    <img class="normal" src="assets/img-2/members/default-cover-Man.jpg">
+                    <img class="blur" src="assets/img-2/members/default-cover-Man.jpg">
+                    <div class="profile-preview-header-info-wrap">
+                        <div class="profile-img-preview" *ngIf="profileInfo">
+                            <div class="preload-image cover bing-img"
+                                [ngStyle]="{'background-image': 'url(' + profileInfo.ProfilePhotoBase + ')'}">
+                            </div>
+                        </div>
+                        <div class="header-information">
+                            <div class="header-information-first-options">
+                                <div class="header-information-pin isSelf" (click)="updatePin()">
+                                    <img *ngIf="profileInfo && !profileInfo.Pinned" src="assets/img-2/profile/pin-big-off.png">
+                                    <img *ngIf="profileInfo && profileInfo.Pinned" src="assets/img-2/profile/pin-big-on.png">
+                                </div>
+                                <div class="desktop-only social-level">
+                                    <div class="isSelf" *ngIf="profileInfo">
+                                        <img src='assets/img-2/profile/male/rate_{{profileInfo.SocialLevel}}.png'>
+                                    </div>
+                                </div>
+                                <div *ngIf="profileInfo" [ngClass]="profileInfo.IsOnLine==1 ? 'on' : 'off'"
+                                    class="desktop-only viewProfileOnlineState contactTrigger">
+                                    <span></span>
+                                    <h3 *ngIf="profileInfo">{{profileInfo.LastOnLineAgo}}</h3>
+                                </div>
+                            </div>
+                            <div class="header-info-col1">
+                                <span *ngIf="profileInfo">
+                                    {{profileInfo.LoginName}}
+                                    <span *ngIf="profileInfo" style="display: inline-table;">{{profileInfo.Age}}</span>
+                                </span>
+                                <div>
+                                    <p *ngIf="profileInfo">{{profileInfo.Location}}</p>
+                                </div>
+                            </div>
+                            <div class="header-info-col2">
+                                <div class="section Height" *ngIf="profileInfo && profileInfo.PersonalInfo_Height">
+                                    <div class="header-info-col2-first-row">
+                                        <span>Height</span>
+                                    </div>
+                                    <div class="header-info-col2-second-row">
+                                        <span>{{profileInfo.PersonalInfo_Height}}</span>
+                                    </div>
+                                </div>
+                                <div class="section Weight" *ngIf="profileInfo && profileInfo.PersonalInfo_Weight">
+                                    <div class="header-info-col2-first-row">
+                                        <span>Weight</span>
+                                    </div>
+                                    <div class="header-info-col2-second-row">
+                                        <span>{{profileInfo.PersonalInfo_Weight}}</span>
+                                    </div>
+                                </div>
+                                <div class="section brest-size" *ngIf="profileInfo && profileInfo.BreastSize">
+                                    <div class="header-info-col2-first-row">
+                                        <span>Bust Size</span>
+                                    </div>
+                                    <div class="header-info-col2-second-row">
+                                        <span>{{profileInfo.BreastSize}}</span>
+                                    </div>
+                                </div>
+                                <div class="section speak" style="width: 220px;"
+                                    *ngIf="profileInfo && profileInfo.SpokenLanguages">
+                                    <div class="header-info-col2-first-row">
+                                        <span>Spoken Languages</span>
+                                    </div>
+                                    <div class="header-info-col2-second-row">
+                                        <span>{{profileInfo.SpokenLanguages}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-preview-header-option" *ngIf="profileInfo">
+                    <div class="profile-preview-header-option-item rate" (click)="rateMember()">
+                        <i class="ok" [class.rate_not_initialized_x2]="profileInfo.Rate==0"
+                            [class.rate_ideal_x2]="profileInfo.Rate==6" [class.rate_hot_x2]="profileInfo.Rate==5"
+                            [class.rate_good_x2]="profileInfo.Rate==4" [class.rate_so-so_x2]="profileInfo.Rate==3"
+                            [class.rate_meh_x2]="profileInfo.Rate==2" [class.rate_ugly_x2]="profileInfo.Rate==1"></i>
+                        <div>
+                            <span class="ok">{{rate}}</span>
+                            <span>{{profileInfo.RateAgo}}</span>
+                        </div>
+                    </div>
+                    <div class="profile-preview-header-option-item winks">
+                        <i [class.on]="profileInfo.Winked"></i>
+                        <div (click)="sendWink()">
+                            <span class="ok">Kisses</span>
+                            <span>{{profileInfo.WinkedAgo}}</span>
+                        </div>
+                    </div>
+                    <div class="profile-preview-header-option-item message">
+                        <i [class.on]="isMessage"></i>
+                        <div (click)="openChat()">
+                            <span class="ok">
+                                Message
+                            </span>
+                            <span>{{profileInfo.LastMessageAgo}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view-profile-main profile-preview-tabs">
+            <mat-tab-group [ngClass]="selectedTabIndex" [(selectedIndex)]="preselectTab"
+                (selectedTabChange)="onTabChanged($event);">
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="information icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                                <path fill-rule="evenodd"
+                                    d="M24.99 50a25 25 0 1 1 .03-50 25 25 0 0 1-.03 50zm0-47.5a22.48 22.48 0 1 0 0 44.97A22.48 22.48 0 0 0 25 2.5zm4.95 35.55c-1.23.48-2.2.84-2.92 1.1a7.5 7.5 0 0 1-2.53.38 5 5 0 0 1-3.45-1.09 3.51 3.51 0 0 1-1.23-2.74c0-.44.03-.88.09-1.32.07-.51.17-1.02.29-1.52l1.53-5.41c.14-.52.25-1.01.34-1.46.09-.42.13-.85.14-1.28.05-.52-.1-1.04-.43-1.44a2.35 2.35 0 0 0-1.63-.4c-.41 0-.82.06-1.22.18l-1.06.35.4-1.66c1-.41 1.96-.76 2.88-1.05a8.48 8.48 0 0 1 2.59-.44c1.23-.08 2.44.3 3.4 1.07.79.7 1.23 1.71 1.2 2.77 0 .24-.03.65-.08 1.24a9 9 0 0 1-.3 1.63l-1.52 5.39a13.67 13.67 0 0 0-.49 2.74c-.06.53.11 1.07.48 1.46.5.31 1.08.45 1.67.39a7.18 7.18 0 0 0 2.28-.54l-.43 1.65zm-.26-21.86a3.83 3.83 0 0 1-5.14 0 3.26 3.26 0 0 1 0-4.81 3.83 3.83 0 0 1 5.14 0 3.2 3.2 0 0 1 1.06 2.41 3.2 3.2 0 0 1-1.06 2.4z"
+                                    clip-rule="evenodd" /></svg>
+                        </span>
+                        <p class="information-text"> information </p>
+                    </ng-template>
+                    <div class="information-profile">
+                        <div class="information-profile-wrap">
+                            <div class="info-profile-outer">
+                                <div class="first-info information-block" *ngFor="let frames of aboutYouInfo">
+                                    <div class="information-block-item layout-row" [ngClass]="frame.Key"
+                                        *ngFor="let frame of frames">
+                                        <i class="info-icon"></i>
+                                        <h3 class="info-title">{{frame.KeyLangText}}</h3>
+                                        <span class="info-value">{{frame.Value}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="looking-for-outer">
+                                <div style="padding: 0;" class="looking-for information-block"
+                                    *ngFor="let items of lookingForInfo">
+                                    <div class="looking-for-block-item layout-row" *ngFor="let item of items">
+                                        <div class="looking-for-title">
+                                            <i class="icons" [ngClass]="item.Key"></i>
+                                            <span class="info-title">{{item.KeyLangText}}</span>
+                                            <span class="info-value">{{item.Value}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="public icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.03 49">
+                                <path fill-rule="evenodd"
+                                    d="M9.85 19.62a54.37 54.37 0 0 1 10.54-1.61c4.21 0 8.4.54 12.47 1.6l-.46 3.68-1.09 8.72c-.01.44-.25.85-.64 1.06-1.34.85-2.64 1.76-3.98 2.62a.8.8 0 0 0-.41.78v10.47a.65.65 0 0 1-.41.72c-.73.31-1.41.69-2.14.96-2.39.78-5 .38-7.06-1.06a.84.84 0 0 1-.23-.6c-.02-3.46-.02-6.91 0-10.37a1 1 0 0 0-.55-.98 173.9 173.9 0 0 1-4.01-2.66c-.22-.16-.39-.4-.45-.67-.43-3.39-.86-6.78-1.27-10.18-.1-.81-.19-1.62-.31-2.48zM8.19 18l.5 4.52c.39 3.26.73 6.52 1.11 9.79.06.25.21.47.41.63.84.6 1.73 1.15 2.59 1.75a.8.8 0 0 1 .3.56c.02 2.84.02 5.68 0 8.53a.74.74 0 0 1-.3.56c-.67.41-1.37.77-2.09 1.09a4.8 4.8 0 0 1-4.19-.33 1.96 1.96 0 0 1-1.69-2.21v-.01l.07-.32c0-2.6.02-5.21 0-7.8a1.14 1.14 0 0 0-.3-.7c-.86-.89-1.78-1.75-2.64-2.65a1.63 1.63 0 0 1-.41-.83C1.02 26.99.52 23.4 0 19.82l.02-.2c2.66-.84 5.4-1.38 8.17-1.62zM21.37 0a8.26 8.26 0 0 1 8.46 8.05 8.34 8.34 0 0 1-16.67.24A8.2 8.2 0 0 1 21.28 0h.09zm13.2 18.08c1.91.5 3.78.98 5.62 1.49.89.24.89.27.8 1.18-.39 3.45-.75 6.9-1.16 10.34a.94.94 0 0 1-.34.53c-.93.78-1.87 1.56-2.82 2.29-.36.26-.55.68-.52 1.12.02 2.9 0 5.8.02 8.68a.68.68 0 0 1-.39.7c-.23.11-.43.25-.66.39a5.76 5.76 0 0 1-6.92-.48.68.68 0 0 1-.23-.45c-.02-2.52-.02-5.04 0-7.56a.8.8 0 0 1 .34-.55c1.37-.94 2.78-1.86 4.17-2.78a.84.84 0 0 0 .46-.67c.27-2.64.59-5.27.89-7.91l.64-5.83.1-.49zM12.45 3.84a9.9 9.9 0 0 0 1.57 10.92 6.51 6.51 0 1 1-1.57-10.92zM28.7 14.79a9.9 9.9 0 0 0 1.57-10.94 6.53 6.53 0 0 1 5.27 11.93c-2.28 1-4.94.62-6.84-.99z"
+                                    clip-rule="evenodd" /></svg>
+                        </span>
+                        <p *ngIf="profileInfo" class="public-text">
+                            public({{profileInfo.ProfilePhotosCounts.PublicCount}}) </p>
+                    </ng-template>
+                    <div class="gallery-grid" *ngIf="profileInfo && profileInfo.ProfilePhotosCounts.PublicCount==0">
+                        <div class="no-photos">
+                            <img src="assets/img-2/profile/no-photos.png">
+                            <h3>There are no photos in this album</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-grid" *ngIf="publicImages && publicImages.length>0">
+                        <div (click)="openPreviewImage(publicImages, 'public', i)"
+                            class="clearfix gallery-grid-item-wrapper"
+                            *ngFor="let publicImage of publicImages; let i=index;">
+                            <img *ngIf="publicImage.MediaType == 'Photo'"
+                                class="gallery-grid-item SlideFromThem ng-scope bing-img" [src]="publicImage.MediaURL">
+                            <img *ngIf="publicImage.MediaType == 'Video'" [src]="publicImage.MediaURL+'.jpg'"
+                                style="height: 200px;">
+                            <div *ngIf="publicImage.MediaType == 'Video'" class="videoLayer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 420 420">
+                                    <defs>
+                                        <filter id="f4" x="0" y="0" width="200%" height="200%">
+                                            <feOffset result="offOut" in="SourceGraphic" dx="5" dy="5"></feOffset>
+                                            <feColorMatrix result="matrixOut" in="offOut" type="matrix"
+                                                values="0.1 0 0 0 0 0 0.1 0 0 0 0 0 0.1 0 0 0 0 0 1 0"></feColorMatrix>
+                                            <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="12">
+                                            </feGaussianBlur>
+                                            <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
+                                        </filter>
+                                    </defs>
+                                    <g filter="url(#f4)" fill="#ffffff">
+                                        <path
+                                            d="M210 21c104.22 0 189 84.78 189 189s-84.78 189-189 189S21 314.22 21 210 105.78 21 210 21m0-21C94.03 0 0 94.02 0 210s94.03 210 210 210 210-94.02 210-210S325.97 0 210 0z">
+                                        </path>
+                                        <path
+                                            d="M293.9 187.22l-111.8-73.6c-19.3-12.7-35.1-4.18-35.1 18.92v154.88c0 23.1 15.81 31.65 35.15 19l111.71-73.11c19.33-12.66 19.35-33.4.05-46.1zM279 217.87l-99.29 64.98c-6.44 4.22-11.71 1.37-11.71-6.33V143.44c0-7.7 5.26-10.54 11.7-6.3l99.33 65.36c6.43 4.23 6.42 11.15-.02 15.37z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="private icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 50.01">
+                                <path fill-rule="evenodd"
+                                    d="M18.02 50.01h-.65c.95-.97.42-1.9-.41-2.61a61.31 61.31 0 0 0-6.2-4.94A23.45 23.45 0 0 1 1.32 30.3a25.2 25.2 0 0 1 .11-16.43c.98-3.06 2.59-3.66 6.22-2.27 1.53.69 3.28.7 4.82.02-.19 1.44-.28 2.62-.52 3.78-.79 3.77-1.9 7.51-2.4 11.31-.61 4.56 1.3 8.65 4.8 12.39a40.49 40.49 0 0 1 5.06 6.79c1.17 1.95.58 2.98-1.39 4.12zM9.42 8.93c-.01.8.81 1.61 1.32 2.55-.79.37-1.64-.09-2.66-.55a20.62 20.62 0 0 0-3.56-.81c2.26-.43 2.35-1.78 2.96-2.92a27.1 27.1 0 0 1 3.12-4.92c.8-.94 2.31-1.53 3.5-2.28h2.28a122 122 0 0 1-1.6.83c-3.74 1.94-5.32 4.77-5.36 8.1z"
+                                    clip-rule="evenodd" /></svg>
+                        </span>
+                        <p *ngIf="profileInfo" class="private-text">
+                            private({{profileInfo.ProfilePhotosCounts.PrivateCount}}) </p>
+                    </ng-template>
+                    <div class="gallery-grid">
+                        <div class="no-photos" *ngIf="profileInfo && profileInfo.ProfilePhotosCounts.PrivateCount==0">
+                            <img src="assets/img-2/profile/no-photos.png">
+                            <h3>There are no photos in this album</h3>
+                        </div>
+                        <div class="gallery-grid" *ngIf="privateImages && privateImages.length>0">
+                            <div (click)="openPreviewImage(privateImages, 'private', i)"
+                                class="clearfix gallery-grid-item-wrapper"
+                                *ngFor="let privateImage of privateImages; let i=index;">
+                                <img *ngIf="privateImage.MediaType == 'Photo'"
+                                    class="gallery-grid-item SlideFromThem ng-scope bing-img"
+                                    [src]="privateImage.MediaURL">
+                                <img *ngIf="privateImage.MediaType == 'Video'" [src]="privateImage.MediaURL+'.jpg'"
+                                    style="height: 200px;">
+                                <div *ngIf="privateImage.MediaType == 'Video'" class="videoLayer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"
+                                        viewBox="0 0 420 420">
+                                        <defs>
+                                            <filter id="f4" x="0" y="0" width="200%" height="200%">
+                                                <feOffset result="offOut" in="SourceGraphic" dx="5" dy="5"></feOffset>
+                                                <feColorMatrix result="matrixOut" in="offOut" type="matrix"
+                                                    values="0.1 0 0 0 0 0 0.1 0 0 0 0 0 0.1 0 0 0 0 0 1 0">
+                                                </feColorMatrix>
+                                                <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="12">
+                                                </feGaussianBlur>
+                                                <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
+                                            </filter>
+                                        </defs>
+                                        <g filter="url(#f4)" fill="#ffffff">
+                                            <path
+                                                d="M210 21c104.22 0 189 84.78 189 189s-84.78 189-189 189S21 314.22 21 210 105.78 21 210 21m0-21C94.03 0 0 94.02 0 210s94.03 210 210 210 210-94.02 210-210S325.97 0 210 0z">
+                                            </path>
+                                            <path
+                                                d="M293.9 187.22l-111.8-73.6c-19.3-12.7-35.1-4.18-35.1 18.92v154.88c0 23.1 15.81 31.65 35.15 19l111.71-73.11c19.33-12.66 19.35-33.4.05-46.1zM279 217.87l-99.29 64.98c-6.44 4.22-11.71 1.37-11.71-6.33V143.44c0-7.7 5.26-10.54 11.7-6.3l99.33 65.36c6.43 4.23 6.42 11.15-.02 15.37z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="spicy icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.37 49.17">
+                                <g fill-rule="evenodd" clip-rule="evenodd">
+                                    <path
+                                        d="M17.72 49.17h-.64c.93-.95.41-1.87-.41-2.57a59.25 59.25 0 0 0-6.1-4.85A22.97 22.97 0 0 1 1.3 29.8a24.79 24.79 0 0 1 .11-16.16c.96-3.01 2.55-3.6 6.11-2.23 1.5.68 3.22.69 4.73.02-.19 1.42-.27 2.58-.51 3.72-.78 3.71-1.86 7.39-2.36 11.12-.6 4.49 1.28 8.5 4.72 12.19a39.52 39.52 0 0 1 4.98 6.67c1.15 1.91.58 2.92-1.36 4.04zM9.26 8.78c-.01.79.8 1.59 1.3 2.51-.77.36-1.61-.09-2.61-.54a19.92 19.92 0 0 0-3.5-.79c2.22-.43 2.31-1.76 2.92-2.88a26.52 26.52 0 0 1 3.06-4.84c.79-.93 2.27-1.5 3.45-2.24h2.25l-1.58.82c-3.7 1.9-5.24 4.68-5.29 7.96zM35.42 49.17h-.64c.93-.95.41-1.87-.41-2.57a59.25 59.25 0 0 0-6.1-4.85A22.97 22.97 0 0 1 19 29.8a24.79 24.79 0 0 1 .11-16.16c.96-3.01 2.55-3.6 6.12-2.23 1.5.68 3.22.69 4.73.02-.19 1.42-.27 2.58-.51 3.72-.78 3.71-1.86 7.39-2.36 11.12-.6 4.49 1.28 8.5 4.72 12.19a39.52 39.52 0 0 1 4.98 6.67c1.14 1.91.57 2.92-1.37 4.04zM26.96 8.78c-.01.79.8 1.59 1.3 2.51-.77.36-1.61-.09-2.61-.54a19.92 19.92 0 0 0-3.5-.79c2.23-.43 2.31-1.76 2.92-2.88a26.52 26.52 0 0 1 3.06-4.84c.79-.93 2.28-1.5 3.45-2.24h2.25l-1.58.82c-3.69 1.9-5.24 4.68-5.29 7.96z" />
+                                </g>
+                            </svg>
+                        </span>
+                        <p *ngIf="profileInfo" class="spicy-text"> spicy({{profileInfo.ProfilePhotosCounts.SpicyCount}})
+                        </p>
+                    </ng-template>
+                    <div class="gallery-grid">
+                        <div class="no-photos" *ngIf="profileInfo && profileInfo.ProfilePhotosCounts.SpicyCount==0">
+                            <img src="assets/img-2/profile/no-photos.png">
+                            <h3>There are no photos in this album</h3>
+                        </div>
+                        <div class="gallery-grid" *ngIf="spicyImages && spicyImages.length>0">
+                            <div (click)="openPreviewImage(spicyImages, 'spicy', i)"
+                                class="clearfix gallery-grid-item-wrapper"
+                                *ngFor="let spicyImage of spicyImages; let i=index;">
+                                <img *ngIf="spicyImage.MediaType == 'Photo'"
+                                    class="gallery-grid-item SlideFromThem ng-scope bing-img"
+                                    [src]="spicyImage.MediaURL">
+                                <img *ngIf="spicyImage.MediaType == 'Video'" [src]="spicyImage.MediaURL+'.jpg'"
+                                    style="height: 200px;">
+                                <div *ngIf="spicyImage.MediaType == 'Video'" class="videoLayer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"
+                                        viewBox="0 0 420 420">
+                                        <defs>
+                                            <filter id="f4" x="0" y="0" width="200%" height="200%">
+                                                <feOffset result="offOut" in="SourceGraphic" dx="5" dy="5"></feOffset>
+                                                <feColorMatrix result="matrixOut" in="offOut" type="matrix"
+                                                    values="0.1 0 0 0 0 0 0.1 0 0 0 0 0 0.1 0 0 0 0 0 1 0">
+                                                </feColorMatrix>
+                                                <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="12">
+                                                </feGaussianBlur>
+                                                <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
+                                            </filter>
+                                        </defs>
+                                        <g filter="url(#f4)" fill="#ffffff">
+                                            <path
+                                                d="M210 21c104.22 0 189 84.78 189 189s-84.78 189-189 189S21 314.22 21 210 105.78 21 210 21m0-21C94.03 0 0 94.02 0 210s94.03 210 210 210 210-94.02 210-210S325.97 0 210 0z">
+                                            </path>
+                                            <path
+                                                d="M293.9 187.22l-111.8-73.6c-19.3-12.7-35.1-4.18-35.1 18.92v154.88c0 23.1 15.81 31.65 35.15 19l111.71-73.11c19.33-12.66 19.35-33.4.05-46.1zM279 217.87l-99.29 64.98c-6.44 4.22-11.71 1.37-11.71-6.33V143.44c0-7.7 5.26-10.54 11.7-6.3l99.33 65.36c6.43 4.23 6.42 11.15-.02 15.37z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span class="chilly icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.78 43.56">
+                                <g fill-rule="evenodd" clip-rule="evenodd">
+                                    <path
+                                        d="M15.69 43.56h-.57c.83-.85.36-1.65-.36-2.28a51.95 51.95 0 0 0-5.4-4.3 20.4 20.4 0 0 1-8.22-10.59 21.93 21.93 0 0 1 .1-14.31C2.1 9.41 3.5 8.89 6.67 10.1c1.33.6 2.86.61 4.19.02-.17 1.26-.24 2.28-.45 3.29-.69 3.28-1.65 6.55-2.09 9.85-.54 3.98 1.13 7.53 4.18 10.79a35.36 35.36 0 0 1 4.41 5.91c1.01 1.7.5 2.6-1.22 3.6zM8.2 7.78c-.01.7.7 1.4 1.15 2.22-.69.32-1.43-.08-2.32-.48a18.3 18.3 0 0 0-3.1-.7c1.97-.38 2.05-1.56 2.58-2.55a23.68 23.68 0 0 1 2.71-4.29A13.3 13.3 0 0 1 12.27 0h1.99l-1.4.73C9.61 2.41 8.24 4.87 8.2 7.78zM31.37 43.56h-.57c.83-.85.36-1.65-.36-2.28a51.95 51.95 0 0 0-5.4-4.3 20.33 20.33 0 0 1-8.21-10.59 21.93 21.93 0 0 1 .1-14.31c.85-2.66 2.25-3.19 5.42-1.98 1.33.6 2.86.61 4.19.02-.17 1.26-.24 2.28-.45 3.29-.69 3.28-1.65 6.55-2.09 9.85-.54 3.97 1.13 7.53 4.17 10.79a35.36 35.36 0 0 1 4.41 5.91c1.02 1.7.51 2.6-1.21 3.6zM23.88 7.78c-.01.7.7 1.4 1.15 2.22-.68.32-1.43-.08-2.32-.48a18.3 18.3 0 0 0-3.1-.7c1.97-.38 2.05-1.56 2.58-2.55a24.24 24.24 0 0 1 2.71-4.29A13.3 13.3 0 0 1 27.95 0h1.99l-1.4.73c-3.25 1.68-4.62 4.14-4.66 7.05zM47.05 43.56h-.57c.83-.85.37-1.65-.36-2.28a51.95 51.95 0 0 0-5.4-4.3 20.4 20.4 0 0 1-8.22-10.59 21.93 21.93 0 0 1 .1-14.31c.85-2.66 2.25-3.19 5.42-1.98 1.33.6 2.86.61 4.19.02-.17 1.26-.24 2.28-.46 3.29-.69 3.28-1.65 6.54-2.09 9.85-.53 3.97 1.13 7.53 4.18 10.79a35.36 35.36 0 0 1 4.41 5.91c1.02 1.7.52 2.6-1.2 3.6zM39.56 7.78c-.01.7.7 1.4 1.15 2.22-.68.32-1.43-.08-2.31-.48a18.3 18.3 0 0 0-3.1-.7c1.97-.38 2.05-1.56 2.58-2.55a24.24 24.24 0 0 1 2.71-4.29A13.3 13.3 0 0 1 43.64 0h1.99l-1.4.73c-3.26 1.68-4.63 4.14-4.67 7.05z" />
+                                </g>
+                            </svg>
+                        </span>
+                        <p *ngIf="profileInfo" class="chilly-text">
+                            chilly({{profileInfo.ProfilePhotosCounts.ChillyCount}}) </p>
+                    </ng-template>
+                    <div class="gallery-grid">
+                        <div class="no-photos" *ngIf="profileInfo && profileInfo.ProfilePhotosCounts.ChillyCount==0">
+                            <img src="assets/img-2/profile/no-photos.png">
+                            <h3>There are no photos in this album</h3>
+                        </div>
+                        <div class="gallery-grid" *ngIf="chillyImages && chillyImages.length>0">
+                            <div (click)="openPreviewImage(chillyImages, 'chilly', i)"
+                                class="clearfix gallery-grid-item-wrapper"
+                                *ngFor="let chillyImage of chillyImages; let i=index;">
+                                <img *ngIf="chillyImage.MediaType == 'Photo'"
+                                    class="gallery-grid-item SlideFromThem ng-scope bing-img"
+                                    [src]="chillyImage.MediaURL">
+                                <img *ngIf="chillyImage.MediaType == 'Video'" [src]="chillyImage.MediaURL+'.jpg'"
+                                    style="height: 200px;">
+                                <div *ngIf="chillyImage.MediaType == 'Video'" class="videoLayer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"
+                                        viewBox="0 0 420 420">
+                                        <defs>
+                                            <filter id="f4" x="0" y="0" width="200%" height="200%">
+                                                <feOffset result="offOut" in="SourceGraphic" dx="5" dy="5"></feOffset>
+                                                <feColorMatrix result="matrixOut" in="offOut" type="matrix"
+                                                    values="0.1 0 0 0 0 0 0.1 0 0 0 0 0 0.1 0 0 0 0 0 1 0">
+                                                </feColorMatrix>
+                                                <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="12">
+                                                </feGaussianBlur>
+                                                <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
+                                            </filter>
+                                        </defs>
+                                        <g filter="url(#f4)" fill="#ffffff">
+                                            <path
+                                                d="M210 21c104.22 0 189 84.78 189 189s-84.78 189-189 189S21 314.22 21 210 105.78 21 210 21m0-21C94.03 0 0 94.02 0 210s94.03 210 210 210 210-94.02 210-210S325.97 0 210 0z">
+                                            </path>
+                                            <path
+                                                d="M293.9 187.22l-111.8-73.6c-19.3-12.7-35.1-4.18-35.1 18.92v154.88c0 23.1 15.81 31.65 35.15 19l111.71-73.11c19.33-12.66 19.35-33.4.05-46.1zM279 217.87l-99.29 64.98c-6.44 4.22-11.71 1.37-11.71-6.33V143.44c0-7.7 5.26-10.54 11.7-6.3l99.33 65.36c6.43 4.23 6.42 11.15-.02 15.37z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>

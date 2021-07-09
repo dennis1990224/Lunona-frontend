@@ -1,0 +1,11 @@
+<div class="delete-message-container">
+    <div class="md-dialog-content">
+        <h2 class="md-title">
+            Would you like to delete this message?
+        </h2>
+    </div>
+    <div class="md-dialog-actions">
+        <button class="md-button" mat-button [mat-dialog-close]="''">Cancel</button>
+        <button class="md-button" mat-button (click)="deleteMessage()">Please do it!</button>
+    </div>
+</div>

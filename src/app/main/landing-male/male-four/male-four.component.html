@@ -1,0 +1,107 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div class="male-section-4 wrapper stretch">
+
+    <div class="section image wrapper stretch">
+        <div class="male-section-4-background"></div>
+    </div>
+
+    <div class="section content stretch" id="desktop-p4">
+
+        <div class="top-ribbon">
+            <h2 class="uppercase">
+                <div [innerHTML]="topRibbonContent"></div>
+                <!-- WHAT DOES <b>LUNONA</b> OFFER TO YOU -->
+            </h2>
+        </div>
+
+        <div class="what-does stretch">
+            <ul class="startLineAnim">
+                <li class="purple-box">
+                    <img src="assets/img-2/male/date-1.png" />
+                    <div class="description">
+                        <h5 class="main">{{AcquaintancesTitle}}</h5>
+                        <h6 class="note">
+                            {{AcquaintancesDescription}}</h6>
+                    </div>
+                </li>
+                <li class="purple-box">
+                    <img src="assets/img-2/male/travel.png" />
+                    <div class="description">
+                        <h5 class="main">{{TravelTitle}}</h5>
+                        <h6 class="note">{{TravelDescription}}</h6>
+                    </div>
+                </li>
+                <li class="purple-box">
+                    <img src="assets/img-2/male/secretery.png" />
+                    <div class="description">
+                        <h5 class="main">{{SecretaryTitle}}</h5>
+                        <h6 class="note">
+                            {{SecretaryDescription}}</h6>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- <div class="section content stretch" id="mobile-p4">
+
+        <div class="top-ribbon">
+            <h2 class="uppercase">
+                <cms-translate>
+                    WHAT DOES <b>LUNONA</b> OFFER TO YOU
+                </cms-translate>
+            </h2>
+        </div>
+
+        <div class="what-does stretch">
+            <ul data-selectedel="{{selectedAccordeonEl}}">
+                <li class="purple-box clearfix">
+
+                    <div class="accord-btn-desc clearfix">
+                        <img src="public/img/male/date-1.png" />
+                        <div class="main">
+                            <h5>New Acquaintances </h5>
+                            <img class="accord-img" src="public/img/{{arrow1}}">
+                        </div>
+                    </div>
+                    <div class="accord-btn-note">
+                        <h6 class="note div1">Make new acquaintances! Lunona helps you find any girl you want easily...
+                            Here you get to know them better and start chatting immidiately.</h6>
+                    </div>
+                </li>
+
+                <li class="purple-box clearfix">
+                    <div class="accord-btn-desc clearfix">
+                        <img src="public/img/male/travel.png" />
+                        <div class="main">
+                            <h5>Accommodation - Trips - Vacation </h5>
+                            <img class="accord-img" src="public/img/{{arrow2}}">
+                        </div>
+                    </div>
+                    <div class="accord-btn-note">
+                        <h6 class="note div2">Invite girls from your area over to your place, or find a girl to hang out
+                            with, in case you visit her area and she shows you around. Moreover, find a travel buddy for
+                            trips and holidays to places of your dreams...</h6>
+                    </div>
+                </li>
+
+                <li class="purple-box clearfix">
+                    <div class="accord-btn-desc clearfix">
+                        <img src="public/img/male/secretery.png" />
+                        <div class="main">
+                            <h5>Find Your Secretary </h5>
+                            <img class="accord-img" src="public/img/{{arrow3}}">
+                        </div>
+                    </div>
+                    <div class="accord-btn-note">
+                        <h6 class="note div3">
+                            Track down a devoted personal assistant for your business. It's easy! Many girls claim that
+                            they would love to work in a major company just like yours.</h6>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div> -->
+</div>
+<app-landing-footer #landingMaleFooter></app-landing-footer>

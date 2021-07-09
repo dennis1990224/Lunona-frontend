@@ -1,0 +1,8 @@
+<div *ngIf="isLoading" id="member-loading">
+    <mat-spinner class="mat-spinner"></mat-spinner>
+</div>
+<div *ngIf="languageElement" [ngClass]="isLoading ? 'hide' : 'show'">
+    <app-member-header (changeMenuEvent)="changeMenuEvent($event)" (finshLoading)="finshLoading()" (startLoading)="startLoading()" #memberHeader></app-member-header>
+    <router-outlet></router-outlet>
+    <app-member-footer></app-member-footer>
+</div>

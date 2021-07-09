@@ -1,0 +1,540 @@
+<div id="help">
+    <div class="help-top-menu">
+        <div class="section layout-wrap">
+            <button class="md-raised md-button md-ink-container" (click)="goToActive(1)">
+                <img class="icons-img" src="assets/img-2/profile/lunona.png">
+                <span>{{getTranslate("Members.Help.Menu.WhatIsLunona")}}</span>
+            </button>
+            <button class="md-raised md-button md-ink-container" (click)="goToActive(2)">
+                <img class="icons-img" src="assets/img-2/profile/pyramid.png">
+                <span>{{getTranslate("Members.Help.Menu.TheSocialPyramid")}}</span>
+            </button>
+            <button class="md-raised md-button md-ink-container" (click)="goToActive(3)">
+                <img class="icons-img" src="assets/img-2/profile/video.png">
+                <span>{{getTranslate("Members.Help.Menu.Presentation")}}*</span>
+            </button>
+            <button class="md-raised md-button md-ink-container" (click)="goToActive(4)">
+                <img class="icons-img" src="assets/img-2/profile/security.png">
+                <span>{{getTranslate("Members.Help.Menu.Security")}}</span>
+            </button>
+            <button class="md-raised md-button md-ink-container" [routerLink]="['/member/bank/price-list']">
+                <img class="icons-img" src="assets/img-2/profile/balance.png">
+                <span>{{getTranslate("Members.Bank.Menu.Charges")}}</span>
+            </button>
+            <button class="md-raised md-button md-ink-container" [routerLink]="['/member/bank/load-luns/exchange']">
+                <img class="icons-img" src="assets/img-2/profile/make-lun.png">
+                <span>{{getTranslate("Members.Bank.Menu.MakeLunMoney")}}</span>
+            </button>
+        </div>
+    </div>
+    <div class="help-container">
+        <div class="cms-container">
+            <div id="socialClass" *ngIf="isActive==1">
+                <div class="social-class-header">
+                    <h2>Why is the Social Level so important is Lunona?</h2>
+                </div>
+                <div class="social-class-main">
+                    <div class="main-block">
+                        <div class="row">
+                            <p class="column left paragraph1">
+                                There are a lot of dating sites for rich men and beautiful girls.
+                                Given that everyone can pronounce himself a wealthy person
+                                <b><u>without being such</u></b>
+                                , girls use to grasp that very quickly and subsequently leave the site,
+                                widh this leading to
+                                <b>fake profiles</b> existence.
+                            </p>
+                            <div class="column right content-center">
+                                <img src="assets/img-2/profile/face_rich.png">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="images-real-bot left">
+                                <img class="robot-line" src="assets/img-2/profile/line1.png">
+                                <img class="robot" src="assets/img-2/profile/robot.png">
+                                <img class="real" src="assets/img-2/profile/real.png">
+                                <img class="real-line" src="assets/img-2/profile/line_2.png">
+                            </div>
+                            <p class="column right paragraph2">
+                                The reason behind Lunona's uniquenss and <br>
+                                its paramount <b>success</b> stems from the fact that female<br>
+                                members are <b>real</b> and very attractive
+                            </p>
+                        </div>
+                    </div>
+                    <div class="main-full">
+                        <div class="middle-zone">
+                            <div class="block-zone">
+                                <p class="paragraph3">
+                                    Lunona is a model of our society. As in real life, a very beautiful woman looks for
+                                    a wealty guy.
+                                    Lunona values highly the trust of all women, who uploaded <u>their real personal
+                                        photos to their profiles</u>
+                                    . It also secures that the men who approach Lunona's female members are really
+                                    wealthy guys, not pretenders.
+                                </p>
+                                <img src="assets/img-2/profile/woman_search.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-block">
+                        <div class="social-class-text">
+                            <p class="paragraph4">
+                                If you want to make real acquaintances without wasting your time, you have to prove to
+                                all women that you are the one they have been looking for in here!
+                            </p>
+                            <p class="paragraph4">
+                                In order to achieve that, you have <b>to cimb up the social pyramid</b>
+                            </p>
+                            <p class="paragraph4">
+                                If you get enough Luns to raise your Social Level, you get <b><u>privileges</u></b>
+                                , which you did not have before.
+                            </p>
+                            <p class="paragraph4">
+                                Your wealth on Lunona's site remains at your disposal as though deposited in a bank, and
+                                it is up to you to decide how to manage it.
+                            </p>
+                            <p class="paragraph4" style="margin-top: 35px;">
+                                <b>You unlock many female profiles:</b>
+                            </p>
+                            <p class="paragraph4">
+                                Many girls already have a "serious" relationship with a guy their own age, and they
+                                don't want to run the risk of losing him.
+                                He might be registered also on Lunona.
+                                Therefore, most girls set up their profiles to be visible only by men of a high Social
+                                Level
+                            </p>
+                            <p class="paragraph4">
+                                The poor youngsters don't have the financial strength to raise their social status on
+                                Lunona, hence, there is no way the girls to be found by them.
+                            </p>
+                            <p class="paragraph4">
+                                So, girls can find whatever they are looking for, without risking their relationship.
+                            </p>
+                        </div>
+                        <div class="social-class-img-pyramid">
+                            <img src="assets/img-2/profile/pyramid_big.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="social-class-footer">
+                    <div class="social-class-footer-wrap">
+                        <h3>
+                            The higher your Social Level on Lunona is, respectively the higher status you have also <br>
+                            in real life
+                        </h3>
+                        <h3>
+                            If you have the power, don't even think about it, move up as higher as you can <br>
+                            and things will get much easier for you!
+                        </h3>
+                        <div class="got-credit md-ink-ripple">
+                            <h2 class="head8" [routerLink]="['/member/bank/load-luns/exchange']">
+                                Get<b>Luns/Credits</b> & <b>raise your Social Level</b> now!
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="TheSocialPyramid" *ngIf="isActive==2">
+                <div class="the-social-pyramid-header">
+                    <h2>What is the Social Pyramid and how does it work?</h2>
+                </div>
+                <div class="the-social-pyramid-main">
+                    <div class="main-block">
+                        <p class="paragraph1">
+                            The Social Pyramid shows the social status of each man in the community of Lunona. <br>
+                            Primarily, it denotes the social calsses and levels of the capitalist model.
+                        </p>
+                        <h1 class="head1">More Details:</h1>
+                        <p class="paragraph1">
+                            The pyramid is divided into 5 horizontal classes.
+                            Each class represents a series of Social Levels.<br>
+                            The lower classes encompass more levels, whereas high classes have fewer ones.
+                        </p>
+                        <div class="the-social-pyramid-social-class">
+                            <div class="row">
+                                <h2 class="head2">SOCIAL CLASSES</h2>
+                                <div class="the-social-pyramid-classes">
+                                    <div class="classes worker">
+                                        <h2 class="texts">WORKER</h2>
+                                    </div>
+                                    <div class="arrow"></div>
+                                    <div class="classes capitalist">
+                                        <h2 class="texts">
+                                            CAPITALIST
+                                        </h2>
+                                    </div>
+                                    <div class="arrow"></div>
+                                    <div class="classes elite">
+                                        <h2 class="texts">ELITE</h2>
+                                    </div>
+                                    <div class="arrow"></div>
+                                    <div class="classes prince">
+                                        <h2 class="texts">PRINCE</h2>
+                                    </div>
+                                    <div class="arrow"></div>
+                                    <div class="classes king">
+                                        <h2 class="texts">KING</h2>
+                                    </div>
+                                </div>
+                                <h2 class="head2">LEVELS</h2>
+                                <div class="the-social-pyramid-classes">
+                                    <div class="classes level-steps level-worker">
+                                        <h2 class="level">0 - 10</h2>
+                                        <h2 class="level-texts">WORKER</h2>
+                                    </div>
+                                    <div class="no-arrow"></div>
+                                    <div class="classes level-steps level-capitalist">
+                                        <h2 class="level">11 - 18</h2>
+                                        <h2 class="level-texts">CAPITALIST</h2>
+                                    </div>
+                                    <div class="no-arrow"></div>
+                                    <div class="classes level-steps level-elite">
+                                        <h2 class="level">19 - 24</h2>
+                                        <h2 class="level-texts">ELITE</h2>
+                                    </div>
+                                    <div class="no-arrow"></div>
+                                    <div class="classes level-steps level-prince">
+                                        <h2 class="level">25 - 28</h2>
+                                        <h2 class="level-texts">PRINCE</h2>
+                                    </div>
+                                    <div class="no-arrow"></div>
+                                    <div class="classes level-steps level-king">
+                                        <h2 class="level">29</h2>
+                                        <h2 class="level-texts">KING</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row"></div>
+                        </div>
+                    </div>
+                    <div class="main-full">
+                        <div class="middle-info">
+                            <div class="middle-info-wrap">
+                                <h2 class="paragraph2">The higher you are located on the pyramid, the more attractive
+                                    you are<br>to
+                                    the girls on the site, who are looking but for the best one! </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-block">
+                        <div class="upgrade-level row">
+                            <div class="upgrade-level-texts">
+                                <h1 class="head1">How do you climb the Social Pyramid:</h1>
+                                <p class="paragraph1">The same way as in real life. The greater
+                                    wealth you possess, the more important you are considered.</p>
+                                <p class="paragraph1">The same applies to the Lunona community. The bigger
+                                    deposit you have in LunaBank, the higher Social Levels &amp; Classes would be
+                                    allocated to you automatically by the system. It also takes into account your
+                                    activity on the site.
+                                    For example, how often you log in, how often you rate, how much you chat, etc. </p>
+                            </div>
+                            <div class="upgrade-level-image"><img alt="pyramid" src="assets/img-2/profile/pyramid-up.png">
+                            </div>
+                        </div>
+                        <div class="example row">
+                            <div class="upgrade-level-texts">
+                                <h2 class="head3">Example:</h2>
+                                <p class="paragraph1">If a man has a deposit of over 10000 Luns, he is usually
+                                    located<br>at
+                                    levels 11-15 (the level may range, reflecting other factors too).</p>
+                                <p class="paragraph1">So you're assigned to the class "Capitalist" and to the
+                                    corresponding
+                                    level. </p>
+                            </div>
+                            <div class="example-details">
+                                <div class="example-details-credit">
+                                    <div class="row"><i></i>
+                                        <h2 class="head5">1000</h2>
+                                    </div>
+                                    <div class="row">
+                                        <h3 class="head4">LUNS/CREDITS</h3>
+                                    </div>
+                                </div>
+                                <div class="example-arrow"></div>
+                                <div class="example-details-class level-capitalist">
+                                    <h2 class="head6">CAPITALIST </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-full">
+                        <div class="blue-middle-info">
+                            <div class="blue-middle-info-wrap">
+                                <h2 class="paragraph3">Your deposits are at your disposal to use them as you wish.
+                                    <br>You decide whether you would spend them fast or you would opt for saving money.
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-block">
+                        <div class="earn-at-social-app">
+                            <h2 class="head1">What do you win when you have high social status: </h2>
+                            <div class="row">
+                                <div class="earn-at-social-app-texts">
+                                    <h2 class="head7">Competitiveness:</h2>
+                                    <p class="paragraph1">You are more attractive to girls than
+                                        your competitors are.<br>Example: A girl will prefer to go out with you
+                                        rather than with someone of a lower Social Level.</p>
+                                    <div class="underline"></div>
+                                </div>
+                                <div class="earn-at-social-app-images"><img alt="w1"
+                                        src="assets/img-2/profile/w1.png">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="earn-at-social-app-texts">
+                                    <h2 class="head7">Easy Access:</h2>
+                                    <p class="paragraph1">You can view many female profiles, which are locked by the
+                                        respective <br>
+                                        women, so that their "poor" boyfriend<br> can't locate them. </p>
+                                    <div class="underline"></div>
+                                </div>
+                                <div class="earn-at-social-app-images"><img alt="w1"
+                                        src="assets/img-2/profile/w2-us.png">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="earn-at-social-app-texts">
+                                    <h2 class="head7">Visibility:</h2>
+                                    <p class="paragraph1">Private photos, which are locked for the poorer than you guys,
+                                        <br>
+                                        become visible to you. </p>
+                                    <div class="underline"></div>
+                                </div>
+                                <div class="earn-at-social-app-images"><img alt="w3"
+                                        src="assets/img-2/profile/w3-us.png">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="earn-at-social-app-texts">
+                                    <h2 class="head7">Power:</h2>
+                                    <p class="paragraph1">Your rate weighs considerably more. One rate of yours<br>can
+                                        count,
+                                        for example, x30 times higher than the rate, given by someone <br>poorer than
+                                        you.<br>Therefore, many girls wоuld love to be rated by <br>you, as they will
+                                        climb very quickly
+                                        the Social Pyramid. </p>
+                                    <div class="underline"></div>
+                                </div>
+                                <div class="earn-at-social-app-images"><img alt="w4"
+                                        src="assets/img-2/profile/w4.png">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="earn-at-social-app-texts">
+                                    <h2 class="head7">Comfort:</h2>
+                                    <p class="paragraph1">You will be comfortable to chat with any girl with whom you
+                                        consider <br>you might
+                                        have greater chances, without <br>constantly bringing to mind that you might be
+                                        running out of Luns/Credits.
+                                    </p>
+                                </div>
+                                <div class="earn-at-social-app-images"><img alt="w5"
+                                        src="assets/img-2/profile/w5.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="the-social-pyramid-footer">
+                    <div class="footer-block">
+                        <div class="got-credit md-ink-ripple" [routerLink]="['/member/bank/load-luns/exchange']">
+                            <h2 class="head8">Get <b>Luns/Credits </b>&amp; <b>raise now</b> your Social Level! </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Presentation" *ngIf="isActive==3">
+                <div class="video-container">
+                    <div class="video-header">
+                        <h2>Why Lunona really works</h2>
+                    </div>
+                    <div>
+                        <video class="video-js" loop muted controls="true" autoplay preload="auto"
+                            poster="assets/img-2/male/poster-image-man.jpg" data-setup="{}">
+                            <source src="assets/img-2/section7.webm" type="video/webm">
+                            <source src="assets/img-2/section7.mpeg" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div id="security" *ngIf="isActive==4">
+                <div class="security-header">
+                    <h2>Your security is important</h2>
+                </div>
+                <div class="security-main">
+                    <div class="main-block">
+                        <h2 class="head1">
+                            Rules that you have to consider abiding seriously.
+                        </h2>
+                        <p class="paragraph1">
+                            If you ignore the rules, you run the risk of becoming a victim of fraud,
+                            you run risk of becoming a victim of fraud, extortion, identity theft, abiding
+                            fraudulent use of personal identification information, thereby affecting your personal life.
+                            <b>So, WARNING</b>
+                        </p>
+                    </div>
+                    <div class="main-block">
+                        <div class="row">
+                            <div class="security-texts">
+                                <div class="security-number">
+                                    <h1 class="head2">1.</h1>
+                                </div>
+                                <div class="security-paragraph">
+                                    <p class="paragraph2">
+                                        Do not submit your personal information eaily.If your Facebook, Skype and
+                                        LinkedIn account details.
+                                        <b>fall into the wrong hands, this can trigger irreversible harm to your
+                                            privacy.</b>
+                                    </p>
+                                    <p class="paragraph3">
+                                        Tip = It is wise to provide such information only after a period of time,
+                                        whereby sufficient trust was build between you.
+                                        Please note: A person of higher social status is considered usually a more
+                                        trusted one, as apersonal identifiable information is present.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="security-image">
+                                <img src="assets/img-2/profile/1.png">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="security-texts">
+                                <div class="security-number">
+                                    <h1 class="head2">2.</h1>
+                                </div>
+                                <div class="security-paragraph">
+                                    <p class="paragraph2">
+                                        <b>Be cautious</b>
+                                        about users who ask for your personal information
+                                        <b>such as phone number, Facebook account</b>
+                                        etc. in their first message. It is better to avoid communicating with them,
+                                        firstly because it is not possible to create mutual trust just through
+                                        exchanging a few messages,
+                                        and secondly, as they are probably fake rich men.
+                                    </p>
+                                    <p class="paragraph4">
+                                        A man of high social status in the pyramid respects your privacy and does not
+                                        need to force anything.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="security-image">
+                                <img src="assets/img-2/profile/2.png">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="security-texts">
+                                <div class="security-number">
+                                    <h1 class="head2">3.</h1>
+                                </div>
+                                <div class="security-paragraph">
+                                    <p class="paragraph2">
+                                        If someone promises to send you a gift and <b>demands to know your address</b>
+                                        ,<b>well do not accept</b>
+                                        his offer and report him to Luna.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="security-image">
+                                <img src="assets/img-2/profile/3.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-full">
+                        <div class="middle-info">
+                            <div class="middle-info-wrap">
+                                <div class="row">
+                                    <div class="security-texts" style="width: 100%; padding-top: 40px;">
+                                        <div class="security-number">
+                                            <h1 class="head2 colorWhite">4.</h1>
+                                        </div>
+                                        <div class="security-paragraph">
+                                            <p class="paragraph2 colorWhite">
+                                                If you receive a digital link,
+                                                <b>do not click on it under no circumstances</b>
+                                                . Even if it appears to be sourced form a well-known website, it's
+                                                likely a malware(virus)
+                                                that will infect your computer and perhaps steal your personal
+                                                data(photos, passwords, etc.)
+                                            </p>
+                                            <p class="paragraph2 colorWhite">
+                                                However, Lunona tries to detect and remove such links
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-block">
+                        <div class="row">
+                            <div class="security-texts">
+                                <div class="security-number">
+                                    <h1 class="head2">5.</h1>
+                                </div>
+                                <div class="security-paragraph">
+                                    <p class="paragraph2">
+                                        If <b>you receive threatening/abusive messages</b>
+                                        from a user, stop immediately any communication with him <br>
+                                        and report him to your <br>
+                                        digital assistant, Luna.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="security-images">
+                                <img src="assets/img-2/profile/4.png">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="security-texts">
+                                <div class="security-number">
+                                    <h1 class="head2">6.</h1>
+                                </div>
+                                <div class="security-paragraph">
+                                    <p class="paragraph2">
+                                        When you decide to go on a first date with someone,<br>
+                                        arrange to meet him at a place with a lot of people around, and
+                                        under no circumstances don't get int his car.<br>
+                                        Let a friend of yours know about the forthcoming date.<br>
+                                        <b>Alternatively, you could also inform Luna.</b>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="security-image">
+                                <img src="assets/img-2/profile/5.png">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="security-texts" style="width: 100%;">
+                                <div class="security-number">
+                                    <h1 class="head2">7.</h1>
+                                </div>
+                                <div class="security-paragraph">
+                                    <p class="paragraph2" style="margin: 15px 0px;">
+                                        Be very cautious about people who:
+                                    </p>
+                                    <p class="paragraph5">
+                                        <b>Promise expensive gifts</b>
+                                        or luxury trips from the first date,
+                                        <b>while being still at level "Worker" on the social pyramid</b>
+                                    </p>
+                                    <p class="paragraph6">
+                                        <b>Don't have personal photos</b>
+                                        on their profiles, refuse to grant you access or do not send you any personal
+                                        photos
+                                        while chatting, and yet they demand to go out with you.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="security-footer"></div>
+            </div>
+        </div>
+    </div>
+</div>

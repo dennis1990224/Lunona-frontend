@@ -1,0 +1,378 @@
+<div *ngIf="modalName == 'location'" class="location main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon location"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Location</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <form class="location-form">
+            <mat-form-field class="location-full-width">
+                <div *ngIf="countryIso" class="flag-icon"
+                    style="background-image: url(assets/img/flags/4x3/{{countryIso}}.svg);">
+                </div>
+                <input type="text" placeholder="Country" matInput [formControl]="country" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let filterCountry of filterCountries | async"
+                        [value]="filterCountry.CountryName">
+                        {{filterCountry.CountryName}} ({{filterCountry.CountryISO}})
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field class="location-full-width">
+                <div class="city-icon"></div>
+                <input (keyup)="GetCitiesAndZip($event.target.value)" type="text" placeholder="City" matInput
+                    [formControl]="city" [matAutocomplete]="auto2">
+                <mat-autocomplete #auto2="matAutocomplete">
+                    <mat-option *ngFor="let filterCity of filterCities | async" [value]="filterCity">
+                        {{filterCity}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateLocation()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'birthday'" class="birthday main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon birthday"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Date of Birth</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-form-field style="margin-right: 26px;">
+            <mat-label>Day</mat-label>
+            <mat-select [(ngModel)]="birthdayDay"
+                (selectionChange)="getDateAndAge(birthdayYear , birthdayMonth, $event.value)">
+                <mat-option *ngFor="let day of days; let i = index;" [value]="i + 1">
+                    {{i + 1}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Month</mat-label>
+            <mat-select [(ngModel)]="birthdayMonth"
+                (selectionChange)="getDateAndAge(birthdayYear , $event.value, birthdayDay)">
+                <mat-option *ngFor="let month of months; let i = index;" [value]="i + 1">
+                    {{i + 1}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Year</mat-label>
+            <mat-select [(ngModel)]="birthdayYear"
+                (selectionChange)="getDateAndAge($event.value , birthdayMonth, birthdayDay)">
+                <mat-option *ngFor="let year of years; let i = index;" [value]="i + startYear">
+                    {{i + startYear}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div class="age">Your age is: <b>{{age}}</b></div>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateBirthday()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'occupation'" class="occupation main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon occupation"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Occupational Field</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-radio-group [(ngModel)]="selectedOccupation">
+            <mat-radio-button color="primary" class="occupation-radio" *ngFor="let occupation of occupations"
+                [value]="occupation.ID">{{occupation.Title}}</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateOccupation()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'spokenLanguages'" class="spokenLanguages main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon spokenLanguages"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Spoken Languages</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <div class="flex-wrapper stretch">
+            <div class="spoken-wrapper">
+                <div class="spoken">
+                    <div (click)="removeSpoken(selectedSpokenLanguage, i)" class="remove btn"
+                        *ngFor="let selectedSpokenLanguage of selectedSpokenLanguages; let i=index">
+                        <div *ngIf="selectedSpokenLanguages.length > 1" class="icon"></div>
+                        {{selectedSpokenLanguage.Title}}
+                    </div>
+                </div>
+            </div>
+            <div class="not-spoken-wrapper">
+                <div class="not-spoken">
+                    <div (click)="addSpoken(spokenLanguage, i)"
+                        *ngFor="let spokenLanguage of spokenLanguages; let i=index" class="add btn">
+                        <div class="icon"></div>
+                        {{spokenLanguage.Title}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateSpokenLanguage()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'nationality'" class="nationality main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon nationality"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Nationality</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-radio-group [(ngModel)]="selectedNationality" class="nationality-radio-group">
+            <mat-radio-button color="primary" class="nationality-radio" *ngFor="let nationality of nationalities"
+                [value]="nationality.ID">{{nationality.Title}}</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateNationality()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'DisplayLanguage'" class="DisplayLanguage main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon DisplayLanguage"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Display Language</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-radio-group [(ngModel)]="selectedDisplayLanguage" class="DisplayLanguage-radio-group">
+            <mat-radio-button color="primary" class="DisplayLanguage-radio"
+                *ngFor="let DisplayLanguage of DisplayLanguages" [value]="DisplayLanguage.LanguageISO">
+                <img src='assets/img-2/profile/{{DisplayLanguage.LanguageISO}}_125.png' style="width: 20px;">
+                {{DisplayLanguage.LanguageTitleInUS}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateDispalyLanguage()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'height'" class="height main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon height"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Height</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <div class="display-wrapper stretch">
+            <div class="left display cm">{{height}}cm</div>
+            <div class="left display arrow"></div>
+            <div class="right display inches">{{inch}}'</div>
+            <div class="right display arrow"></div>
+        </div>
+        <div class="mat-slider-container stretch">
+            <mat-slider [(ngModel)]="height" #mySlider (input)="sliderOnChange(mySlider.value)" color="primary"
+                min="140" max="200" step="1" vertical></mat-slider>
+        </div>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateHeight()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'tattoo'" class="tattoo main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon tattoo"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Do you have any Tattoos/Body Art?</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-radio-group [(ngModel)]="selectedTattoo" class="tattoo-radio-group">
+            <mat-radio-button color="primary" class="tattoo-radio"
+                *ngFor="let tattoo of tattoos" [value]="tattoo.ID">
+                {{tattoo.Title}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateTattoo()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'smoking'" class="smoking main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon smoking"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Are you a smoker?</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-radio-group [(ngModel)]="selectedSmoking" class="smoking-radio-group">
+            <mat-radio-button color="primary" class="smoking-radio"
+                *ngFor="let smoking of smokings" [value]="smoking.ID">
+                {{smoking.Title}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateSmoking()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'relationship'" class="relationship main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon relationship"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Marital Status</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-radio-group [(ngModel)]="selectedRelationShip" class="relationship-radio-group">
+            <mat-radio-button color="primary" class="relationship-radio"
+                *ngFor="let relationShip of relationShips" [value]="relationShip.ID">
+                {{relationShip.Title}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateRelationShip()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'children'" class="children main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon children"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Do you have children?</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-radio-group [(ngModel)]="selectedChild" class="children-radio-group">
+            <mat-radio-button color="primary" class="children-radio"
+                *ngFor="let child of children" [value]="child.ID">
+                {{child.Title}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateChild()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+
+<div *ngIf="modalName == 'education'" class="education main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon education"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Education</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-radio-group [(ngModel)]="selectedEducation" class="education-radio-group">
+            <mat-radio-button color="primary" class="education-radio"
+                *ngFor="let education of educations" [value]="education.ID">
+                {{education.Title}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateEducation()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

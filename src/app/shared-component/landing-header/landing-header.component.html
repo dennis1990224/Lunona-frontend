@@ -1,0 +1,29 @@
+<div class="navbar header-animation">
+    <div class="home">
+        <div class="logo logo-animation"></div>
+    </div>
+    <ul class="desktop-navbar" id="desktop-navbar">
+        <li class="register" (click)="goToRegister()">
+            <a>{{menuMemberTitle}}</a>
+        </li>
+        <li class="login" (click)="goToLogin()">
+            <a>{{menuLoginTitle}}</a>
+        </li>
+        <li class="rule" (click)="goToRules()">
+            <a>{{menuRulesTitle}}</a>
+        </li>
+        <li class="search" (click)="goToSearch()">
+            <a>{{menuSearchTitle}}</a>
+        </li>
+        <li class="language">
+            <div style="margin-top: 14px; margin-left: 10px;">
+                <img class="icon" src="assets/sharedImg/navbar/language-icon.png">
+            </div>
+            <a [matMenuTriggerFor]="beforeMenu">{{selectedLanguage}}</a>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <button mat-menu-item *ngFor="let siteSupportLanguage of siteSupportLanguages" (click)="selectLanguage(siteSupportLanguage)">{{siteSupportLanguage.LanguageTitleInUS}} </button>
+            </mat-menu> 
+        </li>
+    </ul>
+</div>
+

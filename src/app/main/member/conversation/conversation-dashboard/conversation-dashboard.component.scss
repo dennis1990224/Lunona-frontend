@@ -1,0 +1,128 @@
+.chat-dashboard-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #e1e6ec;
+
+    .chat-dashboard-wrap {
+        width: 100%;
+        height: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+
+        .chat-dashboard-header {
+            width: 100%;
+            height: 280px;
+            text-align: center;
+            position: relative;
+
+            img {
+                max-width: 100%;
+                margin-top: 10%;
+            }
+        }
+
+        .chat-dashboard-main {
+            width: 100%;
+            height: 130px;
+
+            .box {
+                border: 2px solid #fff;
+                width: 100%;
+                height: 60px;
+
+                h2 {
+                    color: #494c51;
+                    font-size: 20px;
+                    font-weight: 400;
+                    margin: 0;
+                    line-height: 60px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .chat-dashboard-footer {
+            width: 100%;
+            height: 170px;
+
+            .box {
+                width: 33.3%;
+                height: inherit;
+                display: inline-block;
+                float: left;
+
+                h3 {
+                    text-align: center;
+                    margin: 0;
+                    line-height: 100px;
+                    font-size: 25px;
+                    font-weight: 900;
+                    color: #1e1c1f;
+                }
+
+                .new-message-counter {
+                    width: 120px;
+                    height: 135px;
+                    margin: 0 auto;
+                    background: url(/assets/img-2/conversation/new-circle.png) no-repeat 0 0;
+                }
+
+                h2::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    width: 28px;
+                    height: 28px;
+                    margin-left: -40px;
+                }
+
+                .title {
+                    width: 100%;
+                    height: 50px;
+
+                    h2 {
+                        font-weight: 700;
+                        font-size: 15px;
+                        color: #1e1c1f;
+                        margin: 0;
+                        line-height: normal;
+                        text-align: center;
+                        position: relative;
+                    }
+                }
+
+                .message-counter {
+                    width: 120px;
+                    height: 135px;
+                    background: url(/assets/img-2/conversation/cirlce.png) no-repeat 0 0;
+                    margin: 0 auto;
+                }
+
+                .new-message {
+                    h2::before {
+                        background: url(/assets/img-2/conversation/message-icon-notif.png) no-repeat 0 0;
+                    }
+                }
+
+                .my-request {
+                    h2::before {
+                        background: url(/assets/img-2/conversation/accept-notif.png) no-repeat 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+h2 {
+    text-shadow: none;
+}
+
+h3 {
+    text-shadow: none;
+}

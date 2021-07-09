@@ -1,0 +1,161 @@
+<div *ngIf="modalName == 'income'" class="income main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon income"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">What is your annual income?</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-radio-group [(ngModel)]="selectedIncome">
+            <mat-radio-button color="primary" class="income-radio" *ngFor="let income of incomes" [value]="income.ID">
+                {{income.Title}}</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateIncome()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+<div *ngIf="modalName == 'house'" class="house main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon house"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Your House Type is:</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <div class="property-list">
+            <div class="radio-list text">
+                <label class="property-label">Property</label>
+                <mat-radio-group class="homeProperty-radio-group" [(ngModel)]="selectedHomeProperty"
+                    (change)="propertyChange($event)">
+                    <mat-radio-button color="primary" class="homeProperty-radio"
+                        *ngFor="let homeProperty of homeProperties" [value]="homeProperty.ID">{{homeProperty.Title}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div class="size-list" [ngClass]="isTypeDisable ? 'disable' : ''">
+            <div class="radio-list text">
+                <label class="homeSize-label">House Size</label>
+                <mat-radio-group class="homeSize-radio-group" [(ngModel)]="selectedHomeSize"
+                    (change)="sizeChange($event)">
+                    <mat-radio-button color="primary" class="homeSize-radio" *ngFor="let homeSize of homeSizes"
+                        [value]="homeSize.ID">{{homeSize.Title}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div class="image-list" [ngClass]="isTypeDisable ? 'disable' : ''">
+            <div class="radio-list image short">
+                <label class="homeType-label">What is it?</label>
+                <mat-radio-group class="homeType-radio-group" [(ngModel)]="selectedHomeType"
+                    (change)="typeChange($event)">
+                    <mat-radio-button class="homeType-radio" *ngFor="let homeType of homeTypes; let i=index"
+                        [value]="homeType.ID">
+                        <div class="radio-image" [ngClass]="'img-'+i"></div>
+                        {{homeType.Title}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" [ngClass]="isTypeButtonDisable ? 'disable' : ''" (click)="updateHomeData()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+<div *ngIf="modalName == 'otherHouse'" class="otherHouse main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon otherHouse"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Villa</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <div class="property-list">
+            <div class="radio-list text">
+                <label class="property-label">Property</label>
+                <mat-radio-group class="villa-radio-group" [(ngModel)]="selectedVillaProperty"
+                    (change)="viallaPropertyChange($event)">
+                    <mat-radio-button color="primary" class="villa-radio" *ngFor="let villaProperty of villaProperties"
+                        [value]="villaProperty.ID">{{villaProperty.Title}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div class="size-list" [ngClass]="isVillaDisable ? 'disable' : ''">
+            <div class="radio-list text">
+                <label class="homeSize-label">Location</label>
+                <mat-radio-group class="villa-location-radio-group" [(ngModel)]="selectedVillaLocation"
+                    (change)="villabSizeChange($event)">
+                    <mat-radio-button color="primary" class="villa-location-radio"
+                        *ngFor="let villaLocation of villaLocations; let i=index;" [value]="villaLocation.ID">
+                        <div class="radio-image" [ngClass]="'img-'+i"></div>
+                        {{villaLocation.Title}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" [ngClass]="isVillaButtonDisalbe ? 'disable' : ''" (click)="updateHomeData()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>
+<div *ngIf="modalName == 'vehicles'" class="vehicles main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon vehicles"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Your Vehicles</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <div class="flex-wrapper stretch">
+            <div class="vehicles-wrapper">
+                <div class="vehicles">
+                    <div (click)="removeVehicle(selectedVehicle, i)" class="remove btn"
+                        *ngFor="let selectedVehicle of selectedVehicles; let i=index">
+                        <div *ngIf="selectedVehicles.length > 1" class="icon"></div>
+                        {{selectedVehicle.Title}}
+                    </div>
+                </div>
+            </div>
+            <div class="not-vehicles-wrapper">
+                <div class="not-vehicles">
+                    <div (click)="addVehicle(vehicle, i)"
+                        *ngFor="let vehicle of vehicles; let i=index" class="add btn">
+                        <div class="icon"></div>
+                        {{vehicle.Title}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateVehicle()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="view-container animation">
+    <div class="slide view-frame">
+        <div class="Bank" id="BankController">
+            <div id="makeluns">
+                <div class="header-wrapper"></div>
+                <div class="content-wrapper">
+                    <div class="content">
+                        <div class="columns row money">
+                            <div class="money-header">
+                                <div class="money-header-inner">
+                                    <span>Buy Luns/Credits</span>
+                                    <div class="money-header-inner-coin">
+                                        <h2>€ Euro</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="money-body">
+                                <div class="row" id="paymentPackets">
+                                    <div class="column col-md-3 package1" *ngFor="let packet of packets; let i=index;">
+                                        <div class="packet-inner" [class]="'packet' + (i+1)">
+                                            <div class="extra-info"></div>
+                                            <div class="first-part">
+                                                <h2 style="height: 48px">{{packet.Title}}</h2>
+                                                <div class="bubble">
+                                                    <h2>{{packet.Luns}}</h2>
+                                                    <h2>Luns</h2>
+                                                </div>
+                                                <!-- <div class="bonus">
+                                                    <h2>BONUS</h2>
+                                                    <h2>0</h2>
+                                                </div> -->
+                                            </div>
+                                            <span>
+                                                <ul class="points">
+                                                    <li *ngFor="let benefit of packet.Benefits">
+                                                        <span>{{benefit}}</span>
+                                                    </li>
+                                                </ul>
+                                            </span>
+                                            <div class="luns-price">
+                                                <span class="price">{{packet.CurrencySymbol}}{{packet.Ammount}}</span>
+                                                <span class="exchange-rate">1 Lun = {{packet.CostPerLun}}{{packet.CurrencySymbol}}</span>
+                                            </div>
+                                            <div class="btn-here">
+                                                <button [routerLink]="['/member/bank/load-luns/pay/', packet.sID]">SELECT</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="signs row">
+                                    <div class="fleft">
+                                        <img style="float: left; width: 100%;" src="assets/img-2/bank/trust-icons-colorful-front.png">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <h2 style="font-size: 14px; font-weight: 500; color: rgb(120, 119, 132); text-align: center;"></h2>
+                                </div>
+                            </div>
+                            <div class="footer-item">
+                                <div class="footer1 row">
+                                    <div class="col-md-10">
+                                        <h1>What are Luns/Credits?</h1>
+                                        <p style="text-align: left !important;" class="descr ZombaioDescription">
+                                            The Luns/Credits is Lunona's currency that you can use for your transactions
+                                            on Lunona. And just like in real life, the more Luns/Credits you have, the
+                                            more powerful you are, and hence the more desirable you will become to women
+                                            - especially to Lunοna's women!!! So, collect as many as you can and things
+                                            are going be a great deal easier for you!
+                                        </p>
+                                    </div>
+                                    <div class="luns"></div>
+                                    <div class="row">
+                                        <h2
+                                            style="margin-top: 0px; margin-left: 15px; font-size: 12px; font-weight: 500; counter-reset: rgb(120, 119, 132); text-align: left;">
+                                            <div class="ZombaioDescription">
+                                                <p class="MsoNormal" style="margin: 0in 0in 8pt;">
+                                                    <span>
+                                                        <span style="mso-ansi-language: EN"></span>
+                                                    </span>
+                                                </p>
+                                                <div style="margin: 0cm;">
+                                                    Your Credit/Debit card will be charged only once with full
+                                                    confidentiality and security. There will be no recurring charges
+                                                    imposed or arising liabilities.
+                                                </div>
+                                                <div style="margin: 0cm;">
+                                                    Please visit our Billing Support page for more information. Your
+                                                    security is fully guaranteed.
+                                                </div>
+                                                <div style="margin: 0cm;">
+                                                    Using a credit/debit card is the easiest way to buy credits. In case
+                                                    you do not have a Credit/Debit card, you can buy a prepaid
+                                                    Paysafecard from a kiosk. </div>
+                                                <div style="margin: 0cm;">
+                                                    If you require any further information or you have any questions or
+                                                    if you encounter any issues, contact us by simply speaking to LUNA.
+                                                </div>
+                                                <p>
+                                                    <br>
+                                                    <span style="mso-ansi-language: EN"></span> &nbsp;
+                                                </p>
+                                                <p></p>
+                                                <p></p>
+                                            </div>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer1-wrapper"></div>
+            </div>
+        </div>
+    </div>
+</div>

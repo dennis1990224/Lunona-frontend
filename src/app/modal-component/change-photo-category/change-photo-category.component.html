@@ -1,0 +1,40 @@
+<div class="change-photo-category">
+    <div class="main wrapper">
+        <div class="top wrapper">
+            <div class="top title">
+                <span> Change Photo Category </span>
+            </div>
+            <div class="top close" [mat-dialog-close]="''">
+                <span></span>
+            </div>
+        </div>
+        <div class="content wrapper">
+            <h3>Would you like to change the category of your photo?</h3>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="selectedCategory">
+                <mat-radio-button color="primary" value="private" [class.active]="selectedCategory=='private'">
+                    <img src="assets/img-2/profile/private.png">
+                    <p><b>PRIVATE PHOTOS</b></p>
+                    <p>This category is not visible to everyone</p>
+                </mat-radio-button>
+                <mat-radio-button color="primary" value="spicy" [class.active]="selectedCategory=='spicy'">
+                    <img src="assets/img-2/profile/spicy.png">
+                    <p><b>SPICY PHOTOS</b></p>
+                    <p>This category is not visible to everyone</p>
+                </mat-radio-button>
+                <mat-radio-button color="primary" value="chilly" [class.active]="selectedCategory=='chilly'">
+                    <img src="assets/img-2/profile/chilly.png">
+                    <p><b>CHILLY PHOTOS</b></p>
+                    <p>This category is not visible to everyone</p>
+                </mat-radio-button>
+            </mat-radio-group>
+            <img class="to-move" [src]="photoUrl">
+        </div>
+        <div class="bottom wrapper">
+            <div class="bottom done btn" (click)="changeCategory()">
+                DONE
+                <div class="icon"></div>
+            </div>
+            <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+        </div>
+    </div>
+</div>

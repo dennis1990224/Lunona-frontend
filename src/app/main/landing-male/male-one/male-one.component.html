@@ -1,0 +1,29 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div class="male-section-1 section stretch">
+    <div class="section image wrapper stretch">
+        <div class="section image main stretch background-male-1"></div>
+        <div class="section image overlay stretch"></div>
+    </div>
+
+    <div class="section content stretch">
+        <div class="punch-line stretch">
+            <img src="assets/img-2/logo-1.png"/>
+            <div [innerHTML]="mainContent"></div>
+            <!-- <h1>DROP THE SMALL TALK</h1>
+            <h3>YOU WANT A HOT BABE? HERE YOU CAN FIND HER!</h3> -->
+            <div class="golden-ribbon wrapper">
+                <div class="golden-ribbon content">
+                    <div class="golden-ribbon text">
+                        <h4>
+                            <div [innerHTML]="ribonContent"></div>
+                            <!-- <b>PREMIUM RICH MEN</b> & <b>PRETTY GIRLS </b> COMMUNITY -->
+                        </h4>
+                    </div>
+                    <div class="sparkle top"></div>
+                    <div class="sparkle bottom"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-landing-footer #landingMaleFooter></app-landing-footer>

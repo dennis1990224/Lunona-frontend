@@ -1,0 +1,86 @@
+<div class="chat-member-item" (contextmenu)="showSettingMenu()">
+    <div class="wrapper">
+        <div class="contact_item_el">
+            <div class="md-list-item md-3-line md-no-proxy md-ink-ripple"
+                [ngClass]="contactMember.active ? 'active': ''">
+                <div class="md-list-item-inner">
+                    <div class="contacts-face">
+                        <img class="img_profile_bg cover bing-img" (load)="isLoad = false" [hidden]="isLoad"
+                            [src]="imageUrl" (error)="updateUrl()">
+                        <img style="width: 100%;" src="assets/img-2/members/Profile-image-loader.gif"
+                            [hidden]="!isLoad">
+                        <span class="status" [ngClass]="contactMember.IsOnLine==0 ? 'off' : 'on'"></span>
+                    </div>
+                    <div class="md-list-item-text layout-column">
+                        <span *ngIf="contactMember.NewMessages > 0"
+                            class="md-notification">{{contactMember.NewMessages}}</span>
+                        <div class="profile-line1">{{contactMember.LoginName}} {{contactMember.Age}}</div>
+                        <div class="profile-line2">{{contactMember.Location}}</div>
+                        <div class="profile-line2">
+                            <p class="profile-extrainfo"></p>
+                        </div>
+                        <div class="profile-line3">
+                            <div class="lastMessageWrapper clearfix">
+                                <div class="last">
+                                    <p class="hyphenate">{{contactMember.LastMessage}}</p>
+                                </div>
+                            </div>
+                            <span class="md-notification-lastDateTime">{{contactMember.LastMessageAgo}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dots-menu">
+                    <div id="dotsMenu">
+                        <button class="btn md-icon-button md-button" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="settingMenu">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </button>
+                        <mat-menu #settingMenu="matMenu" xPosition="after" class="setting-menu">
+                            <button mat-menu-item class="translate" (click)="openTranslateModal()">
+                                <i></i><span>Translation</span>
+                            </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item class="delete-conversation" (click)="openDelConvModal()">
+                                <i></i><span>Delete Conversation</span>
+                            </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item class="photo-access" (click)="openPhotoAccessModal()">
+                                <i></i> <span>Photo Access Settings</span>
+                            </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item class="block-user" (click)="openBlockUserModal()">
+                                <i></i><span>Block this user</span>
+                            </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item class="donate" (click)="openDonateModal()">
+                                <i></i><span>Donate Luns</span>
+                            </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item class="date" (click)="openDateModal()">
+                                <i></i><span>Date</span>
+                            </button>
+                            <mat-divider></mat-divider>
+                            <button mat-menu-item class="delete-contact" (click)="openDeleteContact()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24.274" height="25.37"
+                                    viewBox="0 0 24.274 25.37" class="ng-scope">
+                                    <g>
+                                        <path
+                                            d="M8.862 22.567a31.111 31.111 0 0 1-6.093-.525C.958 21.659 0 21.114 0 20.465c0-4.279 1.526-7.71 4.188-9.414a.448.448 0 0 1 .2-.044.408.408 0 0 1 .244.075 7.014 7.014 0 0 0 4.218 1.385 7.106 7.106 0 0 0 2.284-.373 7.464 7.464 0 0 0-1.082 10.456 45.25 45.25 0 0 1-1.19.017zm-.015-11.988a5.289 5.289 0 1 1 5.289-5.289 5.3 5.3 0 0 1-5.289 5.289z">
+                                        </path>
+                                        <path fill-rule="evenodd"
+                                            d="M17.337 11.496a6.937 6.937 0 1 1-6.937 6.937 6.962 6.962 0 0 1 6.937-6.937zM12.9 17.121h8.875v2.625H12.9z">
+                                        </path>
+                                    </g>
+                                </svg>
+                                <span>Delete Contact</span>
+                            </button>
+                        </mat-menu>
+                    </div>
+                </div>
+                <div class="md-secondary-container"></div>
+                <div class="md-ripple-container"></div>
+            </div>
+        </div>
+    </div>
+</div>

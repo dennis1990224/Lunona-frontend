@@ -1,0 +1,298 @@
+.view-container {
+    transition: scroll 1s ease-in, overflow 1s ease-in;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.Bank {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: auto;
+    background-color: #fff;
+
+    .row {
+        margin: 0;
+    }
+}
+
+.class-info,
+.indicators-box {
+    width: 956px;
+    margin: 0 auto;
+}
+
+#myPower {
+    font-family: Roboto;
+    margin-bottom: 50px;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #ececf6;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .col-md-2 {
+        padding: 0;
+    }
+
+    .col-md-5 {
+        padding: 0;
+    }
+
+    .class-info {
+        border-radius: 3px;
+        background-color: #fff;
+        box-shadow: 0 2px 3px 0 rgba(35, 35, 31, 0.2);
+        height: 177px;
+        position: relative;
+        width: 956px;
+        margin: 0 auto;
+        margin-top: 72px;
+    }
+
+    .social-class,
+    .social-level {
+        max-width: 332px;
+        min-width: 332px;
+        height: 177px;
+    }
+
+    .profile,
+    .social-class,
+    .social-level {
+        padding: 0;
+    }
+
+    .social-class {
+        background: url(/assets/img-2/bank/left-dots.png) no-repeat 100% 140px;
+
+        .class-name {
+            font-size: 20px;
+            color: #5e5d70;
+            line-height: 0.699;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .class-name {
+            span {
+                display: inline-block;
+                padding: 15px 0 15px 56px;
+                background-repeat: no-repeat !important;
+                position: relative;
+                font-size: 30px;
+                color: #32394d;
+                font-weight: 900;
+            }
+        }
+
+        .class-name.King {
+            span {
+                padding: 15px 0 15px 90px;
+            }
+        }
+    }
+
+    .social-class h2,
+    .social-level h2 {
+        font-size: 22px;
+        font-family: "Roboto";
+        color: #5e5d70;
+        line-height: 0.699;
+        text-align: center;
+        font-weight: normal;
+        background: url(/assets/img-2/bank/sub-line.png) no-repeat 50% 100%;
+        margin: 0;
+        padding-bottom: 22px;
+        margin-top: 31px;
+    }
+
+    .profile {
+        background: url(/assets/img-2/bank/cyrcle-bg.png) no-repeat 50% 0;
+        max-width: 292px;
+        min-width: 292px;
+        text-align: center;
+
+        img {
+            border: 3px solid #fff;
+            border-radius: 5px;
+            background-color: #d0d8de;
+            box-shadow: 0 7px 9px 0 rgba(34, 31, 36, 0.11);
+            width: 132px;
+            height: 166px;
+            margin-top: -43px;
+            display: initial;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-family: "Roboto";
+            color: #524a58;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+
+    .social-level {
+        background: url(/assets/img-2/bank/right-lines.png) no-repeat 0 140px;
+
+        .level-name {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #5e5d70;
+            line-height: 0.699;
+            text-align: center;
+            font-weight: 700;
+
+            img {
+                background-color: #f2f2f2;
+                width: 106px;
+                height: 30px;
+                border-radius: 22px;
+                margin-right: 9px;
+            }
+        }
+    }
+
+    .indicators-box {
+        width: 956px;
+        margin: 0 auto;
+        margin-top: 15px;
+
+        .top-box {
+            position: relative;
+            border-radius: 3px;
+            background-color: #fff;
+            box-shadow: 0 2px 3px 0 rgba(35, 35, 31, 0.2);
+            width: 470px;
+            height: 456px;
+
+            .svg-indicator {
+                width: 300px;
+                margin: 0 auto;
+            }
+
+            .current-value {
+                font-size: 52px;
+                color: #5e5d70;
+                text-align: center;
+                font-weight: 900;
+                line-height: 33px;
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                z-index: 7;
+            }
+
+            .vote-icon {
+                position: absolute;
+                top: 150px;
+                left: 47%;
+            }
+
+            .text {
+                width: 332px;
+                margin: 50px auto 0;
+            }
+
+            p {
+                font-size: 14px;
+                font-family: "Roboto";
+                color: #5b5263;
+                line-height: 1.2;
+                text-align: center;
+                margin: 0;
+            }
+
+            strong {
+                font-weight: 500;
+            }
+        }
+    }
+
+    .lbox {
+        float: left;
+        max-width: 470px;
+        min-width: 470px;
+
+        .top-box {
+            h2 {
+                color: #24b0ba;
+                font-size: 22px;
+                text-align: center;
+                margin: 0;
+                padding-top: 21px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .rbox {
+        float: right;
+        max-width: 470px;
+        min-width: 470px;
+        margin-left: 16px;
+
+        .top-box {
+            h2 {
+                color: #c19a15;
+                font-size: 22px;
+                text-align: center;
+                margin: 0;
+                padding-top: 21px;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.bing-img {
+    display: block;
+    -webkit-animation: fadeInFromNone 0.15s ease-out;
+    animation: fadeInFromNone 0.15s ease-out;
+    transition: none !important;
+}
+
+h2 {
+    text-shadow: none;
+}
+
+h1 {
+    text-shadow: none;
+}
+
+.highcharts-label  {
+    display: none;
+}
+
+.highcharts-axis-labels {
+
+    text {
+        font-size: 26px !important;
+        font-family: "Roboto";
+        color: #c7c7c7 !important;
+    }
+    
+}
+
+.highcharts-series-0 {
+    opacity: 1 !important;
+}
+
+.highcharts-series-1 {
+    opacity: 0.3 !important;
+}

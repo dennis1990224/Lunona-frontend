@@ -1,0 +1,34 @@
+export interface ContactMember {
+    Age: number;
+    ContactID: number;
+    CreateFromMe: boolean;
+    CurrentBallance: {};
+    ExtraInfo: string;
+    FollowRecordIndex: number;
+    FollowTotalRecords: number;
+    GenderID: number;
+    HasBallanceInfo: boolean;
+    HasBlockedMe: boolean;
+    IsOnLine: number;
+    LastActivityDateTime: string;
+    LastMessage: string;
+    LastMessageAgo: string;
+    LastMessageDir: number;
+    LastUpdateKEY: string;
+    Location: string;
+    LoginName: string;
+    NewMessages: number;
+    ProfileID: number;
+    ProfilePhotoBase: string;
+    Room: string;
+    SocialLevel: number;
+    Status: string;
+    TranslateFreeText: boolean;
+    TranslateFreeTextFromID: number;
+    TranslateFreeTextFromMessagesTO: boolean;
+    TranslateFreeTextFromNotifyTO: boolean;
+    TranslateLagISOMY: string;
+    TranslateLagISOTO: string;
+    TranslateReadyMessages: boolean;
+    active: boolean;
+}

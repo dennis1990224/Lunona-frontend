@@ -1,0 +1,56 @@
+<div class="col-lg-12 container-browse no-padding">
+    <div class="wrap-browse" infiniteScroll [scrollWindow]="false" [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+        <div *ngIf="isExist" class="choose-menu-header">
+            <div class="choose-menu-header-block1">
+                <h2>{{getTranslate("Members.Profile.Edit.LeftMenu.ChatTitleBig")}}</h2>
+                <span>{{getTranslate("Members.Profile.Edit.LeftMenu.ChatSubTitle")}}</span>
+                <h3>{{getTranslate("Members.Profile.Edit.LeftMenu.ChatTitleBig")}}</h3>
+            </div>
+            <div class="choose-menu-header-block2">
+                <div class="input-field-container">
+                    <i></i>
+                    <input placeholder='{{getTranslate("Members.Profile.GetMyProfileViews.SearchByContacts")}}' [(ngModel)]="searchText" type="text">
+                    <div class="clear-input-field">
+                        <i [ngClass]="searchText.length>0 ? 'show' : ''" class="material-icons" (click)="clearText()">clear</i>
+                    </div>
+                </div>
+                <div class="input-field-button-search" (click)="searchContacts()">{{getTranslate("Members.Profile.GetMyProfileViews.SearchByContacts")}}</div>
+            </div>
+        </div>
+        <div class="choose-menu-body">
+            <div class="choose-menu-main-container">
+                <div *ngIf="isExist">
+                    <app-members-item *ngFor="let profile of profiles" [profile]="profile"></app-members-item>
+                </div>
+                <div *ngIf="!isExist" class="empty-category">
+                    <div class="empty-list-container">
+                        <div class="empty-list-row block-image">
+                            <img class="bing-img" src="assets/img-2/profile/chat-man.png">
+                        </div>
+                        <div class="empty-list-row header-title">
+                            <h2>NOT FOUND</h2>
+                            <h2>GIRLS WHOM YOU HAVE CHATTED WITH</h2>
+                        </div>
+                        <div class="empty-list-row body-text">
+                            <div class="inner">
+                                <p>
+                                    This functionality shows the girls from your contacts whom have chatted with. This means
+                                    that probably you are new in Lunona's community or you haven't completed your profile or
+                                    you did not make an attempt to show your interest to a girl yet. I suggest you to upload
+                                    your best photos and start flirting with the girls that you are interested in. You can
+                                    do that easily by sending kisses or a ready template message.
+                                    <br><br>
+                                    Please note that in order to achieve better results, receiving more replies, your Social
+                                    Level & Class have to be higher.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="inner md-ink-ripple">
+                            <h2>FIND HOTTIES</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

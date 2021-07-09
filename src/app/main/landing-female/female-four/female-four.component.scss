@@ -1,0 +1,163 @@
+.female-section-4 {
+    .female-section-4-background {
+        background-image: url(/assets/img-2/female/femalesection-4-bg.jpg);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: top;
+        object-position: top;
+        font-family: "object-fit: cover; object-position: top;";
+    }
+
+    .top-ribbon {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: fade-in;
+    }
+
+    .top-ribbon {
+        position: absolute;
+        top: 11.11vmin;
+        left: 0;
+        right: 0;
+        background-color: rgba(64, 12, 63, 0.4);
+    }
+
+    .top-ribbon {
+        text-align: center;
+        top: 10.33vmin;
+        padding: 3vmin;
+
+        h2 {
+            text-shadow: 0 0 10px #160621;
+            letter-spacing: 0;
+            color: #fff;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 5vmin;
+            line-height: 5vmin;
+        }
+
+        h2 {
+            font-weight: 400;
+            font-family: Open Sans, sans-serif;
+        }
+
+    }
+
+    .what-does {
+        width: 600px;
+        height: auto;
+        margin: auto;
+        top: calc(49% + 31px);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        bottom: initial;
+    }
+
+    .what-does {
+        ul {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            transition: transform 0.35s cubic-bezier(0.43, 0.08, 0.32, 1.29),
+                -webkit-transform 0.35s cubic-bezier(0.43, 0.08, 0.32, 1.29);
+
+            li {
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: fade-in;
+            }
+
+            .purple-box {
+                background-color: rgba(86, 8, 85, 0.8);
+                flex-wrap: nowrap;
+                -webkit-box-align: start;
+                align-items: flex-start;
+                margin-bottom: 6px;
+                border-radius: 10px;
+                display: flex;
+
+                img {
+                    position: relative;
+                    z-index: 2;
+                    perspective: 1000px;
+                    transform: translateZ(0.0001px);
+                    backface-visibility: hidden;
+                    vertical-align: middle;
+                    border: 0;
+                }
+
+                img {
+                    animation-duration: 1s;
+                    animation-delay: 0s;
+                    animation-name: zoom-in;
+                }
+
+                .description {
+                    text-align: left;
+                    padding: 20px 20px 20px 10px;
+
+                    .main {
+                        text-shadow: none;
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 1.2em;
+                    }
+
+                    h5 {
+                        letter-spacing: 0;
+                        color: #fff;
+                        margin: 0;
+                        font-family: inherit;
+                    }
+
+                    .note {
+                        text-shadow: none;
+                        font-weight: 100;
+                        margin-top: 10px;
+                        font-size: 14px;
+                        line-height: 18px;
+                    }
+
+                    h6 {
+                        letter-spacing: 0;
+                        color: #fff;
+                        margin: 0;
+                        font-family: inherit;
+                    }
+                }
+            }
+        }
+
+        ul::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 75%;
+            top: 13%;
+            background-color: #fff;
+            left: 62px;
+            z-index: 1;
+            perspective: 1000px;
+            backface-visibility: hidden;
+            transform-origin: center top;
+            transition: transform 1s 1.5s ease-in-out, -webkit-transform 1s 1.5s ease-in-out;
+        }
+
+        ul::before {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+        }
+    }
+}
+
+:host ::ng-deep .top-ribbon b {
+    font-weight: 800;
+}

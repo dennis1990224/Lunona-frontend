@@ -1,0 +1,315 @@
+<div class="messages-dialog-container">
+    <div class="messages-dialog-wrap">
+        <div class="messages-dialog-header">
+            <div class="messages-dialog-header-wrap">
+                <div class="messages-dialog-header-profile-picture">
+                    <img [src]="serverUrl + data.ProfilePhotoBase" class="bing-img">
+                </div>
+                <div class="messages-dialog-header-info">
+                    <div class="messages-dialog-header-info-row">
+                        <h2>{{data.LoginName}}, {{data.Age}}, {{data.Location}}</h2>
+                        <i class="state-connection" [ngClass]="data.IsOnLine ? 'on' : 'off'"></i>
+                        <span class="state-connection-text"></span>
+                    </div>
+                    <div class="messages-dialog-header-info-row">
+                        <div style="margin: -2px 0; float: left;">
+                            <img src='assets/img-2/profile/male/rate_{{data.SocialLevel}}.png'>
+                        </div>
+                    </div>
+                </div>
+                <div class="messages-dialog-header-info-right-options">
+                    <div class="messages-dialog-close" [mat-dialog-close]="''">
+                        <div class="messages-dialog-close-circle">
+                            <span class="close-icons"></span>
+                        </div>
+                    </div>
+                    <div class="messages-dialog-coins-credit-outer">
+                        <div class="messages-dialog-coins-credit">
+                            <i></i>
+                            <span>{{balance}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="messages-dialog-body" *ngIf="isChat">
+            <div class="messages-dialog-body">
+                <div class="messages-dialog-right-bar">
+                    <!-- <div class="messages-dialog-right-bar-button-item-active" style="top: 0px;"></div> -->
+                    <div class="messages-dialog-right-bar-button-item"
+                        [class.active]="isShowReadySticker && isReadyMessage" (click)="goToReady()">
+                        <i class="messages-dialog-right-bar-icon ready-messages"></i>
+                    </div>
+                    <div class="messages-dialog-right-bar-button-item"
+                        [class.active]="isShowReadySticker && !isReadyMessage" (click)="goToSticker()">
+                        <i class="messages-dialog-right-bar-icon sticker"></i>
+                    </div>
+                </div>
+                <div class="messages-room" [class.on]="isShowReadySticker" [class.off]="!isShowReadySticker"
+                    [class.more]="isMoreOption" id="messages-modal">
+                    <div id="section-chat-modal">
+                        <div class="message-spinner" *ngIf="isLoading && isProfileInfo">
+                            <mat-spinner diameter="70" style="position: absolute; z-index: 10; left: 25%;">
+                            </mat-spinner>
+                        </div>
+                        <app-chat-message-list *ngIf="!isLoading && !isProfileInfo" [myChatMessages]="myChatMessages"
+                            [profileInfo]="profileInfo">
+                        </app-chat-message-list>
+                    </div>
+                </div>
+                <div class="messages-dialog-messages">
+                    <div class="messages-dialog-float-panel" [ngClass]="isShowReadySticker ? 'on' : 'off'">
+                        <div>
+                            <div class="animate-switch">
+                                <div *ngIf="isReadyMessage" id="ReadyMessagesController"
+                                    class="ready-messages-container" style="height: 789px;">
+                                    <div class="md-conversation-right-col-outer">
+                                        <div *ngIf="isExpand" class="regular" style="height: 57px">
+                                            <div class="md-conversation-right-col-tabs-item bing-img"
+                                                [ngStyle]="readyMessageIndex==6 && {'background-color': 'mistyrose'}"
+                                                (click)="selectMessageCategory(6)">
+                                                <img
+                                                    [src]="readyMessageIndex==6 ? 'assets/img-2/conversation/wishes-on.png' : 'assets/img-2/conversation/wishes-off.png'">
+                                            </div>
+                                            <div class="md-conversation-right-col-tabs-item bing-img"
+                                                [ngStyle]="readyMessageIndex==7 && {'background-color': 'mistyrose'}"
+                                                (click)="selectMessageCategory(7)">
+                                                <img
+                                                    [src]="readyMessageIndex==7 ? 'assets/img-2/conversation/sexy-on.png' : 'assets/img-2/conversation/sexy-off.png'">
+                                            </div>
+                                        </div>
+                                        <div class="md-conversation-right-col-most-popular">
+                                            <div class="md-conversation-right-col-tabs-item bing-img"
+                                                [ngStyle]="readyMessageIndex==1 && {'background-color': 'mistyrose'}"
+                                                (click)="selectMessageCategory(1)">
+                                                <img
+                                                    [src]="readyMessageIndex==1 ? 'assets/img-2/conversation/First-messages-on.png' : 'assets/img-2/conversation/First-messages-off.png'">
+                                            </div>
+                                            <div class="md-conversation-right-col-tabs-item bing-img"
+                                                [ngStyle]="readyMessageIndex==2 && {'background-color': 'mistyrose'}"
+                                                (click)="selectMessageCategory(2)">
+                                                <img
+                                                    [src]="readyMessageIndex==2 ? 'assets/img-2/conversation/likes-on.png' : 'assets/img-2/conversation/likes-off.png'">
+                                            </div>
+                                            <div class="md-conversation-right-col-tabs-item bing-img"
+                                                [ngStyle]="readyMessageIndex==3 && {'background-color': 'mistyrose'}"
+                                                (click)="selectMessageCategory(3)">
+                                                <img
+                                                    [src]="readyMessageIndex==3 ? 'assets/img-2/conversation/flirt1-on.png' : 'assets/img-2/conversation/flirt1-off.png'">
+                                            </div>
+                                            <div class="md-conversation-right-col-tabs-item bing-img"
+                                                [ngStyle]="readyMessageIndex==4 && {'background-color': 'mistyrose'}"
+                                                (click)="selectMessageCategory(4)">
+                                                <img
+                                                    [src]="readyMessageIndex==4 ? 'assets/img-2/conversation/offers1-on.png' : 'assets/img-2/conversation/offers1-off.png'">
+                                            </div>
+                                            <div class="md-conversation-right-col-tabs-item bing-img"
+                                                [ngStyle]="readyMessageIndex==5 && {'background-color': 'mistyrose'}"
+                                                (click)="selectMessageCategory(5)">
+                                                <img
+                                                    [src]="readyMessageIndex==5 ? 'assets/img-2/conversation/question-on.png' : 'assets/img-2/conversation/question-off.png'">
+                                            </div>
+                                            <div class="md-conversation-right-col-tabs-item bing-img"
+                                                (click)="categoryExpand()">
+                                                <img
+                                                    [src]="!isExpand ? 'assets/img-2/conversation/arrow-up.png' : 'assets/img-2/conversation/arrow-down.png'">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ReadyMessagesSelectionHeader">
+                                        <span class="ReadyMessagesSelectionHeaderImg">
+                                            <img *ngIf="readyMessageIndex==1"
+                                                src="assets/img-2/conversation/First-messages-selected.png">
+                                            <img *ngIf="readyMessageIndex==2"
+                                                src="assets/img-2/conversation/likes-selected.png">
+                                            <img *ngIf="readyMessageIndex==3"
+                                                src="assets/img-2/conversation/flirt1-selected.png">
+                                            <img *ngIf="readyMessageIndex==4"
+                                                src="assets/img-2/conversation/offers1-selected.png">
+                                            <img *ngIf="readyMessageIndex==5"
+                                                src="assets/img-2/conversation/question-selected.png">
+                                            <img *ngIf="readyMessageIndex==6"
+                                                src="assets/img-2/conversation/wishes-selected.png">
+                                            <img *ngIf="readyMessageIndex==7"
+                                                src="assets/img-2/conversation/sexy-selected.png">
+                                        </span>
+                                        <h3 *ngIf="readyMessageIndex==1">Hi</h3>
+                                        <h3 *ngIf="readyMessageIndex==2">Wink</h3>
+                                        <h3 *ngIf="readyMessageIndex==3">Flirt</h3>
+                                        <h3 *ngIf="readyMessageIndex==4">Offers</h3>
+                                        <h3 *ngIf="readyMessageIndex==5">Questions</h3>
+                                        <h3 *ngIf="readyMessageIndex==6">Hi</h3>
+                                        <h3 *ngIf="readyMessageIndex==7">Hi</h3>
+                                        <div class="settings settings-icon" (click)="openTranslate()"></div>
+                                    </div>
+                                    <div class="RaadyMessageSelection">
+                                        <div class="animate-switch">
+                                            <div>
+                                                <div class="ready-messages-lists">
+                                                    <div class="md-content">
+                                                        <mat-list class="flex">
+                                                            <mat-list-item *ngFor="let readyMessage of readyMessages"
+                                                                (click)="activeAction(readyMessage)"
+                                                                class="angualr-list md-3-line ready-messages-item _md-button-wrap _md md-clickable">
+                                                                <p matLine>
+                                                                    {{readyMessage.TranslatedValue.substring(0, 50)}}
+                                                                </p>
+                                                                <div *ngIf="readyMessage.active" matLine
+                                                                    class="actions layout-row">
+                                                                    <button class="md-button"
+                                                                        (click)="sendReadyMessage(readyMessage)">
+                                                                        <span>Send</span>
+                                                                    </button>
+                                                                    <button class="md-button">
+                                                                        <span>Close</span>
+                                                                    </button>
+                                                                    <button class="md-button"
+                                                                        (click)="editReadyMessage(readyMessage)">
+                                                                        <span>Edit</span>
+                                                                    </button>
+                                                                </div>
+                                                            </mat-list-item>
+                                                        </mat-list>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div *ngIf="!isReadyMessage" id="StickerEmoticons" class="ready-messages-container"
+                                    style="height: 789px;">
+                                    <div class="md-conversation-right-col-most-popular">
+                                        <div class="md-conversation-right-col-tabs-item bing-img"
+                                            [ngStyle]="stickerMessageIndex==1 && {'background-color': 'mistyrose'}"
+                                            (click)="selectStickerCategory(1)">
+                                            <img
+                                                [src]="stickerMessageIndex==1 ? 'assets/img-2/conversation/emoticons-on.png' : 'assets/img-2/conversation/emoticons-off.png'">
+                                        </div>
+                                        <div class="md-conversation-right-col-tabs-item bing-img"
+                                            [ngStyle]="stickerMessageIndex==2 && {'background-color': 'mistyrose'}"
+                                            (click)="selectStickerCategory(2)">
+                                            <img
+                                                [src]="stickerMessageIndex==2 ? 'assets/img-2/conversation/chic-on.png' : 'assets/img-2/conversation/chic-off.png'">
+                                        </div>
+                                        <div class="md-conversation-right-col-tabs-item bing-img"
+                                            [ngStyle]="stickerMessageIndex==3 && {'background-color': 'mistyrose'}"
+                                            (click)="selectStickerCategory(3)">
+                                            <img
+                                                [src]="stickerMessageIndex==3 ? 'assets/img-2/conversation/love-on.png' : 'assets/img-2/conversation/love-off.png'">
+                                        </div>
+                                        <div class="md-conversation-right-col-tabs-item bing-img"
+                                            [ngStyle]="stickerMessageIndex==4 && {'background-color': 'mistyrose'}"
+                                            (click)="selectStickerCategory(4)">
+                                            <img
+                                                [src]="stickerMessageIndex==4 ? 'assets/img-2/conversation/under-18-on.png' : 'assets/img-2/conversation/under-18-off.png'">
+                                        </div>
+                                        <div class="md-conversation-right-col-tabs-item bing-img"
+                                            [ngStyle]="stickerMessageIndex==5 && {'background-color': 'mistyrose'}"
+                                            (click)="selectStickerCategory(5)">
+                                            <img
+                                                [src]="stickerMessageIndex==5 ? 'assets/img-2/conversation/man-on.png' : 'assets/img-2/conversation/man-off.png'">
+                                        </div>
+                                    </div>
+                                    <div class="stickersSelection">
+                                        <div class="emoticonsList">
+                                            <div>
+                                                <div class="emoticonItem emoji" *ngFor="let sticker of stickers">
+                                                    <div class="emoticonsItemInner run-animation image-sprite"
+                                                        [ngStyle]="{'background': 'url(' + serverUrl + sticker.HTML + ')'}"
+                                                        [ngClass]="stickerMessageIndex==1 ? 'motion' : ''"
+                                                        (click)="sendSticker(sticker)">
+                                                        <img class="emoticonsImg bing-img"
+                                                            [src]="serverUrl+sticker.PreviewImage">
+                                                        <span
+                                                            class="notificaion-contacts">{{sticker.Price==0 ? 'free' : sticker.Price}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="messages-dialog-footer" [class.on]="isShowReadySticker" [class.off]="!isShowReadySticker"
+                    [ngClass]="isMoreOption ? 'more' : ''">
+                    <div class="messages-dialog-footer-more-options" [ngClass]="isMoreOption ? 'active' : ''"
+                        (click)="changeMoreOption()"><i></i></div>
+                    <div class="messages-dialog-footer-sticker-emoji" (click)="showHideReadySticker()"><i></i></div>
+                    <div class="messages-dialog-footer-messages-written">
+                        <div class="contenteditable">
+                            <form>
+                                <input (ngModelChange)="inputMessage()" name="textmessage" [(ngModel)]="textMessage"
+                                    (keyup.enter)="sendMessageByEnter()" id="MessageBox" type="text"
+                                    placeholder="Enter your message..." style="border: none; width: 100%;"
+                                    (focus)="hideReadySticker()">
+                            </form>
+                        </div>
+                    </div>
+                    <div (click)="sendTextMessage()" class="messages-dialog-footer-sent-the-message"
+                        [ngClass]="isSendActive ? 'active' : ''"><i></i></div>
+                </div>
+                <div class="more-options-container" [class.more]="isShowReadySticker"
+                    [class.more-off]="!isShowReadySticker" [ngClass]="isMoreOption ? 'on' : 'off'">
+                    <div class="more-options-container-item take-photo" (click)="goTakePhoto()">
+                        <i></i>
+                        <span>Take Photo</span>
+                    </div>
+                    <div class="more-options-container-item from-gallery" (click)="photo.click()">
+                        <i></i>
+                        <span>From Gallery</span>
+                    </div>
+                    <input type="file" #photo (change)="sendPhoto($event)" class="form-control" accept="*/*"
+                        style="display: none;">
+                    <div class="more-options-container-item saved">
+                        <i></i>
+                        <span>Saved Photos</span>
+                    </div>
+                    <div class="more-options-container-item send-video" (click)="video.click()">
+                        <i></i>
+                        <span>Send Video</span>
+                    </div>
+                    <input type="file" #video (change)="sendVideo($event)" class="form-control" accept="*/*"
+                        style="display: none;">
+                    <div class="more-options-container-item translate">
+                        <i></i>
+                        <span>Translate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="camera-container" *ngIf="isTakePhoto">
+            <div class="camera-wrap">
+                <div class="camera stretch">
+                    <div class="header">
+                        <p class="header main description">
+                            Take a photo with your camera
+                        </p>
+                        <p class="header sub description">
+                            Take photos with your camera, choose the best one and upload it
+                        </p>
+                    </div>
+                    <div class="wrapper has-webcam">
+                        <span class="when-webcam">
+                            <div style="margin: 0 auto; width: 100%; position: relative; max-width: 100%; clear: both;">
+                                <button>Take a Snapshot!</button>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="camera-footer">
+                <div class="camera-footer-button">
+                    <div class="camera-footer-button-item chat" (click)="goChat()">
+                        <span>Chat</span>
+                    </div>
+                    <div class="camera-footer-button-item done">
+                        <span>Done</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="" -->
+    </div>
+</div>

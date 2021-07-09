@@ -1,0 +1,38 @@
+<div *ngIf="!isLoading" class="view-container animation">
+    <div class="slide view-frame">
+        <div class="BrowsePage col-xs-12 col-sm-12 col-md-12 col-lg-12 container-browse">
+            <div class="animate-switch-container col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding" style="cursor: auto;">
+                <div class="animate-switch">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 container-browse">
+                        <div class="wrap-browse dashboard">
+                            <div class="browse-by-category" (resized)="onResized($event)" *ngFor="let browseDashboardData of browseDashboardDatas">
+                                <div class="browse_cat_inner">
+                                    <div class="browse-by-category-header">
+                                        <div class="left">
+                                            <h2>{{browseDashboardData.Header.Title}}</h2>
+                                            <p>{{browseDashboardData.Header.SubTitle}}</p>
+                                        </div>
+                                        <div class="browse-by-category-header-ng-text">
+                                            <h3>{{browseDashboardData.Header.BigTitle}}</h3>
+                                        </div>
+                                        <div class="see-more-button-wrap">
+                                            <button style="background-color: rgb(237, 59, 59); color: rgb(255, 255, 255);" class="see-more-member-btn" (click)="goToBrowsePage(browseDashboardData)">
+                                                {{browseDashboardData.Header.ButtonSeeAll}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="browse-horizontal-line"></div>
+                                    <div class="browse-card" *ngFor="let profile of browseDashboardData.Profiles | slice:0:cardLimit-1; let i=index;">
+                                        <app-browse-profile-card [profile]="profile"></app-browse-profile-card>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

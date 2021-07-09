@@ -1,0 +1,252 @@
+<mat-list *ngIf="myChatMessages">
+    <div class="item" *ngFor="let myChatMessage of myChatMessages">
+        <div class="conversation-start" *ngIf="myChatMessage.conversationStart">
+            <span>{{myChatMessage.conversationStart}}</span>
+        </div>
+        <mat-list-item [ngClass]="myChatMessage.LoginNameFROM==userName ? 'SlideFromMe' : 'SlideFromThem'"
+            class="md-3-line">
+            <div *ngIf="myChatMessage.showFace && myChatMessage.MessageTypeID<2" class="bubble-arrow"></div>
+            <div *ngIf="myChatMessage.showFace && myChatMessage.TPPP" class="md-avatar-chat cover bing-img"
+                style="background-image: url({{serverUrl}}{{myChatMessage.TPPP}});"></div>
+            <div *ngIf="myChatMessage.showFace && myChatMessage.LoginNameFROM==userName"
+                class="md-avatar-chat cover bing-img" style="background-image: url({{userAvatar}});"></div>
+            <div *ngIf="myChatMessage.showFace && !myChatMessage.TPPP && myChatMessage.LoginNameFROM!=userName && profileInfo"
+                class="md-avatar-chat cover bing-img"
+                style="background-image: url({{serverUrl}}{{profileInfo.ProfilePhotoBase}});"></div>
+            <div class="md-list-item-text layout-column" [ngClass]="myChatMessage.showFace ? 'showFace' : ''">
+                <div class="clear"></div>
+                <div *ngIf="myChatMessage.MessageTypeID==1" class="type-first">
+                    <div *ngIf="!myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'"
+                        class="without-bubbles">
+                        <div class="msg-content text-content">
+                            <div *ngIf="!myChatMessage.showTranslate"
+                                [innerHTML]="myChatMessage.BodyOriginal | safeHtml"></div>
+                            <div *ngIf="myChatMessage.showTranslate"
+                                [innerHTML]="myChatMessage.BodyTranlated | safeHtml"></div>
+                            <span class="myTranslate"
+                                *ngIf="myChatMessage.IsTranlate && myChatMessage.LoginNameFROM==userName"
+                                (click)="showTranslate(myChatMessage)">{{myChatMessage.translateText}}</span>
+                            <span class="otherTranslate"
+                                *ngIf="myChatMessage.IsTranlate && myChatMessage.LoginNameFROM!=userName"
+                                (click)="showTranslate(myChatMessage)">{{myChatMessage.originalText}}</span>
+                        </div>
+                        <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                    <div *ngIf="myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'">
+                        <div class="msg-content text-content">
+                            <div *ngIf="!myChatMessage.showTranslate"
+                                [innerHTML]="myChatMessage.BodyOriginal | safeHtml"></div>
+                            <div *ngIf="myChatMessage.showTranslate"
+                                [innerHTML]="myChatMessage.BodyTranlated | safeHtml"></div>
+                            <span class="myTranslate"
+                                *ngIf="myChatMessage.IsTranlate && myChatMessage.LoginNameFROM==userName"
+                                (click)="showTranslate(myChatMessage)">{{myChatMessage.translateText}}</span>
+                            <span class="otherTranslate"
+                                *ngIf="myChatMessage.IsTranlate && myChatMessage.LoginNameFROM!=userName"
+                                (click)="showTranslate(myChatMessage)">{{myChatMessage.originalText}}</span>
+                        </div>
+                        <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                </div>
+                <div *ngIf="myChatMessage.MessageTypeID==2" class="type-second">
+                    <div *ngIf="!myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'"
+                        class="without-bubbles">
+                        <div class="msg-content text-content">
+                            <div [innerHTML]="myChatMessage.BodyOriginal | safeHtml"></div>
+                        </div>
+                        <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                    <div *ngIf="myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'">
+                        <div class="msg-content text-content">
+                            <div [innerHTML]="myChatMessage.BodyOriginal | safeHtml"></div>
+                        </div>
+                        <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                </div>
+                <div *ngIf="myChatMessage.MessageTypeID==3" class="type-third">
+                    <div *ngIf="!myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'"
+                        class="without-bubbles">
+                        <div class="msg-content photo-content" (click)="openPhoto(myChatMessage)">
+                            <div>
+                                <img class="photo-message" [src]="getUrl(myChatMessage)">
+                            </div>
+                        </div>
+                        <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                    <div *ngIf="myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'">
+                        <div class="msg-content photo-content" (click)="openPhoto(myChatMessage)">
+                            <div>
+                                <img class="photo-message" [src]="getUrl(myChatMessage)">
+                            </div>
+                        </div>
+                        <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                </div>
+                <div *ngIf="myChatMessage.MessageTypeID==7" class="type-seven">
+                    <div *ngIf="!myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'"
+                        class="without-bubbles">
+                        <div class="msg-content">
+                            <div class="photo-accept">
+                                <h2 style="color: black; font-size: 14px; font-weight: 400; margin-bottom: 10px;">
+                                    {{myChatMessage.LoginNameFROM}} has sent you a photo.</h2>
+                                <h2 style="color: black; font-size: 14px; font-weight: 400; margin-bottom: 10px;">Would
+                                    you like to receive it?</h2>
+                                <h2 style="color: black; font-size: 14px; font-weight: 400; margin-bottom: 10px;"
+                                    *ngIf="myChatMessage.extraInfo">Cost
+                                    for photo is {{myChatMessage.extraInfo.CostInLUN}} Luns.</h2>
+                                <div class="action">
+                                    <button mat-raised-button
+                                        style="background-color: rgb(63,81,181); color: white; width: 88px; margin: 8px 6px;"
+                                        (click)="acceptPhoto(myChatMessage)">Yes</button>
+                                    <button mat-raised-button
+                                        style="background-color: rgb(63,81,181); color: white; width: 88px; margin: 8px 6px;"
+                                        (click)="noAcceptPhoto(myChatMessage)">No</button>
+                                </div>
+                            </div>
+                            <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        </div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                    <div *ngIf="myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'">
+                        <div class="msg-content">
+                            <div class="photo-accept">
+                                <h2 style="color: black; font-size: 14px; font-weight: 400; margin-bottom: 10px;">
+                                    {{myChatMessage.LoginNameFROM}} has sent you a photo.</h2>
+                                <h2 style="color: black; font-size: 14px; font-weight: 400; margin-bottom: 10px;">Would
+                                    you like to receive it?</h2>
+                                <h2 style="color: black; font-size: 14px; font-weight: 400; margin-bottom: 10px;">Cost
+                                    for photo is {{myChatMessage.extraInfo.CostInLUN}} Luns.</h2>
+                                <div class="action">
+                                    <button mat-raised-button
+                                        style="background-color: rgb(63,81,181); color: white; width: 88px; margin: 8px 6px;"
+                                        (click)="acceptPhoto(myChatMessage)">Yes</button>
+                                    <button mat-raised-button
+                                        style="background-color: rgb(63,81,181); color: white; width: 88px; margin: 8px 6px;"
+                                        (click)="noAcceptPhoto(myChatMessage)">No</button>
+                                </div>
+                            </div>
+                            <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        </div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                </div>
+                <div *ngIf="myChatMessage.MessageTypeID==8" class="type-eight">
+                    <div *ngIf="!myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'"
+                        class="without-bubbles">
+                        <div class="msg-content text-content">
+                            <div [innerHTML]="myChatMessage.BodyOriginal | safeHtml"></div>
+                            <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        </div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                    <div *ngIf="myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'">
+                        <div class="msg-content text-content">
+                            <div [innerHTML]="myChatMessage.BodyOriginal | safeHtml"></div>
+                            <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        </div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                </div>
+                <div *ngIf="myChatMessage.MessageTypeID==6" class="type-six">
+                    <div *ngIf="!myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'"
+                        class="without-bubbles">
+                        <div class="msg-content text-content">
+                            <div>
+                                <video class="video-message" controls [src]="getUrl(myChatMessage)"></video>
+                                <a rel="nofollow" target="_blank" id="cancel-comment-reply-link"
+                                    href="{{getUrl(myChatMessage)}}"
+                                    style="clear: both; width: 100%; display: inline-block;">
+                                    Click here to download video
+                                </a>
+                            </div>
+                            <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        </div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                    <div *ngIf="myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'">
+                        <div class="msg-content text-content">
+                            <div>
+                                <video class="video-message" controls [src]="getUrl(myChatMessage)"></video>
+                                <a rel="nofollow" target="_blank" id="cancel-comment-reply-link"
+                                    href="{{getUrl(myChatMessage)}}"
+                                    style="clear: both; width: 100%; display: inline-block;">
+                                    Click here to download video
+                                </a>
+                            </div>
+                            <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        </div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                </div>
+                <div *ngIf="myChatMessage.MessageTypeID==4" class="type-six">
+                    <div *ngIf="!myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'"
+                        class="without-bubbles">
+                        <div class="msg-content text-content">
+                            <div [class.image-sprite-chat]="myChatMessage.isEmoj" [class.motion]="myChatMessage.isEmoj"
+                                [ngStyle]="{'background-image': 'url(' + myChatMessage.ExtraData + ')'}"
+                                [innerHTML]="myChatMessage.BodyOriginal | safeHtml">
+                            </div>
+                            <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        </div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                    <div *ngIf="myChatMessage.showFace"
+                        [ngClass]="myChatMessage.LoginNameFROM==userName ? 'from-me-without-psuedo' : 'from-them-without-psuedo'">
+                        <div class="msg-content text-content">
+                            <div [class.image-sprite-chat]="myChatMessage.isEmoj" [class.motion]="myChatMessage.isEmoj"
+                                [ngStyle]="{'background-image': 'url(' + myChatMessage.ExtraData + ')'}"
+                                [innerHTML]="myChatMessage.BodyOriginal | safeHtml">
+                            </div>
+                            <div class="timestamp" *ngIf="myChatMessage.time">{{myChatMessage.time}}</div>
+                        </div>
+                        <div class="delete-message" (click)="deleteMessage(myChatMessage)"></div>
+                    </div>
+                </div>
+
+                <div class="clear"></div>
+                <div *ngIf="userName==myChatMessage.LoginNameFROM && !myChatMessage.Seen" class="msg-status">
+                    <p style="float: right; font-size: 14px;">Delivered</p>
+                </div>
+                <div *ngIf="userName==myChatMessage.LoginNameFROM && myChatMessage.Seen" class="msg-status">
+                    <p style="float: right; font-size: 14px;">Seen</p>
+                </div>
+                <div class="md-secondary-container"></div>
+            </div>
+        </mat-list-item>
+
+        <div class="clear"></div>
+    </div>
+    <mat-list-item class="SlideFromMe" *ngIf="uploadProgress>0">
+        <div class="md-avatar-chat cover bing-img"
+            style="background-image: url({{userAvatar}}); width: 43px; height: 52px; position: absolute; right: -55px; top: 3px;">
+        </div>
+        <div style="width: 100%;">
+            <div style="width: 12%; float: right;">
+                <circle-progress [percent]="uploadProgress" [radius]="70" [outerStrokeWidth]="10"
+                    [innerStrokeWidth]="10" [space]="-10" [outerStrokeColor]="'#5a277c'" [innerStrokeColor]="'#e7e8ea'"
+                    [titleFontSize]="40" [unitsFontSize]="40" [showSubtitle]="false" [animation]="true"
+                    [clockwise]="true" [animationDuration]="300" [startFromZero]="false" [responsive]="true">
+                </circle-progress>
+            </div>
+        </div>
+    </mat-list-item>
+</mat-list>

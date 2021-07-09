@@ -1,0 +1,36 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div animatable class="female-section-6 wrapper stretch">
+    <div class="section image wrapper stretch">
+        <div class="female-section-6-background"></div>
+    </div>
+    <div class="section content stretch">
+        <div class="top-ribbon">
+            <h2 class="uppercase">
+                <div [innerHTML]="TopRibbonContent"></div>
+            </h2>
+        </div>
+    </div>
+    <div class="luna_item">
+        <div class="body_wrapper">
+            <img class="luna body" alt="luna" src="assets/img-2/luna.png" />
+            <div class="luna_bubble_wrapper">
+                <div class="luna bubble">
+                    <h4 class="title" id="title-luna">
+                        <div [innerHTML]="LunaDialogTitle"></div>
+                    </h4>
+                    <div class="content" id="content-luna">
+                        <div [innerHTML]="LunaDialogContent"></div>
+                    </div>
+                    <img class="edge" src="assets/img-2/bubble-edge-left.png" />
+                </div>
+            </div>
+            
+            <div class="luna background" style="background-image: url('assets/img-2/luna-bg.png')"></div>
+        </div>
+    </div>
+    <div class="language-support wrapper ng-scope">
+        <img src="assets/img-2/nav-footer/speak.png">
+        <p>We speak all languages ​​supported by Lunona</p>
+    </div>
+</div>
+<app-landing-female-footer #landingFemaleFooter></app-landing-female-footer>

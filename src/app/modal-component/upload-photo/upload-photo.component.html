@@ -1,0 +1,154 @@
+<div class="public main wrapper" [ngClass]="data">
+    <div class="top wrapper">
+        <div class="top title">
+            <span class="ng-binding">{{modalName}}</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-tab-group (selectedTabChange)="OnTabChanged($event)">
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <p>
+                        <span class="icon icon-upload"></span>
+                        <span> Upload </span>
+                    </p>
+                </ng-template>
+                <div class="upload stretch">
+                    <div class="header">
+                        <p class="header main description">
+                            Upload Photos from your computer
+                        </p>
+                        <p class="header sub description">
+                            Select muliple photos from your computer, and upload them at once as you drag and drop them,
+                            or press the corresponding button
+                        </p>
+                    </div>
+                    <div class="dumpster empty" appDragDrop (files)="fileDropped($event)">
+                        <div class="prompt" [ngClass]="responsePhotos.length>0 ? 'filled' : ''">
+                            <div *ngIf="responsePhotos.length==0" class="drag big when-empty">
+                                <img src="assets/img-2/profile/drag-big.png">
+                                <p> Drag Photos Here </p>
+                            </div>
+                            <div *ngIf="responsePhotos.length>0" class="drag small when-filled">
+                                <img src="/assets/img-2/profile/drag-small.png">
+                                <p>Drag More Photos Here</p>
+                            </div>
+                            <div *ngIf="responsePhotos.length==0" class="or when-empty">or</div>
+                            <button *ngIf="responsePhotos.length==0" (click)="file.click()">Select From Your
+                                Computer</button>
+                            <button *ngIf="responsePhotos.length>0" style="float: left;" (click)="file.click()">Select
+                                From Your Computer</button>
+                            <input type="file" #file (change)="photofileChange($event)" class="form-control"
+                                accept="*/*" style="display: none;">
+                        </div>
+
+                        <ul *ngIf="responsePhotos.length>0" class="when-filled">
+                            <li *ngFor="let responsePhoto of responsePhotos">
+                                <video controls="true" style="height: 200px;" *ngIf="responsePhoto.isVideo"
+                                    [src]="responsePhoto.VideoUrl"></video>
+                                <img *ngIf="!responsePhoto.isVideo" style="height: 200px;"
+                                    [src]="responsePhoto.ThumbnailUrl">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="overlay stretch" *ngIf="uploadProgress>0">
+                    <div style="width: 20%; height: 20%; margin: auto; margin-top: 20%; text-align: center;">
+                        <round-progress [radius]="40" [color]="'#4c1f6a'" [stroke]="5" [current]="uploadProgress" [max]="100" style="margin: auto;"></round-progress>
+                        Upload
+                        {{uploadProgress}} %
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <p>
+                        <span class="icon icon-camera"></span>
+                        <span> Camera </span>
+                    </p>
+                </ng-template>
+                <div class="camera stretch">
+                    <div class="header">
+                        <p class="header main description">
+                            Take a photo wit your camera
+                        </p>
+                        <p class="header sub description">
+                            Take photos with your camera, choose the best one and upload it
+                        </p>
+                    </div>
+                    <div class="has-webcam">
+                        <span class="when-webcam">
+                            <div style="width: 50%; float: left; height: 289px;"></div>
+                            <ul></ul>
+                            <div style="margin: 0 auto;width: 100%;position: relative;max-width: 100%;clear: both;">
+                                <button>Take a Snapshot!</button>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <p>
+                        <span class="icon icon-avatar"></span>
+                        <span> Avatar </span>
+                    </p>
+                </ng-template>
+                <div class="avatar-image stretch">
+                    <ul class="avatars">
+                        <li class="avatar" *ngFor="let avatar of avatars; let i=index"
+                            (click)="selectAvatar(avatar, i)">
+                            <img style="width: 140px; height: 175px;" (load)="avatarsLoad[i] = false"
+                                [src]="serverUrl+avatar.HTML">
+                            <img style="width: 100%;" src="assets/img-2/members/Profile-image-loader.gif"
+                                [hidden]="!avatarsLoad[i]">
+                            <div class="stretch selection" [ngClass]="avatarSelected[i] ? 'select' : ''">
+                                <img src="assets/img-2/profile/select.png">
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="avatar-categories">
+                        <li class="avatar-category" (click)="getAvartarPhoto(38)"
+                            [ngClass]="isActive==1 ? 'active' : ''">
+                            <img class="stretch" style="margin: auto; width: 50px; height:50px;"
+                                [src]="isActive==1 ? 'assets/img-2/profile/18-on.png' : 'assets/img-2/profile/18-off.png'">
+                        </li>
+                        <li class="avatar-category" (click)="getAvartarPhoto(40)"
+                            [ngClass]="isActive==2 ? 'active' : ''">
+                            <img class="stretch" style="margin: auto; width: 50px; height:50px;"
+                                [src]="isActive==2 ? 'assets/img-2/profile/25-on.png' : 'assets/img-2/profile/25-off.png'">
+                        </li>
+                        <li class="avatar-category" (click)="getAvartarPhoto(41)"
+                            [ngClass]="isActive==3 ? 'active' : ''">
+                            <img class="stretch" style="margin: auto; width: 50px; height:50px;"
+                                [src]="isActive==3 ? 'assets/img-2/profile/30-on.png' : 'assets/img-2/profile/30-off.png'">
+                        </li>
+                        <li class="avatar-category" (click)="getAvartarPhoto(42)"
+                            [ngClass]="isActive==4 ? 'active' : ''">
+                            <img class="stretch" style="margin: auto; width: 50px; height:50px;"
+                                [src]="isActive==4 ? 'assets/img-2/profile/40-on.png' : 'assets/img-2/profile/40-off.png'">
+                        </li>
+                        <li class="avatar-category" (click)="getAvartarPhoto(43)"
+                            [ngClass]="isActive==5 ? 'active' : ''">
+                            <img class="stretch" style="margin: auto; width: 50px; height:50px;"
+                                [src]="isActive==5 ? 'assets/img-2/profile/55-on.png' : 'assets/img-2/profile/55-off.png'">
+                        </li>
+                        <li class="avatar-category" (click)="getAvartarPhoto(44)"
+                            [ngClass]="isActive==6 ? 'active' : ''">
+                            <img class="stretch" style="margin: auto; width: 50px; height:50px;"
+                                [src]="isActive==6 ? 'assets/img-2/profile/cartoon-on.png' : 'assets/img-2/profile/cartoon-off.png'">
+                        </li>
+                    </ul>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="uploadDone()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

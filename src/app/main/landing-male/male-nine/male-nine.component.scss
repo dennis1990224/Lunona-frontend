@@ -1,0 +1,327 @@
+.male-section-9 {
+    .image.wrapper {
+        background-color: #dbdce6;
+    }
+
+    .section.content {
+        bottom: 0;
+    }
+
+    .top-ribbon {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: fade-in;
+    }
+
+    .top-ribbon {
+        position: absolute;
+        top: 11.11vmin;
+        left: 0;
+        right: 0;
+        background-color: rgba(64, 12, 63, 0.4);
+        text-align: center;
+    }
+
+    .top-ribbon {
+        top: 10.33vmin;
+        height: 10vmin;
+        padding: 3vmin;
+
+        h3 {
+            text-shadow: 0 0 10px #160621;
+            letter-spacing: 0;
+            color: #fff;
+            margin: 0;
+            font-family: inherit;
+        }
+
+        h3 {
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 30px;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+    }
+
+    .free-download {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: fade-in;
+    }
+
+    .free-download {
+        position: absolute;
+        top: 47%;
+        left: 0;
+        height: auto;
+        width: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        padding: 20px;
+    }
+
+    .free-download {
+        text-align: center;
+        h2 {
+            font-size: 26px;
+            line-height: 30px;
+            font-weight: 600;
+            text-shadow: none;
+            font-family: "Open Sans";
+            color: rgb(29, 23, 39);
+        }
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        h2 {
+            letter-spacing: 0;
+            margin: 0;
+
+        }
+
+        .section-9-social-nav {
+            margin: 0 auto;
+            width: 50%;
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .clearfix::before {
+            display: table;
+            content: " ";
+        }
+
+        .clearfix::after {
+            clear: both;
+        }
+
+        .section-9-social-nav {
+            .android-button.play.store {
+                background: url(/assets/img-2/nav-footer/android-button.png) no-repeat;
+                width: auto;
+                height: 62px;
+                display: block;
+                float: left;
+                min-width: 200px;
+            }
+
+            a {
+                color: #337ab7;
+                text-decoration: none;
+            }
+
+            .amazon-button.amazon-store {
+                background: url(/assets/img-2/nav-footer/amazon-button.png) no-repeat;
+                width: auto;
+                height: 62px;
+                display: block;
+                float: left;
+                min-width: 200px;
+            }
+
+            .ios-button.ios-store {
+                background: url(/assets/img-2/nav-footer/ios-button.png) no-repeat;
+                width: auto;
+                height: 62px;
+                display: block;
+                margin: 0px;
+                min-width: 200px;
+                display: inline-block;
+            }
+
+            .windows-button.windows-store {
+                background: url(/assets/img-2/nav-footer/windows-button-off-footer.png) no-repeat;
+                width: auto;
+                height: 51px;
+                display: block;
+                margin: 5px 9px;
+                min-width: 177px;
+                display: inline-block;
+                background-size: auto;
+                background-color: #1d1727;
+                border-radius: 3px;
+                background-position: left center;
+            }
+        }
+
+        .roadmap {
+            position: relative;
+            margin: 0;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+
+            p {
+                margin-top: 0;
+            }
+
+            p {
+                font-weight: 400;
+                font-family: "Open Sans";
+                color: #1d1727;
+                font-size: 13px;
+                line-height: 13px;
+                padding: 0 20px;
+                margin: 0 0 10px;
+
+                background-color: transparent;
+            }
+        }
+
+        p {
+            font-weight: 400;
+            margin-top: 3.1vmin;
+            font-family: "Open Sans";
+            color: #1d1727;
+            font-size: 13px;
+            line-height: 13px;
+            padding: 0 20px;
+
+            strong {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .slideshow_container {
+        position: absolute;
+        top: 46%;
+        left: 50%;
+        width: 50%;
+        transform: translate3d(0, -50%, 0);
+
+        .slideshow {
+            animation-duration: 1s;
+            animation-delay: 0s;
+            animation-name: fade-in-right;
+        }
+
+        .slideshow {
+            height: 46vh;
+            background-image: url(/assets/img-2/mobile-circle.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 49% center;
+            width: 100%;
+            margin: auto;
+            text-align: center;
+
+            .inner_slideshow_aligner {
+                width: auto;
+                margin: 0 auto;
+                position: relative;
+                height: 100%;
+                display: inline-block;
+
+                img {
+                    height: 100%;
+                    width: auto;
+                    vertical-align: middle;
+                    border: 0;
+                }
+
+                .slide-wrapper {
+                    position: absolute;
+                    top: 9.5%;
+                    left: 50%;
+                    transform: translateX(-86.2%);
+                    width: 53%;
+                    height: 81%;
+                    overflow: hidden;
+                    background-color: white;
+
+                    div {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-repeat: no-repeat;
+                        -webkit-transform: translate3d(0, 0, 0);
+                        transform: translate3d(0, 0, 0);
+                        background-size: cover;
+                    }
+
+                    .fixed-slide {
+                        -webkit-animation: slideshow-change-bg-male 8s infinite;
+                        animation: slideshow-change-bg-male 8s infinite;
+                        -webkit-animation-delay: 2.1s;
+                        animation-delay: 2.1s;
+                        background-image: url(/assets/img-2/male/mobile4.png);
+                    }
+
+                    .moving-slide {
+                        z-index: 1;
+                    }
+
+                    .moving-slide {
+                        -webkit-animation: slideshow-change-bg-male 8s infinite, slideshow-enter 2s infinite;
+                        animation: slideshow-change-bg-male 8s infinite, slideshow-enter 2s infinite;
+                        -webkit-animation-delay: 0.4s, 0.3s;
+                        animation-delay: 0.4s, 0.3s;
+                    }
+                }
+            }
+        }
+    }
+
+    .mobile {
+        filter: blur(2px);
+        z-index: -1;
+    }
+
+    img {
+        vertical-align: middle;
+        border: 0;
+    }
+
+    .mobile.left {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: rotate-in-down-left;
+    }
+
+    .mobile.left {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: auto;
+        height: 65%;
+    }
+
+    .mobile.right {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: rotate-in-down-right;
+    }
+
+    .mobile.right {
+        position: absolute;
+        top: 7%;
+        right: 0%;
+        width: auto;
+        height: 65%;
+    }
+}
+
+:host ::ng-deep .top-ribbon b {
+    font-weight: 800;
+}
+
+:host ::ng-deep .downloadTitle strong {
+    font-weight: 800;
+    font-family: "Open Sans";
+    color: rgb(29, 23, 39);
+}
+
+:host ::ng-deep .DownloadContent strong {
+    font-weight: 800;
+    font-family: "Open Sans";
+    color: rgb(29, 23, 39);
+}

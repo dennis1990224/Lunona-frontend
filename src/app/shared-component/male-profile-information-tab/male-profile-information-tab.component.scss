@@ -1,0 +1,307 @@
+.row {
+    margin: 0px;
+}
+
+.row::before {
+    display: table;
+    content: " ";
+}
+
+.mat-tab-content {
+    height: calc(100% - 85px);
+}
+
+.profile-information {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: #edeff2;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    overflow: auto;
+
+    .info-category-wrapper {
+        padding: 20px 0 0 20px;
+        box-sizing: border-box;
+        float: left;
+        width: 50%;
+
+        .info-category {
+            background-color: white;
+            border-top: 5px solid;
+            padding: 20px;
+
+            h2 {
+                font-size: 21px;
+                font-weight: 400;
+                margin: 0;
+                margin-bottom: 16px;
+                color: #5e5d70;
+                margin-left: 17px;
+            }
+
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+
+                li {
+                    box-shadow: 22px 24px 3px -24px #84888b;
+                    width: 100%;
+                    height: 50px;
+                    background-color: white;
+                    margin-bottom: 2px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+
+                    .icon-wrapper {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 52px;
+                        bottom: 0;
+
+                        .edit-info-icon {
+                            width: 32px;
+                            height: 23px;
+                            position: absolute;
+                            top: 14px;
+                            left: 10px;
+                        }
+
+                        .location {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -251px;
+                        }
+
+                        .birthday {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -201px;
+                        }
+
+                        .occupation {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -304px;
+                        }
+
+                        .spoken-languages {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -353px;
+                        }
+
+                        .nationality {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -406px;
+                        }
+
+                        .height {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -458px;
+                        }
+
+                        .tattoo {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -852px;
+                        }
+                        
+                        .smoking {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -903px;
+                        }
+
+                        .relationship {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -951px;
+                        }
+
+                        .children {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -1003px;
+                        }
+
+                        .education {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -1052px;
+                        }
+
+                        .have-fun {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/have_fun.png);
+                        }
+
+                        .gifts {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/give_gift.png);
+                        }
+
+                        .help-expenses {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/help_exp.png);
+                        }
+
+                        .help-studies {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/help_studies.png);
+                        }
+
+                        .shopping {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/shopping.png);
+                        }
+
+                        .travel {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/travel.png);
+                        }
+
+                        .help-security {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/feel_safe.png);
+                        }
+
+                        .work {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/work.png);
+                        }
+
+                        .invite-to-my-country {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/your_country.png);
+                        }
+
+                        .travel-to-others-country {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/her_country.png);
+                        }
+
+                        .mind-others-country {
+                            background-position: center;
+                            background-size: cover;
+                            background-image: url(/assets/img-2/profile/dont_care.png);
+                        }
+
+                        .income {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -1150px;
+                        }
+
+                        .house {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -1203px;
+                        }
+
+                        .other-house {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -1254px;
+                        }
+
+                        .vehicles {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -1303px;
+                        }
+
+                        .username {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -1351px;
+                        }
+
+                        .email {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -1402px;
+                        }
+
+                        .password {
+                            background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                            background-size: 100%;
+                            background-position: 0 -1451px;
+                        }
+
+                    }
+
+                    .text {
+                        color: #5e5d70;
+                        position: absolute;
+                        left: 54px;
+                        top: 15px;
+                        font-weight: 400;
+                        font-size: 15px;
+                        margin-right: 25px;
+                        max-width: 37%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap; 
+                    }
+
+                    .value {
+                        color: black;
+                        position: absolute;
+                        right: 16px;
+                        top: 14px;
+                        font-weight: 400;
+                        font-size: 15px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        max-width: 45%;
+                        display: inline-block;
+                        overflow: hidden !important;
+                    }
+                }
+
+                li:hover {
+                   background-color: rgba(89, 38, 124, 0.1); 
+                }
+            }
+        }
+
+        .about-you {
+            border-color: #f16071;
+        }
+
+        .what-you-looking-for {
+            border-color: #1cbbb4;
+            margin-bottom: 53px;
+        }
+
+        .what-you-got {
+            border-color: #3db764;
+        }
+    }
+
+    @media (max-width: 1366px) {
+        .info-category-wrapper {
+            width: 100%;
+        }
+    }
+}
+
+h2 {
+    text-shadow: none;
+}

@@ -1,0 +1,358 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div class="section image wrapper stretch">
+    <div class="section image main stretch background-register"></div>
+</div>
+<div class="section content stretch">
+    <div class="content-box">
+        <div class="content wrapper">
+            <div class="content banner">
+                <h1>
+                    Sign up to Lunona
+                </h1>
+            </div>
+            <div class="content main">
+                <div *ngIf="registerStep == 1" class="email half base-form">
+                    <p class="title ng-binding">
+                        Sign up
+                        <b>with Email</b>
+                    </p>
+                    <p class="description ng-binding">
+                        Register with your email.
+                        <br>
+                        <b>
+                            It will not appear anywhere but you will need it only if you forgot your password.
+                        </b>
+                    </p>
+                    <div class="input-wrapper">
+                        <form name="registerEmailForm" [formGroup]="registerEmailForm" novalidate>
+                            <mat-form-field class="input-email">
+                                <mat-label>Your Email</mat-label>
+                                <input (focus)="isEmailError = false" matInput type="email" formControlName="email">
+                                <div *ngIf="isEmailError" style="position: absolute; top: 30px;">
+                                    <span style="color: red; font-size: 12px;">{{emailErrorMessage}}</span>
+                                </div>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <div class="next-button">
+                        <button class="btn-next" (click)="checkEmailFree()">
+                            <div style="display: flex;">
+                                <span class="angular-ripple animate"
+                                    style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                                <span style="margin: auto;">NEXT</span>
+                            </div>
+                        </button>
+                    </div>
+                    <a class="login" [routerLink]="['/login']">
+                        Alreday a member? Login here
+                    </a>
+                </div>
+                <div *ngIf="registerStep == 2" class="userName base-form">
+                    <div class="back-button" (click)="goToBackStep()">
+                        <span class="icon-back"></span>
+                        <p class="ng-binding">BACK</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="assets/img-2/username-icon.png">
+                    </div>
+                    <p class="title ng-binding">
+                        Your <b>Username</b>
+                    </p>
+                    <p class="description ng-binding">
+                        This name will appear on your public profile
+                    </p>
+                    <div class="padding clearfix">
+                        <div class="input-wrapper">
+                            <form name="userNameForm" [formGroup]="userNameForm" novalidate>
+                                <mat-form-field class="input-email">
+                                    <mat-label>Username</mat-label>
+                                    <input (focus)="isUsernameError = false" matInput formControlName="name">
+                                    <div *ngIf="isUsernameError" style="position: absolute; top: 30px;">
+                                        <span style="color: red; font-size: 12px;">{{nameErrorMessage}}</span>
+                                    </div>
+                                </mat-form-field>
+                            </form>
+                        </div>
+                        <div class="next-button">
+                            <button class="btn-next" (click)="CheckNicknameFree()">
+                                <div style="display: flex;">
+                                    <span class="angular-ripple animate"
+                                        style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                                    <span style="margin: auto;">NEXT</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="registerStep == 3" class="password base-form">
+                    <div class="back-button" (click)="goToBackStep()">
+                        <span class="icon-back"></span>
+                        <p class="ng-binding">BACK</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="assets/img-2/register-img/password-icon.png">
+                    </div>
+                    <p class="title ng-binding">
+                        Your <b>Password</b>
+                    </p>
+                    <p class="description ng-binding">
+                        The password must be
+                        <br> at least 4 characters long
+                    </p>
+                    <div class="padding clearfix">
+                        <div class="input-wrapper">
+                            <form name="passwordForm" [formGroup]="passwordForm" novalidate>
+                                <mat-form-field class="input-password">
+                                    <mat-label>Password</mat-label>
+                                    <input (focus)="isPassError = false" matInput [type]="passwordHide ? 'password' : 'text'" formControlName="password">
+                                    <mat-icon matSuffix (click)="passwordHide = !passwordHide">
+                                        {{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                    <div *ngIf="isPassError" style="position: absolute; top: 30px;">
+                                        <span style="color: red; font-size: 12px;">{{passErrorMessage}}</span>
+                                    </div>
+                                </mat-form-field>
+                            </form>
+                        </div>
+                        <div class="next-button">
+                            <button class="btn-next" (click)="checkPasswordValid()">
+                                <div style="display: flex;">
+                                    <span class="angular-ripple animate"
+                                        style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                                    <span style="margin: auto;">NEXT</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="registerStep == 4" class="gender base-form">
+                    <div class="back-button" (click)="goToBackStep()">
+                        <span class="icon-back"></span>
+                        <p class="ng-binding">BACK</p>
+                    </div>
+                    <div class="image-container">
+                        <div (click)="changeGender('male')" [ngClass]="isMale ? 'male-active' : 'male'" class="gender-icon-wrapper"></div>
+                        <div (click)="changeGender('female')" [ngClass]="isMale ? 'female' : 'female-active'" class="gender-icon-wrapper"></div>
+                    </div>
+                    <p class="title ng-binding">
+                        Your <b>Gender</b>
+                    </p>
+                    <p class="description ng-binding">
+                        What are you looking for?
+                    </p>
+                    <div class="padding clearfix">
+                        <mat-radio-group [(ngModel)]="gender" (ngModelChange)="changeGender()" aria-label="Select an option">
+                            <mat-radio-button color="primary" value="male"><b>Man</b> and I am looking for woman
+                            </mat-radio-button>
+                            <mat-radio-button color="primary" value="female"><b>Woman</b> and I am looking for man
+                            </mat-radio-button>
+                        </mat-radio-group>
+                        <div class="next-button">
+                            <button class="btn-next" (click)="goToBorn()">
+                                <div style="display: flex;">
+                                    <span class="angular-ripple animate"
+                                        style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                                    <span style="margin: auto;">NEXT</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="registerStep == 5" class="birthday base-form">
+                    <div class="back-button" (click)="goToBackStep()">
+                        <span class="icon-back"></span>
+                        <p class="ng-binding">BACK</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="assets/img-2/register-img/birdthday-icon.png">
+                    </div>
+                    <p class="title ng-binding">When you born?</p>
+                    <p class="description ng-binding">You must be 18+</p>
+                    <div class="padding clearfix">
+                        <mat-form-field style="margin-right: 16px; width: 30%;">
+                            <mat-label>Day</mat-label>
+                            <mat-select [(ngModel)]="birthdayDay" ngDefaultControl (selectionChange)="getDateAndAge(birthdayYear , birthdayMonth, $event.value)">
+                                <mat-option *ngFor="let day of days; let i = index;" [value]="i + 1">
+                                    {{i + 1}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field style="margin-right: 16px; width: 30%;">
+                            <mat-label>Month</mat-label>
+                            <mat-select [(ngModel)]="birthdayMonth" ngDefaultControl (selectionChange)="getDateAndAge(birthdayYear , $event.value, birthdayDay)">
+                                <mat-option *ngFor="let month of months; let i = index;" [value]="i + 1">
+                                    {{i + 1}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field style="width: 30%;">
+                            <mat-label>Year</mat-label>
+                            <mat-select [(ngModel)]="birthdayYear" ngDefaultControl (selectionChange)="getDateAndAge($event.value , birthdayMonth, birthdayDay)">
+                                <mat-option *ngFor="let year of years; let i = index;" [value]="i + startYear">
+                                    {{i + startYear}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <div class="age">Your age is: <b>{{age}}</b></div>
+                        <div class="next-button">
+                            <button class="btn-next" (click)="getLocationInfo()">
+                                <div style="display: flex;">
+                                    <span class="angular-ripple animate"
+                                        style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                                    <span style="margin: auto;">NEXT</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="registerStep == 6" class="country base-form">
+                    <div class="back-button" (click)="goToBackStep()">
+                        <span class="icon-back"></span>
+                        <p class="ng-binding">BACK</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="assets/img-2/register-img/location-icon.png">
+                    </div>
+                    <p class="title ng-binding">Your <b>Location</b></p>
+                    <p class="description ng-binding">Where do you live?</p>
+                    <div class="padding">
+                        <div class="next-button">
+                            <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                    <input type="text" placeholder="Country" aria-label="Number" matInput [formControl]="country" [matAutocomplete]="auto">
+                                    <mat-autocomplete #auto="matAutocomplete">
+                                        <mat-option *ngFor="let filterCountry of filterCountries | async" [value]="filterCountry.CountryName">
+                                            {{filterCountry.CountryName}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </form>
+                            <button class="btn-next" (click)="goToCityLooking()">
+                                <div style="display: flex;">
+                                    <span class="angular-ripple animate"
+                                        style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                                    <span style="margin: auto;">NEXT</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="registerStep == 7" class="city base-form">
+                    <div class="back-button" (click)="goToBackStep()">
+                        <span class="icon-back"></span>
+                        <p class="ng-binding">BACK</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="assets/img-2/register-img/location-icon.png">
+                    </div>
+                    <p class="title ng-binding">Your <b>Location</b></p>
+                    <div class="padding">
+                        <div class="next-button">
+                            <form class="example-form">
+                                <mat-form-field class="example-full-width">
+                                    <input (keyup)="GetCitiesAndZip($event.target.value)" type="text" placeholder="City or ZIP Code" aria-label="Number" matInput [formControl]="city" [matAutocomplete]="auto2">
+                                    <mat-autocomplete #auto2="matAutocomplete">
+                                        <mat-option *ngFor="let filterCity of filterCities | async" [value]="filterCity">
+                                            {{filterCity}}
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </form>
+                            <button class="btn-next" (click)="goToOccupation()">
+                                <div style="display: flex;">
+                                    <span class="angular-ripple animate"
+                                        style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                                    <span style="margin: auto;">NEXT</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="registerStep == 8" class="occupation base-form">
+                    <div class="back-button" (click)="goToBackStep()">
+                        <span class="icon-back"></span>
+                        <p class="ng-binding">BACK</p>
+                    </div>
+                    <p class="title ng-binding">
+                        What is <b>your Occupation?</b>
+                    </p>
+                    <div class="padding">
+                        <div class="next-button">
+                            <mat-radio-group [(ngModel)]="selectedOccupation" (ngModelChange)="selectOccupation()" aria-label="Select an option">
+                                <mat-radio-button color="primary" [value]="occupation" *ngFor="let occupation of occupations">{{occupation.Title}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+
+                            <button class="btn-next" (click)="goToFinishStep()">
+                                <div style="display: flex;">
+                                    <span class="angular-ripple animate"
+                                        style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                                    <span style="margin: auto;">NEXT</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="registerStep == 9" class="finish base-form">
+                    <div class="back-button" (click)="goToBackStep()">
+                        <span class="icon-back"></span>
+                        <p class="ng-binding">BACK</p>
+                    </div>
+                    <p class="title ng-binding">Finish</p>
+                    <div class="padding">
+                        <ul>
+                            <li class="email-finish">
+                                <div class="icon"></div>
+                                <div class="label">Email</div>
+                                <div class="value ng-binding">{{selectedEmail}}</div>
+                                <div (click)="registerStep = 1" class="icon-edit"></div>
+                            </li>
+                            <li class="username-finish">
+                                <div class="icon"></div>
+                                <div class="label">nickname</div>
+                                <div class="value ng-binding">{{selectedName}}</div>
+                                <div (click)="registerStep = 2" class="icon-edit"></div>
+                            </li>
+                            <li class="gender-finish">
+                                <div class="icon"></div>
+                                <div class="label">gender</div>
+                                <div class="value ng-binding">{{gender}}</div>
+                                <div (click)="registerStep = 4" class="icon-edit"></div>
+                            </li>
+                            <li class="birthday-finish">
+                                <div class="icon"></div>
+                                <div class="label">birthday</div>
+                                <div class="value ng-binding">{{birthdayDay}}/{{birthdayMonth}}/{{birthdayYear}}</div>
+                                <div (click)="registerStep = 5" class="icon-edit"></div>
+                            </li>
+                            <li class="location-finish">
+                                <div class="icon"></div>
+                                <div class="label">location</div>
+                                <div class="value ng-binding">{{selectedCountry}}, {{selectedCity}}</div>
+                                <div (click)="registerStep = 6" class="icon-edit"></div>
+                            </li>
+                            <li class="occupation-finish">
+                                <div class="icon"></div>
+                                <div class="label">occupation</div>
+                                <div class="value ng-binding">{{selectedOccupationString}}</div>
+                                <div (click)="registerStep = 8" class="icon-edit"></div>
+                            </li>
+                        </ul>
+                        <div class="next-button">
+                            <button class="btn-next" (click)="register()">
+                                <div style="display: flex;">
+                                    <span class="angular-ripple animate"
+                                        style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                                    <span style="margin: auto;">DONE</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="agreement-notice" class="ng-binding">
+                    By filling out the above you accept the Terms of Use & Community Terms
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-auth-footer #AuthFooter></app-auth-footer>

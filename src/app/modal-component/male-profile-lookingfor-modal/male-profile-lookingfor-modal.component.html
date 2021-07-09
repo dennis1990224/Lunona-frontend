@@ -1,0 +1,170 @@
+<div class="main wrapper lookingFor">
+    <div class="top wrapper">
+        <!-- <div class="top icon">
+            <span class="edit-info-icon haveFun"></span>
+        </div> -->
+        <div class="top title">
+            <span class="ng-binding">What are you looking for?</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div *ngIf="modalName == 'haveFun'" class="content wrapper">
+        <p>To have fun together</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="ishaveFun" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{ishaveFun ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2></h2>
+    </div>
+    <div *ngIf="modalName == 'gifts'" class="content wrapper">
+        <p>To give her nice gifts</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isGifts" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isGifts ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>You are willing to give gifts to the girls you like. This is what women really like. We recommend you to
+            have it set as: YES</h2>
+    </div>
+    <div *ngIf="modalName == 'helpExpenses'" class="content wrapper">
+        <p>To help her with her expenses</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isHelpExpenses" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isHelpExpenses ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>Many girls, especially students, are looking for a man to help them with their expenses. If you are willing
+            to do that, please choose: YES</h2>
+    </div>
+    <div *ngIf="modalName == 'helpStudies'" class="content wrapper">
+        <p>То help her finish her studies</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isHelpStudies" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isHelpStudies ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>Many girls face difficulties paying for their studies and they want a serious guy to help them out. If you
+            would like to do that, please choose: YES</h2>
+    </div>
+    <div *ngIf="modalName == 'shopping'" class="content wrapper">
+        <p>Тo go shopping together</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isShopping" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isShopping ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>It is every woman's dream to go shopping and try on clothes. If you would enjoy seeing her shopping for you,
+            please choose: YES</h2>
+    </div>
+    <div *ngIf="modalName == 'travel'" class="content wrapper">
+        <p>To travel together</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isTravel" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isTravel ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>If you would like to find a travel buddy for your trips and holidays, we advise you to choose: YES You could
+            go on holiday to beautiful places together.</h2>
+    </div>
+    <div *ngIf="modalName == 'helpSecurity'" class="content wrapper">
+        <p>То make her feel secure</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isHelpSecurity" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isHelpSecurity ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>Many girls feel insecure and are looking for a strong man to help them feel safe. If you feel you are strong
+            enough to support a woman, please chose: YES</h2>
+    </div>
+    <div *ngIf="modalName == 'work'" class="content wrapper">
+        <p>To offer her a job in my business</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isWork" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isWork ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>If you are a businessman or an executive and you want to have a girl that you like beside you to help you
+            with your job.</h2>
+    </div>
+    <div *ngIf="modalName == 'inviteToMyCountry'" class="content wrapper">
+        <p>I would like to show her around my country</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isTravelOthersCountry" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isTravelOthersCountry ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>You have the opportunity to guide or host a girl from another region that comes to your city.</h2>
+    </div>
+    <div *ngIf="modalName == 'travelToOthersCountry'" class="content wrapper">
+        <p>To visit her country, with her showing me around</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isTravelOthersCountry" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isTravelOthersCountry ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>You want to travel to the city wherein the girl lives and you want her to show you around, so that you get
+            to know each other better, for as long as you are there.</h2>
+    </div>
+    <div *ngIf="modalName == 'mindOthersCountry'" class="content wrapper">
+        <p>I don't mind if she comes from a foreign country</p>
+        <label>
+            <input type="checkbox" [(ngModel)]="isMindOthersCountry" class="ios-switch green bigswitch">
+            <div>
+                <div></div>
+            </div>
+        </label>
+        <div class="text">
+            <span>{{isMindOthersCountry ? 'Yes' : 'No'}}</span>
+        </div>
+        <h2>If you choose: NO, only girls from your country will be displayed! If you don't mind getting to know girls
+            from foreign countries, we recommend you to you choose: YES</h2>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateLookingFor()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

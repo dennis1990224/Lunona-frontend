@@ -1,0 +1,74 @@
+<div class="left-menu-outer open-menu">
+    <div id="contact-area" class="contacts left-menu no-margin no-padding no-pristine">
+        <div class="buttons-switch-contacts">
+            <div class="conversation-menu-switch">
+                <mat-tab-group animationDuration="0ms">
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <p class="icon icon-all">
+                                <span class="text"> All </span>
+                            </p>
+                        </ng-template>
+                        <div *ngIf="allContactlist.length>0">
+                            <app-chat-member-item class="chat-member-item-co" [routerLink]="['/member/conversation/chat/', allMember.ProfileID]" (contextmenu)="checkActive(allMember.ProfileID)" (click)="selectMember(allMember)" *ngFor="let allMember of filterAllContactlist; let i=index" [contactMember]="allMember"></app-chat-member-item>
+                        </div>
+                        <app-chat-no-member *ngIf="allContactlist.length==0"></app-chat-no-member>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <p class="icon icon-online">
+                                <span class="text"> Online </span>
+                            </p>
+                        </ng-template>
+                        <div *ngIf="onlineContacts.length>0">
+                            <app-chat-member-item class="chat-member-item-co" [routerLink]="['/member/conversation/chat/', onlineMember.ProfileID]" (contextmenu)="checkActive(onlineMember.ProfileID)" (click)="selectMember(onlineMember)" *ngFor="let onlineMember of filterOnlineContacts" [contactMember]="onlineMember"></app-chat-member-item>
+                        </div>
+                        <app-chat-no-member *ngIf="onlineContacts.length==0"></app-chat-no-member>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <p class="icon icon-unread">
+                                <span class="text"> Unread </span>
+                                <span *ngIf="unreadCount > 0" style="top: 0; right: 0;" class="notification-contacts">{{unreadCount}}</span>
+                            </p>
+                        </ng-template>
+                        <div *ngIf="unreadContacts.length>0">
+                            <app-chat-member-item class="chat-member-item-co" [routerLink]="['/member/conversation/chat/', unreadMember.ProfileID]" (contextmenu)="checkActive(unreadMember.ProfileID)" (click)="selectMember(unreadMember)" *ngFor="let unreadMember of filterUnreadContacts" [contactMember]="unreadMember"></app-chat-member-item>
+                        </div>
+                        <app-chat-no-member *ngIf="unreadContacts.length==0"></app-chat-no-member>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <p class="icon icon-request">
+                                <span class="text"> Request </span>
+                            </p>
+                        </ng-template>
+                        <div *ngIf="requestContacts.length>0">
+                            <app-chat-member-item class="chat-member-item-co" [routerLink]="['/member/conversation/chat/', requestMember.ProfileID]" (contextmenu)="checkActive(requestMember.ProfileID)" (click)="selectMember(requestMember)" *ngFor="let requestMember of filterRequestContacts" [contactMember]="requestMember"></app-chat-member-item>
+                        </div>
+                        <app-chat-no-member *ngIf="requestContacts.length==0"></app-chat-no-member>
+                    </mat-tab>
+                </mat-tab-group>
+                <mat-spinner *ngIf="allContactlist.length==0" diameter="45" style="position: absolute; z-index: 10; top: 111px; right: 175px;"></mat-spinner>
+                <div class="MemberSearch fullHeight md-no-sticky md-subheader" id="search-contacts">
+                    <div class="md-subheader-inner">
+                        <div class="md-subheader-content">
+                            <div class="input-fld request">
+                                <input id="MemberSearchInput" type="text" placeholder="Search..." [(ngModel)]="searchKey" (ngModelChange)="searchMember()">
+                                <button class="clear-field" *ngIf="searchKey.length>0" (click)="clearSearch()">clear</button>
+                                <a class="search-icon">
+                                    <span class="circle">
+                                        <span class="handle"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="left: 383px; position: absolute; top: 60px; right: 0; bottom: 27px; height: auto;">
+    <router-outlet></router-outlet>
+</div>

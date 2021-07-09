@@ -1,0 +1,1863 @@
+.background-register {
+    background-image: url(/assets/img-2/main-bg.jpg);
+    background-position-x: center;
+    background-size: cover;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.content-box {
+    position: absolute;
+    top: 53px;
+    left: 0px;
+    right: 0px;
+    bottom: 44px;
+    overflow: visible;
+
+    .content.wrapper {
+        max-width: 810px;
+        width: 90%;
+        margin: 0 auto;
+        top: calc((var(--vh, 1vh) * 50) - 113px);
+        transform: translateY(-50%);
+        display: block;
+        position: relative;
+
+        .content.banner {
+            text-align: center;
+            text-decoration: none;
+            display: block;
+
+            h1 {
+                font-size: 60px;
+                margin-top: 10px;
+                color: rgb(96, 93, 100);
+                font-weight: 7s00;
+                padding-top: 9px;
+                font-family: "Roboto", Arial;
+                line-height: 1.1;
+                letter-spacing: 0;
+                text-shadow: none;
+            }
+        }
+
+        .content.main {
+            position: relative;
+            height: 100%;
+            margin: auto;
+            max-width: 420px;
+            width: 100%;
+
+            .email {
+                height: 100%;
+                border: 1px solid rgb(197, 197, 197);
+                border-radius: 3px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 9px 9px 0px rgba(35, 32, 38, 0.05);
+                max-width: 402px;
+                width: 100%;
+                float: left;
+                display: block;
+                position: relative;
+                padding: 0 28px;
+                box-sizing: border-box;
+                margin: 0 auto;
+
+                .title {
+                    margin-top: 44px;
+                    color: #545c67;
+                    font-size: 22px;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .description {
+                    margin-top: 29px;
+                    line-height: 17px;
+                    color: #737373;
+                    font-size: 14px;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .input-wrapper {
+                    width: auto;
+                    margin: 24px auto 0;
+
+                    .input-email {
+                        width: 100%;
+                    }
+                }
+
+                .next-button {
+                    position: relative;
+                    bottom: 0;
+                    top: 6px;
+                    width: 100%;
+                    cursor: pointer;
+
+                    .btn-next {
+                        background: rgb(87, 133, 225);
+                        position: relative;
+                        top: 0;
+                        min-height: 50px;
+                        display: block;
+                        min-height: 48px;
+                        min-width: 64px;
+                        cursor: pointer;
+                        border-radius: 4px;
+                        overflow: hidden;
+                        box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+                        width: 100%;
+
+                        div {
+                            background: url(/assets/img-2/login-img/arrow-next.png) no-repeat 93% 50%;
+                            border-radius: 2px;
+                            display: table;
+                            transform: translate3d(0, 0, 0);
+                            padding: 4px;
+                            padding-left: 8px;
+                            padding-right: 8px;
+                            text-align: center;
+                            font-family: "Roboto";
+                            font-weight: 400;
+                            font-size: 16px;
+                            color: #ffffff;
+                            width: 100%;
+                            min-height: 48px;
+                            box-sizing: border-box;
+                            user-select: none;
+                            overflow: hidden;
+                            height: 0px;
+
+                            .angular-ripple {
+                                animation: ripple 0.35s linear;
+                                pointer-events: none;
+                                display: block;
+                                position: absolute;
+                                background-color: inherit;
+                                filter: brightness(85%);
+                                border-radius: 50%;
+                                transform: scale(0);
+                            }
+
+                            span {
+                                font-family: "Roboto", Arial;
+                            }
+                        }
+                    }
+                }
+
+                .login {
+                    color: #979697;
+                    font-size: 14px;
+                    font-weight: 600;
+                    text-align: center;
+                    text-decoration: none;
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                    bottom: initial;
+                    margin: 10px auto;
+                    display: block;
+                    font-family: "Roboto";
+                    height: 20px;
+                }
+            }
+
+            .userName {
+                padding: 51px 0 15px;
+                border: 1px solid rgb(197, 197, 197);
+                border-radius: 3px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 9px 9px 0px rgba(35, 32, 38, 0.05);
+                max-width: 498px;
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                margin: 0 auto;
+                box-sizing: border-box;
+
+                .back-button {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #979697;
+                    font-weight: 500;
+                    text-align: right;
+                    display: block;
+                    cursor: pointer;
+                    outline: none;
+                    background-color: rgb(71, 110, 189);
+                    min-width: 95px;
+                    width: 60px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    height: 51px;
+                    border-radius: 3px 0 0 0;
+                    padding: 18px 20px 0;
+                    z-index: 0;
+
+                    .icon-back {
+                        background-image: url(/assets/img-2/register-img/register-back-arrow.png);
+                    }
+
+                    span {
+                        display: block;
+                        width: 18px;
+                        height: 12px;
+                        float: left;
+                        position: relative;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        font-family: "Roboto";
+                        color: rgb(255, 255, 255);
+                        display: none;
+                        margin: 0;
+                    }
+                }
+
+                .image-container {
+                    text-align: center;
+                    padding: 12px 0 25px;
+                }
+
+                .title {
+                    border-radius: 0 3px 0 0;
+                    background-color: rgb(87, 133, 225);
+                    font-weight: 500;
+                    width: calc(100% - 60px);
+                    height: 51px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 18px;
+                    font-family: "Roboto";
+                    color: rgb(255, 255, 255);
+                    padding: 14px 5px 0;
+                    margin: 0;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .description {
+                    font-size: 17px;
+                    font-family: "Roboto";
+                    color: #3e444c;
+                    font-weight: normal;
+                    padding: 0 20px;
+                    line-height: 22px;
+                    margin: 0;
+                    text-align: center;
+                }
+
+                .padding {
+                    padding: 0 60px;
+
+                    .input-wrapper {
+                        width: auto;
+                        margin: 24px auto 0;
+
+                        .input-email {
+                            width: 100%;
+                        }
+                    }
+
+                    .next-button {
+                        position: relative;
+                        bottom: 0;
+                        top: 6px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        .btn-next {
+                            background: rgb(87, 133, 225);
+                            position: relative;
+                            top: 0;
+                            min-height: 50px;
+                            display: block;
+                            min-height: 48px;
+                            min-width: 64px;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+                            width: 100%;
+
+                            div {
+                                background: url(/assets/img-2/login-img/arrow-next.png) no-repeat 93% 50%;
+                                border-radius: 2px;
+                                display: table;
+                                transform: translate3d(0, 0, 0);
+                                padding: 4px;
+                                padding-left: 8px;
+                                padding-right: 8px;
+                                text-align: center;
+                                font-family: "Roboto";
+                                font-weight: 400;
+                                font-size: 16px;
+                                color: #ffffff;
+                                width: 100%;
+                                min-height: 48px;
+                                box-sizing: border-box;
+                                user-select: none;
+                                overflow: hidden;
+                                height: 0px;
+
+                                .angular-ripple {
+                                    animation: ripple 0.35s linear;
+                                    pointer-events: none;
+                                    display: block;
+                                    position: absolute;
+                                    background-color: inherit;
+                                    filter: brightness(85%);
+                                    border-radius: 50%;
+                                    transform: scale(0);
+                                }
+
+                                span {
+                                    font-family: "Roboto", Arial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .password {
+                padding: 51px 0 15px;
+                border: 1px solid rgb(197, 197, 197);
+                border-radius: 3px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 9px 9px 0px rgba(35, 32, 38, 0.05);
+                max-width: 498px;
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                margin: 0 auto;
+                box-sizing: border-box;
+
+                .back-button {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #979697;
+                    font-weight: 500;
+                    text-align: right;
+                    display: block;
+                    cursor: pointer;
+                    outline: none;
+                    background-color: rgb(71, 110, 189);
+                    min-width: 95px;
+                    width: 60px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    height: 51px;
+                    border-radius: 3px 0 0 0;
+                    padding: 18px 20px 0;
+                    z-index: 0;
+
+                    .icon-back {
+                        background-image: url(/assets/img-2/register-img/register-back-arrow.png);
+                    }
+
+                    span {
+                        display: block;
+                        width: 18px;
+                        height: 12px;
+                        float: left;
+                        position: relative;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        font-family: "Roboto";
+                        color: rgb(255, 255, 255);
+                        display: none;
+                        margin: 0;
+                    }
+                }
+
+                .image-container {
+                    text-align: center;
+                    padding: 12px 0 25px;
+                }
+
+                .title {
+                    border-radius: 0 3px 0 0;
+                    background-color: rgb(87, 133, 225);
+                    font-weight: 500;
+                    width: calc(100% - 60px);
+                    height: 51px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 18px;
+                    font-family: "Roboto";
+                    color: rgb(255, 255, 255);
+                    padding: 14px 5px 0;
+                    margin: 0;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .description {
+                    font-size: 17px;
+                    font-family: "Roboto";
+                    color: #3e444c;
+                    font-weight: normal;
+                    padding: 0 20px;
+                    line-height: 22px;
+                    margin: 0;
+                    text-align: center;
+                }
+
+                .padding {
+                    padding: 0 60px;
+
+                    .input-wrapper {
+                        width: auto;
+                        margin: 24px auto 0;
+
+                        .input-password {
+                            width: 100%;
+                        }
+                    }
+
+                    .next-button {
+                        position: relative;
+                        bottom: 0;
+                        top: 6px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        .btn-next {
+                            background: rgb(87, 133, 225);
+                            position: relative;
+                            top: 0;
+                            min-height: 50px;
+                            display: block;
+                            min-height: 48px;
+                            min-width: 64px;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+                            width: 100%;
+
+                            div {
+                                background: url(/assets/img-2/login-img/arrow-next.png) no-repeat 93% 50%;
+                                border-radius: 2px;
+                                display: table;
+                                transform: translate3d(0, 0, 0);
+                                padding: 4px;
+                                padding-left: 8px;
+                                padding-right: 8px;
+                                text-align: center;
+                                font-family: "Roboto";
+                                font-weight: 400;
+                                font-size: 16px;
+                                color: #ffffff;
+                                width: 100%;
+                                min-height: 48px;
+                                box-sizing: border-box;
+                                user-select: none;
+                                overflow: hidden;
+                                height: 0px;
+
+                                .angular-ripple {
+                                    animation: ripple 0.35s linear;
+                                    pointer-events: none;
+                                    display: block;
+                                    position: absolute;
+                                    background-color: inherit;
+                                    filter: brightness(85%);
+                                    border-radius: 50%;
+                                    transform: scale(0);
+                                }
+
+                                span {
+                                    font-family: "Roboto", Arial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .gender {
+                padding: 51px 0 15px;
+                border: 1px solid rgb(197, 197, 197);
+                border-radius: 3px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 9px 9px 0px rgba(35, 32, 38, 0.05);
+                max-width: 498px;
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                margin: 0 auto;
+                box-sizing: border-box;
+
+                .back-button {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #979697;
+                    font-weight: 500;
+                    text-align: right;
+                    display: block;
+                    cursor: pointer;
+                    outline: none;
+                    background-color: rgb(71, 110, 189);
+                    min-width: 95px;
+                    width: 60px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    height: 51px;
+                    border-radius: 3px 0 0 0;
+                    padding: 18px 20px 0;
+                    z-index: 0;
+
+                    .icon-back {
+                        background: url(/assets/img-2/register-img/register-back-arrow.png);
+                    }
+
+                    span {
+                        display: block;
+                        width: 18px;
+                        height: 12px;
+                        float: left;
+                        position: relative;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        font-family: "Roboto";
+                        color: rgb(255, 255, 255);
+                        display: none;
+                        margin: 0;
+                    }
+                }
+
+                .image-container {
+                    text-align: center;
+                    padding: 16px 0 8px;
+                    width: 70px;
+                    margin: 52px auto 52px;
+                    position: relative;
+                    background: url(/assets/img-2/register-img/or.png) no-repeat 50% 50%;
+
+                    .gender-icon-wrapper {
+                        cursor: pointer;
+                        outline: none;
+                        display: table-cell;
+                        width: 102px;
+                        height: 102px;
+                    }
+
+                    .male {
+                        position: absolute;
+                        left: -115px;
+                        top: -37px;
+                        background-image: url(/assets/img-2/register-img/male-off.png);
+                    }
+
+                    .male-active {
+                        position: absolute;
+                        left: -115px;
+                        top: -37px;
+                        background-image: url(/assets/img-2/register-img/male-on.png);
+                    }
+
+                    .female {
+                        background-image: url(/assets/img-2/register-img/female-off.png);
+                        position: absolute;
+                        right: -115px;
+                        top: -37px;
+                    }
+
+                    .female-active {
+                        background-image: url(/assets/img-2/register-img/female-on.png);
+                        position: absolute;
+                        right: -115px;
+                        top: -37px;
+                    }
+                }
+
+                .title {
+                    border-radius: 0 3px 0 0;
+                    background-color: rgb(87, 133, 225);
+                    font-weight: 500;
+                    width: calc(100% - 60px);
+                    height: 51px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 18px;
+                    font-family: "Roboto";
+                    color: rgb(255, 255, 255);
+                    padding: 14px 5px 0;
+                    margin: 0;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .description {
+                    font-size: 16px;
+                    font-family: "Roboto";
+                    color: rgb(62, 68, 76);
+                    font-weight: bold;
+                    padding: 0 20px;
+                    line-height: 22px;
+                    margin: 0;
+                    text-align: center;
+                }
+
+                .padding {
+                    padding: 0 60px;
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                    margin-top: 14px;
+
+                    mat-radio-group {
+                        display: flex;
+                        flex-direction: column;
+                        margin: 15px 0;
+
+                        mat-radio-button {
+                            border: 1px solid rgb(227, 227, 227);
+                            border-radius: 4px;
+                            height: 41px;
+                            outline: none;
+                            margin-bottom: 10px;
+                            padding: 10px;
+                        }
+                    }
+
+                    .next-button {
+                        position: relative;
+                        bottom: 0;
+                        top: 6px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        .btn-next {
+                            background: rgb(87, 133, 225);
+                            position: relative;
+                            top: 0;
+                            min-height: 50px;
+                            display: block;
+                            min-height: 48px;
+                            min-width: 64px;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+                            width: 100%;
+
+                            div {
+                                background: url(/assets/img-2/login-img/arrow-next.png) no-repeat 93% 50%;
+                                border-radius: 2px;
+                                display: table;
+                                transform: translate3d(0, 0, 0);
+                                padding: 4px;
+                                padding-left: 8px;
+                                padding-right: 8px;
+                                text-align: center;
+                                font-family: "Roboto";
+                                font-weight: 400;
+                                font-size: 16px;
+                                color: #ffffff;
+                                width: 100%;
+                                min-height: 48px;
+                                box-sizing: border-box;
+                                user-select: none;
+                                overflow: hidden;
+                                height: 0px;
+
+                                .angular-ripple {
+                                    animation: ripple 0.35s linear;
+                                    pointer-events: none;
+                                    display: block;
+                                    position: absolute;
+                                    background-color: inherit;
+                                    filter: brightness(85%);
+                                    border-radius: 50%;
+                                    transform: scale(0);
+                                }
+
+                                span {
+                                    font-family: "Roboto", Arial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .birthday {
+                padding: 51px 0 15px;
+                border: 1px solid rgb(197, 197, 197);
+                border-radius: 3px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 9px 9px 0px rgba(35, 32, 38, 0.05);
+                max-width: 498px;
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                margin: 0 auto;
+                box-sizing: border-box;
+
+                .back-button {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #979697;
+                    font-weight: 500;
+                    text-align: right;
+                    display: block;
+                    cursor: pointer;
+                    outline: none;
+                    background-color: rgb(71, 110, 189);
+                    min-width: 95px;
+                    width: 60px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    height: 51px;
+                    border-radius: 3px 0 0 0;
+                    padding: 18px 20px 0;
+                    z-index: 0;
+
+                    .icon-back {
+                        background: url(/assets/img-2/register-img/register-back-arrow.png);
+                    }
+
+                    span {
+                        display: block;
+                        width: 18px;
+                        height: 12px;
+                        float: left;
+                        position: relative;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        font-family: "Roboto";
+                        color: rgb(255, 255, 255);
+                        display: none;
+                        margin: 0;
+                    }
+                }
+
+                .image-container {
+                    text-align: center;
+                    padding: 16px 0 4px;
+                }
+
+                .title {
+                    border-radius: 0 3px 0 0;
+                    background-color: rgb(87, 133, 225);
+                    font-weight: 500;
+                    width: calc(100% - 60px);
+                    height: 51px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 18px;
+                    font-family: "Roboto";
+                    color: rgb(255, 255, 255);
+                    padding: 14px 5px 0;
+                    margin: 0;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .description {
+                    font-size: 16px;
+                    font-family: "Roboto";
+                    color: rgb(62, 68, 76);
+                    font-weight: bold;
+                    padding: 0 20px;
+                    line-height: 22px;
+                    margin: 0;
+                    text-align: center;
+                }
+
+                .padding {
+                    padding: 0 10px 0;
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                    margin-top: 14px;
+
+                    mat-form-field {
+                        width: 100%;
+                    }
+
+                    .age {
+                        font-size: 18px;
+                        font-family: "Roboto";
+                        color: rgb(50, 50, 50);
+                        text-align: center;
+                        margin-top: -10px;
+                        margin-bottom: 10px;
+                        font-weight: 900;
+
+                        b {
+                            font-weight: 900;
+                        }
+                    }
+
+                    .next-button {
+                        position: relative;
+                        bottom: 0;
+                        top: 6px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        .btn-next {
+                            background: rgb(87, 133, 225);
+                            position: relative;
+                            top: 0;
+                            min-height: 50px;
+                            display: block;
+                            min-height: 48px;
+                            min-width: 64px;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+                            width: 100%;
+
+                            div {
+                                background: url(/assets/img-2/login-img/arrow-next.png) no-repeat 93% 50%;
+                                border-radius: 2px;
+                                display: table;
+                                transform: translate3d(0, 0, 0);
+                                padding: 4px;
+                                padding-left: 8px;
+                                padding-right: 8px;
+                                text-align: center;
+                                font-family: "Roboto";
+                                font-weight: 400;
+                                font-size: 16px;
+                                color: #ffffff;
+                                width: 100%;
+                                min-height: 48px;
+                                box-sizing: border-box;
+                                user-select: none;
+                                overflow: hidden;
+                                height: 0px;
+
+                                .angular-ripple {
+                                    animation: ripple 0.35s linear;
+                                    pointer-events: none;
+                                    display: block;
+                                    position: absolute;
+                                    background-color: inherit;
+                                    filter: brightness(85%);
+                                    border-radius: 50%;
+                                    transform: scale(0);
+                                }
+
+                                span {
+                                    font-family: "Roboto", Arial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .country {
+                padding: 51px 0 15px;
+                border: 1px solid rgb(197, 197, 197);
+                border-radius: 3px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 9px 9px 0px rgba(35, 32, 38, 0.05);
+                max-width: 498px;
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                margin: 0 auto;
+                box-sizing: border-box;
+
+                .back-button {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #979697;
+                    font-weight: 500;
+                    text-align: right;
+                    display: block;
+                    cursor: pointer;
+                    outline: none;
+                    background-color: rgb(71, 110, 189);
+                    min-width: 95px;
+                    width: 60px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    height: 51px;
+                    border-radius: 3px 0 0 0;
+                    padding: 18px 20px 0;
+                    z-index: 0;
+
+                    .icon-back {
+                        background: url(/assets/img-2/register-img/register-back-arrow.png);
+                    }
+
+                    span {
+                        display: block;
+                        width: 18px;
+                        height: 12px;
+                        float: left;
+                        position: relative;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        font-family: "Roboto";
+                        color: rgb(255, 255, 255);
+                        display: none;
+                        margin: 0;
+                    }
+                }
+
+                .image-container {
+                    text-align: center;
+                    padding: 16px 0 4px;
+                }
+
+                .title {
+                    border-radius: 0 3px 0 0;
+                    background-color: rgb(87, 133, 225);
+                    font-weight: 500;
+                    width: calc(100% - 60px);
+                    height: 51px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 18px;
+                    font-family: "Roboto";
+                    color: rgb(255, 255, 255);
+                    padding: 14px 5px 0;
+                    margin: 0;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .description {
+                    font-size: 16px;
+                    font-family: "Roboto";
+                    color: rgb(62, 68, 76);
+                    font-weight: bold;
+                    padding: 0 20px;
+                    line-height: 22px;
+                    margin: 0;
+                    text-align: center;
+                }
+
+                .padding {
+                    padding: 0 60px;
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                    margin-top: 14px;
+
+                    mat-form-field {
+                        width: 100%;
+                    }
+
+                    .age {
+                        font-size: 18px;
+                        font-family: "Roboto";
+                        color: rgb(50, 50, 50);
+                        text-align: center;
+                        margin-top: -10px;
+                        margin-bottom: 10px;
+                        font-weight: 900;
+
+                        b {
+                            font-weight: 900;
+                        }
+                    }
+
+                    .next-button {
+                        position: relative;
+                        bottom: 0;
+                        top: 6px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        .btn-next {
+                            background: rgb(87, 133, 225);
+                            position: relative;
+                            top: 0;
+                            min-height: 50px;
+                            display: block;
+                            min-height: 48px;
+                            min-width: 64px;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+                            width: 100%;
+
+                            div {
+                                background: url(/assets/img-2/login-img/arrow-next.png) no-repeat 93% 50%;
+                                border-radius: 2px;
+                                display: table;
+                                transform: translate3d(0, 0, 0);
+                                padding: 4px;
+                                padding-left: 8px;
+                                padding-right: 8px;
+                                text-align: center;
+                                font-family: "Roboto";
+                                font-weight: 400;
+                                font-size: 16px;
+                                color: #ffffff;
+                                width: 100%;
+                                min-height: 48px;
+                                box-sizing: border-box;
+                                user-select: none;
+                                overflow: hidden;
+                                height: 0px;
+
+                                .angular-ripple {
+                                    animation: ripple 0.35s linear;
+                                    pointer-events: none;
+                                    display: block;
+                                    position: absolute;
+                                    background-color: inherit;
+                                    filter: brightness(85%);
+                                    border-radius: 50%;
+                                    transform: scale(0);
+                                }
+
+                                span {
+                                    font-family: "Roboto", Arial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .city {
+                padding: 51px 0 15px;
+                border: 1px solid rgb(197, 197, 197);
+                border-radius: 3px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 9px 9px 0px rgba(35, 32, 38, 0.05);
+                max-width: 498px;
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                margin: 0 auto;
+                box-sizing: border-box;
+
+                .back-button {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #979697;
+                    font-weight: 500;
+                    text-align: right;
+                    display: block;
+                    cursor: pointer;
+                    outline: none;
+                    background-color: rgb(71, 110, 189);
+                    min-width: 95px;
+                    width: 60px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    height: 51px;
+                    border-radius: 3px 0 0 0;
+                    padding: 18px 20px 0;
+                    z-index: 0;
+
+                    .icon-back {
+                        background: url(/assets/img-2/register-img/register-back-arrow.png);
+                    }
+
+                    span {
+                        display: block;
+                        width: 18px;
+                        height: 12px;
+                        float: left;
+                        position: relative;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        font-family: "Roboto";
+                        color: rgb(255, 255, 255);
+                        display: none;
+                        margin: 0;
+                    }
+                }
+
+                .image-container {
+                    text-align: center;
+                    padding: 16px 0 4px;
+                }
+
+                .title {
+                    border-radius: 0 3px 0 0;
+                    background-color: rgb(87, 133, 225);
+                    font-weight: 500;
+                    width: calc(100% - 60px);
+                    height: 51px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 18px;
+                    font-family: "Roboto";
+                    color: rgb(255, 255, 255);
+                    padding: 14px 5px 0;
+                    margin: 0;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .description {
+                    font-size: 16px;
+                    font-family: "Roboto";
+                    color: rgb(62, 68, 76);
+                    font-weight: bold;
+                    padding: 0 20px;
+                    line-height: 22px;
+                    margin: 0;
+                    text-align: center;
+                }
+
+                .padding {
+                    padding: 0 60px;
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                    margin-top: 14px;
+
+                    mat-form-field {
+                        width: 100%;
+                    }
+
+                    .age {
+                        font-size: 18px;
+                        font-family: "Roboto";
+                        color: rgb(50, 50, 50);
+                        text-align: center;
+                        margin-top: -10px;
+                        margin-bottom: 10px;
+                        font-weight: 900;
+
+                        b {
+                            font-weight: 900;
+                        }
+                    }
+
+                    .next-button {
+                        position: relative;
+                        bottom: 0;
+                        top: 6px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        .btn-next {
+                            background: rgb(87, 133, 225);
+                            position: relative;
+                            top: 0;
+                            min-height: 50px;
+                            display: block;
+                            min-height: 48px;
+                            min-width: 64px;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+                            width: 100%;
+
+                            div {
+                                background: url(/assets/img-2/login-img/arrow-next.png) no-repeat 93% 50%;
+                                border-radius: 2px;
+                                display: table;
+                                transform: translate3d(0, 0, 0);
+                                padding: 4px;
+                                padding-left: 8px;
+                                padding-right: 8px;
+                                text-align: center;
+                                font-family: "Roboto";
+                                font-weight: 400;
+                                font-size: 16px;
+                                color: #ffffff;
+                                width: 100%;
+                                min-height: 48px;
+                                box-sizing: border-box;
+                                user-select: none;
+                                overflow: hidden;
+                                height: 0px;
+
+                                .angular-ripple {
+                                    animation: ripple 0.35s linear;
+                                    pointer-events: none;
+                                    display: block;
+                                    position: absolute;
+                                    background-color: inherit;
+                                    filter: brightness(85%);
+                                    border-radius: 50%;
+                                    transform: scale(0);
+                                }
+
+                                span {
+                                    font-family: "Roboto", Arial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .occupation {
+                padding: 51px 0 15px;
+                border: 1px solid rgb(197, 197, 197);
+                border-radius: 3px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 9px 9px 0px rgba(35, 32, 38, 0.05);
+                max-width: 498px;
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                margin: 0 auto;
+                box-sizing: border-box;
+
+                .back-button {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #979697;
+                    font-weight: 500;
+                    text-align: right;
+                    display: block;
+                    cursor: pointer;
+                    outline: none;
+                    background-color: rgb(71, 110, 189);
+                    min-width: 95px;
+                    width: 60px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    height: 51px;
+                    border-radius: 3px 0 0 0;
+                    padding: 18px 20px 0;
+                    z-index: 0;
+
+                    .icon-back {
+                        background: url(/assets/img-2/register-img/register-back-arrow.png);
+                    }
+
+                    span {
+                        display: block;
+                        width: 18px;
+                        height: 12px;
+                        float: left;
+                        position: relative;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        font-family: "Roboto";
+                        color: rgb(255, 255, 255);
+                        display: none;
+                        margin: 0;
+                    }
+                }
+
+                .title {
+                    border-radius: 0 3px 0 0;
+                    background-color: rgb(87, 133, 225);
+                    font-weight: 500;
+                    width: calc(100% - 60px);
+                    height: 51px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 18px;
+                    font-family: "Roboto";
+                    color: rgb(255, 255, 255);
+                    padding: 14px 5px 0;
+                    margin: 0;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .padding {
+                    padding: 0 60px;
+                    position: relative;
+                    left: 0;
+                    right: 0;
+                    margin-top: 14px;
+
+                    .next-button {
+                        position: relative;
+                        bottom: 0;
+                        top: 6px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        mat-radio-group {
+                            display: flex;
+                            overflow-y: auto;
+                            position: relative;
+                            width: calc(100% + 120px);
+                            margin-left: -60px;
+                            height: 440px;
+                            max-height: 35vh;
+                            padding: 10px;
+                            margin-bottom: 10px;
+                            flex-direction: column;
+                            padding-left: 20px;
+                        }
+
+                        .btn-next {
+                            background: rgb(87, 133, 225);
+                            position: relative;
+                            top: 0;
+                            min-height: 50px;
+                            display: block;
+                            min-height: 48px;
+                            min-width: 64px;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+                            width: 100%;
+
+                            div {
+                                border-radius: 2px;
+                                display: table;
+                                transform: translate3d(0, 0, 0);
+                                padding: 4px;
+                                padding-left: 8px;
+                                padding-right: 8px;
+                                text-align: center;
+                                font-family: "Roboto";
+                                font-weight: 400;
+                                font-size: 16px;
+                                color: #ffffff;
+                                width: 100%;
+                                min-height: 48px;
+                                box-sizing: border-box;
+                                user-select: none;
+                                overflow: hidden;
+                                height: 0px;
+
+                                .angular-ripple {
+                                    animation: ripple 0.35s linear;
+                                    pointer-events: none;
+                                    display: block;
+                                    position: absolute;
+                                    background-color: inherit;
+                                    filter: brightness(85%);
+                                    border-radius: 50%;
+                                    transform: scale(0);
+                                }
+
+                                span {
+                                    font-family: "Roboto", Arial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .finish {
+                padding: 51px 0 15px;
+                border: 1px solid rgb(197, 197, 197);
+                border-radius: 3px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: 0px 9px 9px 0px rgba(35, 32, 38, 0.05);
+                max-width: 498px;
+                width: 100%;
+                height: auto;
+                display: block;
+                position: relative;
+                margin: 0 auto;
+                box-sizing: border-box;
+
+                .back-button {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #979697;
+                    font-weight: 500;
+                    text-align: right;
+                    display: block;
+                    cursor: pointer;
+                    outline: none;
+                    background-color: rgb(71, 110, 189);
+                    min-width: 95px;
+                    width: 60px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    height: 51px;
+                    border-radius: 3px 0 0 0;
+                    padding: 18px 20px 0;
+                    z-index: 0;
+
+                    .icon-back {
+                        background: url(/assets/img-2/register-img/register-back-arrow.png);
+                    }
+
+                    span {
+                        display: block;
+                        width: 18px;
+                        height: 12px;
+                        float: left;
+                        position: relative;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        font-family: "Roboto";
+                        color: rgb(255, 255, 255);
+                        display: none;
+                        margin: 0;
+                    }
+                }
+
+                .title {
+                    border-radius: 0 3px 0 0;
+                    background-color: rgb(87, 133, 225);
+                    font-weight: 500;
+                    width: calc(100% - 60px);
+                    height: 51px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 18px;
+                    font-family: "Roboto";
+                    color: rgb(255, 255, 255);
+                    padding: 14px 5px 0;
+                    margin: 0;
+                    text-align: center;
+
+                    b {
+                        font-weight: 500;
+                    }
+                }
+
+                .padding {
+                    padding: 0 60px;
+
+                    ul {
+                        list-style-type: none;
+                        padding: 15px 0;
+                        margin: 0;
+                        position: relative;
+                        overflow: auto;
+
+                        li:not(:last-of-type) {
+                            border-bottom: 1px solid #e6e7e9;
+                        }
+
+                        li {
+                            text-align: left;
+                            padding: 8px;
+                            position: relative;
+                        }
+
+                        .email-finish {
+                            .icon {
+                                background-image: url(/assets/img-2/register-img/email.png);
+                                width: 24px;
+                                height: 25px;
+                                float: left;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+
+                            .label {
+                                font-size: 12px;
+                                color: #a8a8a8;
+                                margin-top: -3px;
+                                margin-left: 40px;
+                                display: none;
+                                padding: 0.2em 0.6em 0.3em;
+                                font-weight: 700;
+                                line-height: 1;
+                                text-align: center;
+                                white-space: nowrap;
+                                vertical-align: baseline;
+                                border-radius: 0.25em;
+                            }
+
+                            .value {
+                                font-size: 15px;
+                                color: #545c67;
+                                margin-top: -1px;
+                                margin-left: 40px;
+                            }
+
+                            .icon-edit {
+                                background-image: url(/assets/img-2/register-img/edit.png);
+                                width: 30px;
+                                height: 30px;
+                                position: absolute;
+                                right: 0;
+                                top: 14px;
+                                cursor: pointer;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                border-radius: 50%;
+                                transition: background-color 0.2s;
+                            }
+                        }
+
+                        .username-finish {
+                            .icon {
+                                background-image: url(/assets/img-2/register-img/display_name.png);
+                                width: 24px;
+                                height: 25px;
+                                float: left;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+
+                            .label {
+                                font-size: 12px;
+                                color: #a8a8a8;
+                                margin-top: -3px;
+                                margin-left: 40px;
+                                display: none;
+                                padding: 0.2em 0.6em 0.3em;
+                                font-weight: 700;
+                                line-height: 1;
+                                text-align: center;
+                                white-space: nowrap;
+                                vertical-align: baseline;
+                                border-radius: 0.25em;
+                            }
+
+                            .value {
+                                font-size: 15px;
+                                color: #545c67;
+                                margin-top: -1px;
+                                margin-left: 40px;
+                            }
+
+                            .icon-edit {
+                                background-image: url(/assets/img-2/register-img/edit.png);
+                                width: 30px;
+                                height: 30px;
+                                position: absolute;
+                                right: 0;
+                                top: 14px;
+                                cursor: pointer;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                border-radius: 50%;
+                                transition: background-color 0.2s;
+                            }
+                        }
+
+                        .gender-finish {
+                            .icon {
+                                background-image: url(/assets/img-2/register-img/male-icon.png);
+                                width: 24px;
+                                height: 25px;
+                                float: left;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+
+                            .label {
+                                font-size: 12px;
+                                color: #a8a8a8;
+                                margin-top: -3px;
+                                margin-left: 40px;
+                                display: none;
+                                padding: 0.2em 0.6em 0.3em;
+                                font-weight: 700;
+                                line-height: 1;
+                                text-align: center;
+                                white-space: nowrap;
+                                vertical-align: baseline;
+                                border-radius: 0.25em;
+                            }
+
+                            .value {
+                                font-size: 15px;
+                                color: #545c67;
+                                margin-top: -1px;
+                                margin-left: 40px;
+                            }
+
+                            .icon-edit {
+                                background-image: url(/assets/img-2/register-img/edit.png);
+                                width: 30px;
+                                height: 30px;
+                                position: absolute;
+                                right: 0;
+                                top: 14px;
+                                cursor: pointer;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                border-radius: 50%;
+                                transition: background-color 0.2s;
+                            } 
+                        }
+
+                        .birthday-finish {
+                            .icon {
+                                background-image: url(/assets/img-2/register-img/born_small.png);
+                                width: 24px;
+                                height: 25px;
+                                float: left;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+
+                            .label {
+                                font-size: 12px;
+                                color: #a8a8a8;
+                                margin-top: -3px;
+                                margin-left: 40px;
+                                display: none;
+                                padding: 0.2em 0.6em 0.3em;
+                                font-weight: 700;
+                                line-height: 1;
+                                text-align: center;
+                                white-space: nowrap;
+                                vertical-align: baseline;
+                                border-radius: 0.25em;
+                            }
+
+                            .value {
+                                font-size: 15px;
+                                color: #545c67;
+                                margin-top: -1px;
+                                margin-left: 40px;
+                            }
+
+                            .icon-edit {
+                                background-image: url(/assets/img-2/register-img/edit.png);
+                                width: 30px;
+                                height: 30px;
+                                position: absolute;
+                                right: 0;
+                                top: 14px;
+                                cursor: pointer;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                border-radius: 50%;
+                                transition: background-color 0.2s;
+                            }   
+                        }
+
+                        .location-finish {
+                            .icon {
+                                background-image: url(/assets/img-2/register-img/location_small.png);
+                                width: 24px;
+                                height: 25px;
+                                float: left;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+
+                            .label {
+                                font-size: 12px;
+                                color: #a8a8a8;
+                                margin-top: -3px;
+                                margin-left: 40px;
+                                display: none;
+                                padding: 0.2em 0.6em 0.3em;
+                                font-weight: 700;
+                                line-height: 1;
+                                text-align: center;
+                                white-space: nowrap;
+                                vertical-align: baseline;
+                                border-radius: 0.25em;
+                            }
+
+                            .value {
+                                font-size: 15px;
+                                color: #545c67;
+                                margin-top: -1px;
+                                margin-left: 40px;
+                            }
+
+                            .icon-edit {
+                                background-image: url(/assets/img-2/register-img/edit.png);
+                                width: 30px;
+                                height: 30px;
+                                position: absolute;
+                                right: 0;
+                                top: 14px;
+                                cursor: pointer;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                border-radius: 50%;
+                                transition: background-color 0.2s;
+                            }   
+                        }
+
+                        .occupation-finish {
+                            .icon {
+                                background-image: url(/assets/img-2/register-img/occupation_small.png);
+                                width: 24px;
+                                height: 25px;
+                                float: left;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            }
+
+                            .label {
+                                font-size: 12px;
+                                color: #a8a8a8;
+                                margin-top: -3px;
+                                margin-left: 40px;
+                                display: none;
+                                padding: 0.2em 0.6em 0.3em;
+                                font-weight: 700;
+                                line-height: 1;
+                                text-align: center;
+                                white-space: nowrap;
+                                vertical-align: baseline;
+                                border-radius: 0.25em;
+                            }
+
+                            .value {
+                                font-size: 15px;
+                                color: #545c67;
+                                margin-top: -1px;
+                                margin-left: 40px;
+                            }
+
+                            .icon-edit {
+                                background-image: url(/assets/img-2/register-img/edit.png);
+                                width: 30px;
+                                height: 30px;
+                                position: absolute;
+                                right: 0;
+                                top: 14px;
+                                cursor: pointer;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                                border-radius: 50%;
+                                transition: background-color 0.2s;
+                            }   
+                        }
+                    }
+
+                    .next-button {
+                        position: relative;
+                        bottom: 0;
+                        top: 6px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        .btn-next {
+                            background: rgb(87, 133, 225);
+                            position: relative;
+                            top: 0;
+                            min-height: 50px;
+                            display: block;
+                            min-height: 48px;
+                            min-width: 64px;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            overflow: hidden;
+                            box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+                            width: 100%;
+
+                            div {
+                                border-radius: 2px;
+                                display: table;
+                                transform: translate3d(0, 0, 0);
+                                padding: 4px;
+                                padding-left: 8px;
+                                padding-right: 8px;
+                                text-align: center;
+                                font-family: "Roboto";
+                                font-weight: 400;
+                                font-size: 16px;
+                                color: #ffffff;
+                                width: 100%;
+                                min-height: 48px;
+                                box-sizing: border-box;
+                                user-select: none;
+                                overflow: hidden;
+                                height: 0px;
+
+                                .angular-ripple {
+                                    animation: ripple 0.35s linear;
+                                    pointer-events: none;
+                                    display: block;
+                                    position: absolute;
+                                    background-color: inherit;
+                                    filter: brightness(85%);
+                                    border-radius: 50%;
+                                    transform: scale(0);
+                                }
+
+                                span {
+                                    font-family: "Roboto", Arial;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #agreement-notice {
+                font-size: 12px;
+                font-family: "Roboto";
+                color: rgb(107, 107, 107);
+                line-height: 1.035;
+                text-align: center;
+                height: 100%;
+                bottom: 0px;
+                display: inline-block;
+                margin-top: 10px;
+            }
+        }
+    }
+}

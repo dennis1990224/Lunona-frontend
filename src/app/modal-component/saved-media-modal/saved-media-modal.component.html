@@ -1,0 +1,48 @@
+<div class="user-photo-gallery-container main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Select From Saved Media</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <mat-tab-group>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <span class="photo icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.023 20" class="img ng-scope">
+                            <path fill="#572b76"
+                                d="M26.383 20.001H.631a.638.638 0 0 1-.631-.65V.646A.646.646 0 0 1 .568.001h25.814a.642.642 0 0 1 .641.645v18.705a.625.625 0 0 1-.184.461.63.63 0 0 1-.441.189zm-7.67-8.828a.643.643 0 0 0 .133.65l3.357 3.795a.639.639 0 0 0 .9.056.64.64 0 0 0 .057-.909l-3.352-3.79a.627.627 0 0 0-.514-.221h-.07a.639.639 0 0 0-.51.418zm-17.443 3.8l4.746-5.165a.628.628 0 0 1 .891-.028l3.7 3.39 6.115-8.084a.637.637 0 0 1 .48-.259.637.637 0 0 1 .5.217l8.055 9.1V1.291H1.275zm15.283-6.248a.657.657 0 0 0 .131.654l.844.937a.637.637 0 0 0 .9.056.638.638 0 0 0 .057-.9l-.854-.942a.637.637 0 0 0-.508-.221h-.061a.644.644 0 0 0-.509.419zM5.785 4.977a2.29 2.29 0 0 1 2.266-2.293 2.3 2.3 0 0 1 2.277 2.293A2.3 2.3 0 0 1 8.051 7.27a2.29 2.29 0 0 1-2.266-2.289z">
+                            </path>
+                        </svg>
+                    </span>
+                    <p class="photo-text"> PHOTOS </p>
+                </ng-template>
+                <div class="gallery-grid"></div>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <span class="video icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.553 20" class="img ng-scope">
+                            <path fill="#4e4e4e" fill-rule="evenodd"
+                                d="M1.99 0h25.572a2 2 0 0 1 1.99 1.99v16.02a2 2 0 0 1-1.99 1.99H1.99A2 2 0 0 1 0 18.01V1.99A2 2 0 0 1 1.99 0zM19.4 9.95l-4.574-2.587-4.677-2.686v10.646l4.677-2.687zm7.861 6.169h-2.883v1.791h2.886zm0-9.353h-2.883v1.791h2.886zm0 4.677h-2.883v1.791h2.886zm0-9.353h-2.883v1.791h2.886zM2.289 16.119h2.885v1.791H2.289zm0-9.353h2.885v1.791H2.289zm0 4.677h2.885v1.791H2.289zm0-9.353h2.885v1.791H2.289z">
+                            </path>
+                        </svg>
+                    </span>
+                    <p class="video-text"> VIDEOS </p>
+                </ng-template>
+                <div class="gallery-grid"></div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="access-photo-container">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Photo Access Settings</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="access-photos-wrap">
+        <div class="block1">
+            <div class="my-photos-img">
+                <img src="assets/img-2/conversation/key_give.png">
+            </div>
+            <div class="user-img">
+                <img src="">
+                <h2 id="replaceText1">Hello</h2>
+            </div>
+        </div>
+        <div class="block2">
+            <mat-list>
+                <div class="md-no-sticky md-subheader _md">
+                    <span>Choose what kind of access you want to give</span>
+                </div>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="icons">
+                        <img src="assets/img-2/conversation/public.png">
+                    </div>
+                    <p style="font-size: 14px; margin-bottom: 0;">Public photos</p>
+                    <mat-checkbox *ngIf="mediaAccess" [(ngModel)]="mediaAccess.PublicAccess" color="primary" style="position: absolute; right: 25px;"></mat-checkbox>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="icons">
+                        <img src="assets/img-2/conversation/private_access.png">
+                    </div>
+                    <p style="font-size: 14px; margin-bottom: 0;">Private photos</p>
+                    <mat-checkbox *ngIf="mediaAccess" [(ngModel)]="mediaAccess.PrivateAccess" color="primary" style="position: absolute; right: 25px;"></mat-checkbox>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="icons">
+                        <img src="assets/img-2/conversation/spicy_access.png">
+                    </div>
+                    <p style="font-size: 14px; margin-bottom: 0;">Spicy photos</p>
+                    <mat-checkbox *ngIf="mediaAccess" [(ngModel)]="mediaAccess.SpicyAccess" color="primary" style="position: absolute; right: 25px;"></mat-checkbox>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <div class="icons">
+                        <img src="assets/img-2/conversation/chilly_access.png">
+                    </div>
+                    <p style="font-size: 14px; margin-bottom: 0;">Chilly photos</p>
+                    <mat-checkbox *ngIf="mediaAccess" [(ngModel)]="mediaAccess.ChillyAccess" color="primary" style="position: absolute; right: 25px;"></mat-checkbox>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>
+                    <mat-checkbox *ngIf="mediaAccess" [(ngModel)]="mediaAccess.InformTOForAccessUpdate" color="primary" style="width: 70px;"></mat-checkbox>
+                    <p style="font-size: 14px; margin-bottom: 0;">Inform Margoshagosha about changing access' permissions to your photos-videos</p>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </mat-list>
+            <p class="description" id="replaceText2">
+                <span>By giving access to Margoshagosha , you enable her to view your photos from the categories that
+                    you have chosen, regardless of her level.</span>
+            </p>
+        </div>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn" (click)="updateMediaAccess()">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

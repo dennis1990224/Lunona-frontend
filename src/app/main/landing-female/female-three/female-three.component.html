@@ -1,0 +1,78 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div class="female-section-3 wrapper stretch">
+    <div class="female-section-3-background">
+    </div>
+
+    <div class="section content stretch">
+
+        <div class="top-ribbon top-ribbon-animation">
+            <h2 class="uppercase" id="top-ribbion-text">
+                <div [innerHTML]="TopRibbonContent"></div>
+            </h2>
+        </div>
+
+        <div class="what-nots purple-box stretch" id="accordion">
+            <ul>
+                <li class="clearfix">
+                    <div class="icon_img_bg" id="desktop"
+                        style="background-image: url('assets/img-2/female/vip.png')"></div>
+
+                    <div class="description">
+                        <h5 class="main">{{GiftsTitle}}</h5>
+                        <h6 class="note">{{GiftsDescription}}</h6>
+                    </div>
+                </li>
+
+                <li class="clearfix">
+                    <div class="icon_img_bg" id="desktop"
+                        style="background-image: url('assets/img-2/female/no-many.png')"></div>
+
+                    <div class="description">
+                        <h5 class="main">{{PennilessTitle}}</h5>
+                        <h6 class="note">{{PennilessDescription}}</h6>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="icon_img_bg" id="desktop"
+                        style="background-image: url('assets/img-2/female/badoo.png')"></div>
+
+                    <div class="description">
+                        <h5 class="main">{{CheapTitle}}</h5>
+                        <h6 class="note">{{CheapDescription}}</h6>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="icon_img_bg" id="desktop"
+                        style="background-image: url('assets/img-2/female/no-work.png')"></div>
+
+                    <div class="description">
+                        <h5 class="main">{{LazyTitle}}</h5>
+                        <h6 class="note">
+                            {{LazyDescription}}</h6>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="icon_img_bg" id="desktop"
+                        style="background-image: url('assets/img-2/female/man-chat.png')"></div>
+
+                    <div class="description">
+                        <h5 class="main">
+                            {{MannersTitle}}</h5>
+                        <h6 class="note">
+                            {{MannersDescription}}</h6>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="icon_img_bg" id="desktop"
+                        style="background-image: url('assets/img-2/female/fake.png')"></div>
+
+                    <div class="description">
+                        <h5 class="main">{{FakeTitle}}</h5>
+                        <h6 class="note">{{FakeDescription}}</h6>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<app-landing-female-footer #landingFemaleFooter></app-landing-female-footer>

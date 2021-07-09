@@ -1,0 +1,70 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div class="section image wrapper stretch">
+    <div class="section image main stretch background-login"></div>
+</div>
+<div class="section content stretch">
+    <div class="content-box">
+        <div class="content wrapper">
+            <div class="content banner">
+                <h1>Login to Lunona</h1>
+            </div>
+            <div class="content main">
+                <div class="email-login content child login">
+                    <p class="title ng-binding">
+                        Login with your <b>email</b><br>or your<b> username</b>
+                    </p>
+                    <div class="avatar wrapper">
+                        <img preload-image=""
+                            src="http://www.lunona.it//members/photosd/30FC0/ac156f65-3a14-412b-8a24-2535e462a162-profile_base.jpg"
+                            src="assets/img-2/login-img/avatar.png">
+                    </div>
+                    <div class="back-button" (click)="isAfterCheckUserName = !isAfterCheckUserName" *ngIf="isAfterCheckUserName" text="BACK">
+                        <span class="icon-back"></span>
+                        <p class="ng-binding">BACK</p>
+                    </div>
+                    <div class="input-wrapper" *ngIf="!isAfterCheckUserName">
+                        <form name="userNameForm" [formGroup]="userNameForm" novalidate>
+                            <mat-form-field class="user-name">
+                                <mat-label>Username or Email</mat-label>
+                                <input (focus)="isNameError = false" matInput formControlName="userName">
+                                <div *ngIf="isNameError" style="position: absolute; top: 30px;">
+                                    <span style="color: red; font-size: 12px;">{{nameErrorMessage}}</span>
+                                </div>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <div class="input-wrapper" *ngIf="isAfterCheckUserName">
+                        <form name="passwordForm" [formGroup]="passwordForm" novalidate>
+                            <mat-form-field class="password">
+                                <mat-label>Password</mat-label>
+                                <input matInput [type]="passwordHide ? 'password' : 'text'" formControlName="password">
+                                <mat-icon matSuffix (click)="passwordHide = !passwordHide">
+                                    {{passwordHide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                                <div *ngIf="isPassError" style="position: absolute; top: 30px;">
+                                    <span style="color: red; font-size: 12px;">{{passErrorMessage}}</span>
+                                </div>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                    <button [disabled]="isNextDisable" class="btn-next" (click)="checkUserNameOrLogin()">
+                        <div style="display: flex;">
+                            <span class="angular-ripple animate"
+                                style="width: 342px; height: 342px; left: -76.5px; top: -144px;"></span>
+                            <span style="margin: auto;">NEXT</span>
+                        </div>
+                    </button>
+                    <a *ngIf="!isAfterCheckUserName" class="create-account" [routerLink]="['/register']">Create Account</a>
+                    <div *ngIf="isAfterCheckUserName" class="row password-options">
+                        <div class="lfloat">
+                            <mat-checkbox color="primary">Stay signed in</mat-checkbox>
+                        </div>
+                        <div class="rfloat" (click)="goToResetPass()">
+                            <a class="forgot-pass">Forgot your password</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-auth-footer #AuthFooter></app-auth-footer>

@@ -1,0 +1,236 @@
+.change-photo-category {
+    .main.wrapper {
+        width: 500px;
+        height: 568px;
+        border-radius: 4px;
+        box-shadow: 0px 9px 133px 0px rgba(35, 32, 38, 0.32);
+        border: 1px solid #7d7c7c;
+        transition: 0.5s;
+        transform-origin: center center;
+        z-index: 10;
+        position: fixed;
+        left: 380px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%;
+        overflow: hidden;
+    }
+
+    .top.wrapper {
+        background-color: white;
+        height: 56px;
+        position: relative;
+        z-index: 1;
+        transition: box-shadow 0.25s;
+
+        .top.title {
+            left: 17px;
+            position: absolute;
+            top: 17px;
+            font-size: 18px;
+            color: #808080;
+        }
+
+        .top.close:hover {
+            background-color: #e81123;
+        }
+
+        .top.close:hover span:after,
+        .top.close:hover span:before {
+            background: #fff;
+        }
+
+        .top.close {
+            position: absolute;
+            top: 9px;
+            right: 13px;
+            width: 35px;
+            height: 34px;
+            background-color: #efefef;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1px solid #cfcfcf;
+            z-index: 2;
+            opacity: 1;
+
+            span {
+                width: 13px;
+                height: 13px;
+                display: block;
+                top: 10px;
+                left: 10px;
+                position: relative;
+            }
+
+            span::before {
+                transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+                content: "";
+                position: absolute;
+                width: 3px;
+                height: 14.3px;
+                background: #333;
+                top: 50%;
+                left: 50%;
+                transform-origin: center;
+                transition: background 0.25s;
+                border-radius: 6px;
+            }
+
+            span::after {
+                content: "";
+                position: absolute;
+                width: 3px;
+                height: 14.3px;
+                background: #333;
+                top: 50%;
+                left: 50%;
+                transform-origin: center;
+                transform: translate3d(-50%, -50%, 0) rotate(45deg);
+                transition: background 0.25s;
+                border-radius: 6px;
+            }
+        }
+    }
+
+    .content.wrapper {
+        height: 440px;
+        padding: 0 70px;
+        overflow: hidden;
+        background-color: white;
+        position: relative;
+        border: 1px solid #cfcfcf;
+
+        h3 {
+            color: #7e7d8c;
+            text-align: center;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 21px;
+            text-shadow: none;
+        }
+    }
+
+    .content {
+        .to-move {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            height: 100%;
+            opacity: 0.15;
+            z-index: 0;
+            transform: none;
+        }
+
+        h3 {
+            margin-top: 18px;
+            margin-bottom: 18px;
+        }
+
+        mat-radio-group {
+            display: block;
+            border: 1px solid #e9e9e9;
+            border-radius: 3px;
+            position: relative;
+            z-index: 1;
+
+            mat-radio-button {
+                border-bottom: 1px solid #f6f6f6;
+                height: 74px;
+                width: 100%;
+                margin: 0;
+                background-color: white;
+                transition: background-color 0.3s;
+                padding: 22px;
+
+                .mat-radio-container {
+                    position: absolute;
+                    right: 12px;
+                }
+
+                img {
+                    float: left;
+                }
+
+                p {
+                    font-family: Roboto;
+                    color: #4b4a59;
+                    margin: 0;
+                    text-indent: 15px;
+                    overflow: hidden;
+                    height: 21px;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin-left: 36px;
+                    width: 86%;
+                }
+            }
+
+            mat-radio-button.active {
+                background-color: rgb(228, 207, 242);
+            }
+        }
+    }
+
+    .bottom.wrapper {
+        background-color: white;
+        height: 69px;
+        padding-top: 13px;
+        padding-right: 13px;
+        position: relative;
+        transition: box-shadow 0.25s;
+
+        .bottom.btn {
+            width: auto;
+            height: 44px;
+            border-radius: 3px;
+            text-align: center;
+            box-sizing: border-box;
+            font-size: 14px;
+            font-weight: 500;
+            float: right;
+            line-height: 4px;
+            margin-left: 4px;
+            cursor: pointer;
+            box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+            transition: background-color 0.25s;
+            padding-top: 21px;
+            padding-right: 44px;
+            padding-left: 43px;
+
+            .icon {
+                position: absolute;
+                right: 23px;
+                top: 13px;
+                background-image: url(/assets/img-2/profile/check-icon.png);
+                background-repeat: no-repeat;
+                width: 19px;
+                height: 14px;
+            }
+        }
+
+        .bottom.done.btn {
+            background-color: #572679;
+            color: #ffffff;
+            position: relative;
+            text-indent: -10px;
+        }
+
+        .bottom.done.btn:hover {
+            background-color: #8542b3;
+        }
+
+        .bottom.cancel.btn {
+            background-color: rgba(208, 208, 228, 0.8);
+            color: #646277;
+        }
+
+        .bottom.cancel.btn:hover {
+            background-color: #babad2;
+        }
+    }
+}

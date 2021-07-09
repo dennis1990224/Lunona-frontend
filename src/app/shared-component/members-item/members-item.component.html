@@ -1,0 +1,140 @@
+<div class="members-item">
+    <div class="item-picture" (click)="openProfileViewModal()">
+        <img class="members-item-ng bing-img" [src]="serverUrl+profile.ProfilePhotoBase">
+    </div>
+    <div class="item-information">
+        <div class="item-name-location">
+            <h2>{{profile.LoginName}}, {{profile.Location}}</h2>
+        </div>
+        <div class="item-extra-info">
+            <h2></h2>
+        </div>
+        <div class="item-extra-actions">
+            <div class="social-level">
+                <div (click)="openSocialStatus()">
+                    <img src='assets/img-2/profile/male/rate_{{profile.SocialLevel}}.png'>
+                </div>
+            </div>
+            <div class="item-action-buttons">
+                <div [class.on]="isMessage" *ngIf="!isBlock" class="item-btn-message md-ink-ripple" (click)="openChat(profile)"><i></i>
+                </div>
+                <div [class.on]="profile.Winked" *ngIf="!isBlock" class="item-btn-wink md-ink-ripple" (click)="sendWink()"><i></i></div>
+                <div class="item-btn-rate md-ink-ripple" (click)="openRate(profile)">
+                    <i [class.rate-not-initialized-x1]="profile.Rate==0" [class.rate-first]="profile.Rate==1"
+                        [class.rate-second]="profile.Rate==2" [class.rate-third]="profile.Rate==3"
+                        [class.rate-fourth]="profile.Rate==4" [class.rate-fiveth]="profile.Rate==5"
+                        [class.rate-sixth]="profile.Rate==6"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item-right-choose">
+        <div *ngIf="isBlock" class="option-unblock" (click)="unblock()">
+            <div class="unblock-btn">
+                <h2>Unblock</h2>
+            </div>
+        </div>
+        <div *ngIf="isBlock" class="more-options">
+            <div class="more-buttons md-ink-ripple" [matMenuTriggerFor]="blockMenu">
+                <h2>More</h2>
+                <div class="md-ripple-container"></div>
+            </div>
+            <mat-menu #blockMenu="matMenu" xPosition="before">
+                <button mat-menu-item class="mat-item" (click)="unblock()">
+                    <i class="right-click-icons unblock"></i>
+                   Unblock {{profile.LoginName}}
+                </button>
+                <mat-divider></mat-divider>
+                <a mat-menu-item class="mat-item"  target="_blank" [routerLink]="['/member/view-profile',profile.LoginName]">
+                    <i class="right-click-icons newtab"></i>
+                    View profile in new tab
+                </a>
+                <mat-divider></mat-divider>
+                <button mat-menu-item class="mat-item" (click)="openProfileViewModal()">
+                    <i class="right-click-icons view-profile-menu"></i>
+                    View profile in a pop-up window
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="openRate(profile)">
+                    <i class="right-click-icons" [class.rate-me]="profile.Rate==0" [class.rate-first]="profile.Rate==1"
+                        [class.rate-second]="profile.Rate==2" [class.rate-third]="profile.Rate==3"
+                        [class.rate-fourth]="profile.Rate==4" [class.rate-fiveth]="profile.Rate==5"
+                        [class.rate-sixth]="profile.Rate==6"></i>
+                    <div *ngIf="profile.Rate==0">
+                        Rate me
+                    </div>
+                    <div *ngIf="profile.Rate!==0">
+                        <h3>{{rateResult}}</h3>
+                        <p>{{profile.RateAgo}}</p>
+                    </div>
+                </button>
+                <mat-divider></mat-divider>
+            </mat-menu>
+        </div>
+        <div *ngIf="!isBlock" class="more-options">
+            <div class="more-buttons md-ink-ripple" [matMenuTriggerFor]="beforeMenu">
+                <h2>More</h2>
+                <div class="md-ripple-container"></div>
+            </div>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <a mat-menu-item class="mat-item"  target="_blank" [routerLink]="['/member/view-profile',profile.LoginName]">
+                    <i class="right-click-icons newtab"></i>
+                    View profile in new tab
+                </a>
+                <mat-divider></mat-divider>
+                <button mat-menu-item class="mat-item" (click)="openProfileViewModal()">
+                    <i class="right-click-icons view-profile-menu"></i>
+                    View profile in a pop-up window
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="openRate(profile)">
+                    <i class="right-click-icons" [class.rate-me]="profile.Rate==0" [class.rate-first]="profile.Rate==1"
+                        [class.rate-second]="profile.Rate==2" [class.rate-third]="profile.Rate==3"
+                        [class.rate-fourth]="profile.Rate==4" [class.rate-fiveth]="profile.Rate==5"
+                        [class.rate-sixth]="profile.Rate==6"></i>
+                    <div *ngIf="profile.Rate==0">
+                        Rate me
+                    </div>
+                    <div *ngIf="profile.Rate!==0">
+                        <h3>{{rateResult}}</h3>
+                        <p>{{profile.RateAgo}}</p>
+                    </div>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="sendWink()">
+                    <i class="right-click-icons wink-me" [class.on]="profile.Winked"></i>
+                    <div *ngIf="profile.Winked">
+                        <h3>Kisses</h3>
+                        <p>{{profile.WinkedAgo}}</p>
+                    </div>
+                    <div *ngIf="!profile.Winked">
+                        Send a Wink
+                    </div>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="openChat(profile)">
+                    <i [class.on]="isMessage" class="right-click-icons send-msg"></i>
+                    <h3>Message</h3>
+                    <p *ngIf="isMessage">{{profile.LastMessageAgo}}</p>
+                </button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="updatePin()">
+                    <i [ngClass]="profile.Pinned ? 'on' : ''" class="right-click-icons pin"></i>
+                    <div *ngIf="profile.Pinned">
+                        <h3>UpPin</h3>
+                        <p>{{profile.PinnedAgo}}</p>
+                    </div>
+                    <div *ngIf="!profile.Pinned">
+                        Pin me
+                    </div>
+                </button>
+                <mat-divider></mat-divider>
+            </mat-menu>
+        </div>
+        <div *ngIf="!isBlock" class="favorite-options">
+            <div class="favorite-buttons">
+                <span (click)="updatePin()" [ngClass]="profile.Pinned ? 'pin' : ''"></span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,258 @@
+.profile-privacy-container {
+    overflow-y: auto;
+    height: 610px;
+    .privacy-wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        padding: 30px 0 0 30px;
+
+        .privacy-item {
+            width: 540px;
+            height: 280px;
+            border-top: 5px solid;
+            float: left;
+            margin: 0 30px 30px 0;
+            background: white;
+            box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
+
+            .privacy-item-header {
+                width: 100%;
+                height: 65px;
+                padding-left: 20px;
+
+                h2 {
+                    margin: 0;
+                    line-height: 65px;
+                    color: #5e5d70;
+                    font-size: 21px;
+                    font-weight: 400;
+                }
+            }
+
+            .privacy-item-body {
+                width: 100%;
+                height: 185px;
+                padding-left: 10px;
+                padding-right: 19px;
+
+                .privacy-item-body-row {
+                    width: 100%;
+                    position: relative;
+                    min-height: 50px;
+                    cursor: pointer;
+
+                    .item-icon {
+                        width: 35px;
+                        height: 50px;
+                        float: left;
+
+                        i {
+                            display: block;
+                            width: 35px;
+                            height: 50px;
+                        }
+                    }
+
+                    .public i {
+                        background: url(/assets/img-2/profile/profile-menu-icons.png) no-repeat 0 -85px;
+                    }
+
+                    .private i {
+                        background: url(/assets/img-2/profile/profile-menu-icons.png) no-repeat 0 -190px;
+                    }
+
+                    .spicy i {
+                        background: url(/assets/img-2/profile/profile-menu-icons.png) no-repeat 0 -301px;
+                    }
+
+                    .chilly i {
+                        background: url(/assets/img-2/profile/profile-menu-icons.png) no-repeat 0 -413px;
+                    }
+
+                    .DeleteAccount i {
+                        background: url(/assets/img-2/profile/delete-profil.png) no-repeat 0 12px;
+                    }
+
+                    .travel {
+                       background: url(/assets/img-2/profile/privacy_travel.png) no-repeat 0 16px; 
+                    }
+
+                    .item-data {
+                        width: 476px;
+                        height: 50px;
+                        float: left;
+                        border-bottom: 2px solid #d1d3d4;
+                        background: transparent;
+
+                        .item-row-description {
+                            width: 50%;
+                            height: 50px;
+                            float: left;
+                            background: transparent;
+
+                            h2 {
+                                font-size: 15px;
+                                font-weight: 400;
+                                color: #5e5d70;
+                                line-height: 50px;
+                                display: inline-block;
+                                max-width: 238px;
+                                white-space: nowrap;
+                                overflow: hidden !important;
+                                text-overflow: ellipsis;
+                                margin: 0;
+                            }
+                        }
+
+                        .item-row-value {
+                            width: 50%;
+                            height: 50px;
+                            float: left;
+                            background: transparent;
+
+                            h2 {
+                                font-size: 16px;
+                                font-weight: 400;
+                                color: #000;
+                                line-height: 50px;
+                                float: right;
+                                text-align: right;
+                                display: inline-block;
+                                width: inherit;
+                                white-space: nowrap;
+                                overflow: hidden !important;
+                                text-overflow: ellipsis;
+                                margin: 0;
+                            }
+                        }
+                    }
+
+                    .tooltip {
+                        position: absolute;
+                        z-index: 99999999;
+                        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+                        background-color: #8781bd;
+                        padding: 12px;
+                        color: #fff;
+                        min-width: 200px;
+                        max-width: 400px;
+                        left: 30%;
+                        top: -20px;
+                        transform: translate3d(-30%, -110%, 0) rotate(-2deg);
+                        transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.15s;
+                        border-radius: 6px;
+                        pointer-events: none;
+                        opacity: 0;
+
+                        .title {
+                            font-weight: bold;
+                            border-bottom: solid 1px;
+                            padding-bottom: 4px;
+                            margin-bottom: 4px;
+                            font-size: 16px;
+                        }
+
+                        i {
+                            position: absolute;
+                            top: 100%;
+                            left: 30%;
+                            margin-left: -15px;
+                            width: 30px;
+                            height: 15px;
+                            overflow: hidden;
+                        }
+
+                        i:after {
+                            content: "";
+                            position: absolute;
+                            width: 15px;
+                            height: 15px;
+                            left: 50%;
+                            transform: translate(-50%, -50%) rotate(45deg);
+                            background-color: #8781bd;
+                            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+                        }
+                    }
+
+                    .AllowOnlyMyCountry i {
+                        background: url(/assets/img-2/profile/privacy_AllowOnlyMyCountry.png) no-repeat 0 12px;
+                        background-size: 60% auto; 
+                    }
+                }
+
+                .privacy-item-body-row.more_actions {
+                    position: relative;
+
+                    .item-row-description {
+                        position: relative;
+                        width: 100%;
+                        overflow: hidden;
+                        height: auto;
+                        display: flex;
+                        align-content: space-evenly;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        padding: 8px 0;
+
+                        h2 {
+                            width: 100%;
+                            max-width: initial !important;
+                            line-height: 15px !important;
+                        }
+
+                        .description {
+                            position: relative;
+                            width: 100%;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            color: rgba(0, 0, 0, 0.54);
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                .privacy-item-body-row:hover {
+                    background-color: rgba(89, 38, 124, 0.1);
+                }
+
+                .contains_tooltip:hover {
+                    .tooltip {
+                        opacity: 1;
+                        transform: translate3d(-30%, -100%, 0) rotate(0deg);
+                    }
+                }
+            }
+        }
+
+        .privacy-item.privacy-photos {
+            border-color: #8781bd;
+        }
+
+        .privacy-notifications {
+            border-color: #1cbbb4;
+
+            .privacy-item-body {
+                padding-left: 20px;
+                padding-right: 40px;
+            }
+        }
+
+        .privacy-setting {
+            border-color: #1cbbb4;
+        }
+
+        .privacy-more-setting {
+            border-color: #8781bd;
+        }
+    }
+}
+
+h2 {
+    text-shadow: none;
+}
+
+.no-border {
+    border: none !important;
+}

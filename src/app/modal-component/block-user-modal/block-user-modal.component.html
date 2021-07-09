@@ -1,0 +1,76 @@
+<div class="chat-block-user-container">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding">Block user</span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="chat-block-user-wrap">
+        <div class="photo-frame-container">
+            <div class="photo-frame">
+                <div class="photo-frame-inner">
+                    <img [src]="serverUrl + data.ProfilePhotoBase">
+                </div>
+            </div>
+            <h2 class="block-user-main-text name">
+                {{data.LoginName}}
+            </h2>
+            <h2 class="block-user-main-text replaceTexts">
+                Choose what type of block you want
+            </h2>
+            <!-- <h2 class="block-user-main-text replaceTexts">
+                Are you want to block ?
+            </h2>
+            <h2 class="block-user-main-text1 replaceTexts">
+                In this case, Margoshagosha can't find you via browse members, can't find your profile, and in general
+                you don't exist to her.
+            </h2> -->
+        </div>
+        <div class="container-choices">
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="blockType">
+                <mat-radio-button color="primary" class="soft" value="1">
+                    <div class="md-label">
+                        <span>
+                            Soft
+                        </span>
+                        <p>
+                            <span>In this case, she </span>
+                            <strong> will be removed from your contact list </strong>
+                            <span>.However, you will </span>
+                            <strong>remain</strong>
+                            <span> in her contacts. She can't see you when browsing, but she </span>
+                            <strong>can </strong>
+                            <span>send you a </span>
+                            <strong> message</strong>
+                            <span>, which you won't be able to see. Yet</span>
+                            <strong>Luna will keep informing you</strong>
+                            <span>about her efforts to contact you. If you unblock her, you will be able to see the
+                                messages, sent by her.</span>
+                        </p>
+                    </div>
+                </mat-radio-button>
+                <mat-radio-button color="primary" class="hard" value="2">
+                    <div class="md-label">
+                        <span>Hard</span>
+                        <p>
+                            <span>In this case, she </span>
+                            <strong>will be removed from your contact list </strong>
+                            <span> and you </span>
+                            <strong>will be removed from her contact list</strong>
+                            <span>, she can't see you when browsing, she can't view your profile, in general</span>
+                            <strong>you dont't exist to her</strong>
+                            <span>.</span>
+                        </p>
+                    </div>
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    <div class="dialog-actions">
+        <button class="footer-cancel" mat-raised-button [mat-dialog-close]="''">Cancel</button>
+        <button class="footer-done" mat-raised-button (click)="blockUser()">Yes</button>
+    </div>
+</div>

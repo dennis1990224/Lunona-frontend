@@ -1,0 +1,84 @@
+.transaction-modal {
+    .md-dialog-content {
+        padding: 24px;
+        flex-direction: column;
+        overflow: auto;
+        order: 1;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-box-ordinal-group: 2;
+
+        .md-title {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0.005em;
+            color: black;
+            margin-bottom: 12px;
+        }
+
+        .md-dialog-content-body {
+            width: 100%;
+        }
+    }
+
+    .md-dialog-content:not([layout="row"]) > :first-child:not(.md-subheader) {
+        margin-top: 0;
+    }
+
+    .md-dialog-action {
+        display: flex;
+        -webkit-box-ordinal-group: 3;
+        order: 2;
+        box-sizing: border-box;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        margin-bottom: 0;
+        padding-right: 8px;
+        padding-left: 16px;
+        min-height: 52px;
+        overflow: hidden;
+
+        .md-confirm-button {
+            color: rgb(63,81,181);
+            margin: 8px 0 8px 8px;
+            text-transform: none;
+            outline: none;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            min-height: 36px;
+            min-width: 88px;
+            line-height: 36px;
+            vertical-align: middle;
+            -webkit-box-align: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 3px;
+            box-sizing: border-box;
+            user-select: none;
+            border: 0;
+            padding: 0 6px;
+            background: transparent;
+            white-space: nowrap;
+            font-weight: 500;
+            font-size: 14px;
+            font-style: inherit;
+            font-variant: inherit;
+            font-family: inherit;
+            text-decoration: none;
+            overflow: hidden;
+            transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+            letter-spacing: .01em;
+        }
+
+        .md-confirm-button:hover {
+            background-color: rgba(158,158,158,0.2);
+        }
+    }
+}
+
+h2 {
+    text-shadow: none;
+}

@@ -1,0 +1,41 @@
+<div class="confirm-winks-container _md md-transition-in" id="dialogContent_257">
+    <div class="confirm-dialog-header _md md-toolbar-transitions">
+        <div class="md-toobar-tools">
+            <i></i>
+            <span>Send kisses</span>
+            <div class="top close" [mat-dialog-close]="''">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="confirm-winks-wrap">
+        <div class="block1">
+            <div class="winks-image">
+                <img src="assets/img-2/profile/wink-big.png">
+            </div>
+            <div class="user-image">
+                <img [src]="serverUrl + data.ProfilePhotoBase">
+            </div>
+        </div>
+        <div class="block2">
+            <h2 id="TOLOGINNAMEWINK" class="textFromCms">
+                You have already sent kisses to
+                <br>
+                <span style="color: rgb(61, 175, 255);">{{data.LoginName}}</span>
+                {{data.LastMessageAgo}}
+            </h2>
+            <h2 class="question">
+                Do you want to send her again?
+            </h2>
+        </div>
+    </div>
+    <div class="confirm-dialog-footer">
+        <div class="confirm-dialog-footer-button yes" (click)="sendWink()">
+            <span>YES</span>
+            <i class="check"></i>
+        </div>
+        <div class="confirm-dialog-footer-button no" [mat-dialog-close]="''">
+            <span>NO</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,168 @@
+<div class="member-menu ng-scope">
+    <mat-toolbar>
+        <div class="monster-menu ng-scope">
+            <div class="monster-menu-container ng-scope" id="monsterMenuContainer">
+                <div class="standard-items">
+                    <a class="monster-menu-item icon1 md-ink-ripple" (click)="goToConversation()" [ngClass]="iconNumber == 1 ? 'on' : 'off'">
+                        <li></li>
+                        <span class="notification-contacts ng-binding" *ngIf="unreadCount>0"> {{unreadCount}} </span>
+                        <div class="md-ripple-container"></div>
+                    </a>
+                    <a class="monster-menu-item icon2 md-link-ripple"  (click)="goToBrowse()" [ngClass]="iconNumber == 2 ? 'on' : 'off'">
+                        <li></li>
+                        <div class="md-ripple-container"></div>
+                    </a>
+                    <a class="monster-menu-item icon3 md-link-ripple" (click)="goToBank()" [ngClass]="iconNumber == 3 ? 'on' : 'off'">
+                        <li></li>
+                        <div class="md-ripple-container"></div>
+                    </a>
+                    <a class="monster-menu-item icon4 md-link-ripple" (click)="goToProfile()" [ngClass]="iconNumber == 4 ? 'on' : 'off'">
+                        <li></li>
+                        <div class="md-ripple-container"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="content-menu flex-100">
+            <div style="height: 70px" class="animate-switch-container-left-menu flex-100">
+                <div class="animate-switch-left-menu ng-scope">
+                    <div class="MainMenuWrap ng-scope" *ngIf="!chatSelectMember">
+                        <div class="MainTitles">
+                            <h3 class="main-menu-title">
+                                {{title}}
+                            </h3>
+                            <h2 *ngIf="subTitle" class="main-menu-subtitle">
+                               {{subTitle}}
+                            </h2>
+                        </div>
+                        <div class="MainHelpArea clearfix ng-scope" *ngIf="!isConversation">
+                            <div class="main-bar-help ng-scope">
+                                <a>
+                                    <img style="margin-top: 16px;" src="assets/img-2/members/question.png">
+                                </a>
+                            </div>
+                            <div class="languages-outer ng-scope" [matMenuTriggerFor]="beforeMenu">
+                                <div class="languages">
+                                    <img style="height: 20px;" [src]="selectedLanguage.image">
+                                    <mat-menu #beforeMenu="matMenu" xPosition="before">
+                                        <button mat-menu-item *ngFor="let siteSupportLanguage of siteSupportLanguages" (click)="selectLanguage(siteSupportLanguage)">
+                                            <img style="height: 18px;" [src]="siteSupportLanguage.image">
+                                            {{siteSupportLanguage.language}}
+                                        </button>
+                                    </mat-menu>
+                                </div>
+                            </div>
+                            <img src="assets/images/logo_white.png"
+                                    style="float: right; margin: 16px 5px 0 0;" class="header-logo ng-scope">
+                        </div>
+                    </div>
+                    <div *ngIf="chatSelectMember" class="layout-xs-row layout-x1-row layout-sm-row layout-md-row layout-lg-row layout-gt-xs-row layout-gt-sm-row layout-gt-md-row">
+                        <div class="chat-header" [ngClass]="isSticker ? 'flex-80' : 'flex-50'">
+                            <div class="chat-header-middle">
+                                <div id="header-chat-info" (click)="changeMenu()">
+                                    <div class="avatar-img-bg cover bing-img" style="background-image: url({{serverUrl}}{{chatSelectMember.ProfilePhotoBase}});"></div>
+                                    <div class="chat-about">
+                                        <div class="contact-descr">
+                                            <div class="contact-line1">
+                                                <div class="text">
+                                                    <span class="name">{{chatSelectMember.LoginName}}</span>
+                                                    <span class="dashAge">,</span>
+                                                    <span class="age">{{chatSelectMember.Age}}</span>
+                                                    <span class="dashAge">,</span>
+                                                    <span class="location">{{chatSelectMember.Location}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="contact-line2">
+                                                <i class="rate i-contact-rate">
+                                                    <img src="assets/img-2/profile/male/rate_{{chatSelectMember.SocialLevel}}.png">
+                                                </i>
+                                                <img *ngIf="chatSelectMember.IsOnLine==1" src="/assets/img-2/conversation/online-1.png">
+                                                <img *ngIf="chatSelectMember.IsOnLine==0" src="/assets/img-2/conversation/online-0.png">
+                                                <span class="contact-last-online" style="margin-left: 5px;">{{chatSelectMember.LastMessageAgo}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-bar layout-align-end-center layout-row">
+                                    <div class="coins">
+                                        <div class="coins-inner">
+                                            <span>{{balance}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="settings">
+                                        <div class="md-icon-button settings-icon" [matMenuTriggerFor]="settingMenu"></div>
+                                        <mat-menu #settingMenu="matMenu" xPosition="before" class="setting-menu">
+                                            <button mat-menu-item class="translate" (click)="openTranslateModal()">
+                                                <i></i><span>Translation</span>
+                                            </button>
+                                            <mat-divider></mat-divider>
+                                            <button mat-menu-item class="delete-conversation" (click)="openDelConvModal()">
+                                                <i></i><span>Delete Conversation</span>
+                                            </button>
+                                            <mat-divider></mat-divider>
+                                            <button mat-menu-item class="photo-access" (click)="openPhotoAccessModal()">
+                                                <i></i> <span>Photo Access Settings</span>
+                                            </button>
+                                            <mat-divider></mat-divider>
+                                            <button mat-menu-item class="block-user" (click)="openBlockUserModal()">
+                                                <i></i><span>Block this user</span>
+                                            </button>
+                                            <mat-divider></mat-divider>
+                                            <button mat-menu-item class="donate" (click)="openDonateModal()">
+                                                <i></i><span>Donate Luns</span>
+                                            </button>
+                                            <mat-divider></mat-divider>
+                                            <button mat-menu-item class="date" (click)="openDateModal()">
+                                                <i></i><span>Date</span>
+                                            </button>
+                                            <mat-divider></mat-divider>
+                                            <button mat-menu-item class="delete-contact" (click)="openDeleteContact()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24.274" height="25.37" viewBox="0 0 24.274 25.37" class="ng-scope">
+                                                    <g>
+                                                        <path d="M8.862 22.567a31.111 31.111 0 0 1-6.093-.525C.958 21.659 0 21.114 0 20.465c0-4.279 1.526-7.71 4.188-9.414a.448.448 0 0 1 .2-.044.408.408 0 0 1 .244.075 7.014 7.014 0 0 0 4.218 1.385 7.106 7.106 0 0 0 2.284-.373 7.464 7.464 0 0 0-1.082 10.456 45.25 45.25 0 0 1-1.19.017zm-.015-11.988a5.289 5.289 0 1 1 5.289-5.289 5.3 5.3 0 0 1-5.289 5.289z"></path>
+                                                        <path fill-rule="evenodd" d="M17.337 11.496a6.937 6.937 0 1 1-6.937 6.937 6.962 6.962 0 0 1 6.937-6.937zM12.9 17.121h8.875v2.625H12.9z"></path>
+                                                    </g>
+                                                </svg>
+                                                <span>Delete Contact</span>
+                                            </button>
+                                        </mat-menu>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="languages-menu" *ngIf="!isSticker">
+                            <div class="main-bar-help ng-scope">
+                                <a>
+                                    <img style="margin-top: 16px;" src="assets/img-2/members/question.png">
+                                </a>
+                            </div>
+                            <div class="languages-outer ng-scope" [matMenuTriggerFor]="beforeMenu">
+                                <div class="languages">
+                                    <img style="height: 20px;" [src]="selectedLanguage.image">
+                                    <mat-menu #beforeMenu="matMenu" xPosition="before">
+                                        <button mat-menu-item *ngFor="let siteSupportLanguage of siteSupportLanguages" (click)="selectLanguage(siteSupportLanguage)">
+                                            <img style="height: 18px;" [src]="siteSupportLanguage.image">
+                                            {{siteSupportLanguage.language}}
+                                        </button>
+                                    </mat-menu>
+                                </div>
+                            </div>
+                            <img src="assets/images/logo_white.png"
+                                    style="float: right; margin: 16px 5px 0 0;" class="header-logo ng-scope">
+                        </div>
+                        <div class="chat-support flex-19 selected-readymessages" *ngIf="isSticker">
+                            <div class="Ready-message" [ngClass]="isReadyMessage ? 'active' : ''" (click)="checkReadyMessage()">
+                                <span></span>
+                            </div>
+                            <div class="Stickers" [ngClass]="!isReadyMessage ? 'active' : ''" (click)="checkStickers()">
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-hor-line"></div>
+            </div>
+        </div>
+    </mat-toolbar>
+</div>

@@ -1,0 +1,218 @@
+.male-section-6 {
+    .male-section-6-background {
+        background-image: url(/assets/img-2/male/malesection-6-bg.jpg);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: top;
+        object-position: top;
+        font-family: "object-fit: cover; object-position: top;";
+    }
+
+    .top-ribbon {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: fade-in;
+    }
+
+    .top-ribbon {
+        position: absolute;
+        top: 11.11vmin;
+        left: 0;
+        right: 0;
+        background-color: rgba(64, 12, 63, 0.4);
+    }
+
+    .top-ribbon {
+        text-align: center;
+        top: 10.33vmin;
+        padding: 3vmin;
+
+        h2 {
+            font-weight: 400;
+            font-size: 34px;
+            line-height: 5vmin;
+            text-shadow: 0 0 10px #160621;
+            letter-spacing: 0;
+            color: #fff;
+            margin: 0;
+            font-family: Open Sans, sans-serif;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        h2 {
+
+        }
+    }
+
+    .luna_item {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: calc(var(--vh, 1vh) * 100);
+        display: flex;
+        -webkit-box-align: end;
+        align-items: flex-end;
+
+        .body_wrapper {
+            position: relative;
+            width: auto;
+            height: auto;
+            max-height: 100%;
+            max-width: 100%;
+
+            .luna.body {
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: fade-in-left;
+            }
+
+            .luna.body {
+                position: relative;
+                display: block;
+                max-width: 60vw;
+                max-height: 85vh;
+                width: auto;
+                height: auto;
+            }
+
+            img {
+                vertical-align: middle;
+                border: 0;
+                z-index: 1;
+            }
+
+            .luna.bubble {
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: fade-in-left;
+            }
+
+            .luna.bubble {
+                position: absolute;
+                min-width: 160px;
+                max-width: 560px;
+                padding: 36px;
+                top: 20%;
+                left: 80%;
+            }
+
+            .bubble {
+                background-color: #5c085a;
+                color: #e0e0e0;
+                width: 545px;
+                border-radius: 2.4vmin;
+                text-align: left;
+                z-index: 1;
+
+                #title-luna {
+                    font-size: 20px;
+                    line-height: 21px;
+                    font-weight: bold;
+                }
+
+                .title {
+                    text-shadow: none;
+                    padding-bottom: 12px;
+                }
+
+                h4 {
+                    letter-spacing: 0;
+                    color: #fff;
+                    margin: 0;
+                    font-family: inherit;
+
+                }
+
+                #content-luna {
+                    font-size: 17px;
+                    line-height: 23px;
+                }
+
+                .content {
+                    margin-top: 1vmin;
+                    margin-bottom: 0px;
+                    text-shadow: none;
+                }
+
+                p {
+                    margin: 0 0 10px;
+                }
+
+                .edge {
+                    left: -18px;
+                    position: absolute;
+                    top: 1.7vmin;
+                }
+
+                img {
+                    vertical-align: middle;
+                    border: 0;
+                }
+            }
+
+            .luna.background {
+                position: absolute;
+                left: -50%;
+                bottom: 0;
+                z-index: 0;
+                width: 168%;
+                max-width: 94vw;
+                background-size: 100% auto;
+                background-position: left bottom;
+                background-repeat: no-repeat;
+                height: 0;
+                padding: 59% 0%;
+            }
+
+            .luna.background {
+                animation-duration: 1s;
+                animation-delay: 0s;
+                animation-name: rotate-in-down-left;
+            }
+        }
+    }
+
+    .language-support {
+        right: 14px;
+        width: 100%;
+        height: 44px;
+        position: absolute;
+        bottom: 110px;
+
+        img {
+            float: right;
+            vertical-align: middle;
+            border: 0;
+        }
+
+        p {
+            font-size: 17px;
+            font-weight: 800;
+            float: right;
+            color: white;
+            margin-top: 15px;
+            margin-right: 10px;
+            text-shadow: 0px 0px 10px rgb(22, 6, 33);
+            line-height: 2vmin;
+        }
+    }
+}
+
+:host ::ng-deep .top-ribbon b {
+    font-weight: 800;
+}
+
+:host ::ng-deep .title b {
+    font-weight: 700;
+}
+
+:host ::ng-deep .luna.bubble b {
+    font-weight: 700;
+}

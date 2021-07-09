@@ -1,0 +1,427 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div class="section female section-8 stretch">
+    <div class="section image wrapper stretch">
+        <img class="section image main stretch" src="assets/img-2/male/section-8-bg.jpg">
+    </div>
+    <div class="section content stretch">
+        <div class="top-ribbon" style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;">
+            <h3 class="uppercase" style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;">
+                You wanna check out what all the fuss is about...
+                <b style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;">
+                    but you're bored to register?
+                </b>
+            </h3>
+            <p style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;">
+                Tell us quickly what are you into and enter the site as a visitor to see what all the fuss is about. As
+                soon as you see it's well worth it, you can easily switch from a visitor to a member by registering
+                without boring email verifications! And you can start flirting right away!
+            </p>
+        </div>
+        <div class="partner-search stretch">
+            <div class="step-content step parent_search_container">
+                <div class="top_title_container">
+                    <p *ngIf="steps==1" class="title"
+                        style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;">
+                        <span>Tell us how much you like these body types?</span>
+                    </p>
+                    <p *ngIf="steps==2" class="title"
+                        style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;">
+                        <span>Tell us how much do you like the following features?</span>
+                    </p>
+                    <p *ngIf="steps==3" class="title"
+                        style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;">
+                        <span>Tell us how much do you like the following age ranges?</span>
+                    </p>
+                </div>
+                <div class="preference-wrapper no-animate"
+                    style="animation-duration: 0.1s; animation-delay: 0s; animation-name: fade-in; visibility: visible;">
+                    <div *ngIf="steps==1" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/skinny.png">
+                            <label>
+                                <span>Skinny</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodyTypes" [(ngModel)]="bodyTypes.BodyA">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==1" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/slim.png">
+                            <label>
+                                <span>Slim</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodyTypes" [(ngModel)]="bodyTypes.BodyB">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==1" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/normal.png">
+                            <label>
+                                <span>Normal</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodyTypes" [(ngModel)]="bodyTypes.BodyC">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==1" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/curvy.png">
+                            <label>
+                                <span>Curvy</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodyTypes" [(ngModel)]="bodyTypes.BodyD">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==1" class="preference-option last"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/few-extra-pounds.png">
+                            <label>
+                                <span>A Few Extra Pounds</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodyTypes" [(ngModel)]="bodyTypes.BodyE">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==2" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/white.png">
+                            <label>
+                                <span>White</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodySkins" [(ngModel)]="bodySkins.SkinA">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==2" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/latin.png">
+                            <label>
+                                <span>Latina & Mediterranean</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodySkins" [(ngModel)]="bodySkins.SkinB">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==2" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/exotic.png">
+                            <label>
+                                <span>Exotic</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodySkins" [(ngModel)]="bodySkins.SkinC">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==2" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/asian.png">
+                            <label>
+                                <span>Asian</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodySkins" [(ngModel)]="bodySkins.SkinD">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==2" class="preference-option last"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/black.png">
+                            <label>
+                                <span>Black</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="bodySkins" [(ngModel)]="bodySkins.SkinE">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==3" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/18-23.png">
+                            <label>
+                                <span>18...23</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="ages" [(ngModel)]="ages.AgeA">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==3" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/24-29.png">
+                            <label>
+                                <span>24...29</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="ages" [(ngModel)]="ages.AgeB">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==3" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/30-35.png">
+                            <label>
+                                <span>30...35</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="ages" [(ngModel)]="ages.AgeC">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==3" class="preference-option"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/36-43.png">
+                            <label>
+                                <span>36...43</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="ages" [(ngModel)]="ages.AgeD">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==3" class="preference-option last"
+                        style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <div class="image-wrapper">
+                            <img src="assets/img-2/partner-search/male/44.png">
+                            <label>
+                                <span>44+</span>
+                            </label>
+                        </div>
+                        <div class="radio-list">
+                            <div class="text">
+                                <mat-radio-group *ngIf="ages" [(ngModel)]="ages.AgeE">
+                                    <mat-radio-button color="primary" class="occupation-radio"
+                                        *ngFor="let likeLevel of likeLevels" [value]="likeLevel.id">
+                                        {{likeLevel.level}}
+                                    </mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==4" class="user-location">
+                        <div class="partner-map layout-row">
+                            <div class="in layout-column">
+                                <h2>Confirm your location</h2>
+                                <form class="location-form">
+                                    <mat-form-field class="location-full-width">
+                                        <div *ngIf="countryIso" class="flag-icon"
+                                            style="background-image: url(assets/img/flags/4x3/{{countryIso}}.svg);">
+                                        </div>
+                                        <input type="text" placeholder="Country" matInput [formControl]="country"
+                                            [matAutocomplete]="auto">
+                                        <mat-autocomplete #auto="matAutocomplete">
+                                            <mat-option *ngFor="let filterCountry of filterCountries | async"
+                                                [value]="filterCountry.CountryName">
+                                                {{filterCountry.CountryName}} ({{filterCountry.CountryISO}})
+                                            </mat-option>
+                                        </mat-autocomplete>
+                                    </mat-form-field>
+                                    <mat-form-field class="location-full-width">
+                                        <div class="city-icon"></div>
+                                        <input (keyup)="GetCitiesAndZip($event.target.value)" type="text"
+                                            placeholder="City" matInput [formControl]="city" [matAutocomplete]="auto2">
+                                        <mat-autocomplete #auto2="matAutocomplete">
+                                            <mat-option *ngFor="let filterCity of filterCities | async"
+                                                [value]="filterCity">
+                                                {{filterCity}}
+                                            </mat-option>
+                                        </mat-autocomplete>
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div class="layout-column" id="map" style="position: relative; overflow: hidden;">
+                                <!-- <google-map width="100%" height="100%">
+                                    <map-marker></map-marker>
+                                </google-map> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="steps==5" class="user-information">
+                        <div class="md-content md-no-momentum">
+                            <div class="left-column column">
+                                <img class="promotion-image" src="assets/img-2/male/image.png">
+                                <div class="image-container">
+                                    <div class="texts">
+                                        <h2>We're</h2>
+                                        <h2>Done!</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-column column">
+                                <div class="input-container">
+                                    <mat-form-field>
+                                        <mat-label>Name</mat-label>
+                                        <input type="text" (keyup)="checkName($event.target.value)" [(ngModel)]="name" matInput>
+                                        <img *ngIf="isNameSuccess" style="position: absolute; right: 0px; bottom: 5px;" src="assets/img-2/male/success.png">
+                                        <span style="position: absolute; bottom: -20px; left: 15px; color: red;" class="row" *ngIf="isNameError">{{nameErrorMessage}}</span>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>Password</mat-label>
+                                        <input type="password" (keyup)="checkPassword($event.target.value)" [(ngModel)]="password" matInput>
+                                        <img *ngIf="isPassSuccess" style="position: absolute; right: 0px; bottom: 5px;" src="assets/img-2/male/success.png">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>Email</mat-label>
+                                        <input type="email" (keyup)="checkEmail($event.target.value)" [(ngModel)]="email" matInput>
+                                        <img *ngIf="isEmailSuccess" style="position: absolute; right: 0px; bottom: 5px;" src="assets/img-2/male/success.png">
+                                        <span *ngIf="isEmailError" style="position: absolute; bottom: -20px; left: 15px; color: red;" class="row">{{emailErrorMessage}}</span>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-nav" id="desktop">
+                        <a *ngIf="steps>1" (click)="goToBackStep()" class="back btn">
+                            <span class="uppercase">BACK</span>
+                            <img src="assets/img-2/male/arrowlightp.png">
+                        </a>
+                        <a *ngIf="steps!=5" class="next btn no-animate"
+                            style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;"
+                            (click)="goToNextStep()">
+                            <span class="uppercase">Next</span>
+                            <img src="assets/img-2/male/arrowlight.png">
+                        </a>
+                        <a *ngIf="steps==5" class="next btn no-animate"
+                            style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;"
+                            (click)="registerMan()">
+                            <span class="uppercase">FINISH</span>
+                            <img src="assets/img-2/male/arrowlight.png">
+                        </a>
+                        <div class="step-counter"
+                            style="animation-duration: 1s; animation-delay: 0s; animation-name: fade-in;">
+                            <span class="collectionCounterEl">{{steps}}</span>/5
+                        </div>
+                        <div id="agreement-notice">
+                            By filling out the above you accept the
+                            <a href="">Terms of Use</a> &
+                            <a href="">Community Terms</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-landing-footer #landingMaleFooter></app-landing-footer>

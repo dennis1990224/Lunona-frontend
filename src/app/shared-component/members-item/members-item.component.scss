@@ -1,0 +1,475 @@
+.members-item {
+    width: calc(50% - 14px);
+    height: 102px;
+    float: left;
+    margin: 0 14px 14px 0;
+    display: table-cell;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border: 1px solid #c1c1d2;
+    background: white;
+
+    .item-picture {
+        width: 15%;
+        height: 100px;
+        float: left;
+        display: inline-block;
+        padding: 4px 0;
+        min-width: 86px;
+        max-width: 86px;
+
+        .members-item-ng {
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 84px;
+            width: 95%;
+            float: left;
+            max-width: 68px;
+            margin-left: 8px;
+            margin-top: 4px;
+            border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+        }
+
+        .bing-img {
+            display: block;
+            animation: fadeInFromNone 0.15s ease-out;
+            transition: none !important;
+        }
+    }
+
+    .item-information {
+        width: 50%;
+        height: 100px;
+        float: left;
+        display: inline-block;
+
+        .item-name-location {
+            display: table-cell;
+            vertical-align: bottom;
+            width: 100%;
+            height: 35px;
+            max-width: 250px;
+
+            h2 {
+                margin: 0;
+                color: #4b4b5d;
+                font-size: 16px;
+                font-weight: 500;
+                display: inline-block;
+                max-width: 400px;
+                white-space: nowrap;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+                text-shadow: none;
+            }
+        }
+
+        .item-extra-info {
+            width: 100%;
+            height: 30px;
+
+            h2 {
+                margin: 0;
+                color: #4b4b5d;
+                font-size: 14px;
+                font-weight: 400;
+                display: inline-block;
+                max-width: 400px;
+                white-space: nowrap;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+                text-shadow: none;
+            }
+        }
+
+        .item-extra-actions {
+            width: 100%;
+            height: 35px;
+            display: inline-block;
+
+            .social-level {
+                width: 115px;
+                height: 35px;
+                float: left;
+                cursor: pointer;
+
+                img {
+                    -webkit-border-radius: 35px;
+                    background: #edeff2;
+                    cursor: pointer;
+                    padding: 0px 5px;
+                    position: relative;
+                }
+            }
+
+            .item-action-buttons {
+                width: 90px;
+                height: 35px;
+                float: left;
+
+                .item-btn-message {
+                    position: relative;
+                    width: 30px;
+                    height: 30px;
+                    float: left;
+                    cursor: pointer;
+
+                    i {
+                        height: 18px;
+                        width: 20px;
+                        display: block;
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -48px;
+                        margin: 0 auto;
+                        vertical-align: middle;
+                        margin-top: 6px;
+                    }
+                }
+
+                .item-btn-message.on {
+                    i {
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 0;
+                    }
+                }
+
+                .item-btn-message:hover {
+                    background: rgba(206, 214, 226, 0.7);
+                }
+
+                .item-btn-wink {
+                    position: relative;
+                    cursor: pointer;
+                    width: 30px;
+                    height: 30px;
+                    float: left;
+
+                    i {
+                        height: 18px;
+                        width: 20px;
+                        margin: 0 auto;
+                        vertical-align: middle;
+                        margin-top: 6px;
+                        display: block;
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -144px;
+                    }
+                }
+
+                .item-btn-wink.on {
+                    i {
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -96px;
+                    }
+                }
+
+                .item-btn-wink:hover {
+                    background: rgba(206, 214, 226, 0.7);
+                }
+
+                .item-btn-rate {
+                    position: relative;
+                    cursor: pointer;
+                    width: 30px;
+                    height: 30px;
+                    float: left;
+
+                    .rate-not-initialized-x1 {
+                        height: 18px;
+                        width: 20px;
+                        display: table;
+                        margin: 0 auto;
+                        vertical-align: middle;
+                        margin-top: 6px;
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -192px;
+                    }
+
+                    .rate-first {
+                        height: 18px;
+                        width: 20px;
+                        display: table;
+                        margin: 0 auto;
+                        vertical-align: middle;
+                        margin-top: 6px;
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -480px;
+                    }
+
+                    .rate-second {
+                        height: 18px;
+                        width: 20px;
+                        display: table;
+                        margin: 0 auto;
+                        vertical-align: middle;
+                        margin-top: 6px;
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -432px;
+                    }
+
+                    .rate-third {
+                        height: 18px;
+                        width: 20px;
+                        display: table;
+                        margin: 0 auto;
+                        vertical-align: middle;
+                        margin-top: 6px;
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -384px;
+                    }
+
+                    .rate-fourth {
+                        height: 18px;
+                        width: 20px;
+                        display: table;
+                        margin: 0 auto;
+                        vertical-align: middle;
+                        margin-top: 6px;
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -336px;
+                    }
+
+                    .rate-fiveth {
+                        height: 18px;
+                        width: 20px;
+                        display: table;
+                        margin: 0 auto;
+                        vertical-align: middle;
+                        margin-top: 6px;
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -288px;
+                    }
+
+                    .rate-sixth {
+                        height: 18px;
+                        width: 20px;
+                        display: table;
+                        margin: 0 auto;
+                        vertical-align: middle;
+                        margin-top: 6px;
+                        background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 0 -240px;
+                    }
+                }
+
+                .item-btn-rate:hover {
+                    background: rgba(206, 214, 226, 0.7);
+                }
+            }
+        }
+    }
+
+    .item-right-choose {
+        width: 30%;
+        height: 100px;
+        float: right;
+        display: inline-block;
+
+        .option-unblock {
+            width: 42%;
+            min-width: 72px;
+            height: 67px;
+            float: left;
+            margin-right: 10px;
+            margin-top: 32px;
+            cursor: pointer;
+
+            .unblock-btn {
+                height: 36px;
+                width: auto;
+                padding: 0 16px;
+                line-height: 34px;
+                -webkit-border-radius: 2px;
+                border: 1px solid #c1c1d2;
+                position: relative;
+
+                h2 {
+                    margin: 0;
+                    margin-top: 9px;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #686378;
+                    text-align: center;
+                    text-shadow: none;
+                }
+            }
+        }
+
+        .more-options {
+            display: table-cell;
+            vertical-align: middle;
+            width: 50%;
+            height: 100px;
+            float: left;
+            padding-top: 32px;
+
+            .more-buttons {
+                height: 36px;
+                width: auto;
+                padding: 0 16px;
+                line-height: 34px;
+                border-radius: 2px;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+                border: 1px solid #c1c1d2;
+                position: relative;
+                cursor: pointer;
+                display: flex;
+
+                h2 {
+                    margin: 0;
+                    font-size: 12px;
+                    font-weight: 500;
+                    color: #686378;
+                    text-align: center;
+                    text-shadow: none;
+                    margin: auto;
+                }
+
+                .md-ripple-container {
+                    pointer-events: none;
+                    position: absolute;
+                    overflow: hidden;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    -webkit-transition: all 0.55s cubic-bezier(0.25, 0.8, 0.25, 1);
+                    transition: all 0.55s cubic-bezier(0.25, 0.8, 0.25, 1);
+                }
+            }
+        }
+
+        .favorite-options {
+            width: 50%;
+            height: 100px;
+            float: left;
+            display: table-cell;
+            vertical-align: middle;
+
+            .favorite-buttons {
+                height: 50px;
+                width: auto;
+                float: right;
+                margin-left: 7px;
+
+                span {
+                    width: 50px;
+                    height: 50px;
+                    display: block;
+                    background: url(/assets/img-2/profile/pin-3-off.png) no-repeat 4px -6px;
+                }
+
+                span.pin {
+                    background: url(/assets/img-2/profile/pin-3-on.png) no-repeat 4px -6px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .members-item {
+        width: 98%;
+    }
+}
+
+.mat-item {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.mat-item:hover {
+    color: rgba(0, 0, 0, 0.54);
+    text-decoration: none;
+}
+
+.right-click-icons {
+    width: 40px;
+    height: 37px;
+    display: block;
+    float: left;
+    position: static;
+    margin-top: 8px;
+}
+
+.right-click-icons.unblock {
+    background: url(/assets/img-2/profile/unblock-menu.png) no-repeat 2px 9px !important;
+}
+
+.right-click-icons.newtab {
+    background: url(/assets/img-2/profile/right-click-icons.png) no-repeat 2px 8px !important;
+}
+
+.right-click-icons.view-profile-menu {
+    background: url(/assets/img-2/profile/right-click-icons.png) no-repeat 2px -41px !important;
+}
+
+.right-click-icons.rate-me {
+    background: url(/assets/img-2/profile/right-click-icons.png) no-repeat 2px -89px !important;
+}
+
+.right-click-icons.wink-me {
+    background: url(/assets/img-2/profile/right-click-icons.png) no-repeat 2px -137px !important;
+}
+
+.right-click-icons.send-msg {
+    background: url(/assets/img-2/profile/right-click-icons.png) no-repeat 2px -334px !important;
+}
+
+.right-click-icons.pin {
+    background: url(/assets/img-2/profile/right-click-icons.png) no-repeat 2px -235px !important;
+}
+
+.right-click-icons.pin.on {
+    background: url(/assets/img-2/profile/right-click-icons.png) no-repeat 2px -282px !important;
+}
+
+.right-click-icons.send-msg.on {
+    background: url(/assets/img-2/profile/right-click-icons.png) no-repeat 2px -381px !important;
+}
+
+.right-click-icons.wink-me.on {
+    background: url(/assets/img-2/profile/right-click-icons.png) no-repeat 2px -185px !important;
+}
+
+.right-click-icons.rate-first {
+    background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 2px -470px !important;
+}
+
+.right-click-icons.rate-second {
+    background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 2px -422px !important;
+}
+
+.right-click-icons.rate-third {
+    background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 2px -374px !important;
+}
+
+.right-click-icons.rate-fourth {
+    background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 2px -326px !important;
+}
+
+.right-click-icons.rate-fiveth {
+    background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 2px -278px !important;
+}
+
+.right-click-icons.rate-sixth {
+    background: url(/assets/img-2/profile/browse-woman-status-icons.png) no-repeat 2px -230px !important;
+}
+
+.mat-menu-item {
+    height: 56px;
+
+    h3 {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        margin: 0;
+        line-height: 1.2em;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: rgba(0, 0, 0, 0.54);
+        text-shadow: none;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        margin: 0;
+        line-height: 1.6em;
+        color: rgba(0, 0, 0, 0.54);
+    }
+}

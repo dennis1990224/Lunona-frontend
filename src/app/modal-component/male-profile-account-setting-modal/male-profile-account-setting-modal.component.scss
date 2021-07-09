@@ -1,0 +1,284 @@
+.main.wrapper {
+    transition: all 0.5s, height 0.25s ease;
+
+    .top.wrapper {
+        background-color: white;
+        height: 56px;
+        position: relative;
+        z-index: 1;
+        transition: box-shadow 0.25s;
+
+        .top.icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 56px;
+            height: 56px;
+
+            span {
+                width: 32px;
+                height: 23px;
+                position: absolute;
+                top: 17px;
+                left: 18px;
+                background-image: url(/assets/img-2/profile/profile-info-icons.png);
+                background-size: 100%;
+            }
+        }
+
+        .top.title {
+            position: absolute;
+            top: 17px;
+            left: 55px;
+            font-size: 18px;
+            color: #808080;
+        }
+
+        .top.close {
+            position: absolute;
+            top: 9px;
+            right: 13px;
+            width: 35px;
+            height: 34px;
+            background-color: #efefef;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1px solid #cfcfcf;
+            transition: background-color 0.25s;
+
+            span {
+                background: url(/assets/img-2/profile/close.png) no-repeat;
+                width: 13px;
+                height: 13px;
+                display: block;
+                top: 10px;
+                left: 10px;
+                position: relative;
+            }
+        }
+
+        .top.close:hover {
+            background-color: #e81123;
+
+            span {
+                background: url(/assets/img-2/profile/close-w.png);
+            }
+        }
+    }
+
+    .content.wrapper {
+        transition: height 0.25s ease;
+        overflow: hidden;
+        background-color: #edeff2;
+        padding: 38px;
+        position: relative;
+        border: 1px solid #cfcfcf;
+
+        .location-full-width {
+            width: 100%;
+
+            .city-icon {
+                position: absolute;
+                top: 0px;
+                left: 7px;
+                width: 26px;
+                height: 25px;
+                background-size: contain;
+                background-image: url(/assets/img-2/profile/city.png);
+            }
+
+            .flag-icon::before {
+                content: "\00a0";
+            }
+
+            .flag-icon {
+                position: absolute;
+                top: 0px;
+                left: 7px;
+                width: 26px;
+                height: 25px;
+                border: 2px solid white;
+                border-radius: 100%;
+                background-size: 131%;
+                background-position: 50%;
+                background-repeat: no-repeat;
+                display: inline-block;
+                line-height: 1em;
+            }
+
+            .mat-form-field-label {
+                text-indent: 55px;
+            }
+
+            input {
+                text-indent: 40px;
+            }
+        }
+    }
+}
+
+.bottom.wrapper {
+    background-color: white;
+    height: 69px;
+    padding-top: 13px;
+    padding-right: 13px;
+    position: relative;
+    transition: box-shadow 0.25s;
+
+    .bottom.btn {
+        width: auto;
+        height: 44px;
+        border-radius: 3px;
+        text-align: center;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-weight: 500;
+        float: right;
+        line-height: 4px;
+        margin-left: 4px;
+        cursor: pointer;
+        box-shadow: 0px 2px 2px 0px rgba(35, 35, 31, 0.09);
+        transition: background-color 0.25s;
+        padding-top: 21px;
+        padding-right: 44px;
+        padding-left: 43px;
+
+        .icon {
+            position: absolute;
+            right: 23px;
+            top: 13px;
+            background-image: url(/assets/img-2/profile/check-icon.png);
+            background-repeat: no-repeat;
+            width: 19px;
+            height: 14px;
+        }
+    }
+
+    .bottom.done.btn {
+        background-color: #572679;
+        color: #ffffff;
+        position: relative;
+        text-indent: -10px;
+    }
+
+    .bottom.done.btn:hover {
+        background-color: #8542b3;
+    }
+
+    .bottom.cancel.btn {
+        background-color: rgba(208, 208, 228, 0.8);
+        color: #646277;
+    }
+
+    .bottom.cancel.btn:hover {
+        background-color: #babad2;
+    }
+}
+
+.username.main.wrapper {
+    height: 267px;
+    width: 608px;
+
+    .top.wrapper {
+        .top.icon {
+            span {
+                background-position: 0 -1351px;
+            }
+        }
+    }
+
+    .content.wrapper {
+        height: 140px;
+        padding: 22px !important;
+        background-color: white !important;
+        overflow: auto !important;
+        position: relative !important;
+        border: 1px solid #cfcfcf !important;
+
+        .username-full-width {
+            margin: 12px 0px;
+            width: 100%;
+        }
+    }
+}
+
+.email.main.wrapper {
+    height: 267px;
+    width: 608px;
+
+    .top.wrapper {
+        .top.icon {
+            span {
+                background-position: 0 -1402px;
+            }
+        }
+    }
+
+    .content.wrapper {
+        height: 140px;
+        padding: 22px !important;
+        background-color: white !important;
+        overflow: auto !important;
+        position: relative !important;
+        border: 1px solid #cfcfcf !important;
+
+        .email-full-width {
+            margin: 12px 0px;
+            width: 100%;
+        }
+    }
+}
+
+.password.main.wrapper {
+    height: 380px;
+    width: 608px;
+
+    .top.wrapper {
+        .top.icon {
+            span {
+                background-position: 0 -1451px;
+            }
+        }
+    }
+
+    .content.wrapper {
+        height: 255px;
+        padding-top: 34px;
+        background-color: white !important;
+        overflow: auto !important;
+        padding: 0 12px !important;
+        position: relative !important;
+        border: 1px solid #cfcfcf !important;
+
+        .old-password-width {
+            display: inline-block;
+            position: relative;
+            padding: 2px;
+            margin: 18px 0;
+            vertical-align: middle;
+        }
+
+        .new-password-width {
+            display: inline-block;
+            position: relative;
+            padding: 2px;
+            margin: 18px 0;
+            vertical-align: middle;
+        }
+
+        .confirm-password-width {
+            display: inline-block;
+            position: relative;
+            padding: 2px;
+            margin: 18px 0;
+            vertical-align: middle;
+        }
+
+        .errorMessage {
+            font-size: 15px;
+            color: red;
+            text-align: center;
+            text-shadow: none;
+        }
+    }
+}

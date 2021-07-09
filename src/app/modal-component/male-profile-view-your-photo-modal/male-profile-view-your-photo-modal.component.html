@@ -1,0 +1,113 @@
+<div class="view-your-photo-modal">
+    <div *ngIf="modalName == 'public'" class="public main wrapper">
+        <div class="top wrapper">
+            <div class="top icon">
+                <span class="edit-info-icon public"></span>
+            </div>
+            <div class="top title">
+                <span class="ng-binding">Access to <b>Public Photos</b></span>
+            </div>
+            <div class="top close" [mat-dialog-close]="''"><span></span></div>
+        </div>
+        <div class="content wrapper">
+            <mat-radio-group [(ngModel)]="selectedPublic">
+                <mat-radio-button color="primary" class="radio" *ngFor="let AccessSetting of AccessSettings"
+                    [value]="AccessSetting.ID">
+                    {{AccessSetting.Title}}
+                    <img *ngIf="AccessSetting.ID!==101" src='assets/img-2/profile/male/rate_{{AccessSetting.ID}}.png'>
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="bottom wrapper">
+            <div class="bottom done btn" (click)="updatePublicSetting()">
+                DONE
+                <div class="icon"></div>
+            </div>
+            <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+        </div>
+    </div>
+    
+    <div *ngIf="modalName == 'private'" class="private main wrapper">
+        <div class="top wrapper">
+            <div class="top icon">
+                <span class="edit-info-icon private"></span>
+            </div>
+            <div class="top title">
+                <span class="ng-binding">Access to <b>Private Photos</b></span>
+            </div>
+            <div class="top close" [mat-dialog-close]="''"><span></span></div>
+        </div>
+        <div class="content wrapper">
+            <mat-radio-group [(ngModel)]="selectedPrivate">
+                <mat-radio-button color="primary" class="radio" *ngFor="let AccessSetting of AccessSettings"
+                    [value]="AccessSetting.ID">
+                    {{AccessSetting.Title}}
+                    <img *ngIf="AccessSetting.ID!==101" src='assets/img-2/profile/male/rate_{{AccessSetting.ID}}.png'>
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="bottom wrapper">
+            <div class="bottom done btn" (click)="updatePrivateSetting()">
+                DONE
+                <div class="icon"></div>
+            </div>
+            <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+        </div>
+    </div>
+    
+    <div *ngIf="modalName == 'spicy'" class="spicy main wrapper">
+        <div class="top wrapper">
+            <div class="top icon">
+                <span class="edit-info-icon spicy"></span>
+            </div>
+            <div class="top title">
+                <span class="ng-binding">Access to <b>Spicy Photos</b></span>
+            </div>
+            <div class="top close" [mat-dialog-close]="''"><span></span></div>
+        </div>
+        <div class="content wrapper">
+            <mat-radio-group [(ngModel)]="selectedSpicy">
+                <mat-radio-button color="primary" class="radio" *ngFor="let AccessSetting of AccessSettings"
+                    [value]="AccessSetting.ID">
+                    {{AccessSetting.Title}}
+                    <img *ngIf="AccessSetting.ID!==101" src='assets/img-2/profile/male/rate_{{AccessSetting.ID}}.png'>
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="bottom wrapper">
+            <div class="bottom done btn" (click)="updateSpicySetting()">
+                DONE
+                <div class="icon"></div>
+            </div>
+            <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+        </div>
+    </div>
+    
+    <div *ngIf="modalName == 'chilly'" class="chilly main wrapper">
+        <div class="top wrapper">
+            <div class="top icon">
+                <span class="edit-info-icon chilly"></span>
+            </div>
+            <div class="top title">
+                <span class="ng-binding">Access to <b>Chilly Photos</b></span>
+            </div>
+            <div class="top close" [mat-dialog-close]="''"><span></span></div>
+        </div>
+        <div class="content wrapper">
+            <mat-radio-group [(ngModel)]="selectedChilly">
+                <mat-radio-button color="primary" class="radio" *ngFor="let AccessSetting of AccessSettings"
+                    [value]="AccessSetting.ID">
+                    {{AccessSetting.Title}}
+                    <img *ngIf="AccessSetting.ID!==101" src='assets/img-2/profile/male/rate_{{AccessSetting.ID}}.png'>
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="bottom wrapper">
+            <div class="bottom done btn" (click)="updateChillySetting()">
+                DONE
+                <div class="icon"></div>
+            </div>
+            <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+        </div>
+    </div>
+</div>

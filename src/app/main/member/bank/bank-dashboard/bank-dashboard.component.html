@@ -1,0 +1,179 @@
+<div class="view-container animation">
+    <div class="slide view-frame">
+        <div class="Bank" id="BankController"></div>
+        <div class="Dashboard">
+            <div class="top row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="left col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="balance view">
+                        <div class="balance view circularBarComponent">
+                            <div class="title row circle">
+                                <h2>
+                                    <span>Your Luns/Credits</span>
+                                </h2>
+                                <h3>
+                                    <span>
+                                        Your available Luns/Credits, deposited at the bank! The more you have, the
+                                        easier it gets for you! What can we do? That’s life!!!
+                                    </span>
+                                </h3>
+                            </div>
+                            <div class="infographic" style="opacity: 1;">
+                                <div class="bar">
+                                    <div class="roundbar_wrap">
+                                        <div class="dash outgoing"></div>
+                                        <div class="dash incoming"></div>
+                                    </div>
+                                    <circle-progress [percent]="percent" [radius]="150" [outerStrokeWidth]="20"
+                                        [innerStrokeWidth]="20" [space]="-20" [outerStrokeColor]="'#62d973'"
+                                        [innerStrokeColor]="'#93e4ff'" [titleFontSize]="24" [unitsFontSize]="24"
+                                        [showSubtitle]="false" [animation]="true" [clockwise]="false" [showTitle]="false" [showUnits]=false
+                                        [animationDuration]="300" [startFromZero]="false" [responsive]="true">
+                                    </circle-progress>
+                                    <div class="luns_info" *ngIf="profileDashboardData">
+                                        <span class="icon-lun"></span>
+                                        {{profileDashboardData.TotalLUN}}
+                                    </div>
+                                </div>
+                                <div class="bottom_bar clearfix">
+                                    <div class="in_info bottom_info">
+                                        <div class="titler">
+                                            <span>Incoming</span>
+                                        </div>
+                                        <span class="icon-lun"></span>
+                                        <span *ngIf="profileDashboardData">{{profileDashboardData.IncomingLUN}}</span>
+                                    </div>
+                                    <div class="out_info bottom_info">
+                                        <div class="titler">
+                                            <span>Outgoing</span>
+                                        </div>
+                                        <span class="icon-lun"></span>
+                                        <span *ngIf="profileDashboardData">{{profileDashboardData.OutgoingLUN}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="social-class">
+                        <div class="social-class title row">
+                            <h2>
+                                <span>Your social status</span>
+                            </h2>
+                            <h3>
+                                <span>
+                                    It's the power that counts and is visible on your profile. The higher, the better
+                                    for you!
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="social-class-pyramid-wrapper row">
+                            <div class="social-class-pyramid">
+                                <video id="SocialVideo" autoplay preload="auto" *ngIf="profileDashboardData">
+                                    <source src='assets/img-2/bank/man/level_{{profileDashboardData.SocialLevel}}.webm'>
+                                </video>
+                                <div class="pyramid-block-wrapper">
+                                    <div class="pyramid-block tier-1 king"></div>
+                                    <div class="pyramid-block tier-2 prince"></div>
+                                    <div class="pyramid-block tier-3 elite"></div>
+                                    <div class="pyramid-block tier-4 capitalist"></div>
+                                    <div class="pyramid-block tier-5 worker"></div>
+                                </div>
+                                <div class="pyramid-legend-wrapper">
+                                    <div>
+                                        <div class="pyramid-legend head">
+                                            <h4 class="title">CLASSES</h4>
+                                            <h4 class="levels">LEVELS</h4>
+                                        </div>
+                                        <div class="pyramid-legend tier-1 king">
+                                            <h5 class="title">King</h5>
+                                            <div class="spacer"></div>
+                                            <h5 class="levels">29</h5>
+                                        </div>
+                                        <div class="pyramid-legend tier-2 prince">
+                                            <h5 class="title">Prince</h5>
+                                            <div class="spacer"></div>
+                                            <h5 class="levels">25 - 28</h5>
+                                        </div>
+                                        <div class="pyramid-legend tier-3 elite">
+                                            <h5 class="title">Elite</h5>
+                                            <div class="spacer"></div>
+                                            <h5 class="levels">19 - 24</h5>
+                                        </div>
+                                        <div class="pyramid-legend tier-4 capitalist">
+                                            <h5 class="title">Capitalist</h5>
+                                            <div class="spacer"></div>
+                                            <h5 class="levels">11 - 18</h5>
+                                        </div>
+                                        <div class="pyramid-legend tier-5 worker">
+                                            <h5 class="title">Worker</h5>
+                                            <div class="spacer"></div>
+                                            <h5 class="levels">1 - 10</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-social-row row">
+                            <div class="user-social-class col-sm-12">
+                                <h4>SOCIAL CLASSES ON LUNONA</h4>
+                                <p>
+                                    <span class="replace">Your are :</span>
+                                    <b><span class="capitalize">King</span> ,
+                                        <span>Level</span> 29
+                                    </b>
+                                </p>
+                                <h5 style="margin-bottom: 5px; margin-top: 5px; cursor: pointer;">
+                                    Calculate Social Level
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bot row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="left col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="vote-weight">
+                        <div class="same-height-container row">
+                            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="margin-top: 25px;">
+                                <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue"
+                                    [centralLabel]="centralLabel" [options]="options"></rg-gauge-chart>
+                            </div>
+                            <div style="padding: 35px;"
+                                class="vote-weight-description-wrapper col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                                <h2 style="margin-top: 10px; margin-bottom: 10px;">Your vote's power</h2>
+                                <h3>
+                                    The multiplier is the power of your vote.
+                                    <b>When you vote, your vote will count as if 107 people have voted.</b>
+                                </h3>
+                            </div>
+                            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                    <div class="reward-multiplier">
+                        <div class="same-height-container row">
+                            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="margin-top: 25px;">
+                                <rg-gauge-chart [canvasWidth]="canvasWidth" [needleValue]="needleValue"
+                                    [centralLabel]="centralLabel" [options]="options"></rg-gauge-chart>
+                            </div>
+                            <div style="padding: 35px;"
+                                class="vote-weight-description-wrapper col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                                <h2 style="margin-top: 10px; margin-bottom: 10px;">Reward Multiplier</h2>
+                                <h3>
+                                    This is the multiplier of
+                                    <b>your reward for your contribution, while using Lunona, </b>
+                                    as for example for the beauty scoring of our female members!
+                                </h3>
+                            </div>
+                            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

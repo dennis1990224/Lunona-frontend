@@ -1,0 +1,103 @@
+<div class="pyramid-container">
+    <div class="pyramid-wrap">
+        <div class="first-block">
+            <div class="profile-image">
+                <div class="pin-images" (click)="updatePin()">
+                    <img *ngIf="!data.Pinned" src="assets/img-2/profile/pin-big-off.png">
+                    <img *ngIf="data.Pinned" src="assets/img-2/profile/pin-big-on.png">
+                </div>
+                <img [src]="photoUrl">
+            </div>
+            <div class="information">
+                <span class="name">{{data.LoginName}}, {{data.Age}}</span>
+                <span class="location">{{data.Location}}</span>
+                <div class="user-rating">
+                    <img src='assets/img-2/profile/male/rate_{{data.SocialLevel}}.png'>
+                </div>
+            </div>
+        </div>
+        <div class="second-block">
+            <div class="close-pyramid" [mat-dialog-close]="'success'"><span></span></div>
+            <div style="float: left; margin: 10px 6px;">
+                <button class="md-icon-button md-fab md-button md-ink-ripple" style="float: left; width: 34px; min-height: 34px; height: 34px; line-height: 26px;">
+                    <mat-icon style="font-size: 20px;">volume_off</mat-icon>
+                    <div class="md-ripple-container"></div>
+                </button>
+            </div>
+            <div class="social-class-other">
+                <video id="SocialVideo" autoplay preload="auto" *ngIf="data">
+                    <source src='assets/img-2/bank/woman/level_{{data.SocialLevel}}.webm'>
+                </video>
+                <div class="social-class-upper">
+                    <div style="height: 70px;">
+                        <h2 class="title-social-pyramid">Her social status in Lunona's community</h2>
+                    </div>
+                    <div class="row title">
+                        <h2>CLASSES</h2>
+                        <h2 style="float: right;">LEVELS</h2>
+                    </div>
+                    <div class="row title-level">
+                        <div class="title-level-half1" style="width: 221px;">
+                            <span>Queen</span>
+                            <i style="float: right; width: 123px;">......................................................</i>
+                        </div>
+                        <div class="title-level-half2" style="width: 236px;">
+                            <div class="num">29</div>
+                            <i style="float: left; width: 128px;">......................................................</i>
+                        </div>
+                    </div>
+                    <div class="row title-level">
+                        <div class="title-level-half1" style="width: 192px;">
+                            <span>Princess</span>
+                            <i style="float: right; width: 95px;">......................................................</i>
+                        </div>
+                        <div class="title-level-half2" style="width: 220px;">
+                            <div class="num">25 - 28</div>
+                            <i style="float: left; width: 112px;">......................................................</i>
+                        </div>
+                    </div>
+                    <div class="row title-level">
+                        <div class="title-level-half1" style="width: 184px;">
+                            <span>Diamond</span>
+                            <i style="float: right; width: 74px;">......................................................</i>
+                        </div>
+                        <div class="title-level-half2" style="width: 184px;">
+                            <div class="num">19 - 24</div>
+                            <i style="float: left; width: 73px;">......................................................</i>
+                        </div>
+                    </div>
+                    <div class="row title-level">
+                        <div class="title-level-half1" style="width: 136px;">
+                            <span>Star</span>
+                            <i style="float: right; width: 40px;">......................................................</i>
+                        </div>
+                        <div class="title-level-half2" style="width: 161px;">
+                            <div class="num">11 - 18</div>
+                            <i style="float: left; width: 52px;">......................................................</i>
+                        </div>
+                    </div>
+                    <div class="row title-level">
+                        <div class="title-level-half1" style="width: 115px;">
+                            <span>Normal</span>
+                            <i style="float: right; width: 19px;">......................................................</i>
+                        </div>
+                        <div class="title-level-half2" style="width: 125px;">
+                            <div class="num">1 - 10</div>
+                            <i style="float: left; width: 19px;">......................................................</i>
+                        </div>
+                    </div>
+                    <h2 class="title-social-pyramid-footer">SOCIAL CLASSES ON LUNONA</h2>
+                    <h2 class="name-social-footer">
+                        {{data.LoginName}}
+                        <span>{{data.SocialClass}} Level {{data.SocialLevel}}</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="close-pyramid-footer">
+                <div class="md-dialog-actions" style="float: right; padding-right: 0; margin-right: -8px;">
+                    <button class="md-button" mat-button [mat-dialog-close]="'success'"><span>Close</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

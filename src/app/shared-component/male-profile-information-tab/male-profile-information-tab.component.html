@@ -1,0 +1,63 @@
+<div class="mat-tab-content">
+    <div class="profile-information row stretch">
+        <div class="info-category-wrapper">
+            <div class="about-you info-category">
+                <h2 class="ng-binding">{{getTranslate("Members.Profile.Info.AboutYou.Title")}}</h2>
+                <ul>
+                    <li *ngFor="let aboutyou of aboutYoudata" (click)="openAboutYouModal(aboutyou)" class="md-ink-ripple">
+                        <span class="icon-wrapper">
+                            <span class="edit-info-icon" [ngClass]="aboutyou.icon"></span>
+                        </span>
+                        <span class="text">{{getTranslate(aboutyou.title)}}</span>
+                        <span *ngIf="myInformation" class="value">{{getValue(aboutyou.value)}}</span>
+                        <div class="md-ripple-container"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-category-wrapper">
+            <div class="what-you-looking-for info-category">
+                <h2>{{getTranslate("Members.Profile.Edit.LookingFor.Title")}}</h2>
+                <ul>
+                   <li *ngFor="let lookingFor of lookingForData" (click)="openLookingForModal(lookingFor)" class="Looking-For md-ink-ripple">
+                       <span class="icon-wrapper">
+                           <span class="edit-info-icon" [ngClass]="lookingFor.icon"></span>
+                       </span>
+                       <span class="text ng-binding">{{getTranslate(lookingFor.title)}}</span>
+                       <span *ngIf="myInformation" class="value ng-binding">{{getValue(lookingFor.value)}}</span>
+                   </li> 
+                </ul>
+            </div>
+        </div>
+        <div class="info-category-wrapper">
+            <div class="what-you-got info-category">
+                <h2>{{getTranslate("Members.Profile.Edit.WhatYouGot.Title")}}</h2>
+                <ul>
+                    <li *ngFor="let whatYouGot of whatYouGotData" (click)="openWhatYouGot(whatYouGot)" class="md-ink-ripple">
+                        <span class="icon-wrapper">
+                            <span class="edit-info-icon" [ngClass]="whatYouGot.icon"></span>
+                        </span>
+                        <span class="text">
+                            {{getTranslate(whatYouGot.title)}}
+                        </span>
+                        <span *ngIf="myInformation" class="value">{{getValue(whatYouGot.value)}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-category-wrapper">
+            <div class="account-settings info-category">
+                <h2>{{getTranslate("Members.Profile.Edit.Settings.Title")}}</h2>
+                <ul>
+                    <li *ngFor="let accoutSetting of accountSettingData" (click)="openAccountSetting(accoutSetting)" class="md-ink-ripple">
+                        <span class="icon-wrapper">
+                            <span class="edit-info-icon" [ngClass]="accoutSetting.icon"></span>
+                        </span>
+                        <span class="text">{{getTranslate(accoutSetting.title)}}</span>
+                        <span *ngIf="myInformation" class="value">{{getValue(accoutSetting.value)}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="mat-tab-content">
+    <div class="photo-collection row stretch">
+        <div class="header">
+            <span class="icon public"></span>
+            <h2>{{getTranslate("Members.Profile.Photos.Private.HeaderTitle")}}</h2>
+            <p>{{getTranslate("Members.Profile.Photos.Private.HeaderDescription")}}</p>
+            <div *ngIf="myPrivacySettings" class="setting-btn md-ink-ripple" (click)="updatePrivatePhoto()">
+                {{myPrivacySettings.PrivacySettings_PrivatePhotosLevel_TranslatedText}}
+                <img
+                    src="assets/img-2/profile/male/rate_{{myPrivacySettings.PrivacySettings_PrivatePhotosLevelID}}.png">
+                <div class="md-ripple-container"></div>
+            </div>
+        </div>
+        <ul class="stretch">
+            <div *ngIf="photos.length==0">
+                <div class="animate-switch">
+                    <div class="empty-photo-container">
+                        <div class="empty-row">
+                            <div id="add-photo" (click)="openUploadImageModal()" class="photo-add-btn md-ink-ripple">
+                                <h2>{{getTranslate("Members.Profile.Common.UploadPhotos")}}</h2>
+                            </div>
+                        </div>
+                        <div [innerHTML]="getTranslate('Members.Profile.Photos.Empty.Template.Private') | safeHtml">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <li *ngIf="photos.length>0" id="add-photo" (click)="openUploadImageModal()">
+                <img src="assets/img-2/profile/add-photo-2.png" class="stretch">
+                <p>{{getTranslate("Members.Profile.Photos.AddMorePhotos")}}</p>
+            </li>
+            <li *ngFor="let photo of photos" class="uploaded-image">
+                <img *ngIf="photo.MediaType == 'Photo'" [src]="photo.MediaURL">
+                <img *ngIf="photo.MediaType == 'Video'" [src]="photo.MediaURL+'.jpg'" style="height: 200px;">
+                <div *ngIf="photo.MediaType == 'Video'" class="videoLayer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 420 420">
+                        <defs>
+                            <filter id="f4" x="0" y="0" width="200%" height="200%">
+                                <feOffset result="offOut" in="SourceGraphic" dx="5" dy="5"></feOffset>
+                                <feColorMatrix result="matrixOut" in="offOut" type="matrix"
+                                    values="0.1 0 0 0 0 0 0.1 0 0 0 0 0 0.1 0 0 0 0 0 1 0"></feColorMatrix>
+                                <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="12"></feGaussianBlur>
+                                <feBlend in="SourceGraphic" in2="blurOut" mode="normal"></feBlend>
+                            </filter>
+                        </defs>
+                        <g filter="url(#f4)" fill="#ffffff">
+                            <path
+                                d="M210 21c104.22 0 189 84.78 189 189s-84.78 189-189 189S21 314.22 21 210 105.78 21 210 21m0-21C94.03 0 0 94.02 0 210s94.03 210 210 210 210-94.02 210-210S325.97 0 210 0z">
+                            </path>
+                            <path
+                                d="M293.9 187.22l-111.8-73.6c-19.3-12.7-35.1-4.18-35.1 18.92v154.88c0 23.1 15.81 31.65 35.15 19l111.71-73.11c19.33-12.66 19.35-33.4.05-46.1zM279 217.87l-99.29 64.98c-6.44 4.22-11.71 1.37-11.71-6.33V143.44c0-7.7 5.26-10.54 11.7-6.3l99.33 65.36c6.43 4.23 6.42 11.15-.02 15.37z">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="menu-wrapper stretch">
+                    <div class="preview stretch" (click)="openPreviewPhoto(photo)">
+                        <img src="assets/img-2/profile/preview.png" class="stretch">
+                        <p> {{getTranslate("Members.Profile.Photos.Preview")}} </p>
+                    </div>
+                    <div class="more" [matMenuTriggerFor]="statusMenu">
+                        <p>{{getTranslate("Members.Profile.Photos.More")}}</p>
+                    </div>
+                    <mat-menu #statusMenu="matMenu" xPosition="before" class="profile-menu">
+                        <mat-divider></mat-divider>
+                        <button style="display: flex; width: 100%;" mat-menu-item (click)="openPreviewPhoto(photo)">
+                            <div class="side-icon">
+                                <img src="assets/img-2/my-profile/preview.png">
+                            </div>
+                            {{getTranslate("Members.Profile.Photos.Preview")}}
+                        </button>
+                        <mat-divider></mat-divider>
+                        <button style="display: flex; width: 100%;" mat-menu-item (click)="changePhotoCategory(photo)">
+                            <div class="side-icon">
+                                <img src="assets/img-2/my-profile/change-category.png">
+                            </div>
+                            {{getTranslate("Members.Profile.Photos.MoveCategory")}}
+                        </button>
+                        <mat-divider></mat-divider>
+                        <button style="display: flex; width: 100%;" mat-menu-item (click)="deletePhoto(photo)">
+                            <div class="side-icon">
+                                <img src="assets/img-2/my-profile/delete.png">
+                            </div>
+                            {{getTranslate("Members.Profile.Photos.DeletePhoto")}}
+                        </button>
+                        <mat-divider></mat-divider>
+                    </mat-menu>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

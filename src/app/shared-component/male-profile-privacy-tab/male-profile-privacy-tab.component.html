@@ -1,0 +1,180 @@
+<div class="profile-privacy-container">
+    <div class="privacy-wrap">
+        <div class="privacy-item privacy-photos">
+            <div class="privacy-item-header">
+                <h2>{{getTranslate("Members.Profile.Edit.Privacy.PhotoTitle")}}</h2>
+            </div>
+            <div class="privacy-item-body">
+                <div class="privacy-item-body-row">
+                    <div class="item-icon public">
+                        <i></i>
+                    </div>
+                    <div class="item-data" (click)="openViewYourPhotoModal('public')">
+                        <div class="item-row-description">
+                            <h2>
+                                <div [innerHTML]="getTranslate('Members.Profile.Edit.Privacy.AccessPublicPhotos') | safeHtml"></div>
+                            </h2>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.PrivacySettings_PublicPhotosLevel_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="privacy-item-body-row">
+                    <div class="item-icon private">
+                        <i></i>
+                    </div>
+                    <div class="item-data" (click)="openViewYourPhotoModal('private')">
+                        <div class="item-row-description">
+                            <h2>
+                                <div [innerHTML]="getTranslate('Members.Profile.Edit.Privacy.AccessPrivatePhotos') | safeHtml"></div>
+                            </h2>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.PrivacySettings_PrivatePhotosLevel_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="privacy-item-body-row">
+                    <div class="item-icon spicy">
+                        <i></i>
+                    </div>
+                    <div class="item-data" (click)="openViewYourPhotoModal('spicy')">
+                        <div class="item-row-description">
+                            <h2>
+                                <div [innerHTML]="getTranslate('Members.Profile.Edit.Privacy.AccessSpicyPhotos') | safeHtml"></div>
+                            </h2>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.PrivacySettings_SpicyPhotosLevel_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="privacy-item-body-row">
+                    <div class="item-icon chilly">
+                        <i></i>
+                    </div>
+                    <div class="item-data" (click)="openViewYourPhotoModal('chilly')">
+                        <div class="item-row-description">
+                            <h2>
+                                <div [innerHTML]="getTranslate('Members.Profile.Edit.Privacy.AccessChillyPhoto') | safeHtml"></div>
+                            </h2>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.PrivacySettings_ChillyPhotosLevel_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="privacy-item privacy-notifications">
+            <div class="privacy-item-header">
+                <h2>{{getTranslate("Members.Profile.Edit.Privacy.NotificationTitle")}}</h2>
+            </div>
+            <div class="privacy-item-body">
+                <div class="privacy-item-body-row">
+                    <div class="item-data" (click)="openNotificationSettingModal('message')">
+                        <div class="item-row-description">
+                            <h2>{{getTranslate("Members.Profile.Edit.Privacy.WhenMessageReceived")}}</h2>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.NotificationsSettings_WhenNewMessageReceived_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="privacy-item-body-row">
+                    <div class="item-data" (click)="openNotificationSettingModal('kisses')">
+                        <div class="item-row-description">
+                            <h2>{{getTranslate("Members.Profile.Edit.Privacy.WhenWinkReceived")}}</h2>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.NotificationsSettings_WhenWingReceived_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="privacy-item-body-row">
+                    <div class="item-data">
+                        <div class="item-row-description" (click)="openNotificationSettingModal('rate')">
+                            <h2>{{getTranslate("Members.Profile.Edit.Privacy.WhenRateReceived")}}</h2>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.NotificationsSettings_WhenNewRateReceived_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="privacy-item-body-row">
+                    <div class="item-data">
+                        <div class="item-row-description" (click)="openNotificationSettingModal('nearyBy')">
+                            <h2>{{getTranslate("Members.Profile.Edit.Privacy.WhenNewMemberNearMe")}}</h2>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.NotificationsSettings_WhenNewMembersNearMe_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="privacy-item privacy-setting">
+            <div class="privacy-item-header">
+                <h2>{{getTranslate("Members.Profile.Edit.Privacy.PrivacySettingsTitle")}}</h2>
+            </div>
+            <div class="privacy-item-body">
+                <div class="privacy-item-body-row">
+                    <div class="item-icon DeleteAccount">
+                        <i></i>
+                    </div>
+                    <div class="item-data no-border">
+                        <div class="item-row-description">
+                            <h2>
+                                {{getTranslate("Members.Profile.Photos.DeletePhoto")}}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="privacy-item privacy-more-setting">
+            <div class="privacy-item-header">
+                <h2>{{getTranslate("Members.Profile.Edit.Privacy.MoreSettingsTitle")}}</h2>
+            </div>
+            <div class="privacy-item-body">
+                <div class="privacy-item-body-row">
+                    <div class="item-icon travel">
+                        <i></i>
+                    </div>
+                    <div class="item-data" (click)="openMoreSettingModal('travel')">
+                        <div class="item-row-description">
+                            <h2>{{getTranslate("Members.Profile.Edit.Privacy.AbleToTravel")}}</h2>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.More_AbleToTravel_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="privacy-item-body-row more_actions contains_tooltip">
+                    <div class="tooltip">
+                        <div class="title">
+                            {{getTranslate("Members.Profile.Edit.Privacy.AllowOnlyMyCountryTitle")}}
+                        </div>
+                        <div class="inner">
+                            {{getTranslate("Members.Profile.Edit.Privacy.AllowOnlyMyCountryTooltip")}}
+                        </div>
+                        <i></i>
+                    </div>
+                    <div class="item-icon AllowOnlyMyCountry"><i></i></div>
+                    <div class="item-data no-border">
+                        <div class="item-row-description" (click)="openMoreSettingModal('otherCountry')">
+                            <h2>{{getTranslate("Members.Profile.Edit.Privacy.AllowOnlyMyCountryTitle")}}</h2>
+                            <div class="description">
+								{{getTranslate("Members.Profile.Edit.Privacy.AllowOnlyMyCountrySmallDescription")}}
+							</div>
+                        </div>
+                        <div class="item-row-value">
+                            <h2 *ngIf="myPrivacySettings">{{myPrivacySettings.More_AllowOnlyMyCountry_TranslatedText}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

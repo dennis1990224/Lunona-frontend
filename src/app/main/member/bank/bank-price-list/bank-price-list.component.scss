@@ -1,0 +1,206 @@
+.view-container {
+    transition: scroll 1s ease-in, overflow 1s ease-in;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.Bank {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: auto;
+    background-color: #fff;
+
+    b {
+        font-size: 100%;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-size: 2vmin;
+    }
+
+    .item {
+        max-width: 100%;
+        word-wrap: break-word;
+        margin-bottom: 3px;
+        line-height: 24px;
+    }
+}
+
+#BankController {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #f4f4fc;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .charges-container {
+        width: 100%;
+        height: auto;
+        position: relative;
+        max-width: 800px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .step {
+        width: 100%;
+        margin: 0 0 40px;
+
+        .example {
+            width: 100%;
+            height: 100%;
+            background: #ebebf5;
+            display: inline-block;
+            padding: 15px;
+
+            h1 {
+                color: #232331;
+                margin: 0;
+                font-size: 14px;
+                font-weight: 500;
+                text-align: left;
+            }
+
+            p {
+                color: #232331;
+                margin: 0;
+                font-size: 14px;
+                font-weight: 400;
+                text-align: left;
+            }
+        }
+
+        h1 {
+            color: #31343e;
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .step-inner {
+            width: 100%;
+            height: 100%;
+            padding-left: 21px;
+        }
+
+        .cost {
+            width: 100%;
+            height: 100%;
+            clear: both;
+            display: inline-block;
+
+            .text {
+                float: left;
+                width: auto;
+                height: auto;
+                display: inline-block;
+                line-height: normal;
+                color: #232331;
+                margin: 15px 0 0;
+            }
+
+            span.text {
+                color: #59267c;
+                font-size: 15px;
+                font-weight: 700;
+            }
+
+            h2.text {
+                color: #232331;
+                font-size: 14px;
+                font-weight: 400;
+                margin-left: 10px;
+            }
+
+            .image {
+                float: right;
+                width: auto;
+                height: auto;
+                display: inline-block;
+                max-height: 71px;
+            }
+        }
+
+        h1 {
+            color: #31343e;
+            margin: 0;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: left;
+        }
+    }
+
+    .charges-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+        padding: 10px;
+
+        .charges-header {
+            width: 100%;
+            height: 120px;
+            position: relative;
+            display: block;
+            clear: both;
+            padding-top: 30px;
+
+            h2 {
+                margin: 0;
+                font-size: 22px;
+                color: #282c36;
+                font-weight: 700;
+                text-align: left;
+            }
+
+            h2::after {
+                content: "";
+                display: block;
+                width: 70%;
+                height: 2px;
+                background: #4e5464;
+                float: right;
+                margin-top: 15px;
+            }
+
+            p {
+                margin: 0;
+                font-size: 16px;
+                color: #232331;
+                font-weight: 400;
+                text-align: left;
+            }
+        }
+
+        .charges-main {
+            width: 100%;
+            height: auto;
+            clear: both;
+            position: relative;
+        }
+    }
+}
+
+h2 {
+    text-shadow: none;
+}
+
+h1 {
+    text-shadow: none;
+    line-height: 1.2;
+}

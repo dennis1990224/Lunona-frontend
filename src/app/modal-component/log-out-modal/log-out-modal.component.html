@@ -1,0 +1,22 @@
+<div class="log-out-dialog">
+    <div class="main wrapper">
+        <div class="top wrapper">
+            <div class="top close" [mat-dialog-close]="''">
+                <span></span>
+            </div>
+        </div>
+        <div class="content wrapper">
+            <div class="logout-img"></div>
+            <p>Are You Sure You Want to Log Out?</p>
+        </div>
+        <div class="bottom wrapper">
+            <div class="bottom done btn" [mat-dialog-close]="'success'">
+                Log Out
+                <div class="icon"></div>
+            </div>
+            <div class="bottom cancel btn" [mat-dialog-close]="''">
+                Cancel
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="crpping-container">
+    <div class="cropping-dialog-header">
+        <div class="md-toobar-tools">
+            <i></i>
+            <span style="width: 90%;">Choose a photo</span>
+            <div class="top close" [mat-dialog-close]="''">
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <div class="cropping-wrap">
+        <div class="switch">
+            <div *ngIf="!isPhotoSelect">
+                <div class="animation switch-item">
+                    <div class="photo-gallery-header">
+                        <i></i>
+                        <h2>PUBLIC PHOTOS</h2>
+                        <h2>Everybody can view these photos, unless you want to change that.</h2>
+                    </div>
+                    <div class="photo-gallery-body">
+                        <div class="gallery-container">
+                            <div class="gallery-item" *ngFor="let publicPhoto of publicPhotos; let i=index;"
+                                (click)="selectPhoto(i)">
+                                <img *ngIf="publicPhoto.MediaType=='Photo'" class="photo-item bing-img"
+                                    [src]="publicPhoto.MediaURL">
+                                <img *ngIf="publicPhoto.MediaType=='Photo' && selectedIndex==i" class="photo-check"
+                                    src="assets/img-2/profile/check.png">
+                                <div *ngIf="publicPhoto.MediaType=='Photo' && selectedIndex==i" class="photo-frame">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isPhotoSelect">
+                <mat-spinner *ngIf="!isCropped" diameter="45" style="position: absolute; z-index: 10; top: 42%; right: 46%"></mat-spinner>
+                <div class="crop-body">
+                    <image-cropper *ngIf="isCropped" [maintainAspectRatio]="true" [cropper]="imageCropOption" [imageURL]="imageChangedEvent" [maintainAspectRatio]="true"
+                        [aspectRatio]="imageRatio" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"></image-cropper>
+                    <img *ngIf="imageChangedEvent" #hdImage (load)="checkImageWidth(hdImage.width, hdImage.height)" [src]="imageChangedEvent">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cropping-dialog-footer">
+        <div *ngIf="isPhotoSelect" class="cropping-dialog-footer-button yes" (click)="setImageWithCrop()">
+            <span>Done</span>
+            <i class="check"></i>
+        </div>
+        <div class="cropping-dialog-footer-button no" [mat-dialog-close]="''">
+            <span>Cancel</span>
+        </div>
+        <div *ngIf="isPhotoSelect" (click)="goBackPhotoSelect()" class="cropping-dialog-footer-button back">
+            <span>back</span>
+        </div>
+    </div>
+</div>

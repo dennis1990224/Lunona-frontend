@@ -1,0 +1,265 @@
+.no-padding {
+    padding: 0px !important;
+}
+
+.container-browse {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: inline-table;
+    overflow-y: auto;
+    right: 0px;
+    top: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+
+    .wrap-browse {
+        background: #eeeef8;
+        height: inherit;
+        position: absolute;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 100%;
+        padding: 0;
+        padding-bottom: 30px;
+
+        .choose-menu-header {
+            width: 100%;
+            height: 133px;
+            display: block;
+            background-color: rgb(238, 238, 248);
+
+            .choose-menu-header-block1 {
+                width: 96%;
+                height: 79px;
+                float: left;
+                z-index: 0;
+                position: relative;
+                margin: 0px 30px;
+                overflow: hidden;
+
+                h2 {
+                    font-size: 27px;
+                    color: rgb(68, 74, 90);
+                    font-weight: 500;
+                    margin: 23px 0px -7px;
+                    text-shadow: none;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                span {
+                    color: rgb(155, 157, 175);
+                    font-size: 16px;
+                    font-weight: 500;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                h3 {
+                    top: 0;
+                    position: absolute;
+                    right: 0;
+                    color: #e1e1eb;
+                    margin: -12px 0 0 0;
+                    z-index: 0;
+                    font-size: 88px;
+                    font-weight: 900;
+                    text-shadow: none;
+                }
+            }
+
+            .choose-menu-header-block2 {
+                width: 98%;
+                height: 54px;
+                float: left;
+                margin: 0px 30px;
+
+                .input-field-container {
+                    display: flex;
+                    width: 85%;
+                    margin-right: 6px;
+                    height: 40px;
+                    float: left;
+                    background: rgb(255, 255, 255);
+                    border-radius: 4px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: rgb(193, 193, 210);
+                    border-image: initial;
+
+                    input[placeholder] {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #81808f;
+                    }
+
+                    input:focus{
+                        outline: none;
+                    }
+
+                    input {
+                        float: left;
+                        border: none;
+                        height: 38px;
+                        width: 93%;
+                    }
+
+                    i {
+                        display: block;
+                        width: 45px;
+                        height: 38px;
+                        float: left;
+                        background: url(/assets/img-2/profile/search-with-criteria-icons.png) 11px -1387px
+                            no-repeat;
+                    }
+
+                    .clear-input-field {
+                        float: right;
+                        cursor: pointer;
+
+                        i {
+                            display: none;
+                        }
+
+                        i.show {
+                            width: 45px;
+                            height: 38px;
+                            float: left;
+                            background: none;
+                            padding: 7px;
+                            display: block;
+                        }
+                    }
+                }
+
+                .input-field-button-search {
+                    width: 13%;
+                    height: 40px;
+                    float: left;
+                    color: white;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 40px;
+                    text-align: center;
+                    display: inline-block;
+                    max-width: 190px;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    cursor: pointer;
+                    background: rgb(89, 38, 124);
+                    border-radius: 4px;
+                    border-width: 1px;
+                    border-style: solid;
+                    border-color: rgb(193, 193, 210);
+                    border-image: initial;
+                    overflow: hidden !important;
+                }
+            }
+        }
+
+        .choose-menu-body {
+            position: relative;
+            left: 0px;
+            width: 100%;
+
+            .choose-menu-main-container {
+                width: 96%;
+                height: 100%;
+                margin: 0px 30px;
+                .empty-category {
+                    width: 100%;
+                    margin: 15px auto;
+                    text-align: center;
+
+                    .empty-list-container {
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        top: 0;
+                        left: 0;
+
+                        .block-image {
+                            padding-top: 40px;
+                        }
+
+                        .empty-list-row {
+                            width: 100%;
+                            height: auto;
+                            clear: both;
+
+                            img {
+                                display: inline;
+                                max-width: 100%;
+                                max-height: 100%;
+                            }
+
+                            .bing-img {
+                                animation: fadeInFromNone .15s ease-out;
+                                transition: none!important;
+                            }
+
+                            .inner {
+                                position: relative;
+                                width: 100%;
+                                max-width: 700px;
+                                min-width: 280px;
+                                margin: 0 auto;
+                                padding-top: 20px;
+
+                                p {
+                                    font-size: 16px;
+                                    color: #403f4b;
+                                    font-weight: 400;
+                                    text-align: center;
+                                }
+
+                                h2 {
+                                    font-size: 35px;
+                                    color: #444a5a;
+                                    margin: 0;
+                                    text-align: center;
+                                    clear: both;
+                                    line-height: normal;
+                                }
+                            }
+                        }
+
+                        .header-title h2 {
+                            font-size: 35px;
+                            color: #444a5a;
+                            margin: 0;
+                            text-align: center;
+                            clear: both;
+                            line-height: normal;
+                        }
+
+                        .inner.md-ink-ripple h2 {
+                            font-size: 20px;
+                            color: #444a5a;
+                            margin: 0;
+                            text-align: center;
+                            clear: both;
+                            line-height: normal;
+                            cursor: pointer;
+                        }
+
+                        .header-title h2:nth-child(2) {
+                            font-weight: 400;
+                        }
+
+                        .header-title h2:nth-child(1) {
+                            font-weight: 700;
+                            margin-top: 35px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+h2 {
+    text-shadow: none;
+}

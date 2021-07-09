@@ -1,0 +1,193 @@
+.female-section-3 {
+    .female-section-3-background {
+        background-image: url(/assets/img-2/female/femalesection-3-bg.jpg);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: right;
+        -o-object-fit: cover;
+        object-fit: cover;
+        -o-object-position: top;
+        object-position: top;
+        font-family: "object-fit: cover; object-position: top;";
+    }
+
+    .top-ribbon-animation {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: fade-in;
+    }
+
+    .top-ribbon {
+        position: absolute;
+        top: 11.11vmin;
+        left: 0;
+        right: 0;
+        background-color: rgba(64, 12, 63, 0.4);
+    }
+
+    .top-ribbon {
+        text-align: center;
+        top: 10.33vmin;
+        padding: 3vmin;
+
+        h2 {
+            text-shadow: 0 0 10px #160621;
+            font-weight: 600;
+            letter-spacing: 0;
+            color: #fff;
+            margin: 0;
+        }
+
+        h2 {
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 35px;
+            font-family: Open Sans, sans-serif;
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+
+        }
+    }
+
+    .what-nots {
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-name: fade-in;
+    }
+
+    .what-nots {
+        top: calc(49% + 30px);
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width: 500px;
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
+        height: fit-content;
+        margin: auto;
+        position: relative;
+    }
+
+    .purple-box {
+        background-color: rgba(86, 8, 85, 0.7);
+        border-radius: 10px;
+    }
+
+    .what-nots {
+        ul {
+            width: 100%;
+            margin: 0;
+            height: 100%;
+            position: relative;
+            display: inline-block;
+            padding: 8px 24px;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                list-style: none;
+                display: -webkit-box !important;
+                display: -ms-flexbox !important;
+                display: flex !important;
+                height: auto;
+                margin-bottom: 10px;
+                clear: both;
+            }
+
+            li {
+                list-style: none;
+                clear: both;
+
+                .icon_img_bg {
+                    background-size: auto auto;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    width: 40px;
+                    height: auto;
+                    display: inline-block;
+                }
+
+                @media (min-width: 501px) {
+                    #mobile {
+                        display: none;
+                    }
+                }
+
+                .description {
+                    width: 72%;
+                    margin-bottom: 2%;
+                    margin-top: 3%;
+                }
+
+                .description {
+                    float: left;
+                    border-left: 1px solid rgba(255, 255, 255, 0.6);
+                    margin-left: 2.5vmin;
+                    padding-left: 2vmin;
+                    height: auto;
+                    text-align: left;
+                    position: relative;
+                    width: calc(100% - 40px);
+                }
+
+                .description {
+                    .main {
+                        text-shadow: none;
+                        font-weight: 600;
+                        margin-top: 0.6vmin;
+                        font-size: 18px;
+                        line-height: 15px;
+                    }
+
+                    h5 {
+                        letter-spacing: 0;
+                        color: #fff;
+                        margin: 0;
+                    }
+
+                    .note {
+                        line-height: 1.1em;
+                        font-size: 14px;
+                        text-shadow: none;
+                        font-weight: normal;
+                        margin-top: 1.3vmin;
+                    }
+
+                    h6 {
+                        letter-spacing: 0;
+                        color: #fff;
+                        margin: 0;
+                    }
+                }
+            }
+
+            li {
+                margin-bottom: 0px;
+            }
+
+            .clearfix::before {
+                display: table;
+                content: " ";
+            }
+
+            .clearfix::after {
+                clear: both;
+                display: table;
+                content: " ";
+            }
+        }
+    }
+}
+
+:host ::ng-deep .not-here {
+    color: #f24f4f;
+    font-weight: 900;
+}
+
+:host ::ng-deep b {
+    font-weight: 800;
+}

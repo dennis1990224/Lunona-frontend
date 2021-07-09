@@ -1,0 +1,94 @@
+<div class="view-container animation">
+    <div class="slide view-frame">
+        <div class="Bank" id="BankController">
+            <div id="myPower">
+                <div>
+                    <div class="class-info row">
+                        <div class="row">
+                            <div class="col-md-5 social-class">
+                                <h2>Your Social Class</h2>
+                                <div class="class-name King">
+                                    <span [ngStyle]="{'background-image': 'url(/assets/img-2/bank/my-power/' + profilePower.SolialClass + '.png)'}" *ngIf="profilePower">{{profilePower.SolialClass}}</span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 profile">
+                                <img *ngIf="profilePower" class="bing-img"
+                                    [src]="serverUrl + profilePower.DefaultPhotoURL">
+                                <h1>{{myName}}</h1>
+                            </div>
+                            <div class="col-md-5 social-level">
+                                <h2>Your Social Level</h2>
+                                <div *ngIf="profilePower" class="level-name King">
+                                    <img src='assets/img-2/profile/male/rate_{{profilePower.SocialLevelID}}.png'>
+                                    {{profilePower.SocialLevelAsText}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="indicators-box row">
+                        <div class="col-md-5 lbox">
+                            <div class="top-box">
+                                <h2>The power of your vote</h2>
+                                <div class="svg-indicator">
+                                    <highcharts-chart *ngIf="ratingLevel" [Highcharts]="highcharts" [options]="voteOptions"
+                                        style="width: 100%; height: 200px; display: block;">
+                                    </highcharts-chart>
+                                </div>
+                                <div class="current-value">
+                                    x{{ratingLevel}}
+                                </div>
+                                <img class="vote-icon" src="assets/img-2/bank/vote-icon.png">
+                                <div class="text">
+                                    <p>The multiplier is the power of your vote.</p>
+                                    <p>
+                                        <strong>When you vote, your vote will count as if 20 people have voted</strong>
+                                    </p>
+                                </div>
+                                <!-- <div class="bottom votes">
+                                    <div class="line"></div>
+                                    <div class="inner-box">
+                                        <span class="one">1</span>
+                                        <img class="vote-icon" src="">
+                                        <span class="equals"> = </span>
+                                        <span class="bigger-than">98</span>
+                                        <span class="vote-humans"></span>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <!-- <div class="box-note"></div> -->
+                        </div>
+                        <div class="col-md-5 rbox">
+                            <div class="top-box">
+                                <h2>Reward Multiplier</h2>
+                                <div class="svg-indicator">
+                                    <highcharts-chart *ngIf="ratingMultiple" [Highcharts]="highcharts" [options]="rewardOption"
+                                        style="width: 100%; height: 200px; display: block;">
+                                    </highcharts-chart>
+                                </div>
+                                <div class="current-value">
+                                    x{{ratingMultiple}}
+                                </div>
+                                <img class="vote-icon" src="assets/img-2/bank/lun.png">
+                                <div class="text">
+                                    This is the multiplier of
+                                    <b>your reward for your contribution, while using Lunona, </b>
+                                    as for example the beauty scoring of our female members!
+                                </div>
+                                <!-- <div class="bottom votes">
+                                    <div class="line"></div>
+                                    <div class="inner-box">
+                                        <span class="one">1</span>
+                                        <img class="vote-icon" src="">
+                                        <span class="equals"> = </span>
+                                        <span class="bigger-than">98</span>
+                                        <span class="vote-humans"></span>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

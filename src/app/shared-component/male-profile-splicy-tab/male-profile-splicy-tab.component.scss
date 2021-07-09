@@ -1,0 +1,335 @@
+.row {
+    margin: 0;
+}
+
+.mat-tab-content {
+    height: 100%;
+    background: white;
+}
+
+.photo-collection {
+    position: absolute;
+
+    .header {
+        background-color: #efefef !important;
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 48px;
+        padding: 12px 32px;
+
+        .icon.public {
+            background-position: 0 -371px;
+            background-image: url(/assets/img-2/profile/profile-menu-icons.png);
+            width: 28px;
+            height: 24px;
+            display: block;
+            float: left;
+            margin-left: -29px;
+        }
+
+        h2 {
+            color: #444a5a;
+            font-size: 14px;
+            line-height: 1em;
+            font-weight: 500;
+            margin: 0;
+            text-shadow: none;
+        }
+
+        p {
+            color: #969899;
+            font-size: 13px;
+            line-height: 1em;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .setting-btn {
+            position: absolute;
+            top: 6px;
+            right: 9px;
+            color: #737373;
+            background-color: white;
+            padding: 4px 20px;
+            font-weight: 500;
+            font-size: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.17);
+            cursor: pointer;
+            user-select: none;
+
+            img {
+                transition: all 0.3s !important;
+            }
+        }
+    }
+
+    ul.stretch {
+        top: 48px;
+        list-style: none;
+        margin: 13px 0px 0 13px;
+        padding: 0 29px 0 16px;
+        position: absolute;
+        margin-bottom: 80px;
+        overflow-y: scroll;
+
+        .animate-switch {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            .empty-photo-container {
+                position: relative;
+
+                .empty-row {
+                    width: 100%;
+                    height: 100%;
+                    clear: both;
+                    margin-bottom: 30px;
+
+                    .photo-add-btn {
+                        width: 265px;
+                        height: 45px;
+                        position: relative;
+                        margin: 0 auto;
+                        cursor: pointer;
+                        background: #188eda;
+                        -webkit-border-radius: 4px 4px 4px 4px;
+                        transition: all 0.3ms ease;
+
+                        h2 {
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: white;
+                            margin: 0;
+                            text-align: center;
+                            line-height: 45px;
+                            display: inline-block;
+                            width: 265px;
+                            white-space: nowrap;
+                            overflow: hidden !important;
+                            text-overflow: ellipsis;
+                            text-shadow: none;
+                        }
+
+                        h2::before {
+                            content: url(/assets/img-2/profile/add-photo.png);
+                            display: inline;
+                            margin-right: 5px;
+                            position: relative;
+                            top: 7px;
+                        }
+                    }
+
+                    .empty-wrap {
+                        width: 100%;
+                        height: auto;
+                        min-height: 422px;
+                        position: relative;
+
+                        .photo-empty-col {
+                            width: 33.3333333333%;
+                            height: 100%;
+                            min-height: inherit;
+                            position: relative;
+                            float: left;
+
+                            .photo-empty-col-texts {
+                                height: 100%;
+                                float: right;
+                                padding: 0 0 0 0;
+                                margin-right: 30px;
+                                position: absolute;
+
+                                p {
+                                    font-family: "Comfortaa";
+                                    text-align: right;
+                                    color: #4b4a59;
+                                    font-weight: 600;
+                                    font-size: 16px;
+                                }
+                            }
+
+                            .photo-empty-col2 {
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                right: 0;
+                                bottom: 0;
+                                background: url(/assets/img-2/profile/spicy-empty.png) no-repeat 0px 0px;
+                                background-size: contain;
+
+                                .photo-empty-col2-arrow-left {
+                                    width: 50%;
+                                    height: 100%;
+                                    float: left;
+                                    background: url(/assets/img-2/profile/line1.png) no-repeat 0 41px;
+                                }
+
+                                .photo-empty-col2-arrow-right {
+                                    width: 50%;
+                                    height: 100%;
+                                    float: right;
+                                    background: url(/assets/img-2/profile/line2.png) no-repeat 142px 30px;
+                                }
+                            }
+
+                            .photo-empty-col3-wrap {
+                                height: 100%;
+                                position: relative;
+                                float: left;
+                                margin-left: 30px;
+
+                                .photo-empty-col3-row {
+                                    width: 100%;
+                                    height: 100%;
+                                    clear: both;
+                                    margin-bottom: 15px;
+
+                                    .col3-text1 {
+                                        font-family: "Comfortaa";
+                                        margin: 0;
+                                        font-size: 16px;
+                                        font-weight: 600;
+                                        color: #1f1f2d;
+                                        text-shadow: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        li#add-photo {
+            background-color: #e5e7ea;
+            width: 178px;
+
+            img {
+                margin: auto;
+                transform: translateY(-7px);
+            }
+
+            p {
+                text-align: center;
+                color: #9291a2;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 1em;
+                bottom: 40px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: 0;
+            }
+        }
+
+        li {
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            position: relative;
+            height: 200px;
+            cursor: pointer;
+            border: 1px solid #c8c9cc;
+            overflow: hidden;
+            max-width: 100%;
+
+            .bing-img {
+                display: block;
+                -webkit-animation: fadeInFromNone 0.15s ease-out;
+                -moz-animation: fadeInFromNone 0.15s ease-out;
+                -o-animation: fadeInFromNone 0.15s ease-out;
+                animation: fadeInFromNone 0.15s ease-out;
+                transition: none !important;
+            }
+
+            .menu-wrapper {
+                opacity: 0;
+                transition: opacity 0.3s;
+                transform: scale(0);
+
+                .preview {
+                    background-color: rgba(56, 32, 73, 0.8);
+                    bottom: 42px;
+
+                    img {
+                        margin: auto;
+                        transform: translateY(-7px);
+                    }
+
+                    p {
+                        color: white;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 1em;
+                        text-align: center;
+                        bottom: 40px;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        margin: 0; 
+                    }
+                }
+
+                .more {
+                    background-color: white;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    position: absolute;
+                    height: 42px;
+
+                    p {
+                        text-align: center;
+                        font-size: 13px;
+                        color: #7e7d93;
+                        font-weight: 500;
+                    }
+                }
+            }
+            .videoLayer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 2;
+                background-color: rgba(0, 0, 0, 0.3);
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 45px;
+                    height: 45px;
+                    -webkit-transform: translate3d(-50%, -50%, 0);
+                    transform: translate3d(-50%, -50%, 0);
+                    -webkit-transition: opacity 0.15s;
+                    -o-transition: opacity 0.15s;
+                    transition: opacity 0.15s;
+                    overflow: visible;
+                }
+            }
+        }
+                
+        .uploaded-image:hover {
+            .videoLayer {
+                display: none;
+            }
+            .menu-wrapper {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+.solution1-description {
+    font-family: "Comfortaa";
+    font-weight: 600;
+    font-size: 14px;
+    color: #4b4a59;
+}

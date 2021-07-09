@@ -1,0 +1,163 @@
+<div class="left-menu-outer ng-scope open-menu">
+    <div class="profile left-menu ng-scope" style="display: none;">
+        <div class="menu-user-status">
+            <div class="user-profile-header">
+                <div class="user-profile-image">
+                    <div class="profile_bg_img cover bing-img" style="background-image: url({{avatar}});"></div>
+                </div>
+                <div class="user-profile-info">
+                    <div class="user-profile-info-row1">
+                        <h3 class="username ng-binding">{{userName}}</h3>
+                        <p class="email ng-binding">{{email}}</p>
+                        <i class="user-profile-arrow-right"></i>
+                    </div>
+                    <div class="user-profile-info-row2">
+                        <div class="user-profile-info-row2-col1" >
+                            <mat-icon class="arrow-r material-icons">keyboard_arrow_down</mat-icon>
+                            <div class="status-picker" [matMenuTriggerFor]="statusMenu">
+                                <h2 class="icon-bg">
+                                    <mat-icon class="icon-status" [ngStyle]="{'background': 'url(' + selectedStatus.statusImg + ') no-repeat 0 6px'}"></mat-icon>
+                                </h2>
+                                <p class="status-text ng-binding">{{selectedStatus.status}}</p>
+                            </div>
+                            <mat-menu #statusMenu="matMenu" xPosition="before">
+                                <button style="display: flex; width: 190px;" mat-menu-item *ngFor="let yourStatus of yourStatuses" (click)="selectStatus(yourStatus)">
+                                    <h2 style="width: 40%;margin-top: auto;margin-bottom: auto;">
+                                        <mat-icon [ngStyle]="{'background': 'url(' + yourStatus.statusImg + ') no-repeat 0 6px', 'margin-right': '0px', 'float': 'right'}"></mat-icon>
+                                    </h2>
+                                    {{yourStatus.status}}
+                                </button>
+                            </mat-menu>
+                        </div>
+                        <div class="user-profile-info-row2-col2" (click)="logOut()">
+                            <h2>{{getTranslate("root.Common.LogOut")}}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-profile-menu-main">
+                <div class="no-margin no-padding">
+                    <div class="left-menu-list">
+                        <mat-list>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goMprofileDashboard()" [ngClass]="sideNumber == 1 ? 'on' : 'off'">
+                                <div class="dashboard-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.ProfileDashboard.Dashboard")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="goMprofileMyProfile()" [ngClass]="sideNumber == 2 ? 'on' : 'off'">
+                                <div class="profile-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.MyProfile")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="goMylikes()" [ngClass]="sideNumber == 3 ? 'on' : 'off'">
+                                <div class="like-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.Likes")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goChats()" [ngClass]="sideNumber == 4 ? 'on' : 'off'">
+                                <div class="chat-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.Chat")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="goWaitingChat()" [ngClass]="sideNumber == 5 ? 'on' : 'off'">
+                                <div class="waiting-chat-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.WaitingRequest")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="goBlocked()" [ngClass]="sideNumber == 6 ? 'on' : 'off'">
+                                <div class="block-side-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.Reject")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goYourPin()" [ngClass]="sideNumber == 7 ? 'on' : 'off'">
+                                <div class="pin-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.Pin")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="goSentKiss()" [ngClass]="sideNumber == 8 ? 'on' : 'off'">
+                                <div class="kiss-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.LikeThem")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="goThemView()" [ngClass]="sideNumber == 9 ? 'on' : 'off'">
+                                <div class="view-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.LookMeBetter")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goViewThem()" [ngClass]="sideNumber == 10 ? 'on' : 'off'">
+                                <div class="view-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.LookThemBetterTitle")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="goByKiss()" [ngClass]="sideNumber == 11 ? 'on' : 'off'">
+                                <div class="sent-kiss-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.ILikeToThem")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="goByPinned()" [ngClass]="sideNumber == 12 ? 'on' : 'off'">
+                                <div class="by-pin-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.Pinned")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="goMhelpCenter()" [ngClass]="sideNumber == 13 ? 'on' : 'off'">
+                                <div class="help-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.LeftMenu.help")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item  class="left-menu-item md-button-wrap ng-scope md" (click)="deleteProfile()" [ngClass]="sideNumber == 14 ? 'on' : 'off'">
+                                <div class="delete-icon side-icon"></div>
+                                <p class="mat-list-text">{{getTranslate("Members.Profile.Edit.Privacy.DeleteProfile")}}</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                        </mat-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="left: 383px; position: absolute; top: 60px; right: 0; bottom: 0; height: auto;">
+    <router-outlet></router-outlet>
+</div>

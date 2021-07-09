@@ -1,0 +1,24 @@
+<div class="set-profile-prompt">
+    <div class="main wrapper">
+        <div class="top wrapper">
+            <div class="top title">
+                <span> Delete Photo</span>
+            </div>
+            <div class="top close" [mat-dialog-close]="''">
+                <span></span>
+            </div>
+        </div>
+        <div class="content wrapper">
+            <img class="to-delete" [src]="photoUrl">
+            <img class="dump" src="assets/img-2/profile/delete-photo.png">
+            <p>Would you like to delete the photo?</p>
+        </div>
+        <div class="bottom wrapper">
+            <div class="bottom done btn" [mat-dialog-close]="'success'">
+                DONE
+                <div class="icon"></div>
+            </div>
+            <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+        </div>
+    </div>
+</div>

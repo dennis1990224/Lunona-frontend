@@ -1,0 +1,33 @@
+<div class="add-photo main wrapper">
+    <div class="top wrapper">
+        <div class="top icon">
+            <span class="edit-info-icon location"></span>
+        </div>
+        <div class="top title">
+            <span class="ng-binding"></span>
+        </div>
+        <div class="top close" [mat-dialog-close]="''"><span></span></div>
+    </div>
+    <div class="content wrapper">
+        <div>
+            <div class="stretch camera">
+                <div class="header">
+                    <p class="header main description">
+                        Take a photo with your camera
+                    </p>
+                    <p class="header sub description">
+                        Take photos with your camera, choose the best one and upload it
+                    </p>
+                </div>
+                <div class="wrapper has-webcam"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom wrapper">
+        <div class="bottom done btn">
+            DONE
+            <div class="icon"></div>
+        </div>
+        <div class="bottom cancel btn" [mat-dialog-close]="''">Cancel</div>
+    </div>
+</div>

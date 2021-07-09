@@ -1,0 +1,512 @@
+.view-container {
+    transition: scroll 1s ease-in, overflow 1s ease-in;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+}
+
+.Bank {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow: auto;
+    background-color: #fff;
+
+    .row {
+        margin: 0;
+    }
+}
+
+#makeluns {
+    background-color: #ececf6;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    .content-wrapper {
+        .content {
+            width: 100%;
+            margin: 0 auto;
+            background: #ececf6;
+        }
+
+        .columns.money,
+        .columns.money h3 {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .money {
+            img {
+                margin: 14px auto 18px;
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            .fleft {
+                float: left;
+            }
+        }
+
+        .payment-method {
+            padding: 0;
+
+            .payment-method-header {
+                width: 100%;
+                height: 99px;
+                background-color: #dedeed;
+
+                .payment-method-header-inner {
+                    width: 946px;
+                    margin: 0 auto;
+                    position: relative;
+                    padding-top: 16px;
+                    padding-left: 15px;
+
+                    .row {
+                        margin: 0;
+                        position: relative;
+
+                        button.back {
+                            background: #807f93 url(/assets/img-2/bank/back_arrow.png) no-repeat 13px 50%;
+                            position: absolute;
+                            left: 0;
+                            top: 5px;
+                            width: 105px;
+                            height: 44px;
+                            font-size: 14px;
+                            color: #fff;
+                            text-align: center;
+                            margin: 0 auto;
+                            display: block;
+                            border-radius: 3px;
+                            font-weight: 400;
+                            border: 1px solid #545364;
+                        }
+                    }
+                }
+            }
+
+            .navigation {
+                position: relative;
+                height: 67px;
+                width: 427px;
+                margin: 0 auto;
+                background: url(/assets/img-2/bank/steps.png) no-repeat 0 0;
+
+                h2 {
+                    font-size: 13px;
+                    color: #b0b0b0;
+                    font-weight: 400;
+                    width: 33.3%;
+                    float: left;
+                    margin: 0;
+                    padding-top: 50px;
+                }
+
+                .active {
+                    color: #1c1c1c !important;
+                }
+            }
+
+            .payment-method-body {
+                position: relative;
+                max-width: 946px;
+                margin: 0 auto;
+
+                .payment-method-title {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: #444;
+                    text-align: left;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+
+                .payment-method-content {
+                    position: relative;
+                    height: 100%;
+
+                    .item {
+                        position: relative;
+                        width: 93%;
+                        height: 130px;
+                        min-height: 130px;
+                        border-radius: 4px;
+                        -moz-border-radius: 4px;
+                        -webkit-border-radius: 4px;
+                        cursor: pointer;
+                        background-color: white;
+                        -webkit-box-shadow: 0 2px 5px 0 rgba(35, 35, 31, 0.18);
+                        -moz-box-shadow: 0 2px 5px 0 rgba(35, 35, 31, 0.18);
+                        box-shadow: 0 2px 5px 0 rgba(35, 35, 31, 0.18);
+                    }
+
+                    .Payment-procedure {
+                        position: relative;
+                        max-width: 668px;
+                        width: 100%;
+                        height: auto;
+                        float: left;
+
+                        .extra-button {
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            top: 0;
+                            left: calc(93% - 1px);
+                            border-radius: 0 4px 4px 0;
+                            -moz-border-radius: 0 4px 4px 0;
+                            -webkit-border-radius: 0 4px 4px 0;
+                            border: 2px solid #21ae66;
+                            border-left: 0;
+                            height: 98%;
+                            width: 50px;
+                            background: #fcb71f;
+                            padding-top: 9px;
+                            cursor: pointer;
+                        }
+
+                        .extra-button.ccgreecereseller {
+                            top: 0px;
+                        }
+
+                        .extra-button.paysafegreecenew {
+                            top: 146px;
+                        }
+
+                        .extra-button.coinbase {
+                            top: 292px;
+                        }
+
+                        mat-radio-button:hover {
+                            border: 2px solid #21ae66;
+                        }
+
+                        mat-radio-button.active {
+                            border: 2px solid #21ae66;
+                            background-color: #f8fff2;
+                        }
+
+                        mat-radio-button {
+                            box-sizing: border-box;
+                            display: block;
+                            margin-bottom: 16px;
+                            white-space: nowrap;
+                            border: 2px solid #ffffff;
+
+                            .mat-radio-container {
+                                position: absolute;
+                                left: 12px;
+                            }
+
+                            .md-label {
+                                width: 100%;
+                                height: auto;
+                                padding-left: 30px;
+                                margin-left: 0 !important;
+                                box-sizing: border-box;
+                                position: relative;
+                                display: inline-block;
+                                margin-right: 0;
+                                vertical-align: middle;
+                                white-space: normal;
+                                pointer-events: none;
+
+                                .payment-brand-name {
+                                    height: 50px;
+                                    overflow: hidden;
+                                    padding-left: 15px;
+
+                                    .payment-brand-name-title {
+                                        width: 95%;
+                                        float: left;
+
+                                        .ccr {
+                                            background: url(/assets/img-2/bank/cred1.png) no-repeat 0 13px;
+                                        }
+
+                                        .paysafe {
+                                            background: url(/assets/img-2/bank/paysafe-icon.png) no-repeat 0 13px;
+                                        }
+
+                                        .bitcoin {
+                                            background: url(/assets/img-2/bank/bitcoin-icon.png) no-repeat 0 13px;
+                                        }
+
+                                        i {
+                                            width: 40px;
+                                            height: 45px;
+                                            display: block;
+                                            float: left;
+                                        }
+
+                                        .after {
+                                            background: none !important;
+                                        }
+
+                                        h2 {
+                                            color: black;
+                                            font-size: 17px !important;
+                                            line-height: 59px;
+                                            font-weight: 600;
+                                            margin: 0;
+                                        }
+                                    }
+                                }
+
+                                .payment-brand-description {
+                                    min-height: 48px;
+                                    position: relative;
+                                    padding-left: 15px;
+                                    height: 79px;
+                                    overflow: hidden;
+
+                                    p {
+                                        height: 48px;
+                                        font-weight: 400;
+                                        font-size: 14px;
+                                        color: black;
+                                        margin: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .selected-packet {
+                        width: 271px;
+                        height: auto;
+                        position: relative;
+                        float: right;
+
+                        .bubble-info {
+                            position: absolute;
+                            width: 150px;
+                            height: 121px;
+                            top: -41px;
+                            right: 0;
+
+                            h6:nth-child(1) {
+                                text-align: center;
+                                width: 100px;
+                                margin: 0 auto;
+                                padding-top: 38px;
+                                padding-left: 15px;
+                                font-size: 27px;
+                                font-weight: 700;
+                                color: #fff;
+                                line-height: normal;
+                            }
+
+                            h6:nth-child(2) {
+                                text-align: center;
+                                width: 100px;
+                                margin: 0 auto;
+                                line-height: normal;
+                                padding-left: 17px;
+                                font-size: 12px;
+                                font-weight: 700;
+                                color: #fff;
+                            }
+                        }
+
+                        .bubble-info.Starter h6 {
+                            padding-left: 29px;
+                        }
+
+                        .selected-packet-inner-info {
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            padding: 70px 20px 0 20px;
+
+                            .selected-packet-header {
+                                width: 100%;
+                                height: 30px;
+
+                                h2 {
+                                    color: #4d5364;
+                                    font-size: 18px !important;
+                                    margin: 0;
+                                    font-weight: 400;
+                                    text-align: left;
+                                }
+                            }
+
+                            .selected-packet-item {
+                                width: 100%;
+                                height: 71px;
+                                display: block;
+                                position: relative;
+                                border-bottom: 1px solid #d8d8d8;
+
+                                .selected-packet-row {
+                                    width: inherit;
+                                    height: 35px;
+                                    position: relative;
+                                }
+
+                                .selected-packet-row.title {
+                                    h2:nth-child(1) {
+                                        color: #747885;
+                                        font-weight: 500;
+                                        font-size: 15px;
+                                        margin: 0;
+                                        position: absolute;
+                                        bottom: 0;
+                                    }
+                                }
+
+                                .selected-packet-row.packet {
+                                    h2:nth-child(1) {
+                                        color: #1cb841;
+                                        font-weight: 700;
+                                        font-size: 16px;
+                                        margin: 0;
+                                        float: left;
+                                        width: 65%;
+                                    }
+
+                                    h2:nth-child(2) {
+                                        color: #2478d8;
+                                        font-weight: 700;
+                                        font-size: 13px;
+                                        margin: 0;
+                                        float: right;
+                                        width: 25%;
+                                        text-align: right;
+                                    }
+                                }
+
+                                .selected-packet-row.luns h2 {
+                                    color: #19252e;
+                                    font-weight: 700;
+                                    font-size: 17px;
+                                    margin: 0;
+                                    float: left;
+                                    width: 50%;
+                                    padding-left: 26px;
+                                }
+
+                                .selected-packet-row.luns h2::before {
+                                    content: "";
+                                    display: block;
+                                    background: url(/assets/img-2/bank/lun-small-2.png) no-repeat 3px 1px;
+                                    position: absolute;
+                                    width: 25px;
+                                    height: 20px;
+                                    float: initial;
+                                    background-size: contain;
+                                    left: -2px;
+                                }
+                            }
+
+                            .selected-packet-footer {
+                                width: 100%;
+                                height: 93px;
+
+                                h2:nth-child(1) {
+                                    color: #4f4f4f;
+                                    font-size: 16px;
+                                    margin: 0;
+                                    font-weight: 500;
+                                    text-align: left;
+                                    line-height: 93px;
+                                    float: left;
+                                }
+
+                                h2:nth-child(2) {
+                                    color: #1fb548;
+                                    font-size: 42px;
+                                    margin: 0;
+                                    font-weight: 400;
+                                    text-align: right;
+                                    float: right;
+                                    line-height: 93px;
+                                }
+                            }
+                        }
+
+                        .selected-packet-inner {
+                            width: 271px;
+                            height: auto;
+                            position: relative;
+                            background: #fff;
+                            border: 1px solid #b5b5b5;
+                            float: right;
+                            min-height: 100px;
+                            border-radius: 4px 4px 4px 4px;
+                            -moz-border-radius: 4px 4px 4px 4px;
+                            -webkit-border-radius: 4px 4px 4px 4px;
+                            clear: both;
+                            margin-bottom: 20px;
+
+                            .bubble-info.Starter {
+                                background: url(/assets/img-2/bank/2000luns-small.png) no-repeat 0 0;
+                            }
+
+                            .bubble-info.normal {
+                                background: url(/assets/img-2/bank/5000luns-small.png) no-repeat 0 0;
+                            }
+
+                            .bubble-info.pro {
+                                background: url(/assets/img-2/bank/10000luns-small.png) no-repeat 0 0;
+                            }
+
+                            .bubble-info.exclusive {
+                                background: url(/assets/img-2/bank/22000luns-small.png) no-repeat 0 0;
+                            }
+                        }
+
+                        .pay-now {
+                            margin-top: 20px;
+                            height: 50px;
+                            width: 271px;
+                            position: relative;
+                            border-radius: 4px 4px 4px 4px;
+                            -moz-border-radius: 4px 4px 4px 4px;
+                            -webkit-border-radius: 4px 4px 4px 4px;
+                            background: #fcb71f;
+                            cursor: pointer;
+                            clear: both;
+
+                            h2 {
+                                text-align: center;
+                                line-height: 50px;
+                                margin: 0;
+                                font-weight: 700;
+                                color: #262626;
+                                font-size: 17px;
+                            }
+                        }
+                    }
+                }
+
+                .signs {
+                    display: block;
+                }
+
+                .description {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+h2 {
+    text-shadow: none;
+}
+
+h6 {
+    text-shadow: none;
+}

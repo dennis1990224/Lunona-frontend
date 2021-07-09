@@ -1,0 +1,311 @@
+<div class="container-dashboard no-padding no-scope">
+    <div class="wrap-dashboard">
+        <div class="dashboard-header">
+            <div class="block winks-block">
+                <div class="block-contain">
+                    <div class="block-row1">
+                        <h2 *ngIf="dashboardData" class="ng-binding">{{dashboardData.WinksSent}}</h2>
+                    </div>
+                    <div class="block-row2">
+                        <h2>{{getTranslate("Members.Profile.ProfileDashboard.HeaderWinks")}}</h2>
+                    </div>
+                </div>
+                <div class="block-right-line"></div>
+            </div>
+            <div class="block contacts-block">
+                <div class="block-contain">
+                    <div class="block-row1">
+                        <h2 *ngIf="dashboardData" class="ng-binding">{{dashboardData.Contacts}}</h2>
+                    </div>
+                    <div class="block-row2">
+                        <h2>{{getTranslate("Members.Profile.ProfileDashboard.HeaderContacts")}}</h2>
+                    </div>
+                </div>
+                <div class="block-right-line"></div>
+            </div>
+            <div class="block pin-block">
+                <div class="block-contain">
+                    <div class="block-row1">
+                        <h2 *ngIf="dashboardData" class="ng-binding">{{dashboardData.PinsReceived}}</h2>
+                    </div>
+                    <div class="block-row2">
+                        <h2>{{getTranslate("Members.Profile.ProfileDashboard.HeaderPins")}}</h2>
+                    </div>
+                </div>
+                <div class="block-right-line"></div>
+            </div>
+            <div class="block rate-block">
+                <div class="block-contain">
+                    <div class="block-row1">
+                        <h2 *ngIf="dashboardData" class="ng-binding">{{dashboardData.Rate}}</h2>
+                    </div>
+                    <div class="block-row2">
+                        <h2>{{getTranslate("Members.Profile.ProfileDashboard.HeaderRate")}}</h2>
+                    </div>
+                </div>
+                <div class="block-right-line"></div>
+            </div>
+            <div class="header-button-style"></div>
+        </div>
+        <div class="dashboard-body" *ngIf="dashboardData">
+            <div class="dashboard-main-row-first ">
+                <div class="dash_row_inner_wrap clearfix double">
+                    <div class="dashboard-main-column-outer top-profiles ng-scope">
+                        <div class="dashboard-main-column-inner ng-scope">
+                            <div class="dashboard-main-block top-profile">
+                                <div class="main-block-header">
+                                    <i></i>
+                                    <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardTopProfileTitle")}}
+                                    </h2>
+                                    <p>{{getTranslate("Members.Profile.ProfileDashboard.DashboardTopProfileSubTitle")}}
+                                    </p>
+                                </div>
+                                <div class="main-block-body top-profile">
+                                    <div class="top-profile-container" *ngIf="isExist">
+                                        <div *ngFor="let top15Contact of top15Contacts; let i=index"
+                                            [ngClass]="i==0 ? 'first-image' : 'all-image'">
+                                            <img (click)="openProfile(top15Contact)" style="width: 100%;"
+                                                [src]="serverUrl+top15Contact.ProfilePhoto"
+                                                (load)="top15ContactsLoad[i] = false" [hidden]="top15ContactsLoad[i]" />
+                                            <img style="width: 100%;"
+                                                src="assets/img-2/members/Profile-image-loader.gif"
+                                                [hidden]="!top15ContactsLoad[i]">
+                                        </div>
+                                    </div>
+                                    <div class="top-profile-container" *ngIf="!isExist">
+                                        <div class="empty-list">
+                                            <img src="assets/img-2/profile/star_empty.png">
+                                            <h2>
+                                                <div [innerHTML]="getTranslate('Members.Profile.ProfileDashboard.DashboardEmptyImageOfList') | safeHtml">
+                                                </div>
+                                                <!-- <span>
+                                                    <p>
+                                                        You haven't started flirting with beautiful girls yet.<br>
+                                                        It's easy. Start sending kisses and messages to the girls that
+                                                        you like and you'll see that a lot of them will reply back!
+                                                    </p>
+                                                </span> -->
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-main-column-outer your-profile ng-scope">
+                        <div class="dashboard-main-block right">
+                            <div class="main-block-header">
+                                <i></i>
+                                <h2>{{getTranslate("Members.Profile.ProfileDashboard.ProfileCompleteHeaderTitle")}}</h2>
+                                <p>{{getTranslate("Members.Profile.ProfileDashboard.ProfileCompleteHeaderSubTitle")}}</p>
+                            </div>
+                            <div class="main-block-body">
+                                <div class="your-profile-icons">
+                                    <div class="your-profile-icon your-profile-step1"><i></i></div>
+                                    <div class="your-profile-icon your-profile-step2"><i></i></div>
+                                    <div class="your-profile-icon your-profile-step3"><i></i></div>
+                                </div>
+                                <div class="your-profile-progress-bar">
+                                    <div class="your-profile-bar-texts">
+                                        <h2 class="left">{{getTranslate("Members.Profile.ProfileDashboard.ProfileComplete")}}</h2>
+                                        <h2 *ngIf="dashboardData" class="right ng-binding">
+                                            {{dashboardData.Profile_CompletePersent}}%</h2>
+                                    </div>
+                                    <div class="your-profile-bar">
+                                        <div class="your-profile-bar-container">
+                                            <div class="your-profile-bar-fill" style="width: 33%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-block-footer" [routerLink]="['/member/profile/my-profile']">
+                                <h2>{{getTranslate("Members.Profile.ProfileDashboard.ProfileCompleteEditProfileTitle")}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-main-row before-three">
+                <div class="dashboard-main-column-outer first ng-scope">
+                    <div class="dashboard-main-column-inner dashboard-winks-outer ng-scope">
+                        <div class="dashboard-main-block right dashboard-winks">
+                            <div class="main-block-header">
+                                <i></i>
+                                <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardWinksTitle")}}</h2>
+                                <p>{{getTranslate("Members.Profile.ProfileDashboard.DashboardWinksSubTitle")}}</p>
+                            </div>
+                            <div class="main-block-body dashboard-winks">
+                                <div class="dashboard-winks-column charts">
+                                    <div class="dashboard-winks-charts-container">
+                                        <div class="div1"></div>
+                                        <div class="div2"></div>
+                                        <div class="div3"></div>
+                                        <svg viewBox="48 48 226 226" width="226" height="226" xml:space="preserve"
+                                            id="svg" xmlns="http://www.w3.org/2000/svg">
+                                            <circle class="circle-transition" id="path"
+                                                attr.stroke-dasharray="{{dashboardWinks.circle1Dasharray}}"
+                                                attr.stroke-dashoffset="{{dashboardWinks.circle1Dashoffset}}" cx="160"
+                                                cy="160" r="100" stroke="#2b9bc3" fill="none" stroke-width="20"
+                                                stroke-linecap="round"></circle>
+                                            <circle class="border-circle" stroke-dashoffset="200" cx="160" cy="160"
+                                                r="110" stroke="#efefef" fill="none" stroke-width="2"
+                                                stroke-linecap="round"></circle>
+                                            <circle class="circle-transition" id="path"
+                                                attr.stroke-dasharray="{{dashboardWinks.circle2Dasharray}}"
+                                                attr.stroke-dashoffset="{{dashboardWinks.circle2Dashoffset}}" cx="160"
+                                                cy="160" r="78" stroke="#f9be5d" fill="none" stroke-width="20"
+                                                stroke-linecap="round"></circle>
+                                            <circle class="circle-transition" id="path"
+                                                attr.stroke-dasharray="{{dashboardWinks.circle3Dasharray}}"
+                                                attr.stroke-dashoffset="{{dashboardWinks.circle3Dashoffset}}" cx="160"
+                                                cy="160" r="58" stroke="#6fc159" fill="#fff" stroke-width="20"
+                                                stroke-linecap="round"></circle>
+                                        </svg>
+                                        <div class="circle4">
+                                            <h2>{{WinksPercent}}%</h2>
+                                            <h2>Success</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dashboard-winks-column detail">
+                                    <div class="detail-row">
+                                        <div class="detail-inner-column1 winks-arrow-sent">
+                                            <i></i>
+                                        </div>
+                                        <div class="detail-inner-column2 winks-texts-sent">
+                                            <h2 class="first">
+                                                <span *ngIf="dashboardData"
+                                                    class="ng-binding">{{dashboardData.WinksPercent}}</span> {{getTranslate("Members.Profile.ProfileDashboard.HeaderWinks")}}
+                                            </h2>
+                                            <h2 class="second">{{getTranslate("Members.Profile.ProfileDashboard.DashboardWinksHasSent")}}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="detail-row">
+                                        <div class="detail-inner-column1 winks-arrow-request">
+                                            <i></i>
+                                        </div>
+                                        <div class="detail-inner-column2 winks-texts-request">
+                                            <h2 class="first">
+                                                <span *ngIf="dashboardData"
+                                                    class="ng-binding">{{dashboardData.WinksNotReplied}}</span>{{getTranslate("Members.Profile.ProfileDashboard.HeaderWinks")}}
+                                            </h2>
+                                            <h2 class="second">{{getTranslate("Members.Profile.ProfileDashboard.DashboardWinksTheyHaveNotResponded")}}</h2>
+                                        </div>
+                                        <div class="detail-row"></div>
+                                    </div>
+                                    <div class="detail-row">
+                                        <div class="detail-inner-column1 winks-arrow-response">
+                                            <i></i>
+                                        </div>
+                                        <div class="detail-inner-column1 winks-texts-response">
+                                            <h2 class="first">
+                                                <span *ngIf="dashboardData"
+                                                    class="ng-binding">{{dashboardData.WinksReplied}}</span>
+                                                    {{getTranslate("Members.Profile.ProfileDashboard.HeaderWinks")}}
+                                            </h2>
+                                            <h2 class="second">{{getTranslate("Members.Profile.ProfileDashboard.DashboardWinksResponded")}}</h2>
+                                        </div>
+                                        <div class="detail-row"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-main-column-outer second ng-scope maxWidth">
+                    <div class="dashboard-main-column-inner ng-scope">
+                        <div class="dashboard-main-block dashboard-pins">
+                            <div class="main-block-header">
+                                <i></i>
+                                <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardPinsTitle")}}</h2>
+                                <p>{{getTranslate("Members.Profile.ProfileDashboard.DashboardPinsSubTitle")}}</p>
+                            </div>
+                            <div class="main-block-body dashboard-pins">
+                                <div class="dashboard-pins-main-row">
+                                    <div class="dashboard-your-pins-block">
+                                        <div class="dashboard-your-pins-number pin-from-me">
+                                            <h2 *ngIf="dashboardData" class="ng-binding">{{dashboardData.PinsSent}}</h2>
+                                        </div>
+                                        <div class="dashboard-your-pins-text"
+                                            [routerLink]="['/member/profile/your-pin']">
+                                            <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardPinsSentPin")}}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-your-pins-view-all">
+                                        <div class="dashboard-your-pins-view-all-button">
+                                            <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardPinsViewAll")}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dashboard-pins-main-row">
+                                    <div class="dashboard-your-pins-block">
+                                        <div class="dashboard-your-pins-number pin-from-other">
+                                            <h2 *ngIf="dashboardData" class="ng-binding">{{dashboardData.PinsReceived}}
+                                            </h2>
+                                        </div>
+                                        <div class="dashboard-your-pins-text">
+                                            <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardPinsYouHavePinned")}}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-your-pins-view-all">
+                                        <div class="dashboard-your-pins-view-all-button"
+                                            [routerLink]="['/member/profile/by-pinned']">
+                                            <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardPinsViewAll")}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-main-column-outer third ng-scope">
+                    <div class="dashboard-main-column-inner ng-scope">
+                        <div class="dashboard-main-block views">
+                            <div class="main-block-header">
+                                <i></i>
+                                <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardViewsTitle")}}</h2>
+                                <p>{{getTranslate("Members.Profile.ProfileDashboard.DashboardViewsSubTitle")}}</p>
+                            </div>
+                            <div class="main-block-body views">
+                                <div class="dashboard-view-main-row">
+                                    <div class="dashboard-your-pins-block">
+                                        <div class="dashboard-your-pins-number i-close-my-eyes">
+                                            <h2 *ngIf="dashboardData" class="ng-binding">{{dashboardData.MeViewThem}}
+                                            </h2>
+                                        </div>
+                                        <div class="dashboard-your-pins-text">
+                                            <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardViewsTitle")}}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-your-pins-view-all">
+                                        <div class="dashboard-your-pins-view-all-button"
+                                            [routerLink]="['/member/profile/view-them']">
+                                            <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardPinsViewAll")}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dashboard-view-main-row">
+                                    <div class="dashboard-your-pins-block">
+                                        <div class="dashboard-your-pins-number you-close-my-eyes">
+                                            <h2 *ngIf="dashboardData" class="ng-binding">{{dashboardData.ThemViewMe}}
+                                            </h2>
+                                        </div>
+                                        <div class="dashboard-your-pins-text">
+                                            <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardViewsOthersee")}}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="dashboard-your-pins-view-all">
+                                        <div class="dashboard-your-pins-view-all-button"
+                                            [routerLink]="['/member/profile/them-view']">
+                                            <h2>{{getTranslate("Members.Profile.ProfileDashboard.DashboardPinsViewAll")}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

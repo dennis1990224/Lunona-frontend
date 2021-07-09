@@ -1,0 +1,33 @@
+<div class="preview-profile-image _md md-transition-in" style="height: 937px;">
+    <div style="overflow: hidden; margin: auto;">
+        <div class="preview-image-header transition">
+            <div class="preview-image-back" [mat-dialog-close]="''">
+                <h4>Back</h4>
+            </div>
+            <div class="preview-image-close" [mat-dialog-close]="''"></div>
+        </div>
+        <div class="image-container" *ngIf="images && images[index].isImage" id="imageContainer" style="max-width: 1920px; max-height: 937px;">
+            <div class="img_wrap">
+                <img id="preview-img-gallery" class="SlideFromThem preview-item"
+                    [src]="images[index].imageString" (load)="isLoad = true" [hidden]="!isLoad">
+                <img style="width: 100%;" src="assets/img-2/profile/ajax-loader.gif"
+                    [hidden]="isLoad">
+            </div>
+        </div>
+        <video *ngIf="images && !images[index].isImage" autoplay preload="none" controls="controls" type="video/mp4">
+            <source [src]="images[index].imageString">
+        </video>
+        <div *ngIf="index>0" class="preview-image-prev transition" id="prev" (click)="goToPrevImage()">
+            <span></span>
+        </div>
+        <div *ngIf="index < imageLength - 1" class="preview-image-next transition" id="next" (click)="goToNextImage()">
+            <span></span>
+        </div>
+        <div *ngIf="category" class="preview-image-foter transition">
+            <div class="preview-image-footer-category">
+                <span class="public"></span>
+                <h3>{{category}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

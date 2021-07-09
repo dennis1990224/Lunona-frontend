@@ -1,0 +1,138 @@
+.member-footer {
+    .footer {
+        z-index: 10;
+        height: 30px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #330f4c;
+    }
+
+    .layout-row {
+        flex-direction: row;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        box-sizing: border-box;
+        display: flex;
+    }
+
+    .footer {
+        .connection-status2.connected {
+            background: url(/assets/img-2/members/chat-online.png) no-repeat -3px 3px;
+        }
+
+        div {
+            padding: 5px 10px 0 5px;
+        }
+
+        .connection-status2 {
+            padding-left: 22px;
+            color: #fff;
+            width: 83px;
+            overflow: hidden;
+            margin: 0 4px 5px 5px;
+
+            span {
+                font-size: 12px !important;
+                display: block;
+                padding: 2px 1px;
+            }
+        }
+
+        .login-name-info {
+            color: #fff;
+            font-size: 12px;
+            padding: 5px 10px 0 5px;
+
+            span:after {
+                content: "|";
+                background: white;
+                width: 0;
+                display: inline-block;
+                margin: 2px 0 3px 4px;
+            }
+        }
+
+        .faqs {
+            font-size: 12px;
+            color: #fff;
+            text-transform: capitalize;
+            cursor: pointer;
+
+            h2 {
+                padding: 0;
+                margin: 0;
+                font-size: 12px;
+                font-weight: 400;
+                color: #fff;
+                text-transform: capitalize;
+            }
+
+            h2:after {
+                content: "|";
+                background: white;
+                width: 0;
+                display: inline-block;
+                margin: 2px 0 3px 4px;
+            }
+        }
+
+        .terms {
+            font-size: 12px;
+            color: #fff;
+
+            h2 {
+                padding: 0;
+                margin: 0;
+                font-size: 12px;
+                font-weight: 400;
+                color: #fff;
+                text-transform: capitalize;
+            }
+
+            h2:after {
+                content: "|";
+                background: white;
+                width: 0;
+                display: inline-block;
+                margin: 2px 0 3px 4px;
+            }
+        }
+
+        .privacy {
+            font-size: 12px;
+            color: #fff;
+            padding: 7px 0 0 0;
+
+            h2 {
+                padding: 0;
+                margin: 0;
+                font-size: 12px;
+                font-weight: 400;
+                color: #fff;
+                text-transform: capitalize;
+            }
+        }
+
+        .years {
+            right: 0;
+            position: absolute;
+
+            span {
+                font-size: 13px;
+                color: #8960a7;
+
+                h2 {
+                    display: inline-block;
+                    text-transform: inherit;
+                    padding: 0;
+                    margin: 0;
+                    margin-left: 5px;
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

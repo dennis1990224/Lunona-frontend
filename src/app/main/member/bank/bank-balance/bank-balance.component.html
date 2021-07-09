@@ -1,0 +1,109 @@
+<div class="view-container animation">
+    <div class="slide view-frame">
+        <div class="Bank">
+            <div id="accountBalance">
+                <div class="account-info row">
+                    <div class="col-md-12 col-lg-9 lbox">
+                        <h2>Account Information</h2>
+                        <div class="row">
+                            <div class="col-md-12 col-lg-8" style="padding: 0">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 title">Account Holder : </div>
+                                    <div class="col-md-6 col-sm-6 descr">{{myName}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 title">Account Number : </div>
+                                    <div class="col-md-6 col-sm-6 descr">{{accountNumber}}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 title">Currency: </div>
+                                    <div *ngIf="defaultsTransfer" class="col-md-6 col-sm-6 descr">
+                                        {{defaultsTransfer.Currency}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-lg-4 col-sm-4 luns-total">
+                                <div class="title">Available Balance</div>
+                                <div class="luns">
+                                    <span class="symbol"></span>
+                                    <span class="money">{{balance}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-3 rbox" style="height: 100%;">
+                        <h2 style="margin-top: 16px; margin-bottom: 16px;">Account Actions</h2>
+                        <a class="action-btn"  [routerLink]="['/member/bank/load-luns/exchange']">Load Luns</a>
+                        <a style="color:black; font-size: 16px; margin-bottom: 0; bottom: 5px; position: absolute; right: 16px;">
+                            Price list
+                        </a>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="shadow-button"></div>
+                </div>
+                <div class="content-wrapper">
+                    <div class="history-container">
+                        <div class="header1 row">
+                            <div class="dates-preset col-md-4">
+                                <mat-form-field style="top: 10px; width: 225px;">
+                                    <mat-select style="color: blue;" [(ngModel)]="dateRange" ngDefaultControl
+                                        (selectionChange)="changeRange()">
+                                        <mat-option *ngFor="let item of dateRangeArray" [value]="item">
+                                            {{item}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="date-from col-md-3">
+                                <img class="calendar-img" src="assets/img-2/bank/calendar.png">
+                                <span class="label">From :</span>
+                                <mat-form-field style="font-size: 15px; width: 100px; margin-left: 89px; top: -5px;">
+                                    <input style="color: blue;" matInput [matDatepicker]="picker" [(ngModel)]="startDate" (dateInput)="onFromChangeEvent('input', $event)" (dateChange)="onFromChangeEvent('change', $event)">
+                                    <mat-datepicker-toggle matSuffix [for]="picker">
+                                        <mat-icon style="font-size: 20px;" matDatepickerToggleIcon>keyboard_arrow_down
+                                        </mat-icon>
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="date-to col-md-3">
+                                <img class="calendar-img" src="assets/img-2/bank/calendar.png">
+                                <span class="label">To :</span>
+                                <mat-form-field style="font-size: 15px; width: 100px; margin-left: 89px; top: -5px;">
+                                    <input style="color: blue;" matInput [matDatepicker]="Topicker" [(ngModel)]="endDate" (dateInput)="onToChangeEvent('input', $event)" (dateChange)="onToChangeEvent('change', $event)">
+                                    <mat-datepicker-toggle matSuffix [for]="Topicker">
+                                        <mat-icon style="font-size: 20px;" matDatepickerToggleIcon>keyboard_arrow_down
+                                        </mat-icon>
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #Topicker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <button class="action-btn col-md-2" (click)="loadBalanceInfo()">Load</button>
+                        </div>
+                        <div class="transactions-grid row">
+                            <div class="transactions-header row">
+                                <div class="cell hdr-date">Date</div>
+                                <div class="cell hdr-transid">Transaction Number</div>
+                                <div class="cell hdr-descr">Purpose of Payment</div>
+                                <div class="cell hdr-amount">Amount</div>
+                                <div class="cell hdr-more">More</div>
+                            </div>
+                            <div class="transactions-list">
+                                <div class="transaction row" *ngFor="let transaction of transactions">
+                                    <div class="cell tran-date">
+                                        {{transaction.DateTimeCreate.slice(6,19) | date:'dd/MM/yyyy'}}</div>
+                                    <div class="cell tran-transid">{{transaction.TransactionID}}</div>
+                                    <div class="cell trans-descr">{{transaction.OriginalDescription}}</div>
+                                    <div class="cell tran-amount red">{{transaction.SilverCredit}} Lun</div>
+                                    <div class="cell tran-more">
+                                        <button class="more-btn" (click)="openTransactionDetail(transaction)"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

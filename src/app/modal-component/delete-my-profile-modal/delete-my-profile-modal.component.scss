@@ -1,0 +1,177 @@
+.delete-account-container {
+    transition: all .4s cubic-bezier(.25,.8,.25,1);
+    opacity: 1;
+    transform: translate(0,0) scale(1);
+    min-width: 240px;
+    position: relative;
+    overflow: auto;
+    box-shadow: 0 7px 8px -4px rgba(0,0,0,.2), 0 13px 19px 2px rgba(0,0,0,.14), 0 5px 24px 4px rgba(0,0,0,.12);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    display: flex;
+    border-radius: 4px;
+    background-color: rgb(255,255,255);
+    color: rgba(0,0,0,0.87);
+
+    .delete-account-wrap {
+        width: 465px;
+        height: 465px;
+        background: transparent;
+        overflow: hidden;
+
+        .switch {
+            position: relative;
+            width: inherit;
+
+            .switch-item {
+                width: inherit;
+                display: inline-block;
+                overflow: hidden;
+                position: absolute;
+
+                .home-container {
+                    width: 465px;
+                    height: 465px;
+                    position: relative;
+                    background: transparent;
+
+                    .delete-account-close {
+                        width: 100%;
+                        height: 43px;
+                        position: relative;
+
+                        .close {
+                            position: absolute;
+                            top: 9px;
+                            right: 13px;
+                            width: 35px;
+                            height: 34px;
+                            background-color: #efefef;
+                            border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -webkit-border-radius: 50%;
+                            cursor: pointer;
+                            -webkit-transition: background 0.5s linear;
+                            -moz-transition: background 0.5s linear;
+                            -ms-transition: background 0.5s linear;
+                            -o-transition: background 0.5s linear;
+                            transition: background 0.5s linear;
+
+                            span {
+                                background: url(/assets/img-2/profile/close.png) no-repeat;
+                                width: 13px;
+                                height: 13px;
+                                display: block;
+                                top: 11px;
+                                left: 11px;
+                                position: relative;
+                            }
+                        }
+
+                        .close:hover {
+                            background-color: #e81123;
+                
+                            span {
+                                background: url(/assets/img-2/profile/close-w.png) no-repeat;
+                            }
+                        }
+                    }
+
+                    .delete-account-home {
+                        width: 100%;
+                        height: auto;
+                        text-align: center;
+                        position: relative;
+
+                        img {
+                            padding-top: 40px;
+                            max-height: 100%;
+                            max-width: 100%;
+                        }
+
+                        h2 {
+                            font-size: 16px;
+                            font-weight: 400;
+                            margin: 0;
+                            color: #18181a;
+                            text-align: center;
+                            line-height: normal;
+                        }
+
+                        span {
+                            color: #444a5a;
+                            font-size: 20px;
+                            font-weight: 700;
+                            line-height: 50px;
+                        }
+                    }
+
+                    .delete-account-footer {
+                        width: 100%;
+                        height: 62px;
+                        bottom: 0;
+                        right: 0;
+                        left: 0;
+                        padding: 10px 10px 0 0;
+                        position: absolute;
+                        border-top: 1px solid #dbdcde;
+
+                        .delete-account-footer-btn.next {
+                            background: #d85565;
+                        }
+
+                        .delete-account-footer-btn.Cancel {
+                            background: #d0d0e4;
+
+                            h2 {
+                                color: #6d6b80;
+                            }
+                        }
+
+                        .delete-account-footer-btn h2 {
+                            font-size: 14px;
+                            font-weight: 600;
+                            color: white;
+                            margin: 0;
+                            text-align: center;
+                            line-height: 41px;
+                            display: inline-block;
+                            width: 118px;
+                            white-space: nowrap;
+                            overflow: hidden !important;
+                            text-overflow: ellipsis;
+                        }
+
+                        .delete-account-footer-btn i {
+                            position: absolute;
+                            right: 0;
+                            top: 12px;
+                            width: 25px;
+                            height: 25px;
+                            display: block;
+                            background: url(/assets/img-2/profile/delete-icon.png) no-repeat 0 0;
+                        }
+
+                        .delete-account-footer-btn.next, .delete-account-footer-btn.Cancel {
+                            cursor: pointer;
+                            position: relative;
+                            width: 118px;
+                            height: 41px;
+                            float: right;
+                            margin-left: 10px;
+                            border-radius: 2px 2px 2px 2px;
+                            -moz-border-radius: 2px 2px 2px 2px;
+                            -webkit-border-radius: 2px 2px 2px 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+h2 {
+    text-shadow: none;
+}
+

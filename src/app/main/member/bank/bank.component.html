@@ -1,0 +1,65 @@
+<div class="left-menu-outer ng-scope open-menu">
+    <div class="animate-switch-container-left-menu">
+        <div class="animate-switch-left-menu">
+            <div class="user-bank-menu-main">
+                <div class="no-margin no-padding">
+                    <div class="left-menu-list">
+                        <mat-list>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goBankDashboard()" [ngClass]="sideNumber == 1 ? 'on' : 'off'">
+                                <div class="dashboard-icon side-icon"></div>
+                                <p class="mat-list-text">Dashboard</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goBankLuns()" [ngClass]="sideNumber == 2 ? 'on' : 'off'">
+                                <div class="luns-icon side-icon"></div>
+                                <p class="mat-list-text">Load Luns/Credits</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goBankBalance()" [ngClass]="sideNumber == 3 ? 'on' : 'off'">
+                                <div class="balance-icon side-icon"></div>
+                                <p class="mat-list-text">Account Balance</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goBankPower()" [ngClass]="sideNumber == 4 ? 'on' : 'off'">
+                                <div class="power-icon side-icon"></div>
+                                <p class="mat-list-text">Your Power </p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goBankAutoMsg()" [ngClass]="sideNumber == 5 ? 'on' : 'off'">
+                                <div class="auto-msg-icon side-icon"></div>
+                                <p class="mat-list-text">Auto Message</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item class="left-menu-item md-button-wrap ng-scope md" (click)="goBankPriceList()" [ngClass]="sideNumber == 6 ? 'on' : 'off'">
+                                <div class="price-list-icon side-icon"></div>
+                                <p class="mat-list-text">Price List</p>
+                                <ng-container>
+                                    <mat-icon matListIcon class="right-arrow">chevron_right</mat-icon>
+                                </ng-container>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                        </mat-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="left: 383px; position: absolute; top: 60px; right: 0; bottom: 30px; height: auto;">
+    <router-outlet></router-outlet>
+</div>

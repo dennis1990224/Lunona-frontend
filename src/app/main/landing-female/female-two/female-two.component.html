@@ -1,0 +1,32 @@
+<app-landing-header (getLanguage)="getLanguage()"></app-landing-header>
+<div class="female-section-2 section wrapper stretch">
+
+    <div class="section image wrapper stretch">
+        <div class="female-section-2-background"></div>
+    </div>
+
+    <div class="section content stretch">
+
+        <div class="top-ribbon top-ribbon-animation">
+            <div [innerHTML]="TopRibbonContent"></div>
+        </div>
+
+        <div class="face-circles-wrapper stretch">
+            <div class="face-circles-inner">
+                <img class="face-circle _1" src="assets/img-2/female/c1.png" />
+                <img class="face-circle _2" src="assets/img-2/female/c2.png" />
+                <img class="face-circle _3" src="assets/img-2/female/c3.png" />
+                <img class="face-circle _4" src="assets/img-2/female/c4.png" />
+                <img class="face-circle _5" src="assets/img-2/female/c5.png" />
+                <img class="face-circle _6" src="assets/img-2/female/c6.png" />
+            </div>
+        </div>
+
+        <div class="purple-box stretch">
+            <div class="unbelievable">
+                <div [innerHTML]="BottomRibbonContent"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-landing-female-footer #landingFemaleFooter></app-landing-female-footer>
